@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="EMPTY_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../..">
+      <excludeFolder url="file://$MODULE_DIR$/../../build" />
+      <excludeFolder url="file://$MODULE_DIR$/../../node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/../../oh_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/../../entry/build" />
+      <excludeFolder url="file://$MODULE_DIR$/../../entry/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/../../entry/.cxx" />
+      <excludeFolder url="file://$MODULE_DIR$/../../entry/.test" />
+      <excludeFolder url="file://$MODULE_DIR$/../../entry/.preview" />
+      <excludeFolder url="file://$MODULE_DIR$/../../entry/oh_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/../../wkim/build" />
+      <excludeFolder url="file://$MODULE_DIR$/../../wkim/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/../../wkim/.cxx" />
+      <excludeFolder url="file://$MODULE_DIR$/../../wkim/.test" />
+      <excludeFolder url="file://$MODULE_DIR$/../../wkim/.preview" />
+      <excludeFolder url="file://$MODULE_DIR$/../../wkim/oh_modules" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library" exported="" scope="PROVIDED">
+      <library name="ArkTS-HarmonyOS-NEXT-DB1(hms)" type="ArkUI">
+        <CLASSES />
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$APPLICATION_HOME_DIR$/sdk/HarmonyOS-NEXT-DB1/hms/ets/api" />
+          <root url="file://$APPLICATION_HOME_DIR$/sdk/HarmonyOS-NEXT-DB1/hms/ets/kits" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="" scope="PROVIDED">
+      <library name="ArkTS-HarmonyOS-NEXT-DB1(openharmony)" type="ArkUI">
+        <CLASSES />
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$APPLICATION_HOME_DIR$/sdk/HarmonyOS-NEXT-DB1/openharmony/ets/api" />
+          <root url="file://$APPLICATION_HOME_DIR$/sdk/HarmonyOS-NEXT-DB1/openharmony/ets/component" />
+          <root url="file://$APPLICATION_HOME_DIR$/sdk/HarmonyOS-NEXT-DB1/openharmony/ets/kits" />
+          <root url="file://$APPLICATION_HOME_DIR$/sdk/HarmonyOS-NEXT-DB1/openharmony/ets/arkts" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+  </component>
+</module>

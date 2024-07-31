@@ -1,0 +1,53 @@
+{
+ "1.0.0": {
+  "LastPreviewDevice": {}
+ },
+ "1.0.1": {
+  "profileList": [
+   {
+    "id": "Phone",
+    "deviceType": "phone",
+    "width": 1080,
+    "height": 2340,
+    "foldable": false,
+    "shape": "rect",
+    "dpi": 480,
+    "orientation": "portrait",
+    "language": "zh_CN",
+    "colorMode": "light"
+   },
+   {
+    "id": "Foldable",
+    "deviceType": "phone",
+    "width": 2224,
+    "height": 2496,
+    "foldable": true,
+    "foldWidth": 1080,
+    "foldHeight": 2504,
+    "shape": "rect",
+    "dpi": 520,
+    "orientation": "portrait",
+    "language": "zh_CN",
+    "colorMode": "light"
+   },
+   {
+    "id": "Tablet",
+    "deviceType": "tablet",
+    "width": 2560,
+    "height": 1600,
+    "shape": "rect",
+    "dpi": 400,
+    "orientation": "landscape",
+    "language": "zh_CN",
+    "colorMode": "light"
+   }
+  ],
+  "runningProfileList": [
+   "Phone"
+  ],
+  "availableProfileList": [
+   "Tablet",
+   "Foldable"
+  ]
+ }
+}

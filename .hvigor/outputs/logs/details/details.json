@@ -1,0 +1,79 @@
+{
+  "HVIGOR_OHOS_PLUGIN": {
+    "MODULE_CONFIG": [
+      {
+        "MODULE_NAME": "entry",
+        "API_TYPE": "stageMode",
+        "TARGETS": [
+          {
+            "name": "default",
+            "runtimeOS": "HarmonyOS"
+          },
+          {
+            "name": "ohosTest",
+            "runtimeOS": "HarmonyOS"
+          }
+        ],
+        "DEVICE_TYPES": [
+          "phone",
+          "tablet"
+        ],
+        "AOT_COMPILE_MODE": "type"
+      },
+      {
+        "MODULE_NAME": "wkim",
+        "API_TYPE": "stageMode",
+        "TARGETS": [
+          {
+            "name": "default",
+            "runtimeOS": "HarmonyOS"
+          }
+        ],
+        "DEVICE_TYPES": [
+          "default",
+          "tablet"
+        ],
+        "AOT_COMPILE_MODE": "type"
+      }
+    ],
+    "PROJECT_CONFIG": {
+      "PRODUCTS": [
+        {
+          "NAME": "default",
+          "COMPATIBLE_SDK_VERSION": "4.1.0(11)",
+          "RUNTIMEOS": "HarmonyOS"
+        }
+      ],
+      "MODULES": [
+        {
+          "TARGETS": [
+            {
+              "NAME": "default"
+            }
+          ]
+        },
+        {
+          "TARGETS": []
+        }
+      ],
+      "BUILD_MODE": "release"
+    }
+  },
+  "totalTime": 32268168,
+  "moduleNum": 1,
+  "taskTime": {
+    "compileArkTS": 8054577362,
+    "buildArkTS": 0,
+    "compileJS": 0,
+    "buildJS": 0,
+    "compileResource": 123021001,
+    "packageHap": 0,
+    "signHap": 0
+  },
+  "isIncremental": true,
+  "hasIncremental": true,
+  "isParallel": true,
+  "IS_DAEMON": true,
+  "LOG_LEVEL": "INFO",
+  "IS_HVIGORFILE_TYPE_CHECK": false
+}

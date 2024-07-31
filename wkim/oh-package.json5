@@ -1,0 +1,17 @@
+{
+  "name": "@ohos/wkim",
+  "license": "Apache-2.0",
+  "devDependencies": {},
+  "author": "wukongim",
+  "description": "WuKongIM HarmonyOS SDK",
+  "main": "index.ets",
+  "type": "module",
+  "version": "1.0.0",
+  "dependencies": {},
+  "repository": "",
+  "keywords": ["WuKong","chat","im","聊天"],
+  "homepage": "https://githubim.com/",
+  "ohos": {
+    "org": "wukong"
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "ohos-module-entry": {
+    "SELECT_TARGET": "default",
+    "MODULE_BUILD_DIR": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build",
+    "TARGETS": {
+      "default": {
+        "SOURCE_ROOT": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main",
+        "RESOURCES_PATH": [
+          "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main/resources"
+        ],
+        "BUILD_PATH": {
+          "OUTPUT_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/outputs/default",
+          "INTERMEDIA_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates",
+          "JS_ASSETS_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/loader_out/default",
+          "JS_LITE_ASSETS_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/loader_out_lite/default",
+          "RES_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/res/default",
+          "RES_PROFILE_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/res/default/resources/base/profile",
+          "ETS_SUPER_VISUAL_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/cache/default/default@CompileArkTS/esmodule",
+          "JS_SUPER_VISUAL_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/cache/default/default@CompileJS/jsbundle",
+          "WORKER_LOADER": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/loader/default/loader.json",
+          "MANIFEST_JSON": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/manifest/default",
+          "OUTPUT_METADATA_JSON": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/hap_metadata/default/output_metadata.json"
+        },
+        "BUILD_OPTION": {
+          "debuggable": false
+        }
+      },
+      "ohosTest": {
+        "SOURCE_ROOT": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/ohosTest",
+        "RESOURCES_PATH": [
+          "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/ohosTest/resources"
+        ],
+        "BUILD_PATH": {
+          "OUTPUT_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/outputs/ohosTest",
+          "INTERMEDIA_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates",
+          "JS_ASSETS_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/loader_out/ohosTest",
+          "JS_LITE_ASSETS_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/loader_out_lite/ohosTest",
+          "RES_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/res/ohosTest",
+          "RES_PROFILE_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/res/ohosTest/resources/base/profile",
+          "ETS_SUPER_VISUAL_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/cache/ohosTest/ohosTest@OhosTestCompileArkTS/esmodule",
+          "JS_SUPER_VISUAL_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/cache/ohosTest/ohosTest@OhosTestCompileJS/jsbundle",
+          "WORKER_LOADER": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/loader/ohosTest/loader.json",
+          "MANIFEST_JSON": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/manifest/ohosTest",
+          "OUTPUT_METADATA_JSON": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/hap_metadata/ohosTest/output_metadata.json"
+        },
+        "BUILD_OPTION": {
+          "debuggable": true
+        }
+      }
+    },
+    "BUILD_OPTION": {
+      "default-default": {
+        "debuggable": false,
+        "copyFrom": "default"
+      }
+    },
+    "BUILD_PROFILE_OPT": {
+      "apiType": "stageMode",
+      "buildOption": {},
+      "targets": [
+        {
+          "name": "default",
+          "runtimeOS": "HarmonyOS"
+        },
+        {
+          "name": "ohosTest",
+          "runtimeOS": "HarmonyOS"
+        }
+      ]
+    }
+  },
+  "ohos-module-wkim": {
+    "SELECT_TARGET": "default",
+    "MODULE_BUILD_DIR": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build",
+    "TARGETS": {
+      "default": {
+        "SOURCE_ROOT": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main",
+        "RESOURCES_PATH": [
+          "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/resources"
+        ],
+        "BUILD_PATH": {
+          "OUTPUT_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/outputs/default",
+          "INTERMEDIA_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates",
+          "JS_ASSETS_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/loader_out/default",
+          "JS_LITE_ASSETS_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/loader_out_lite/default",
+          "RES_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default",
+          "RES_PROFILE_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default/resources/base/profile",
+          "ETS_SUPER_VISUAL_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/cache/default/default@CompileArkTS/esmodule",
+          "JS_SUPER_VISUAL_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/cache/default/default@CompileJS/jsbundle",
+          "WORKER_LOADER": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/loader/default/loader.json",
+          "MANIFEST_JSON": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/manifest/default",
+          "OUTPUT_METADATA_JSON": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/hap_metadata/default/output_metadata.json"
+        },
+        "BUILD_OPTION": {
+          "debuggable": false
+        }
+      }
+    },
+    "BUILD_OPTION": {
+      "default-default": {
+        "debuggable": false,
+        "copyFrom": "default"
+      }
+    },
+    "BUILD_PROFILE_OPT": {
+      "apiType": "stageMode",
+      "buildOption": {},
+      "targets": [
+        {
+          "name": "default",
+          "runtimeOS": "HarmonyOS"
+        }
+      ]
+    }
+  },
+  "ohos-project": {
+    "SELECT_PRODUCT_NAME": "default",
+    "MODULE_BUILD_DIR": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/build",
+    "BUNDLE_NAME": "com.xinbida.WKIM",
+    "BUILD_PATH": {
+      "OUTPUT_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/build/outputs/default"
+    },
+    "MODULES": [
+      {
+        "name": "entry",
+        "srcPath": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry",
+        "targets": [
+          {
+            "name": "default",
+            "applyToProducts": [
+              "default"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "wkim",
+        "srcPath": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim"
+      }
+    ],
+    "PROFILE_OPT": {
+      "app": {
+        "products": [
+          {
+            "name": "default",
+            "signingConfig": "default",
+            "compatibleSdkVersion": "4.1.0(11)",
+            "runtimeOS": "HarmonyOS"
+          }
+        ],
+        "signingConfigs": []
+      },
+      "modules": [
+        {
+          "name": "entry",
+          "srcPath": "./entry",
+          "targets": [
+            {
+              "name": "default",
+              "applyToProducts": [
+                "default"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "wkim",
+          "srcPath": "./wkim"
+        }
+      ]
+    },
+    "CONFIG_PROPERTIES": {
+      "enableSignTask": true,
+      "skipNativeIncremental": false
+    }
+  },
+  "version": 1
+}

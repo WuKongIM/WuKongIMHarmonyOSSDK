@@ -1,0 +1,32 @@
+{
+  "module": {
+    "name": "wkim",
+    "type": "har",
+    "deviceTypes": [
+      "default",
+      "tablet"
+    ],
+    "requestPermissions": [
+      {
+        "name": 'ohos.permission.INTERNET',
+        "reason": "$string:page_show",
+        "usedScene": {
+          "abilities": [
+            "EntryAbility"
+          ],
+          "when": "always"
+        }
+      },
+      {
+        "name": "ohos.permission.GET_NETWORK_INFO",
+        "reason": "$string:page_show",
+        "usedScene": {
+          "abilities": [
+            "EntryAbility"
+          ],
+          "when": "always"
+        }
+      }
+    ]
+  }
+}

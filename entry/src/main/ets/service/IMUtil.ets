@@ -1,11 +1,16 @@
 import { WKIM } from '@ohos/wkim'
 import { WKLogger } from '@ohos/wkim/src/main/ets/common/WKLogger'
 import {
+  SyncChannelMemberOptions,
   SyncOptions,
   WKChannel,
+  WKChannelMember,
   WKChannelType,
+  WKConversationExtra,
   WKMsg,
   WKMsgContentType,
+  WKMsgExtra,
+  WKReminder,
   WKSyncChannelMsg,
   WKSyncConversation
 } from '@ohos/wkim/src/main/ets/entity/Bean'
@@ -26,6 +31,24 @@ export class IMUtil {
       let add = HttpUtil.getIP()
       return add
     }
+    // 消息扩展
+    WKIM.shared.config.provider.syncMessageExtraCallback = async (channel: WKChannel, extraVersion: number,
+      limit: number): Promise<WKMsgExtra[]> => {
+      let list: WKMsgExtra[] = []
+      return list
+    }
+    // 频道成员
+    WKIM.shared.config.provider.channelMemberCallback = async (channelId: string, channelType: number,
+      maxVersion: number): Promise<WKChannelMember[]> => {
+      let list: WKChannelMember[] = []
+      return list
+    }
+    // 频道成员分页数据
+    WKIM.shared.config.provider.channelMemberWithPageCallback = async (channel: WKChannel,
+      option: SyncChannelMemberOptions): Promise<WKChannelMember[]> => {
+      let list: WKChannelMember[] = []
+      return list
+    }
     // 获取频道资料
     WKIM.shared.config.provider.channelInfoCallback =
       async (channelId: string, channelType: number): Promise<WKChannel> => {
@@ -42,6 +65,15 @@ export class IMUtil {
         channel.avatar = `https://api.multiavatar.com/${channel.channelId}.png`
         return channel
       }
+    WKIM.shared.config.provider.syncReminderCallback = async (version: number): Promise<WKReminder[]> => {
+      let list: WKReminder[] = []
+      return list
+    }
+    WKIM.shared.config.provider.syncConversationExtraCallback =
+      async (version: number): Promise<WKConversationExtra[]> => {
+        let list: WKConversationExtra[] = []
+        return list
+      }
     // 同步最近会话
     WKIM.shared.config.provider.syncConversationCallback = syncConversationCallback
     // 同步channel消息
@@ -50,6 +82,7 @@ export class IMUtil {
     WKIM.shared.config.provider.uploadAttachmentCallback = uploadAttachmentCallback
     // 连接
     WKIM.shared.connectionManager().connection()
+
   }
 }
 

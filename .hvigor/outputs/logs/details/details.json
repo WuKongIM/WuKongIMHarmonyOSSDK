@@ -59,14 +59,14 @@
       "BUILD_MODE": "release"
     }
   },
-  "totalTime": 32268168,
+  "totalTime": 2861206904,
   "moduleNum": 1,
   "taskTime": {
-    "compileArkTS": 8054577362,
+    "compileArkTS": 1972002227,
     "buildArkTS": 0,
     "compileJS": 0,
     "buildJS": 0,
-    "compileResource": 123021001,
+    "compileResource": 126168192,
     "packageHap": 0,
     "signHap": 0
   },

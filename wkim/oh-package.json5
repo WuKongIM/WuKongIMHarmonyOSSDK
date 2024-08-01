@@ -1,5 +1,5 @@
 {
-  "name": "@ohos/wkim",
+  "name": "@wukong/wkim",
   "license": "Apache-2.0",
   "devDependencies": {},
   "author": "wukongim",
@@ -8,7 +8,7 @@
   "type": "module",
   "version": "1.0.0",
   "dependencies": {},
-  "repository": "",
+  "repository": "https://github.com/WuKongIM/WuKongIMHarmonyOSSDK",
   "keywords": ["WuKong","chat","im","聊天"],
   "homepage": "https://githubim.com/",
   "ohos": {

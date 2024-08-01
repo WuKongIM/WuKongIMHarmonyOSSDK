@@ -91,7 +91,7 @@ struct Chat {
             this.list[i].sendStatusIVURL = 'imgs/loading.png'
           } else if (this.list[i].status === WKSendMsgResult.success) {
             this.list[i].sendStatusIVURL = 'imgs/success.png'
-          } else if (this.list[i].status === WKSendMsgResult.success) {
+          } else  {
             this.list[i].sendStatusIVURL = 'imgs/error.png'
           }
           break
@@ -244,6 +244,13 @@ struct Chat {
             channel = new WKChannel(this.channelId, this.channelType)
           }
           let option = new WKSendOptions()
+          // option.setting.receipt = 1 // 开启回执
+          // option.setting.topic = 1  // 话题消息
+          // option.setting.stream = 1 // 流消息
+          // option.header.noPersist = true // 发送不存储消息
+          // option.header.redDot = false // 发送不显示红点消息
+          // option.topicId = '' // option.setting.topic = 1 时指定话题ID
+          // option.expire = 300 // 消息过期时间
           WKIM.shared.messageManager().sendWithOption(textModel, channel, option)
           this.sendContent = ''
         })
@@ -323,7 +330,7 @@ struct Chat {
     // 强制刷新channel资料
     WKIM.shared.channelManager().fetchChannelInfo(this.channelId, this.channelType)
     // 监听channel资料更新事件
-    WKIM.shared.channelManager().addRefreshChannelListener(this.refreshChannelListener)
+    WKIM.shared.channelManager().addRefreshListener(this.refreshChannelListener)
     // 监听发送消息入口
     WKIM.shared.messageManager().addInsertedListener((msg) => {
       this.list.push(new UIMsg(msg))
@@ -359,7 +366,7 @@ struct Chat {
     // 移除新消息监听
     WKIM.shared.messageManager().removeNewMsgListener(this.newMsgsListener)
     // 移除刷新channel监听
-    WKIM.shared.channelManager().removeRefreshChannelListener(this.refreshChannelListener)
+    WKIM.shared.channelManager().removeRefreshListener(this.refreshChannelListener)
   }
 }
 

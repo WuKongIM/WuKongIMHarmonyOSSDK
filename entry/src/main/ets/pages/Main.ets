@@ -96,7 +96,7 @@ struct Main {
 
   addRefreshMsgListener() {
     // 刷新消息
-    WKIM.shared.conversationManager().addRefreshListener((refreshList) => {
+    WKIM.shared.conversationManager().addRefreshListener((refreshList:WKConversation[]) => {
       refreshList.forEach((c) => {
         let isAdd = true
         if (this.list.length > 0) {
@@ -143,12 +143,12 @@ struct Main {
     })
 
     // 监听提醒项
-    WKIM.shared.reminderManager().addNewReminderListener(this.refreshReminders)
+    WKIM.shared.reminderManager().addRefreshListener(this.refreshReminders)
   }
 
   initListener() {
     this.addRefreshMsgListener()
-    WKIM.shared.channelManager().addRefreshChannelListener(this.refreshChannel)
+    WKIM.shared.channelManager().addRefreshListener(this.refreshChannel)
     WKIM.shared.connectionManager()
       .addConnectStatusListener((status: number, reasonCode?: number, connInfo?: ConnectionInfo) => {
         switch (status) {
@@ -194,8 +194,8 @@ struct Main {
   }
 
   aboutToDisappear(): void {
-    WKIM.shared.channelManager().removeRefreshChannelListener(this.refreshChannel)
-    WKIM.shared.reminderManager().removeNewReminderListener(this.refreshReminders)
+    WKIM.shared.channelManager().removeRefreshListener(this.refreshChannel)
+    WKIM.shared.reminderManager().removeRefreshListener(this.refreshReminders)
   }
 
   aboutToAppear(): void {

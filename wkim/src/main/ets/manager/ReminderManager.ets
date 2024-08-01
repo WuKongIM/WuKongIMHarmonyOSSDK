@@ -3,16 +3,16 @@ import { ReminderDB } from '../db/ReminderDB';
 import { WKReminder } from '../entity/Bean';
 import { WKIM } from '../WKIM';
 
-export type NewReminder = (list: WKReminder[]) => void
+export type RefreshListener = (list: WKReminder[]) => void
 
 export class ReminderManager {
   static shared: ReminderManager = new ReminderManager();
 
   private constructor() {
-    this.newReminders = []
+    this.refreshListeners = []
   }
 
-  private newReminders: NewReminder[]
+  private refreshListeners: RefreshListener[]
 
   get(channelId: string, channelType: number, done: number): WKReminder[] {
     return ReminderDB.shared.queryWithChannelAndDone(channelId, channelType, done)
@@ -37,25 +37,25 @@ export class ReminderManager {
   save(list: WKReminder[]) {
     if (list.length > 0) {
       ReminderDB.shared.insertOrReplaces(list)
-      this.setNewReminders(list)
+      this.refresh(list)
     }
   }
 
-  addNewReminderListener(l: NewReminder) {
-    this.newReminders.push(l)
+  addRefreshListener(l: RefreshListener) {
+    this.refreshListeners.push(l)
   }
 
-  removeNewReminderListener(l: NewReminder) {
-    for (let i = 0; i < this.newReminders.length; i++) {
-      if (this.newReminders[i] === l) {
-        this.newReminders.splice(i, 1)
+  removeRefreshListener(l: RefreshListener) {
+    for (let i = 0; i < this.refreshListeners.length; i++) {
+      if (this.refreshListeners[i] === l) {
+        this.refreshListeners.splice(i, 1)
         break
       }
     }
   }
 
-  private setNewReminders(list: WKReminder[]) {
-    this.newReminders.forEach((b) => {
+  private refresh(list: WKReminder[]) {
+    this.refreshListeners.forEach((b) => {
       b(list)
     })
   }

@@ -402,7 +402,7 @@ export class WKSendOptions {
   setting: WKMsgSetting = new WKMsgSetting()
   header: WKMsgHeader = new WKMsgHeader()
   expire = 0;
-  topicID = "";
+  topicId = "";
 }
 
 export type ISyncing = () => void

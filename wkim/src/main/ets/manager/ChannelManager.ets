@@ -124,11 +124,11 @@ export class ChannelManager {
     })
   }
 
-  addRefreshChannelListener(iRefresh: RefreshListener) {
+  addRefreshListener(iRefresh: RefreshListener) {
     this.refreshListeners.push(iRefresh)
   }
 
-  removeRefreshChannelListener(iRefresh: RefreshListener) {
+  removeRefreshListener(iRefresh: RefreshListener) {
     for (let i = 0; i < this.refreshListeners.length; i++) {
       if (this.refreshListeners[i] === iRefresh) {
         this.refreshListeners.splice(i, 1)

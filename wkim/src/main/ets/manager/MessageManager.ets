@@ -246,7 +246,6 @@ export class MessageManager {
       l(packet.clientSeq, packet.messageId, packet.messageSeq, packet.reasonCode)
     })
   }
-
   addRefreshExtraListener(l: RefreshExtra) {
     this.refreshExtraListeners.push(l)
   }
@@ -375,7 +374,7 @@ export class MessageManager {
     }
   }
 
-  saveMessageExtras(list: Array<WKMsgExtra>) {
+  saveMessageExtras(list: WKMsgExtra[]) {
     if (list.length > 0) {
       MessageDB.shared.insertExtras(list)
       this.setRefreshExtras(list)

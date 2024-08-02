@@ -3,11 +3,11 @@
 ### 快速开始
 **下载安装**
 ```
-ohpm install @ohos/wkim
+ohpm install @wukong/wkim
 ```
 **引入**
 ```
-import { WKIM } from '@ohos/wkim';
+import { WKIM } from '@wukong/wkim';
 ```
 **初始化**
 ```typescript

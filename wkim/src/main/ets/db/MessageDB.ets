@@ -169,12 +169,10 @@ export class MessageDB {
   }
 
   queryOrSyncHistoryMessages(channel: WKChannel, option: ChannelMsgOptions) {
-    WKLogger.error('参数', `oldOrderSeq:${option.oldestOrderSeq},`, `aroundOrderSeq:${option.aroundMsgOrderSeq}`)
     let list =
       this.queryMessages(channel.channelId, channel.channelType, option.oldestOrderSeq, option.contain, option.pullMode,
         option.limit)
     let tempList: WKMsg[] = []
-    WKLogger.error(`查询到消息总数量:${list.length}`)
     tempList.push(...list)
     tempList.sort((a: WKMsg, b: WKMsg): number => {
       return a.messageSeq - b.messageSeq
@@ -207,6 +205,10 @@ export class MessageDB {
       oldestMsgSeq = option.oldestOrderSeq / 1000
     }
     if (option.pullMode === 0) {
+      if (oldestMsgSeq === 1) {
+        option.iResult(list)
+        return
+      }
       //下拉获取消息 大->小
       if (maxMessageSeq != 0 && oldestMsgSeq != 0 && oldestMsgSeq - maxMessageSeq > 1) {
         isSyncMsg = true;
@@ -425,16 +427,16 @@ export class MessageDB {
   queryExtraWithNeddUpload(needUpload: number) {
     let resultSet: relationalStore.ResultSet | undefined
     let sql = `select * from ${WKDBConst.tableMessageExtra}  where need_upload=?`
-    let list:WKMsgExtra[]=[]
+    let list: WKMsgExtra[] = []
     try {
       resultSet = WKDBHelper.shared.getDB()?.querySqlSync(sql, [needUpload])
-      while  (resultSet?.goToNextRow()) {
+      while (resultSet?.goToNextRow()) {
         let msg = this.serializeMsgExtra(resultSet)
         list.push(msg)
       }
       return list
     } catch (e) {
-      WKLogger.error('查询失败', this.tag, 'queryExtraWithNeddUpload',  e.message)
+      WKLogger.error('查询失败', this.tag, 'queryExtraWithNeddUpload', e.message)
       return list
     } finally {
       resultSet?.close()
@@ -523,7 +525,6 @@ export class MessageDB {
         `select ${this.messageCols},${this.extraCols} from ${WKDBConst.tableMessage} left join ${WKDBConst.tableMessageExtra} on ${WKDBConst.tableMessage}.message_id=${WKDBConst.tableMessageExtra}.message_id where ${WKDBConst.tableMessage}.client_msg_no=?`
       resultSet = WKDBHelper.shared.getDB()?.querySqlSync(sql, [clientMsgNo])
       if (resultSet?.goToNextRow()) {
-        WKLogger.error(`查到消息`)
         let msg = this.serializeWKMsg(resultSet)
         return msg
       }
@@ -712,16 +713,13 @@ export class MessageDB {
     }
     let tempMsg = this.queryWithClientMsgNo(msg.clientMsgNo)
     if (tempMsg !== undefined) {
-      WKLogger.error('查询到同一条消息')
       msg.clientMsgNo = WKIM.shared.messageManager().generateClientMsgNo()
       msg.isDeleted = 1
     }
-    WKLogger.error(`插入信息`, msg.toString())
     let cv = this.getVB(msg)
     try {
       let row = WKDBHelper.shared.getDB()?.insertSync(WKDBConst.tableMessage, cv)
       if (row !== undefined) {
-        WKLogger.error(`插入成功:${row}`)
         return row
       }
       return 0
@@ -886,11 +884,10 @@ export class MessageDB {
     if (extra !== '') {
       message.localExtraMap = CommonUtil.jsonToRecord(extra)
     }
-    message.wkMsgExtra = this.serializeMsgExtra(resultSet)
+    message.remoteExtra = this.serializeMsgExtra(resultSet)
     if (CommonUtil.strIsUnEmpty(message.content)) {
       message.messageContent = WKIM.shared.messageManager().getMessageModel(message.content)
     }
-    // WKLogger.error(`序列话消息：${message.toString()}`)
     return message
   }
 

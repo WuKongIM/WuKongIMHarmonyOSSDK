@@ -2,6 +2,9 @@
   "ohos-module-entry": {
     "SELECT_TARGET": "default",
     "MODULE_BUILD_DIR": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build",
+    "DEPENDENCY_INFO": {
+      "@wukong/wkim": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim"
+    },
     "TARGETS": {
       "default": {
         "SOURCE_ROOT": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main",
@@ -22,7 +25,7 @@
           "OUTPUT_METADATA_JSON": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/hap_metadata/default/output_metadata.json"
         },
         "BUILD_OPTION": {
-          "debuggable": false
+          "debuggable": true
         }
       },
       "ohosTest": {
@@ -50,8 +53,9 @@
     },
     "BUILD_OPTION": {
       "default-default": {
-        "debuggable": false,
-        "copyFrom": "default"
+        "debuggable": true,
+        "copyFrom": "default",
+        "resOptions": {}
       }
     },
     "BUILD_PROFILE_OPT": {
@@ -72,6 +76,7 @@
   "ohos-module-wkim": {
     "SELECT_TARGET": "default",
     "MODULE_BUILD_DIR": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build",
+    "DEPENDENCY_INFO": {},
     "TARGETS": {
       "default": {
         "SOURCE_ROOT": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main",
@@ -85,21 +90,22 @@
           "JS_LITE_ASSETS_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/loader_out_lite/default",
           "RES_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default",
           "RES_PROFILE_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default/resources/base/profile",
-          "ETS_SUPER_VISUAL_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/cache/default/default@CompileArkTS/esmodule",
-          "JS_SUPER_VISUAL_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/cache/default/default@CompileJS/jsbundle",
+          "ETS_SUPER_VISUAL_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/cache/default/default@HarCompileArkTS/esmodule",
+          "JS_SUPER_VISUAL_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/cache/default/default@HarCompileJS/jsbundle",
           "WORKER_LOADER": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/loader/default/loader.json",
           "MANIFEST_JSON": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/manifest/default",
           "OUTPUT_METADATA_JSON": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/hap_metadata/default/output_metadata.json"
         },
         "BUILD_OPTION": {
-          "debuggable": false
+          "debuggable": true
         }
       }
     },
     "BUILD_OPTION": {
       "default-default": {
-        "debuggable": false,
-        "copyFrom": "default"
+        "debuggable": true,
+        "copyFrom": "default",
+        "resOptions": {}
       }
     },
     "BUILD_PROFILE_OPT": {
@@ -131,11 +137,13 @@
               "default"
             ]
           }
-        ]
+        ],
+        "belongProjectPath": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim"
       },
       {
         "name": "wkim",
-        "srcPath": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim"
+        "srcPath": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim",
+        "belongProjectPath": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim"
       }
     ],
     "PROFILE_OPT": {
@@ -172,7 +180,10 @@
     "CONFIG_PROPERTIES": {
       "enableSignTask": true,
       "skipNativeIncremental": false
-    }
+    },
+    "OVERALL_PROJECT_PATHS": [
+      "/Users/songlun/Desktop/workspace/hmworkspace/wukongim"
+    ]
   },
   "version": 1
 }

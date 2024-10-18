@@ -75,7 +75,15 @@ export class ChannelManager {
         this.addOrUpdate(channel)
       })
   }
-
+  addOrUpdates(list:WKChannel[]){
+    if (list.length==0) {
+      return
+    }
+    list.forEach((channel)=>{
+      this.update(channel)
+    })
+    ChannelDB.shared.inserts(list)
+  }
   addOrUpdate(channel: WKChannel) {
     this.update(channel);
     this.setRefresh(channel);
@@ -85,7 +93,7 @@ export class ChannelManager {
   private update(channel: WKChannel) {
     let isAdd = true;
     this.cacheMap.forEach((tempChannel: WKChannel, _) => {
-      if (tempChannel.channelId == channel.channelId && tempChannel.channelType == channel.channelType) {
+      if (tempChannel.channelId === channel.channelId && tempChannel.channelType === channel.channelType) {
         isAdd = false
         tempChannel.forbidden = channel.forbidden;
         tempChannel.channelName = channel.channelName;

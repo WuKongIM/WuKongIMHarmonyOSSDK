@@ -17,6 +17,7 @@ import {
   WKMsgEntity,
   WKMsgExtra,
   WKMsgHeader,
+  WKMsgReaction,
   WKMsgSetting,
   WKReply,
   WKSendMsgResult,
@@ -32,6 +33,7 @@ import { ConversationDB } from '../db/ConversationDB'
 import { WKMediaMessageContent } from '../model/WKMediaMessageContent'
 import { relationalStore } from '@kit.ArkData'
 import { DateUtil } from '../common/DateUtil'
+import { ReactionDB } from '../db/ReactionDB'
 
 export type SendStatusPacket = (clientMsgSeq: number, messageId: string, messageSeq: number, reasonCode: number) => void
 
@@ -44,6 +46,8 @@ export type NewMessages = (msgs: WKMsg[]) => void
 export type DeletedMessage = (clientMsgNo: string) => void
 
 export type RefreshExtra = (list: WKMsgExtra[]) => void
+
+export type RefreshReaction = (list: WKMsgReaction[]) => void
 
 export class MessageManager {
   static shared: MessageManager = new MessageManager()
@@ -62,6 +66,7 @@ export class MessageManager {
     this.pushMsgsListeners = new Array()
     this.deletedMessageListeners = new Array()
     this.refreshExtraListeners = new Array()
+    this.refreshReactionListeners = new Array()
   }
 
   private contentModels: HashMap<number, (jsonStr: string) => WKMessageContent>
@@ -72,6 +77,7 @@ export class MessageManager {
   private sendStatusListeners: SendStatusPacket[]
   private pushMsgsListeners: NewMessages[]
   private refreshExtraListeners: RefreshExtra[]
+  private refreshReactionListeners: RefreshReaction[]
   private wkOrderSeqFactor = 1000
   private uploadExtraIntervalId = 0
 
@@ -246,6 +252,7 @@ export class MessageManager {
       l(packet.clientSeq, packet.messageId, packet.messageSeq, packet.reasonCode)
     })
   }
+
   addRefreshExtraListener(l: RefreshExtra) {
     this.refreshExtraListeners.push(l)
   }
@@ -254,6 +261,25 @@ export class MessageManager {
     for (let i = 0; i < this.refreshExtraListeners.length; i++) {
       if (this.refreshExtraListeners[i] === l) {
         this.refreshExtraListeners.splice(i, 1)
+        break
+      }
+    }
+  }
+
+  setRefreshReactions(list: WKMsgReaction[]) {
+    this.refreshReactionListeners.forEach((b) => {
+      b(list)
+    })
+  }
+
+  addRefreshReactionListener(listener: RefreshReaction) {
+    this.refreshReactionListeners.push(listener)
+  }
+
+  removeRefreshReactionListener(listener: RefreshReaction) {
+    for (let i = 0; i < this.refreshReactionListeners.length; i++) {
+      if (this.refreshReactionListeners[i] === listener) {
+        this.refreshReactionListeners.splice(i, 1)
         break
       }
     }
@@ -361,7 +387,7 @@ export class MessageManager {
     return msg
   }
 
-  async syncExtra(channel: WKChannel) {
+  async syncRemoteExtra(channel: WKChannel) {
     if (WKIM.shared.config.provider.syncMessageExtraCallback === undefined) {
       WKLogger.error('未提供syncMessageExtraCallback')
       return
@@ -370,14 +396,25 @@ export class MessageManager {
     let extras =
       await WKIM.shared.config.provider.syncMessageExtraCallback(channel, maxVersion, 100)
     if (extras !== null && extras.length > 0) {
-      this.saveMessageExtras(extras)
+      this.saveRemoteExtras(extras)
     }
   }
 
-  saveMessageExtras(list: WKMsgExtra[]) {
+  getMsgReactions(messageId: string): WKMsgReaction[] {
+    return ReactionDB.shared.queryWithMsgId(messageId)
+  }
+
+  saveRemoteExtras(list: WKMsgExtra[]) {
     if (list.length > 0) {
       MessageDB.shared.insertExtras(list)
       this.setRefreshExtras(list)
+    }
+  }
+
+  saveReactions(list: WKMsgReaction[]) {
+    if (list.length > 0) {
+      ReactionDB.shared.inserts(list)
+      this.setRefreshReactions(list)
     }
   }
 
@@ -557,10 +594,6 @@ export class MessageManager {
     return isDeleted
   }
 
-  private getChannelKey(channelId: string, channelType: number): string {
-    return `${channelId}_${channelType}}`
-  }
-
   updateContent(clientMsgNo: string, messageContent: WKMessageContent) {
     let json = messageContent.encodeJson()
     let content = JSON.stringify(json)
@@ -662,25 +695,29 @@ export class MessageManager {
 
   deleteWithClientMsgNo(clientMsgNo: string) {
     let r = MessageDB.shared.deleteWithClientMsgNo(clientMsgNo)
-    if (r) {
-      this.setDeleted(clientMsgNo)
-      let wkMsg = this.getWithClientMsgNo(clientMsgNo)
-      if (wkMsg !== undefined) {
-        let coverMsg = ConversationDB.shared
-          .query(wkMsg.channelId, wkMsg.channelType)
-        if (coverMsg !== undefined && coverMsg.lastClientMsgNo === clientMsgNo) {
-          let tempMsg = MessageDB.shared.queryMaxOrderSeqNotDeletedWithChannel(
-            wkMsg.channelId, wkMsg.channelType)
-          if (tempMsg !== undefined) {
-            let uiMsg = ConversationDB.shared.insertWithWKMsg(tempMsg, true)
-            if (uiMsg != null) {
-              let uiMsgs: WKConversation[] = []
-              uiMsgs.push(uiMsg)
-              WKIM.shared.conversationManager().setRefresh(uiMsgs)
-            }
-          }
-        }
-      }
+    if (!r) {
+      return
+    }
+    this.setDeleted(clientMsgNo)
+    let wkMsg = this.getWithClientMsgNo(clientMsgNo)
+    if (wkMsg === undefined) {
+      return
+    }
+    let coverMsg = ConversationDB.shared
+      .query(wkMsg.channelId, wkMsg.channelType)
+    if (coverMsg === undefined || coverMsg.lastClientMsgNo !== clientMsgNo) {
+      return
+    }
+    let tempMsg = MessageDB.shared.queryMaxOrderSeqNotDeletedWithChannel(
+      wkMsg.channelId, wkMsg.channelType)
+    if (tempMsg === undefined) {
+      return
+    }
+    let uiMsg = ConversationDB.shared.insertWithWKMsg(tempMsg, true)
+    if (uiMsg != null) {
+      let uiMsgs: WKConversation[] = []
+      uiMsgs.push(uiMsg)
+      WKIM.shared.conversationManager().setRefresh(uiMsgs)
     }
   }
 }

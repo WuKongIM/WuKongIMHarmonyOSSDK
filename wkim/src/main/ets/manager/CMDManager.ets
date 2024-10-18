@@ -50,7 +50,7 @@ export class CMDManager {
       case 'syncMessageExtra': {
         let channelId = paramJson['channel_id'] as string
         let channelType = paramJson['channel_type'] as number
-        WKIM.shared.messageManager().syncExtra(new WKChannel(channelId, channelType))
+        WKIM.shared.messageManager().syncRemoteExtra(new WKChannel(channelId, channelType))
       }
       case 'syncConversationExtra': {
         WKIM.shared.conversationManager().syncExtra()

@@ -81,32 +81,58 @@ export class WKMsgHeader {
 export class WKMsg {
   header: WKMsgHeader = new WKMsgHeader();
   setting: WKMsgSetting = new WKMsgSetting();
+  // 服务端唯一消息ID
   messageId = "";
+  // 服务端消息序号
   messageSeq = 0;
+  // 客户端消息序号
   clientSeq = 0;
+  // 消息时间戳
   timestamp = 0;
+  // 过期时间
   expireTime = 0;
+  // 过期时间戳
   expireTimestamp = 0;
+  // 客户端唯一编号
   clientMsgNo = "";
+  // 发送者uid
   fromUID = "";
+  // 所属频道ID
   channelId = "";
+  // 所属频道类型
   channelType = WKChannelType.personal;
+  // 消息类型
   contentType = 0;
+  // 消息内容字符串
   content = "";
+  // 消息状态 1.发送成功 0.发送中
   status = 0;
   voiceStatus = 0;
+  // 是否删除 1.是
   isDeleted = 0;
+  // 搜索关键字
   searchableWord = "";
+  // 消息发送者资料
   private from?: WKChannel
+  // 消息所属频道资料
   private channelInfo?: WKChannel
+  // 消息发送者在频道内资料 群消息才有值
   private memberOfFrom?: WKChannelMember
+  // 排序号
   orderSeq = 0;
+  // 是否已读
   viewed = 0;
+  // 已读时间
   viewedAt = 0;
+  // 话题ID
   topicId = "";
+  // 本地扩展
   localExtraMap?: Record<string, object>
-  wkMsgExtra?: WKMsgExtra
+  // 远程扩展
+  remoteExtra?: WKMsgExtra
+  // 消息回应点赞数据
   reactionList?: WKMsgReaction[]
+  // 消息正文
   messageContent?: WKMessageContent
 
   constructor() {
@@ -156,20 +182,35 @@ export class WKMsg {
 }
 
 export class WKMsgExtra {
+  // 消息ID
   messageId = ''
+  // 频道ID
   channelId = ''
+  // 频道类型
   channelType: number = WKChannelType.personal
+  // 是否已读 1.是
   readed = 0
+  // 已读数量
   readedCount = 0
+  // 未读数量
   unreadCount = 0
+  // 是否撤回 1.是
   revoke = 0
+  // 是否删除
   isMutualDeleted = 0
+  // 撤回者uid
   revoker = ''
+  // 版本号
   extraVersion = 0
+  // 编辑时间
   editedAt = 0
+  // 编辑内容
   contentEdit = ''
+  // 是否需要上传 1.是
   needUpload = 0
+  // 是否置顶
   isPinned = 0
+  // 编辑后正文
   contentEditMsgModel?: WKMessageContent
 }
 
@@ -242,19 +283,31 @@ export class WKConversationExtra {
 }
 
 export class WKReminder {
+  // 提醒项ID
   reminderId = 0
+  // 消息ID
   messageId = ''
+  // 所属频道ID
   channelId: string = ''
+  // 所属频道类型
   channelType: number = WKChannelType.personal
+  // 消息序号
   messageSeq = 0
+  // 提醒项类型 1.[@某人] 2.[入群申请] ...
   type = 0
   isLocate = 0
   uid = ''
+  // 显示内容
   text = ''
+  // 提醒项内容
   data?: Record<string, Object>
+  // 版本号 增量同步需要
   version = 0
+  // 是否完成 1.是
   done = 0
+  // 是否需要上传到服务器
   needUpload = 0
+  // 发布者
   publisher = ''
 }
 
@@ -277,14 +330,22 @@ export class WKMsgContentType {
 }
 
 export class WKMsgReaction {
+  // 消息ID
   messageId = ""
+  // 频道ID
   channelId = ""
+  // 频道类型
   channelType = WKChannelType.personal
+  // 回应者uid
   uid = ""
   name = ""
+  // 消息序号
   seq = 0
+  // 回应表情
   emoji = ""
+  // 是否删除 1.是
   isDeleted = 0
+  // 创建时间
   createdAt = ""
 }
 
@@ -305,15 +366,25 @@ export class WKMentionInfo {
 }
 
 export class WKReply {
+  // 被回复的消息根ID，多级回复时的第一次回复的消息ID
   rootMid = ''
+  // 被回复的消息ID
   messageId = ''
+  // 被回复的MessageSeq
   messageSeq = 0
+  // 被回复者uid
   fromUID = ''
+  // 被回复者名称
   fromName = ''
+  // 被回复的消息字符串
   contentEdit = ''
+  // 编辑时间
   editAt = 0
+  // 回复消息被撤回标记 1.是
   revoke = 0
+  // 被回复消息编辑后的内容
   contentEditMsgModel?: WKMessageContent
+  // 被回复的消息体
   payload?: WKMessageContent
 
   encode(): Record<string, Object> {

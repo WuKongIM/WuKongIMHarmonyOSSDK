@@ -1,5 +1,5 @@
 ## 悟空IM HarmonyOS NEXT SDK
-
+## [详细文档](https://githubim.com/sdk/harmonyos.html "文档")
 ### 快速开始
 **下载安装**
 ```

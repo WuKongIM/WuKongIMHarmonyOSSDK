@@ -141,7 +141,6 @@ export class ConversationDB {
       if (row === undefined) {
         return false
       }
-      WKLogger.error(`修改字段返回行数：${row}`)
       return true
     } catch (e) {
       WKLogger.error(`修改最近会话字段错误,`, this.tag, '：clearAllRedDot', e.message)
@@ -221,10 +220,8 @@ export class ConversationDB {
       WKDBHelper.shared.getDB()?.beginTransaction()
       for (let i = 0; i < vbs.length; i++) {
         let vb = vbs[i]
-
-        let row = WKDBHelper.shared.getDB()?.insertSync(WKDBConst.tableConversation, vb,
+        WKDBHelper.shared.getDB()?.insertSync(WKDBConst.tableConversation, vb,
           relationalStore.ConflictResolution.ON_CONFLICT_REPLACE)
-        WKLogger.error(`插入最近会话：${row}`)
       }
     } catch (e) {
       WKLogger.error('批量插入最近会话错误，', this.tag, '：insertOrReplaces', e)

@@ -3,10 +3,15 @@ import { ArrayList } from '@kit.ArkTS';
 import { WKMsgEntity, WKReply, WKMentionInfo } from '../entity/Bean';
 
 export class WKMessageContent {
+  // 消息类型
   contentType: number = 0
+  // 消息内容
   content: string = ""
+  // 渲染消息内容 如@某人时需要渲染@xxx这段文字
   entities?: ArrayList<WKMsgEntity>
+  // 消息回复
   reply?: WKReply
+  // 提醒信息
   mentionInfo?: WKMentionInfo
 
   displayText(): string {

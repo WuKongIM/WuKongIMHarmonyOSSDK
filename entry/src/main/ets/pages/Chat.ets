@@ -5,6 +5,7 @@ import {
   WKChannel,
   WKMsg,
   WKMsgExtra,
+  WKReply,
   WKSendMsgResult,
   WKSendOptions
 } from '@ohos/wkim/src/main/ets/entity/Bean';
@@ -132,7 +133,7 @@ struct Chat {
       extras.forEach((extra) => {
         for (let i = 0; i < this.list.length; i++) {
           if (this.list[i].msg.messageId === extra.messageId) {
-            this.list[i].msg.wkMsgExtra = extra
+            this.list[i].msg.remoteExtra = extra
             break
           }
         }
@@ -239,6 +240,8 @@ struct Chat {
           }
 
           let textModel: WKTextContent = new WKTextContent(this.sendContent)
+          textModel.reply  =new WKReply()
+          textModel.reply.messageId =''
           let channel = this.channel
           if (channel === undefined) {
             channel = new WKChannel(this.channelId, this.channelType)
@@ -255,6 +258,7 @@ struct Chat {
           this.sendContent = ''
         })
         Button('自定义').fontSize(14).onClick(() => {
+
           let model = new CardMessageContent()
           model.uid = '11'
           model.name = '悟空IM'
@@ -273,6 +277,7 @@ struct Chat {
             channel = new WKChannel(this.channelId, this.channelType)
           }
           let option = new WKSendOptions()
+          option.setting.receipt = 1 // 开回执
           WKIM.shared.messageManager().sendWithOption(model, channel, option)
         })
       }.backgroundColor('#f6f6f6').width('100%').padding(10)
@@ -331,7 +336,7 @@ struct Chat {
     WKIM.shared.channelManager().fetchChannelInfo(this.channelId, this.channelType)
     // 监听channel资料更新事件
     WKIM.shared.channelManager().addRefreshListener(this.refreshChannelListener)
-    // 监听发送消息入口
+    // 监听发送消息入库
     WKIM.shared.messageManager().addInsertedListener((msg) => {
       this.list.push(new UIMsg(msg))
       this.scroller.scrollEdge(Edge.Bottom)

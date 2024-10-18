@@ -147,6 +147,7 @@ struct Main {
   }
 
   initListener() {
+
     this.addRefreshMsgListener()
     WKIM.shared.channelManager().addRefreshListener(this.refreshChannel)
     WKIM.shared.connectionManager()
@@ -159,9 +160,12 @@ struct Main {
             this.titleText = `悟空IM(连接成功-节点:${this.nodeId})`
             break
           }
-
           case WKConnectStatus.fail:
             this.titleText = '连接失败'
+            if (reasonCode !== undefined && reasonCode === WKConnectStatus.kicked) {
+              // 被踢需退出到登录页面
+              this.titleText = '已在其他设备登录'
+            }
             break
           case WKConnectStatus.connecting:
             this.titleText = '连接中...'

@@ -6,6 +6,7 @@ import { WKMessageContent } from '@ohos/wkim/src/main/ets/model/WKMessageContent
 export class CardMessageContent extends WKMessageContent {
   uid: string = ''
   name: string = ''
+  avatar: string = ''
 
   constructor() {
     super();
@@ -17,6 +18,7 @@ export class CardMessageContent extends WKMessageContent {
     let json: Record<string, Object> = {}
     json['uid'] = this.uid
     json['name'] = this.name
+    json['avatar'] = this.avatar
     return json
   }
 
@@ -26,6 +28,7 @@ export class CardMessageContent extends WKMessageContent {
     if (json !== undefined) {
       this.uid = CommonUtil.readString(json, 'uid')
       this.name = CommonUtil.readString(json, 'name')
+      this.avatar = CommonUtil.readString(json, 'avatar')
     }
     return this
   }
@@ -39,6 +42,8 @@ export class CardMessageContent extends WKMessageContent {
 // 自定义附件消息
 export class LocationMessageContent extends WKMediaMessageContent {
   address: string = ''
+  longitude: number = 0.0
+  latitude: number = 0.0
 
   constructor() {
     super();
@@ -49,7 +54,8 @@ export class LocationMessageContent extends WKMediaMessageContent {
   encodeJson(): Record<string, Object> {
     let json: Record<string, Object> = {}
     json['url'] = this.url
-    json['address'] = this.address
+    json['longitude'] = this.longitude
+    json['latitude'] = this.latitude
     return json
   }
 
@@ -59,6 +65,8 @@ export class LocationMessageContent extends WKMediaMessageContent {
     if (json !== undefined) {
       this.address = CommonUtil.readString(json, 'address')
       this.url = CommonUtil.readString(json, 'url')
+      this.longitude = CommonUtil.readNumber(json, 'longitude')
+      this.latitude = CommonUtil.readNumber(json, 'latitude')
     }
     return this
   }

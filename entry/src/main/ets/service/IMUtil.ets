@@ -74,6 +74,9 @@ export class IMUtil {
         let list: WKConversationExtra[] = []
         return list
       }
+    WKIM.shared.config.provider.uploadMessageExtraCallback = (extra: WKMsgExtra) => {
+      //上传到业务服务器
+    }
     // 同步最近会话
     WKIM.shared.config.provider.syncConversationCallback = syncConversationCallback
     // 同步channel消息

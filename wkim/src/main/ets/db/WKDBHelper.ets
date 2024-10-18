@@ -20,7 +20,6 @@ export class WKDBHelper {
       encrypt: false // 可选参数，指定数据库是否加密，默认不加密
     };
     this.db = await relationalStore.getRdbStore(getContext(), STORE_CONFIG)
-    WKLogger.error('数据库初始化完毕')
     this.onUpgrade()
   }
 
@@ -61,7 +60,6 @@ export class WKDBHelper {
       }
     })
     if (tempMaxV > 0) {
-      WKLogger.error(`保存最大版本${tempMaxV}`)
       PreferencesUtil.setSqlMaxVersion(tempMaxV)
     }
   }

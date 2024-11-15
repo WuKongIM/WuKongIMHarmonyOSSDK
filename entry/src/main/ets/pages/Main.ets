@@ -9,6 +9,7 @@ import {
 import { DateUtil } from '@ohos/wkim/src/main/ets/common/DateUtil';
 import { router } from '@kit.ArkUI';
 import { IMUtil } from '../service/IMUtil';
+import { HttpUtil } from '../service/HttpUtil';
 
 function isRemind(list?: WKReminder[]): boolean {
   if (list === undefined || list.length === 0) {
@@ -96,7 +97,7 @@ struct Main {
 
   addRefreshMsgListener() {
     // 刷新消息
-    WKIM.shared.conversationManager().addRefreshListener((refreshList:WKConversation[]) => {
+    WKIM.shared.conversationManager().addRefreshListener((refreshList: WKConversation[]) => {
       refreshList.forEach((c) => {
         let isAdd = true
         if (this.list.length > 0) {
@@ -180,7 +181,7 @@ struct Main {
             this.titleText = '网络异常'
             break
           case WKConnectStatus.kicked:
-            this.titleText = '其他账号登录'
+            this.titleText = '已断开[其他账号登录]'
             break
         }
       })
@@ -404,7 +405,10 @@ export default struct ItemView {
   }
 
   getAvatar(): string {
-    return this.conv.avatar ?? 'imgs/ic_default_avatar.png'
+    if (this.conv.avatar === undefined) {
+      return 'imgs/ic_default_avatar.png'
+    }
+    return `${HttpUtil.getURL()}/${this.conv.avatar}`
   }
 
   getName(): string {

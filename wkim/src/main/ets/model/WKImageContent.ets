@@ -24,11 +24,11 @@ export class WKImageContent extends WKMediaMessageContent {
 
   decodeJson(jsonStr: string): WKMessageContent {
     let json = CommonUtil.jsonToRecord(jsonStr)
-    if (json!==undefined){
-      this.url = CommonUtil.readString(json,'url')
-      this.width = CommonUtil.readNumber(json,'width')
-      this.height = CommonUtil.readNumber(json,'height')
-      this.localPath = CommonUtil.readString(json,'localPath')
+    if (json !== undefined) {
+      this.url = CommonUtil.readString(json, 'url') ?? ''
+      this.width = CommonUtil.readNumber(json, 'width')
+      this.height = CommonUtil.readNumber(json, 'height')
+      this.localPath = CommonUtil.readString(json, 'localPath') ?? ''
     }
     return this
   }

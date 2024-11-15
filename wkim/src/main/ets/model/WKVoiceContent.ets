@@ -25,9 +25,9 @@ export class WKVoiceContent extends WKMediaMessageContent {
     let json = CommonUtil.jsonToRecord(jsonStr)
     if (json !== undefined) {
       this.timeTrad = CommonUtil.readNumber(json, 'timeTrad')
-      this.waveform = CommonUtil.readString(json, 'waveform')
-      this.url = CommonUtil.readString(json, 'url')
-      this.localPath = CommonUtil.readString(json, 'localPath')
+      this.waveform = CommonUtil.readString(json, 'waveform') ?? ''
+      this.url = CommonUtil.readString(json, 'url') ?? ''
+      this.localPath = CommonUtil.readString(json, 'localPath') ?? ''
     }
     return this
   }

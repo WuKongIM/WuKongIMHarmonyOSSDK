@@ -6,7 +6,7 @@
   "description": "WuKongIM HarmonyOS SDK",
   "main": "index.ets",
   "type": "module",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "dependencies": {},
   "repository": "https://github.com/WuKongIM/WuKongIMHarmonyOSSDK",
   "keywords": ["WuKong","chat","im","聊天"],

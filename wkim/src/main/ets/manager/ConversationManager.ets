@@ -1,7 +1,7 @@
 import { WKLogger } from '../common/WKLogger';
 import { ConversationDB } from '../db/ConversationDB';
 import { MessageDB } from '../db/MessageDB';
-import { WKChannelType, WKConversation, WKConversationExtra, WKMsg } from '../entity/Bean';
+import { WKChannelType, WKConversation, WKConversationExtra, WKMsg, WKMsgExtra } from '../entity/Bean';
 import { WKIM } from '../WKIM';
 
 export type RefreshListener = (list: WKConversation[]) => void
@@ -74,6 +74,7 @@ export class ConversationManager {
     let syncConv = await WKIM.shared.config.provider.syncConversationCallback(lastMsgseqs, 1000, 0)
     let list = new Array<WKConversation>()
     let msgList = new Array<WKMsg>()
+    let msgExtraList = new Array<WKMsgExtra>()
     if (syncConv !== undefined && syncConv.conversations !== undefined && syncConv.conversations.length > 0) {
       for (let i = 0, size = syncConv.conversations.length; i < size; i++) {
         let msg = new WKConversation()
@@ -96,6 +97,9 @@ export class ConversationManager {
         if (convMsg.recents !== undefined && convMsg.recents.length > 0) {
           for (let j = 0, len = convMsg.recents.length; j < len; j++) {
             let wkMsg = convMsg.recents[j]
+            if (wkMsg.remoteExtra !== undefined) {
+              msgExtraList.push(wkMsg.remoteExtra)
+            }
             WKIM.shared.messageManager().parsingMsg(wkMsg)
             msgList.push(wkMsg)
           }
@@ -108,6 +112,9 @@ export class ConversationManager {
     }
     if (msgList.length > 0) {
       MessageDB.shared.inserts(msgList)
+    }
+    if (msgExtraList.length > 0) {
+      MessageDB.shared.insertExtras(msgExtraList)
     }
     this.setRefresh(list)
     return list

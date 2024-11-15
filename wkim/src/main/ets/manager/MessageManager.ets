@@ -96,6 +96,14 @@ export class MessageManager {
     return MessageDB.shared.queryMaxMessageOrderSeqWithChannel(channelId, channelType)
   }
 
+  getMaxMessageSeqWithChannel(channelId: string, channelType: number): number {
+    return MessageDB.shared.queryMaxMessageSeqWithChannel(channelId, channelType)
+  }
+
+  getMaxExtraVersion(channelId: string, channelType: number): number {
+    return MessageDB.shared.queryMaxExtraVersion(channelId, channelType)
+  }
+
   getOrSyncHistoryMessages(channel: WKChannel, option: ChannelMsgOptions) {
     let tempPullMode = option.pullMode
     let tempOldestOrderSeq = option.oldestOrderSeq
@@ -387,19 +395,6 @@ export class MessageManager {
     return msg
   }
 
-  async syncRemoteExtra(channel: WKChannel) {
-    if (WKIM.shared.config.provider.syncMessageExtraCallback === undefined) {
-      WKLogger.error('未提供syncMessageExtraCallback')
-      return
-    }
-    let maxVersion = MessageDB.shared.queryMaxExtraVersion(channel.channelId, channel.channelType)
-    let extras =
-      await WKIM.shared.config.provider.syncMessageExtraCallback(channel, maxVersion, 100)
-    if (extras !== null && extras.length > 0) {
-      this.saveRemoteExtras(extras)
-    }
-  }
-
   getMsgReactions(messageId: string): WKMsgReaction[] {
     return ReactionDB.shared.queryWithMsgId(messageId)
   }
@@ -427,11 +422,17 @@ export class MessageManager {
     let syncOption = new SyncOptions(startSeq, endSeq, pullModel, limit)
     let msg = await WKIM.shared.config.provider.syncMessageCallback(channel, syncOption)
     if (msg.msgs !== undefined && msg.msgs.length > 0) {
+      let msgExtraList = new Array<WKMsgExtra>()
       msg.msgs.forEach((m) => {
         m.status = WKSendMsgResult.success
+        if (m.remoteExtra !== undefined) {
+          msgExtraList.push(m.remoteExtra)
+        }
         this.parsingMsg(m)
       })
+
       MessageDB.shared.inserts(msg.msgs)
+      MessageDB.shared.insertExtras(msgExtraList)
     }
     return msg
   }
@@ -502,8 +503,8 @@ export class MessageManager {
         let entity = new WKMsgEntity()
         entity.offset = CommonUtil.readNumber(v, 'offset')
         entity.length = CommonUtil.readNumber(v, 'length')
-        entity.type = CommonUtil.readString(v, 'type')
-        entity.value = CommonUtil.readString(v, 'value')
+        entity.type = CommonUtil.readString(v, 'type') ?? ''
+        entity.value = CommonUtil.readString(v, 'value') ?? ''
         model.entities?.add(entity)
       })
     }
@@ -557,6 +558,14 @@ export class MessageManager {
     }
 
     if (msg.contentType === WKMsgContentType.InsideMsg) {
+      let channelId = CommonUtil.readString(json, 'channel_id')
+      let channelType = CommonUtil.readNumber(json, 'channel_type')
+      if (channelId === undefined) {
+        json['channel_id'] = msg.channelId
+      }
+      if (channelType === 0) {
+        json['channel_type'] = msg.channelType
+      }
       WKIM.shared.cmdManager().handle(json)
     }
 
@@ -569,7 +578,10 @@ export class MessageManager {
       msg.channelType === WKChannelType.personal && msg.channelId === WKIM.shared.config.uid) {
       msg.channelId = msg.fromUID
     }
-    msg.isDeleted = this.isDeleted(json)
+    if (msg.isDeleted === 0) {
+      msg.isDeleted = this.isDeleted(json)
+    }
+
   }
 
   private isDeleted(json?: Record<string, Object>) {

@@ -34,7 +34,7 @@ export class ReminderDB {
 
   queryWithChannelAndDone(channelId: string, channelType: number, done: number): WKReminder[] {
     let sql =
-      `select * from ${WKDBConst.tableReminders} where channel_id=? and channel_type=? and done=? ordery by message_seq desc`
+      `select * from ${WKDBConst.tableReminders} where channel_id=? and channel_type=? and done=? order by message_seq desc`
     let resultSet: relationalStore.ResultSet | undefined
     let list: WKReminder[] = []
     try {

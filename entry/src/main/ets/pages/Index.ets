@@ -6,7 +6,7 @@ import { IMUtil } from '../service/IMUtil'
 @Component
 struct Index {
   @State message: string = 'Hello World'
-  @State apiURL: string = 'https://api.githubim.com'
+  @State apiURL: string = 'http://62.234.8.38:7090/v1'
   @State uid: string = 'sll'
   @State token: string = 'sll'
 
@@ -16,7 +16,7 @@ struct Index {
         Text('欢迎登录悟空IM').fontSize(35).margin({
           bottom: 10,
         }).textAlign(TextAlign.Center).width('90%')
-        Text('悟空IM演示程序。当前sdk版本：1.0.0')
+        Text('悟空IM演示程序。当前sdk版本：1.0.2')
           .fontSize(20)
           .margin({
             bottom: 30

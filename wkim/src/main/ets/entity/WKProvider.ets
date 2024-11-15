@@ -13,7 +13,7 @@ import {
 
 export type ConnectAddrCallback = () => Promise<string>
 
-export type ChannelInfoCallback = (channelId: string, channelType: number) => Promise<WKChannel>
+export type ChannelInfoCallback = (channelId: string, channelType: number) => Promise<WKChannel | undefined>
 
 export type ChannelMemberCallback = (channelId: string, channelType: number,
   maxVersion: number) => Promise<WKChannelMember[]>
@@ -27,9 +27,6 @@ export type SyncConversationsCallback = (lastMsgSeqs: string, msgCount: number,
 export type SyncConversationExtraCallback = (version: number) => Promise<WKConversationExtra[]>
 
 export type SyncMessageCallback = (channel: WKChannel, options: SyncOptions) => Promise<WKSyncChannelMsg>
-
-export type SyncMessageExtraCallback = (channel: WKChannel, extraVersion: number,
-  limit: number) => Promise<WKMsgExtra[]>
 
 export type SyncRemindersCallback = (version: number) => Promise<WKReminder[]>
 
@@ -45,7 +42,6 @@ export class WKProvider {
   channelMemberCallback?: ChannelMemberCallback
   channelMemberWithPageCallback?: ChannelMemberWithPageCallback
   syncConversationExtraCallback?: SyncConversationExtraCallback
-  syncMessageExtraCallback?: SyncMessageExtraCallback
   syncReminderCallback?: SyncRemindersCallback
   uploadAttachmentCallback?: UploadAttachmentCallBack
   uploadMessageExtraCallback?: UploadMessageExtraCallback

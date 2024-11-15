@@ -85,12 +85,12 @@ export class CommonUtil {
     return 0
   }
 
-  static readString(json: Record<string, Object>, key: string): string {
+  static readString(json: Record<string, Object>, key: string): string | undefined {
     let v = json[key]
     if (v !== undefined && v !== null) {
       return v as string
     }
-    return ''
+    return undefined
   }
 
   static readJson(json: Record<string, Object>, key: string): Record<string, Object> | undefined {
@@ -99,9 +99,10 @@ export class CommonUtil {
       if (v === undefined || v === null) {
         return undefined
       }
-      let json = JSON.parse(v.toString()) as Record<string, Object>
+      let json = JSON.parse(JSON.stringify(v)) as Record<string, Object>
       return json
     } catch (e) {
+      WKLogger.error('异常解析,method:readJson,key:', key)
       return undefined
     }
   }

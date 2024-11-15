@@ -71,7 +71,10 @@ export class ChannelManager {
       return
     }
     WKIM.shared.config.provider.channelInfoCallback(channelId, channelType)
-      .then((channel: WKChannel) => {
+      .then((channel: WKChannel | undefined) => {
+        if (channel === undefined) {
+          return
+        }
         this.addOrUpdate(channel)
       })
   }

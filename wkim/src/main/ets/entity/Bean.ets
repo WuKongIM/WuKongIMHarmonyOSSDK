@@ -237,15 +237,12 @@ export class WKConversation {
 
   getMsg(): WKMsg | undefined {
     if (this.msg === undefined) {
-      WKLogger.error(`去查询消息${this.lastClientMsgNo}`)
       this.msg = WKIM.shared.messageManager().getWithClientMsgNo(this.lastClientMsgNo)
     }
     if (this.msg === undefined) {
-      WKLogger.error(`返回undefined了`)
       return undefined
     }
     if (this.msg.isDeleted === 1) {
-      WKLogger.error(`消息被删除`)
       return undefined
     }
     return this.msg
@@ -403,11 +400,11 @@ export class WKReply {
   }
 
   decode(json: Record<string, Object>): WKReply | undefined {
-    this.rootMid = CommonUtil.readString(json, 'root_mid')
-    this.messageId = CommonUtil.readString(json, 'message_id')
+    this.rootMid = CommonUtil.readString(json, 'root_mid') ?? ''
+    this.messageId = CommonUtil.readString(json, 'message_id') ?? ''
     this.messageSeq = CommonUtil.readNumber(json, 'message_seq')
-    this.fromUID = CommonUtil.readString(json, 'from_uid')
-    this.fromName = CommonUtil.readString(json, 'from_name')
+    this.fromUID = CommonUtil.readString(json, 'from_uid') ?? ''
+    this.fromName = CommonUtil.readString(json, 'from_name') ?? ''
     let payload = json['payload']
     if (payload !== null && payload !== undefined) {
       let payloadJson = payload as Record<string, Object>

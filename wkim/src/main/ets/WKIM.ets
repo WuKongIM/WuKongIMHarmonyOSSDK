@@ -24,7 +24,6 @@ export class WKIM {
     this.config.token = token
     this.config.address = address
     CryptoUtils.init()
-    WKLogger.error('去初始化db')
     await WKDBHelper.shared.init()
   }
 

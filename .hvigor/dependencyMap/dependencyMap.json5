@@ -1,1 +1,1 @@
-{"rootDependency":"./oh-package.json5","dependencyMap":{"entry":"./entry/oh-package.json5","wkim":"./wkim/oh-package.json5"}}
+{"basePath":"/Users/songlun/Desktop/workspace/hmworkspace/wukongim/.hvigor/dependencyMap/dependencyMap.json5","rootDependency":"./oh-package.json5","dependencyMap":{"entry":"./entry/oh-package.json5","wkim":"./wkim/oh-package.json5"},"modules":[{"name":"entry","srcPath":"../../../entry"},{"name":"wkim","srcPath":"../../../wkim"}]}

@@ -18,7 +18,8 @@ import { WKImageContent } from '@ohos/wkim/src/main/ets/model/WKImageContent'
 import { WKVoiceContent } from '@ohos/wkim/src/main/ets/model/WKVoiceContent'
 import { WKVideoContent } from '@ohos/wkim/src/main/ets/model/WKVideoContent'
 import { HttpUtil } from './HttpUtil'
-import { LocationMessageContent } from '../msg/CustomerMsg'
+import { OrderMessageContent } from '../msg/OrderMsg'
+import { CommonUtil } from '@ohos/wkim/src/main/ets/common/CommonUtil'
 
 export class IMUtil {
   static uid: string
@@ -26,17 +27,13 @@ export class IMUtil {
   static async init(_uid: string, _token: string) {
     IMUtil.uid = _uid
     await WKIM.shared.init(_uid, _token)
+    IMUtil.initListener()
     // 获取连接地址
     WKIM.shared.config.provider.connectAddrCallback = (): Promise<string> => {
-      let add = HttpUtil.getIP()
+      let add = HttpUtil.geConnAddress()
       return add
     }
-    // 消息扩展
-    WKIM.shared.config.provider.syncMessageExtraCallback = async (channel: WKChannel, extraVersion: number,
-      limit: number): Promise<WKMsgExtra[]> => {
-      let list: WKMsgExtra[] = []
-      return list
-    }
+
     // 频道成员
     WKIM.shared.config.provider.channelMemberCallback = async (channelId: string, channelType: number,
       maxVersion: number): Promise<WKChannelMember[]> => {
@@ -51,19 +48,9 @@ export class IMUtil {
     }
     // 获取频道资料
     WKIM.shared.config.provider.channelInfoCallback =
-      async (channelId: string, channelType: number): Promise<WKChannel> => {
-        // 测试数据，实际可通过接口返回
-        WKLogger.error('获取channel资料', channelId, channelType + "")
-        let channel = new WKChannel(channelId, channelType)
-        if (channel.channelType === WKChannelType.personal) {
-          channel.channelName = `单聊${channelId}`
-          channel.channelRemark = `备注${channel.channelName}`
-        } else if (channel.channelType === WKChannelType.group) {
-          channel.channelName = `群${channelId}`
-        }
-
-        channel.avatar = `https://api.multiavatar.com/${channel.channelId}.png`
-        return channel
+      async (channelId: string, channelType: number): Promise<WKChannel | undefined> => {
+        HttpUtil.getChannelInfo(channelId, channelType)
+        return undefined
       }
     WKIM.shared.config.provider.syncReminderCallback = async (version: number): Promise<WKReminder[]> => {
       let list: WKReminder[] = []
@@ -87,15 +74,47 @@ export class IMUtil {
     WKIM.shared.connectionManager().connection()
 
   }
+
+  static initListener() {
+    WKIM.shared.cmdManager().addCmdListener(cmd => {
+      if (cmd?.cmd == 'messageRevoke') {
+        // 消息被撤回 同步扩展
+        let channelId = CommonUtil.readString(cmd.paramJsonObject!!, 'channel_id')
+        let channelType = CommonUtil.readNumber(cmd.paramJsonObject!!, 'channel_type')
+        WKLogger.error(`区同步消息扩展了${channelId}`)
+        if (channelId!==undefined) {
+          let version = WKIM.shared.messageManager().getMaxExtraVersion(channelId, channelType)
+          HttpUtil.syncMsgExtra(channelId, channelType, version)
+        }
+      } else if (cmd?.cmd == 'channelUpdate') {
+        // 频道(群/个人)资料修改
+        // sdk已处理该命令
+        // let channelId = CommonUtil.readString(cmd.paramJsonObject!!, 'channel_id')
+        // let channelType = CommonUtil.readNumber(cmd.paramJsonObject!!, 'channel_type')
+        // if (CommonUtil.strIsUnEmpty(channelId)) {
+        //   HttpUtil.getChannelInfo(channelId, channelType)
+        // }
+      } else if (cmd?.cmd == 'unreadClear') {
+        // 清空红点
+        // sdk已处理该命令
+        // let channelId = CommonUtil.readString(cmd.paramJsonObject!!, 'channel_id')
+        // let channelType = CommonUtil.readNumber(cmd.paramJsonObject!!, 'channel_type')
+        // let unread = CommonUtil.readNumber(cmd.paramJsonObject!!, 'unread')
+        // if (CommonUtil.strIsUnEmpty(channelId)) {
+        //   WKIM.shared.conversationManager().updateRedDot(channelId, channelType, unread)
+        // }
+      }
+    })
+  }
 }
 
 let syncConversationCallback = async (lastMsgSeqs: string, msgCount: number,
   version: number): Promise<WKSyncConversation> => {
-  WKLogger.error('同步最近会话')
   return await HttpUtil.syncConversation(lastMsgSeqs, msgCount, version)
 }
 
 let syncMessageCallback = async (channel: WKChannel, options: SyncOptions): Promise<WKSyncChannelMsg> => {
+  WKLogger.error('开始走网络了')
   return await HttpUtil.syncChannelMsg(channel.channelId, channel.channelType, options.startMessageSeq,
     options.endMessageSeq, options.limit, options.pullMode)
 }
@@ -118,12 +137,6 @@ let uploadAttachmentCallback = async (msg: WKMsg): Promise<[boolean, WKMsg]> => 
     let videoContent = msg.messageContent as WKVideoContent
     videoContent.url = 'xxxx'
     msg.messageContent = videoContent
-    return [true, msg]
-  } else if (msg.contentType === 17) {
-    // 上传自定义附件消息
-    let customerMsg = msg.messageContent as LocationMessageContent
-    customerMsg.url = 'https://img1.baidu.com/it/u=3362698628,1928330748&fm=253&fmt=auto&app=138&f=JPEG?w=390&h=308'
-    msg.messageContent = customerMsg
     return [true, msg]
   }
   return [true, msg]

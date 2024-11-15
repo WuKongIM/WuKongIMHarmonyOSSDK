@@ -48,7 +48,6 @@ export class WKDBHelper {
         let list = this.getSqlList(name.replaceAll('\n', ''))
         list.forEach((sql) => {
           try {
-            WKLogger.error(sql)
              this.getDB()?.executeSync(sql)
             if (v > tempMaxV) {
               tempMaxV = v

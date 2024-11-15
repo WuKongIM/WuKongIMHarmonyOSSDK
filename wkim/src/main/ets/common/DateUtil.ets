@@ -131,9 +131,7 @@ export class DateUtil {
 
   static getTimeToYYYYDDMMHHMMSS(str: number): string {
     let time: string = "";
-    console.log(str.toString())
     let date = new Date(str);
-    console.log(JSON.stringify(date))
     try {
       let year = date.getFullYear();
       let month = (date.getMonth() + 1) < 10 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1);
@@ -142,7 +140,6 @@ export class DateUtil {
       let min = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
       let second = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
       time = year + "-" + month + "-" + day + " " + hour + ":" + min + ":" + second;
-      console.log(date + "转换===>" + time);
     } catch (e) {
       console.info(`Failed to get currentTime. message: ${e.message}, code: ${e.code}`);
     }

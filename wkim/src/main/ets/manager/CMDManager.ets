@@ -1,8 +1,9 @@
 import { WKLogger } from '../common/WKLogger';
-import { WKChannel, WKChannelType, WKCMD } from '../entity/Bean';
+import { WKChannelType, WKCMD } from '../entity/Bean';
 import { CommonUtil } from '../common/CommonUtil';
 import { WKIM } from '../WKIM';
 import { DateUtil } from '../common/DateUtil';
+import { JSON } from '@kit.ArkTS';
 
 export type CmdListener = (cmd: WKCMD) => void
 
@@ -16,101 +17,113 @@ export class CMDManager {
   private cmdListeners: CmdListener[]
 
   handle(json: Record<string, Object>) {
-    let channelId = json['channel_id']
-    let channelType = json['channel_type']
-    if (channelId instanceof String && channelType instanceof Number) {
+    let channelId = CommonUtil.readString(json, 'channel_id')
+    let channelType = CommonUtil.readNumber(json, 'channel_type')
+    if (channelId !== undefined) {
       this.handleWithChannel(json, channelId.toString(), channelType.valueOf())
     } else {
-      WKLogger.error(`解析cmd错误,cmd数据：${json}`)
+      WKLogger.error(`解析cmd错误,cmd数据：${JSON.stringify(json)}`)
     }
   }
 
   async handleWithChannel(json: Record<string, Object>, channelId: string, channelType: number) {
-    if (this.cmdListeners.length === 0) {
-      WKLogger.error('未注册cmd事件')
-      return
-    }
-    let key = json['cmd']
-    if (CommonUtil.strIsEmpty(key)) {
+
+    let key = CommonUtil.readString(json, 'cmd')
+    if (key === undefined) {
       WKLogger.error(`处理cmd参数错误，cmd结构：${json}`)
       return
     }
-    let param = json['param']
+    let param = CommonUtil.readJson(json, 'param')
     let paramJson: Record<string, Object> = {}
-    if (param !== undefined && param !== null) {
+    if (param !== undefined) {
       paramJson = param as Record<string, Object>
-      let tempChannelId = paramJson['channel_id']
-      if (CommonUtil.strIsUnEmpty(channelId) && CommonUtil.strIsEmpty(tempChannelId)) {
+      let tempChannelId = CommonUtil.readString(paramJson, 'channel_id')
+      if (CommonUtil.strIsUnEmpty(channelId) && tempChannelId === undefined) {
         paramJson['channel_id'] = channelId
         paramJson['channel_type'] = channelType
       }
+    }else {
+      WKLogger.error('cmd的参数解析错误')
     }
     let cmd = new WKCMD(key.toString(), paramJson)
     switch (cmd.cmd) {
-      case 'syncMessageExtra': {
-        let channelId = paramJson['channel_id'] as string
-        let channelType = paramJson['channel_type'] as number
-        WKIM.shared.messageManager().syncRemoteExtra(new WKChannel(channelId, channelType))
-      }
       case 'syncConversationExtra': {
         WKIM.shared.conversationManager().syncExtra()
+        break
       }
       case 'channelUpdate': {
-        let channelId = paramJson['channel_id'] as string
-        let channelType = paramJson['channel_type'] as number
-        WKIM.shared.channelManager().fetchChannelInfo(channelId, channelType)
+        let channelId = CommonUtil.readString(paramJson, 'channel_id')
+        let channelType = CommonUtil.readNumber(paramJson, 'channel_type')
+        if (channelId !== undefined) {
+          WKIM.shared.channelManager().fetchChannelInfo(channelId, channelType)
+        }
+        break
       }
       case 'syncReminders': {
         WKIM.shared.reminderManager().sync()
+        break
       }
       case 'memberUpdate': {
         let groupNo = CommonUtil.readString(paramJson, 'group_no')
-        if (groupNo !== '') {
+        if (groupNo !== undefined) {
           WKIM.shared.channelMemberManager().sync(groupNo, WKChannelType.group)
         }
+        break
       }
       case 'unreadClear': {
         let channelId = CommonUtil.readString(paramJson, 'channel_id')
         let channelType = CommonUtil.readNumber(paramJson, 'channel_type')
         let unread = CommonUtil.readNumber(paramJson, 'unread')
-        if (channelId !== '') {
+        if (channelId !== undefined) {
           WKIM.shared.conversationManager().updateRedDot(channelId, channelType, unread)
         }
+        break
       }
       case 'onlineStatus': {
         let uid = CommonUtil.readString(paramJson, 'uid')
         let mainDeviceFlag = CommonUtil.readNumber(paramJson, 'main_device_flag')
         let allOffline = CommonUtil.readNumber(paramJson, 'all_offline')
         let online = allOffline == 1 ? 0 : 1
-        let channel = WKIM.shared.channelManager().getChannel(uid, WKChannelType.personal)
-        if (channel !== undefined) {
-          channel.online = online;
-          if (channel.online == 0) {
-            channel.lastOffline = DateUtil.getCurrentSeconds()
+        if (uid !== undefined) {
+          let channel = WKIM.shared.channelManager().getChannel(uid, WKChannelType.personal)
+          if (channel !== undefined) {
+            channel.online = online;
+            if (channel.online == 0) {
+              channel.lastOffline = DateUtil.getCurrentSeconds()
+            }
+            channel.deviceFlag = mainDeviceFlag
+            WKIM.shared.channelManager().addOrUpdate(channel)
           }
-          channel.deviceFlag = mainDeviceFlag
-          WKIM.shared.channelManager().addOrUpdate(channel)
         }
+        break
       }
       case 'conversationDelete': {
         let channelId = CommonUtil.readString(paramJson, 'channel_id')
         let channelType = CommonUtil.readNumber(paramJson, 'channel_type')
-        if (channelId !== '') {
+        if (channelId !== undefined) {
           WKIM.shared.conversationManager().delete(channelId, channelType)
         }
+        break
       }
       case 'userAvatarUpdate': {
         let uid = CommonUtil.readString(paramJson, 'uid')
-        if (uid !== '') {
+        if (uid !== undefined) {
           WKIM.shared.channelManager().setAvatarUpdated(uid, WKChannelType.personal)
         }
+        break
       }
       case 'groupAvatarUpdate': {
         let groupNo = CommonUtil.readString(paramJson, 'group_no')
-        if (groupNo !== '') {
+        if (groupNo !== undefined) {
           WKIM.shared.channelManager().setAvatarUpdated(groupNo, WKChannelType.group)
         }
+        break
       }
+    }
+
+    if (this.cmdListeners.length === 0) {
+      WKLogger.error('未注册cmd事件')
+      return
     }
     this.cmdListeners.forEach((back) => {
       back(cmd)

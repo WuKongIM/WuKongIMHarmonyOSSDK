@@ -54,8 +54,7 @@
     "BUILD_OPTION": {
       "default-default": {
         "debuggable": true,
-        "copyFrom": "default",
-        "resOptions": {}
+        "copyFrom": "default"
       }
     },
     "BUILD_PROFILE_OPT": {
@@ -104,8 +103,7 @@
     "BUILD_OPTION": {
       "default-default": {
         "debuggable": true,
-        "copyFrom": "default",
-        "resOptions": {}
+        "copyFrom": "default"
       }
     },
     "BUILD_PROFILE_OPT": {
@@ -179,7 +177,8 @@
     },
     "CONFIG_PROPERTIES": {
       "enableSignTask": true,
-      "skipNativeIncremental": false
+      "skipNativeIncremental": false,
+      "hvigor.keepDependency": true
     },
     "OVERALL_PROJECT_PATHS": [
       "/Users/songlun/Desktop/workspace/hmworkspace/wukongim"

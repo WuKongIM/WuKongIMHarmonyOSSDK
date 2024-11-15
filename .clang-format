@@ -30,6 +30,8 @@ SpacesInCStyleCastParentheses: false
 SpacesInConditionalStatement: false
 SpacesInParentheses: false
 SpacesInSquareBrackets: false
+AlignTrailingComments: true
+AlignAfterOpenBracket: true
 AllowShortCaseLabelsOnASingleLine: false
 AllowShortEnumsOnASingleLine: true
 AllowShortFunctionsOnASingleLine: All

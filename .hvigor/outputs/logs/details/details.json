@@ -1,79 +1,54 @@
 {
   "HVIGOR_OHOS_PLUGIN": {
-    "MODULE_CONFIG": [
+    "MODULES": [
       {
-        "MODULE_NAME": "entry",
-        "API_TYPE": "stageMode",
-        "TARGETS": [
-          {
-            "name": "default",
-            "runtimeOS": "HarmonyOS"
-          },
-          {
-            "name": "ohosTest",
-            "runtimeOS": "HarmonyOS"
-          }
-        ],
-        "DEVICE_TYPES": [
-          "phone",
-          "tablet"
-        ],
-        "AOT_COMPILE_MODE": "type"
+        "MODULE_NAME": "1043bfc77febe75fafec0c4309faccf1",
+        "API_TYPE": "stageMode"
       },
       {
-        "MODULE_NAME": "wkim",
+        "MODULE_NAME": "9c795491bcb264ace9d5411b0667e14e",
         "API_TYPE": "stageMode",
-        "TARGETS": [
-          {
-            "name": "default",
-            "runtimeOS": "HarmonyOS"
-          }
-        ],
-        "DEVICE_TYPES": [
-          "default",
-          "tablet"
-        ],
-        "AOT_COMPILE_MODE": "type"
+        "INCREMENTAL_TASKS": {
+          "COMPILE_ARKTS": false
+        }
       }
     ],
-    "PROJECT_CONFIG": {
-      "PRODUCTS": [
-        {
-          "NAME": "default",
-          "COMPATIBLE_SDK_VERSION": "4.1.0(11)",
-          "RUNTIMEOS": "HarmonyOS"
-        }
-      ],
-      "MODULES": [
-        {
-          "TARGETS": [
-            {
-              "NAME": "default"
-            }
-          ]
-        },
-        {
-          "TARGETS": []
-        }
-      ],
-      "BUILD_MODE": "release"
-    }
+    "BUILD_MODE": "release"
   },
-  "totalTime": 8579347053,
-  "moduleNum": 1,
-  "taskTime": {
-    "compileArkTS": 7704206513,
-    "buildArkTS": 0,
-    "compileJS": 0,
-    "buildJS": 0,
-    "compileResource": 145244457,
-    "packageHap": 0,
-    "signHap": 0
-  },
-  "isIncremental": true,
-  "hasIncremental": true,
-  "isParallel": true,
-  "IS_DAEMON": true,
-  "LOG_LEVEL": "INFO",
-  "IS_HVIGORFILE_TYPE_CHECK": false
+  "HVIGOR": {
+    "IS_INCREMENTAL": true,
+    "IS_DAEMON": true,
+    "IS_PARALLEL": true,
+    "IS_HVIGORFILE_TYPE_CHECK": false,
+    "TASK_TIME": {
+      "9c795491bcb264ace9d5411b0667e14e": {
+        "PreBuild": 272283934,
+        "ProcessOHPackageJson": 1678299,
+        "CreateHarBuildProfile": 1472818,
+        "CreateHarModuleInfo": 522470,
+        "ConfigureCmake": 262054,
+        "MergeProfile": 8870131,
+        "GeneratePkgContextInfo": 449219,
+        "ProcessIntegratedHsp": 735346,
+        "BuildNativeWithCmake": 306316,
+        "ProcessProfile": 185989178,
+        "ProcessRouterMap": 795784,
+        "BuildNativeWithNinja": 725853,
+        "ProcessResource": 1747251,
+        "GenerateLoaderJson": 16851473,
+        "CompileResource": 87892751,
+        "ProcessObfuscationFiles": 401735,
+        "ProcessLibs": 1075255818,
+        "DoNativeStrip": 25047166,
+        "CacheNativeLibs": 928651352,
+        "HarCompileArkTS": 10272374037,
+        "ProcessHarArtifacts": 117736152,
+        "PackageHar": 51146582,
+        "PackageSignHar": 1070526,
+        "assembleHar": 280302
+      }
+    },
+    "TOTAL_TIME": 11407854372,
+    "BUILD_ID": "202411151803337760"
+  }
 }

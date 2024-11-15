@@ -1,8 +1,10 @@
 import { promptAction, router } from '@kit.ArkUI';
 import { WKIM } from '@ohos/wkim';
+import { WKLogger } from '@ohos/wkim/src/main/ets/common/WKLogger';
 import {
   ChannelMsgOptions,
   WKChannel,
+  WKChannelType,
   WKMsg,
   WKMsgExtra,
   WKReply,
@@ -10,8 +12,11 @@ import {
   WKSendOptions
 } from '@ohos/wkim/src/main/ets/entity/Bean';
 import { WKTextContent } from '@ohos/wkim/src/main/ets/model/WKTextContent';
-import { LocationMessageContent, CardMessageContent } from '../msg/CustomerMsg';
+import { OrderMessageContent } from '../msg/OrderMsg';
+import { HttpUtil } from '../service/HttpUtil';
 import { IMUtil } from '../service/IMUtil';
+import systemDateTime from '@ohos.systemDateTime';
+import { UpdateGroupNameDialog } from '../view/UpdateGroupNameDialog';
 
 @Observed
 class ObservedArray<T> extends Array<T> {
@@ -29,7 +34,7 @@ export class UIMsg {
   msg: WKMsg
   status: number = 0
   avatarURL: string = ''
-  itemViewType: number = 0 // 0 发送 1.接受 2.loading
+  itemViewType: number = 0 // 0 发送 1.接受 2.loading 3.被撤回
   content = ''
   sendStatusIVURL = ''
 
@@ -50,8 +55,15 @@ export class UIMsg {
       } else {
         this.itemViewType = 1
       }
+      if (this.msg.remoteExtra?.revoke === 1) {
+        this.itemViewType = 3
+      }
       this.status = this.msg.status
-      this.avatarURL = `https://api.multiavatar.com/${msg.fromUID}.png`
+      if (msg.getFrom() !== undefined) {
+        this.avatarURL = `${HttpUtil.getURL()}/${msg.getFrom()?.avatar}`
+      } else {
+        this.avatarURL = 'imgs/ic_default_avatar.png'
+      }
       if (this.msg.messageContent !== undefined) {
         this.content = this.msg.messageContent?.displayText()
       }
@@ -68,12 +80,25 @@ struct Chat {
   @State sendContent: string = ''
   channel?: WKChannel
   @State list: ObservedArray<UIMsg> = []
+  @State menuData: string[] = []
   isRefresh = false
   isLoadMore = false
   canLoadMore = true
   canRefresh = true
   limit = 20
   scroller: Scroller = new Scroller()
+  dialog: CustomDialogController = new CustomDialogController({
+    builder: UpdateGroupNameDialog({
+      channelId: this.channelId,
+      channelType: this.channelType,
+    }),
+    cornerRadius: 5,
+    autoCancel: true,
+    alignment: DialogAlignment.Center,
+    customStyle: false,
+    offset: { dx: 0, dy: -20 },
+    gridCount: 3,
+  })
   refreshChannelListener = (channel: WKChannel) => {
     if (channel.channelType === this.channelType && channel.channelId === this.channelId) {
       this.channel = channel
@@ -92,7 +117,7 @@ struct Chat {
             this.list[i].sendStatusIVURL = 'imgs/loading.png'
           } else if (this.list[i].status === WKSendMsgResult.success) {
             this.list[i].sendStatusIVURL = 'imgs/success.png'
-          } else  {
+          } else {
             this.list[i].sendStatusIVURL = 'imgs/error.png'
           }
           break
@@ -133,12 +158,79 @@ struct Chat {
       extras.forEach((extra) => {
         for (let i = 0; i < this.list.length; i++) {
           if (this.list[i].msg.messageId === extra.messageId) {
+            if (extra.revoke === 1) {
+              // 这里UI未改变 fixme
+              this.list[i].itemViewType = 3
+            }
             this.list[i].msg.remoteExtra = extra
             break
           }
         }
       })
     }
+  }
+  clearChannelListener = (channelId: string, channelType: number) => {
+    if (channelId === this.channelId && channelType === this.channelType) {
+      this.list = []
+    }
+  }
+  deleteListener = (clientMsgNo: string) => {
+    for (let i = 0; i < this.list.length; i++) {
+      if (this.list[i].msg.clientMsgNo === clientMsgNo) {
+        this.list.splice(i, 1)
+        break
+      }
+    }
+  }
+
+  @Builder
+  MenuBuilder() {
+    Flex({ direction: FlexDirection.Column, justifyContent: FlexAlign.Center, alignItems: ItemAlign.Center }) {
+      ForEach(this.menuData, (item: string, index) => {
+        Column() {
+          Row() {
+            Text(item).fontSize(16).fontColor('#000')
+          }
+          .justifyContent(FlexAlign.Start)
+          .align(Alignment.Center)
+          .onClick(() => {
+            if (index === 0) {
+              AlertDialog.show(
+                {
+                  cornerRadius: 5,
+                  title: '清空聊天记录',
+                  message: '确定清空该频道的所有聊天记录吗？',
+                  autoCancel: true,
+                  alignment: DialogAlignment.Center,
+                  offset: { dx: 0, dy: -20 },
+                  gridCount: 3,
+                  primaryButton: {
+                    value: '取消',
+                    fontColor: '#ff7a7979',
+                    action: () => {
+                    }
+                  },
+                  secondaryButton: {
+                    value: '确定',
+                    action: () => {
+                      HttpUtil.clearChannelMsg(this.channelId, this.channelType)
+                    }
+                  }
+                }
+              )
+
+            } else {
+              this.dialog.open()
+            }
+          })
+        }.padding({
+          left: 10,
+          right: 10,
+          top: 15,
+          bottom: 15
+        })
+      })
+    }.width(130)
   }
 
   build() {
@@ -150,9 +242,20 @@ struct Chat {
         }).onClick(() => {
           router.back()
         })
-        Text(this.title).fontColor('#fff').fontSize(20).fontWeight(FontWeight.Bold)
-      }.expandSafeArea([SafeAreaType.SYSTEM, SafeAreaType.KEYBOARD], [SafeAreaEdge.TOP])
-      .width('100%').height('10%').backgroundColor('#ff3f91f6')
+        Text(this.title).fontColor('#fff').fontSize(20).fontWeight(FontWeight.Bold).layoutWeight(1)
+        Image('imgs/ic_more.png').width(25).height(25).margin({
+          left: 10, right: 10
+        }).bindMenu(this.MenuBuilder, {
+          borderRadius: 5,
+          transition: TransitionEffect.OPACITY.animation({ duration: 250 })
+            .combine(TransitionEffect.translate({ x: 10, y: -10, z: 10 }))
+        })
+      }
+      .expandSafeArea([SafeAreaType.SYSTEM, SafeAreaType.KEYBOARD])
+      .width('100%')
+      .height('10%')
+      .backgroundColor('#ff3f91f6')
+      .zIndex(999) // 关键代码2，可选
 
       List({ scroller: this.scroller }) {
         ForEach(this.list, (item: UIMsg) => {
@@ -160,9 +263,11 @@ struct Chat {
             if (item.itemViewType === 0) {
               SendView({ uiMsg: item })
             } else if (item.itemViewType === 1) {
-              RecvView({ uiMsg: item })
+              RecvView({ uiMsg: item }).width('80%')
             } else if (item.itemViewType === 2) {
               LoadingView()
+            } else if (item.itemViewType === 3) {
+              RevokedView()
             }
           }
         })
@@ -217,7 +322,6 @@ struct Chat {
           placeholder: '请输入内容',
           text: this.sendContent
         })
-          .width('40%')
           .placeholderColor('#999')
           .backgroundColor('#eee')
           .fontColor('#000')
@@ -225,7 +329,25 @@ struct Chat {
           .onChange((v) => {
             this.sendContent = v
           })
+          .layoutWeight(1)
           .fontWeight(1)
+        Button('自定义').fontSize(14).margin({
+          left: 10
+        }).onClick(() => {
+          let model = new OrderMessageContent()
+          model.orderNo = `${systemDateTime.getTime(false)}`
+          model.title = '新款MackBook Pro M3处理器'
+          model.num = 99
+          model.price = 98877
+          model.imgUrl = 'https://img0.baidu.com/it/u=188409901,3824570996&fm=253&fmt=auto&app=120&f=JPEG?w=889&h=500'
+
+          let channel = this.channel
+          if (channel === undefined) {
+            channel = new WKChannel(this.channelId, this.channelType)
+          }
+          let option = new WKSendOptions()
+          WKIM.shared.messageManager().sendWithOption(model, channel, option)
+        })
         Button('发送').margin({
           left: 10,
           right: 10
@@ -240,8 +362,8 @@ struct Chat {
           }
 
           let textModel: WKTextContent = new WKTextContent(this.sendContent)
-          textModel.reply  =new WKReply()
-          textModel.reply.messageId =''
+          textModel.reply = new WKReply()
+          textModel.reply.messageId = ''
           let channel = this.channel
           if (channel === undefined) {
             channel = new WKChannel(this.channelId, this.channelType)
@@ -257,38 +379,22 @@ struct Chat {
           WKIM.shared.messageManager().sendWithOption(textModel, channel, option)
           this.sendContent = ''
         })
-        Button('自定义').fontSize(14).onClick(() => {
 
-          let model = new CardMessageContent()
-          model.uid = '11'
-          model.name = '悟空IM'
-          let channel = this.channel
-          if (channel === undefined) {
-            channel = new WKChannel(this.channelId, this.channelType)
-          }
-          let option = new WKSendOptions()
-          WKIM.shared.messageManager().sendWithOption(model, channel, option)
-        })
-        Button('附件').margin({ left: 10, right: 10 }).fontSize(14).onClick(() => {
-          let model = new LocationMessageContent()
-          model.address = '上海市浦东新区'
-          let channel = this.channel
-          if (channel === undefined) {
-            channel = new WKChannel(this.channelId, this.channelType)
-          }
-          let option = new WKSendOptions()
-          option.setting.receipt = 1 // 开回执
-          WKIM.shared.messageManager().sendWithOption(model, channel, option)
-        })
+
       }.backgroundColor('#f6f6f6').width('100%').padding(10)
-    }
+    }.expandSafeArea([SafeAreaType.SYSTEM])
     .height('100%')
   }
 
-  getOrSyncMessages(pullModel: number, orderSeq: number) {
+  getOrSyncMessages(pullModel:
+    number, orderSeq:
+    number
+  ) {
     let option = new ChannelMsgOptions(() => {
       // 消息同步中
+      WKLogger.error('消息同步中')
     }, (list) => {
+      WKLogger.error(`返回结果：${list.length}`)
       this.isRefresh = false
       this.isLoadMore = false
       for (let i = 0; i < this.list.length; i++) {
@@ -350,13 +456,34 @@ struct Chat {
     WKIM.shared.messageManager().addRefreshListener(this.refreshMsgListener)
     // 监听刷新扩展
     WKIM.shared.messageManager().addRefreshExtraListener(this.refreshExtrasListener)
+    // 监听清空聊天消息
+    WKIM.shared.messageManager().addClearChannelMsgListener(this.clearChannelListener)
+    // 监听删除消息
+    WKIM.shared.messageManager().addDeletedListener(this.deleteListener)
   }
 
-  aboutToAppear(): void {
-    this.listener()
-    this.channel = WKIM.shared.channelManager().getChannel(this.channelId, this.channelType)
-    if (this.channel !== undefined) {
-      this.title = this.channel.channelName
+  aboutToAppear():
+    void {
+    this
+      .listener()
+    this
+      .channel = WKIM.shared.channelManager().getChannel(this.channelId, this.channelType)
+    if
+    (
+      this
+        .channel
+        !==
+        undefined
+    ) {
+      this
+        .title = this.channel.channelName
+    }
+
+    this.canLoadMore = true
+    this.canRefresh = true
+    this.menuData.push('清空聊天记录')
+    if (this.channelType === WKChannelType.group) {
+      this.menuData.push('修改群名称')
     }
     this.getOrSyncMessages(0, 0)
   }
@@ -372,6 +499,8 @@ struct Chat {
     WKIM.shared.messageManager().removeNewMsgListener(this.newMsgsListener)
     // 移除刷新channel监听
     WKIM.shared.channelManager().removeRefreshListener(this.refreshChannelListener)
+    // 移出删除
+    WKIM.shared.messageManager().removeDeletedListener(this.deleteListener)
   }
 }
 
@@ -379,54 +508,128 @@ struct Chat {
 export default struct SendView {
   @ObjectLink uiMsg: UIMsg
 
-  getUid() {
-    let msg = this.uiMsg.msg.messageContent as CardMessageContent
-    return msg.uid
-  }
-
-  getName() {
-    let msg = this.uiMsg.msg.messageContent as CardMessageContent
-    return msg.name
-  }
-
   getColorBG() {
-    if (this.uiMsg.msg.contentType === 16) {
-      return '#ffc8a804'
-    } else if (this.uiMsg.msg.contentType === 17) {
-      return '#ffd410ea'
+    if (this.uiMsg.msg.contentType === 56) {
+      return '#ff40b317'
     }
     return '#ff075cdb'
   }
 
-  getAddressUrl() {
-    let msg = this.uiMsg.msg.messageContent as LocationMessageContent
-    return msg.url
+  getMenuData(): string[] {
+    let menuData: string[] = []
+    menuData.push('删除消息')
+    if (this.uiMsg.msg.messageSeq > 0) {
+      menuData.push('撤回消息')
+    }
+    return menuData
   }
 
-  getAddress() {
-    let msg = this.uiMsg.msg.messageContent as LocationMessageContent
-    return msg.address
+  getOrderContent(): OrderMessageContent {
+    return this.uiMsg.msg.messageContent as OrderMessageContent
+  }
+
+  @Builder
+  MsgMenuBuilder() {
+    Flex({ direction: FlexDirection.Column, justifyContent: FlexAlign.Center, alignItems: ItemAlign.Center }) {
+      ForEach(this.getMenuData(), (item: string, index) => {
+        Column() {
+          Row() {
+            Text(item).fontSize(16).fontColor('#000')
+          }
+          .justifyContent(FlexAlign.Start)
+          .align(Alignment.Center)
+          .onClick(() => {
+            if (index === 0) {
+              AlertDialog.show(
+                {
+                  cornerRadius: 5,
+                  title: '删除消息',
+                  message: '确定要删除该消息吗？',
+                  autoCancel: true,
+                  alignment: DialogAlignment.Center,
+                  offset: { dx: 0, dy: -20 },
+                  gridCount: 3,
+                  primaryButton: {
+                    value: '取消',
+                    fontColor: '#ff7a7979',
+                    action: () => {
+                    }
+                  },
+                  secondaryButton: {
+                    value: '确定',
+                    action: () => {
+                      HttpUtil.deleteMsg(this.uiMsg.msg.channelId, this.uiMsg.msg.channelType,
+                        this.uiMsg.msg.clientMsgNo, this.uiMsg.msg.messageSeq, this.uiMsg.msg.messageId)
+                    }
+                  }
+                }
+              )
+
+            } else {
+              HttpUtil.revokeMsg(this.uiMsg.msg.channelId, this.uiMsg.msg.channelType, this.uiMsg.msg.clientMsgNo,
+                this.uiMsg.msg.messageSeq, this.uiMsg.msg.messageId)
+            }
+          })
+        }.padding({
+          left: 10,
+          right: 10,
+          top: 15,
+          bottom: 15
+        })
+      })
+    }.width(130)
   }
 
   build() {
     Row() {
       Row() {
         Column() {
-          if (this.uiMsg.msg.contentType === 16) {
-            Text(`uid:${this.getUid()}`)
-              .fontSize(14)
-              .fontColor('#fff')
-              .padding(10)
-            Text(`名字:${this.getName()}`)
-              .fontSize(14)
-              .fontColor('#fff32727')
-              .padding(10)
-          } else if (this.uiMsg.msg.contentType === 17) {
-            Image(this.getAddressUrl()).width(200).height(150)
-            Text(`地址:${this.getAddress()}`)
-              .fontSize(14)
-              .fontColor('#fffaf9f9')
-              .padding(10)
+          if (this.uiMsg.msg.contentType === 56) {
+            Column() {
+              Text(`订单号:${this.getOrderContent().orderNo}`)
+                .fontSize(14)
+                .fontColor('#fff')
+                .margin({
+                  left: 10,
+                  top: 10,
+                  bottom: 10,
+                  right: 10
+                }).align(Alignment.Start)
+              Row() {
+                Image(this.getOrderContent().imgUrl)
+                  .width(80)
+                  .height(80)
+                  .objectFit(ImageFit.Cover)
+                  .align(Alignment.Start)
+                  .margin({
+                    left: 10
+                  })
+                Column() {
+                  Text(`${this.getOrderContent().title}`)
+                    .fontSize(14)
+                    .fontColor('#fff')
+                    .width('60%')
+                    .margin({
+                      left: 10, right: 10
+                    })
+                    .align(Alignment.Start)
+                    .fontWeight(FontWeight.Bold)
+                  Row() {
+                    Text(`\$${this.getOrderContent().price}`)
+                      .fontSize(14)
+                      .fontColor('#fff')
+                      .padding(10)
+                      .fontWeight(FontWeight.Bold)
+                    Text(`共${this.getOrderContent().num}件`)
+                      .fontSize(14)
+                      .fontColor('#fff')
+                      .padding(10)
+                      .fontWeight(FontWeight.Bold)
+                  }
+                }
+              }
+            }
+
           } else {
             Text(this.uiMsg.content)
               .fontSize(14)
@@ -435,8 +638,14 @@ export default struct SendView {
           }
 
           Image(this.uiMsg.sendStatusIVURL).width(20).height(20)
-        }.alignItems(HorizontalAlign.End).backgroundColor(this.getColorBG()).margin({
+        }
+        .alignItems(HorizontalAlign.End)
+        .backgroundColor(this.getColorBG())
+        .margin({
           left: 60
+        })
+        .bindContextMenu(this.MsgMenuBuilder, ResponseType.LongPress, {
+          borderRadius: 5
         })
       }.layoutWeight(1).justifyContent(FlexAlign.End)
 
@@ -451,15 +660,122 @@ export default struct SendView {
 export struct RecvView {
   @ObjectLink uiMsg: UIMsg
 
+  getMenuData(): string[] {
+    let menuData: string[] = []
+    menuData.push('删除消息')
+
+    return menuData
+  }
+
+  @Builder
+  MsgMenuBuilder() {
+    Flex({ direction: FlexDirection.Column, justifyContent: FlexAlign.Center, alignItems: ItemAlign.Center }) {
+      ForEach(this.getMenuData(), (item: string, index) => {
+        Column() {
+          Row() {
+            Text(item).fontSize(16).fontColor('#000')
+          }
+          .justifyContent(FlexAlign.Start)
+          .align(Alignment.Center)
+          .onClick(() => {
+            if (index === 0) {
+              AlertDialog.show(
+                {
+                  cornerRadius: 5,
+                  title: '删除消息',
+                  message: '确定要删除该消息吗？',
+                  autoCancel: true,
+                  alignment: DialogAlignment.Center,
+                  offset: { dx: 0, dy: -20 },
+                  gridCount: 3,
+                  primaryButton: {
+                    value: '取消',
+                    fontColor: '#ff7a7979',
+                    action: () => {
+                    }
+                  },
+                  secondaryButton: {
+                    value: '确定',
+                    action: () => {
+                      HttpUtil.deleteMsg(this.uiMsg.msg.channelId, this.uiMsg.msg.channelType,
+                        this.uiMsg.msg.clientMsgNo, this.uiMsg.msg.messageSeq, this.uiMsg.msg.messageId)
+                    }
+                  }
+                }
+              )
+
+            }
+          })
+        }.padding({
+          left: 10,
+          right: 10,
+          top: 15,
+          bottom: 15
+        })
+      })
+    }.width(130)
+  }
+
+  getOrderContent(): OrderMessageContent {
+    return this.uiMsg.msg.messageContent as OrderMessageContent
+  }
+
   build() {
     Row() {
       Image(this.uiMsg.avatarURL).width(40).height(40).margin({ right: 10, left: 10 })
-      Text(this.uiMsg.content)
-        .fontSize(14)
-        .fontColor('#000')
-        .padding(10)
-        .backgroundColor('#fff')
-        .margin({ right: 60 })
+      if (this.uiMsg.msg.contentType === 56) {
+        Column() {
+          Text(`订单号:${this.getOrderContent().orderNo}`)
+            .fontSize(14)
+            .fontColor('#fff').margin({
+            bottom: 10
+          })
+            .align(Alignment.Start)
+          Row() {
+            Image(this.getOrderContent().imgUrl)
+              .width(80)
+              .height(80)
+              .objectFit(ImageFit.Cover)
+              .align(Alignment.Start)
+
+            Column() {
+              Text(`${this.getOrderContent().title}`)
+                .fontSize(14)
+                .fontColor('#fff')
+                .margin({
+                  left: 10, right: 10
+                })
+                .width('60%')
+                .align(Alignment.Start)
+                .fontWeight(FontWeight.Bold)
+              Row() {
+                Text(`\$${this.getOrderContent().price}`)
+                  .fontSize(14)
+                  .fontColor('#fff')
+                  .padding(10)
+                  .fontWeight(FontWeight.Bold)
+                Text(`共${this.getOrderContent().num}件`)
+                  .fontSize(14)
+                  .fontColor('#fff')
+                  .padding(10)
+                  .fontWeight(FontWeight.Bold)
+              }
+            }
+          }
+        }.backgroundColor('#ff038f84').padding(10).bindContextMenu(this.MsgMenuBuilder, ResponseType.LongPress, {
+          borderRadius: 5
+        })
+      } else {
+        Text(this.uiMsg.content)
+          .fontSize(14)
+          .fontColor('#000')
+          .padding(10)
+          .backgroundColor('#fff')
+          .margin({ right: 60 })
+          .bindContextMenu(this.MsgMenuBuilder, ResponseType.LongPress, {
+            borderRadius: 5
+          })
+      }
     }.margin({
       top: 10,
       right: 60
@@ -479,3 +795,16 @@ export struct LoadingView {
     })
   }
 }
+
+@Component
+export struct RevokedView {
+  build() {
+    Row() {
+      Text('消息已被撤回').fontSize(16).fontColor('#000').fontWeight(FontWeight.Bold)
+    }.width('100%').justifyContent(FlexAlign.Center).margin({
+      top: 10,
+      bottom: 10
+    })
+  }
+}
+

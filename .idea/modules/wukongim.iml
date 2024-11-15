@@ -18,27 +18,33 @@
       <excludeFolder url="file://$MODULE_DIR$/../../wkim/.test" />
       <excludeFolder url="file://$MODULE_DIR$/../../wkim/.preview" />
       <excludeFolder url="file://$MODULE_DIR$/../../wkim/oh_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/../../.arkui-x/android/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../.arkui-x/android/app/.cxx" />
+      <excludeFolder url="file://$MODULE_DIR$/../../.arkui-x/android/app/build" />
+      <excludeFolder url="file://$MODULE_DIR$/../../.arkui-x/android/library/.cxx" />
+      <excludeFolder url="file://$MODULE_DIR$/../../.arkui-x/android/library/build" />
+      <excludeFolder url="file://$MODULE_DIR$/../../.arkui-x/ios/build" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library" exported="" scope="PROVIDED">
-      <library name="ArkTS-HarmonyOS-NEXT-DB2(openharmony)" type="ArkUI">
+      <library name="ArkTS-HarmonyOS-5.0.0(hms)" type="ArkUI">
         <CLASSES />
         <JAVADOC />
         <SOURCES>
-          <root url="file://$APPLICATION_HOME_DIR$/sdk/HarmonyOS-NEXT-DB2/openharmony/ets/api" />
-          <root url="file://$APPLICATION_HOME_DIR$/sdk/HarmonyOS-NEXT-DB2/openharmony/ets/component" />
-          <root url="file://$APPLICATION_HOME_DIR$/sdk/HarmonyOS-NEXT-DB2/openharmony/ets/kits" />
-          <root url="file://$APPLICATION_HOME_DIR$/sdk/HarmonyOS-NEXT-DB2/openharmony/ets/arkts" />
+          <root url="file://$APPLICATION_HOME_DIR$/sdk/default/hms/ets/api" />
+          <root url="file://$APPLICATION_HOME_DIR$/sdk/default/hms/ets/kits" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" exported="" scope="PROVIDED">
-      <library name="ArkTS-HarmonyOS-NEXT-DB2(hms)" type="ArkUI">
+      <library name="ArkTS-HarmonyOS-5.0.0(openharmony)" type="ArkUI">
         <CLASSES />
         <JAVADOC />
         <SOURCES>
-          <root url="file://$APPLICATION_HOME_DIR$/sdk/HarmonyOS-NEXT-DB2/hms/ets/api" />
-          <root url="file://$APPLICATION_HOME_DIR$/sdk/HarmonyOS-NEXT-DB2/hms/ets/kits" />
+          <root url="file://$APPLICATION_HOME_DIR$/sdk/default/openharmony/ets/api" />
+          <root url="file://$APPLICATION_HOME_DIR$/sdk/default/openharmony/ets/component" />
+          <root url="file://$APPLICATION_HOME_DIR$/sdk/default/openharmony/ets/kits" />
+          <root url="file://$APPLICATION_HOME_DIR$/sdk/default/openharmony/ets/arkts" />
         </SOURCES>
       </library>
     </orderEntry>

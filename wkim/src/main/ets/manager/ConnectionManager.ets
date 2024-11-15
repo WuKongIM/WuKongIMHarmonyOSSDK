@@ -291,7 +291,6 @@ export class ConnectionManager {
       }
     } else if (packet.header.packetType === WKPacketType.recv) {
       let recvPacket = packet as WKRecvPacket
-      WKLogger.error(`收到的消息seq${recvPacket.messageSeq}`)
       this.verifyRecvMsg(recvPacket)
       if (!recvPacket.header.noPersist) {
         this.sendRecvAckPacket(

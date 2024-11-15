@@ -32,14 +32,14 @@ export class WKVideoContent extends WKMediaMessageContent {
   decodeJson(jsonStr: string): WKMessageContent {
     let json = CommonUtil.jsonToRecord(jsonStr)
     if (json !== undefined) {
-      this.cover = CommonUtil.readString(json, 'cover')
-      this.coverLocalPath = CommonUtil.readString(json, 'coverLocalPath')
+      this.cover = CommonUtil.readString(json, 'cover') ?? ''
+      this.coverLocalPath = CommonUtil.readString(json, 'coverLocalPath') ?? ''
       this.second = CommonUtil.readNumber(json, 'second')
       this.size = CommonUtil.readNumber(json, 'size')
       this.width = CommonUtil.readNumber(json, 'width')
       this.height = CommonUtil.readNumber(json, 'height')
-      this.localPath = CommonUtil.readString(json, 'localPath')
-      this.url = CommonUtil.readString(json, 'url')
+      this.localPath = CommonUtil.readString(json, 'localPath') ?? ''
+      this.url = CommonUtil.readString(json, 'url') ?? ''
     }
     return this
   }

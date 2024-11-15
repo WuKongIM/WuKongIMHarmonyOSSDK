@@ -1,5 +1,6 @@
 import { relationalStore } from '@kit.ArkData';
 import { StringBuilder } from '../common/StringBuilder';
+import { WKLogger } from '../common/WKLogger';
 
 export class WKDBConst {
   static readonly tableMessage = 'message';
@@ -14,23 +15,31 @@ export class WKDBConst {
   static readonly tableRobotMenu = 'robot_menu';
 
   static getString(resultSet: relationalStore.ResultSet, key: string): string {
-    let index = resultSet.getColumnIndex(key)
-    if (index >= 0) {
-      return resultSet.getString(index)
+    try {
+      let index = resultSet.getColumnIndex(key)
+      if (index >= 0) {
+        return resultSet.getString(index)
+      }
+    } catch (e) {
+      return ''
     }
     return ''
   }
 
   static getNumber(resultSet: relationalStore.ResultSet, key: string): number {
-    let index = resultSet.getColumnIndex(key)
-    if (index >= 0) {
-      return resultSet.getLong(index)
+    try {
+      let index = resultSet.getColumnIndex(key)
+      if (index >= 0) {
+        return resultSet.getLong(index)
+      }
+    } catch (e) {
+      return 0
     }
     return 0
   }
 
 
-  static getPlaceholders(count: number):string {
+  static getPlaceholders(count: number): string {
     let sb = new StringBuilder()
     for (let i = 0; i < count; i++) {
       if (i != 0) {

@@ -4,17 +4,14 @@ import window from '@ohos.window';
 import AbilityConstant from '@ohos.app.ability.AbilityConstant';
 import Want from '@ohos.app.ability.Want';
 import { WKIM } from '@ohos/wkim';
-import { LocationMessageContent, CardMessageContent } from '../msg/CustomerMsg';
+import { OrderMessageContent } from '../msg/OrderMsg';
 
 export default class EntryAbility extends UIAbility {
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
     console.error('onCreate创建')
     // 注册自定义消息
-    WKIM.shared.messageManager().registerMsgContent(16, (jsonStr: string) => {
-      return new CardMessageContent().decodeJson(jsonStr)
-    })
-    WKIM.shared.messageManager().registerMsgContent(17, (jsonStr: string) => {
-      return new LocationMessageContent().decodeJson(jsonStr)
+    WKIM.shared.messageManager().registerMsgContent(56, (jsonStr: string) => {
+      return new OrderMessageContent().decodeJson(jsonStr)
     })
   }
 

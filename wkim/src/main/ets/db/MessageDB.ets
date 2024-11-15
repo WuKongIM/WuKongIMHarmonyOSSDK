@@ -38,25 +38,25 @@ export class MessageDB {
     let args: Array<relationalStore.ValueType> = []
     if (oldestOrderSeq <= 0) {
       sql =
-        `SELECT * FROM (SELECT ${this.messageCols},${this.extraCols} FROM ${WKDBConst.tableMessage} LEFT JOIN ${WKDBConst.tableMessageExtra} on ${WKDBConst.tableMessageExtra}.message_id=${WKDBConst.tableMessageExtra}.message_id WHERE ${WKDBConst.tableMessage}.channel_id=? and ${WKDBConst.tableMessage}.channel_type=? and ${WKDBConst.tableMessage}.type<>0 and ${WKDBConst.tableMessage}.type<>99) where is_deleted=0 and is_mutual_deleted=0 order by order_seq desc limit 0,${limit}`
+        `SELECT * FROM (SELECT ${this.messageCols},${this.extraCols} FROM ${WKDBConst.tableMessage} LEFT JOIN ${WKDBConst.tableMessageExtra} on ${WKDBConst.tableMessage}.message_id=${WKDBConst.tableMessageExtra}.message_id WHERE ${WKDBConst.tableMessage}.channel_id=? and ${WKDBConst.tableMessage}.channel_type=? and ${WKDBConst.tableMessage}.type<>0 and ${WKDBConst.tableMessage}.type<>99) where is_deleted=0 and is_mutual_deleted=0 order by order_seq desc limit 0,${limit}`
       args.push(channelId)
       args.push(channelType)
     } else {
       if (pullMode === 0) {
         if (contain) {
           sql =
-            `SELECT * FROM (SELECT ${this.messageCols},${this.extraCols} FROM ${WKDBConst.tableMessage} LEFT JOIN ${WKDBConst.tableMessageExtra} on ${WKDBConst.tableMessageExtra}.message_id=${WKDBConst.tableMessageExtra}.message_id WHERE ${WKDBConst.tableMessage}.channel_id=? and ${WKDBConst.tableMessage}.channel_type=? and ${WKDBConst.tableMessage}.type<>0 and ${WKDBConst.tableMessage}.type<>99 AND ${WKDBConst.tableMessage}.order_seq<=?) where is_deleted=0 and is_mutual_deleted=0 order by order_seq desc limit 0,${limit}`
+            `SELECT * FROM (SELECT ${this.messageCols},${this.extraCols} FROM ${WKDBConst.tableMessage} LEFT JOIN ${WKDBConst.tableMessageExtra} on ${WKDBConst.tableMessage}.message_id=${WKDBConst.tableMessageExtra}.message_id WHERE ${WKDBConst.tableMessage}.channel_id=? and ${WKDBConst.tableMessage}.channel_type=? and ${WKDBConst.tableMessage}.type<>0 and ${WKDBConst.tableMessage}.type<>99 AND ${WKDBConst.tableMessage}.order_seq<=?) where is_deleted=0 and is_mutual_deleted=0 order by order_seq desc limit 0,${limit}`
         } else {
           sql =
-            `SELECT * FROM (SELECT ${this.messageCols},${this.extraCols} FROM ${WKDBConst.tableMessage} LEFT JOIN ${WKDBConst.tableMessageExtra} on ${WKDBConst.tableMessageExtra}.message_id=${WKDBConst.tableMessageExtra}.message_id WHERE ${WKDBConst.tableMessage}.channel_id=? and ${WKDBConst.tableMessage}.channel_type=? and ${WKDBConst.tableMessage}.type<>0 and ${WKDBConst.tableMessage}.type<>99 AND ${WKDBConst.tableMessage}.order_seq<?) where is_deleted=0 and is_mutual_deleted=0 order by order_seq desc limit 0,${limit}`
+            `SELECT * FROM (SELECT ${this.messageCols},${this.extraCols} FROM ${WKDBConst.tableMessage} LEFT JOIN ${WKDBConst.tableMessageExtra} on ${WKDBConst.tableMessage}.message_id=${WKDBConst.tableMessageExtra}.message_id WHERE ${WKDBConst.tableMessage}.channel_id=? and ${WKDBConst.tableMessage}.channel_type=? and ${WKDBConst.tableMessage}.type<>0 and ${WKDBConst.tableMessage}.type<>99 AND ${WKDBConst.tableMessage}.order_seq<?) where is_deleted=0 and is_mutual_deleted=0 order by order_seq desc limit 0,${limit}`
         }
       } else {
         if (contain) {
           sql =
-            `SELECT * FROM (SELECT ${this.messageCols},${this.extraCols} FROM ${WKDBConst.tableMessage} LEFT JOIN ${WKDBConst.tableMessageExtra} on ${WKDBConst.tableMessageExtra}.message_id=${WKDBConst.tableMessageExtra}.message_id WHERE ${WKDBConst.tableMessage}.channel_id=? and ${WKDBConst.tableMessage}.channel_type=? and ${WKDBConst.tableMessage}.type<>0 and ${WKDBConst.tableMessage}.type<>99 AND ${WKDBConst.tableMessage}.order_seq>=?) where is_deleted=0 and is_mutual_deleted=0 order by order_seq desc limit 0,${limit}`
+            `SELECT * FROM (SELECT ${this.messageCols},${this.extraCols} FROM ${WKDBConst.tableMessage} LEFT JOIN ${WKDBConst.tableMessageExtra} on ${WKDBConst.tableMessage}.message_id=${WKDBConst.tableMessageExtra}.message_id WHERE ${WKDBConst.tableMessage}.channel_id=? and ${WKDBConst.tableMessage}.channel_type=? and ${WKDBConst.tableMessage}.type<>0 and ${WKDBConst.tableMessage}.type<>99 AND ${WKDBConst.tableMessage}.order_seq>=?) where is_deleted=0 and is_mutual_deleted=0 order by order_seq desc limit 0,${limit}`
         } else {
           sql =
-            `SELECT * FROM (SELECT ${this.messageCols},${this.extraCols} FROM ${WKDBConst.tableMessage} LEFT JOIN ${WKDBConst.tableMessageExtra} on ${WKDBConst.tableMessageExtra}.message_id=${WKDBConst.tableMessageExtra}.message_id WHERE ${WKDBConst.tableMessage}.channel_id=? and ${WKDBConst.tableMessage}.channel_type=? and ${WKDBConst.tableMessage}.type<>0 and ${WKDBConst.tableMessage}.type<>99 AND ${WKDBConst.tableMessage}.order_seq>?) where is_deleted=0 and is_mutual_deleted=0 order by order_seq desc limit 0,${limit}`
+            `SELECT * FROM (SELECT ${this.messageCols},${this.extraCols} FROM ${WKDBConst.tableMessage} LEFT JOIN ${WKDBConst.tableMessageExtra} on ${WKDBConst.tableMessage}.message_id=${WKDBConst.tableMessageExtra}.message_id WHERE ${WKDBConst.tableMessage}.channel_id=? and ${WKDBConst.tableMessage}.channel_type=? and ${WKDBConst.tableMessage}.type<>0 and ${WKDBConst.tableMessage}.type<>99 AND ${WKDBConst.tableMessage}.order_seq>?) where is_deleted=0 and is_mutual_deleted=0 order by order_seq desc limit 0,${limit}`
         }
       }
       args.push(channelId)
@@ -701,7 +701,8 @@ export class MessageDB {
           relationalStore.ConflictResolution.ON_CONFLICT_REPLACE)
       })
     } catch (e) {
-      WKLogger.error('批量插入消息错误', this.tag, 'inserts', e)
+      WKLogger.error(e)
+      WKLogger.error('批量插入消息错误 ', this.tag, ' inserts', e)
     } finally {
       WKDBHelper.shared.getDB()?.commit()
     }
@@ -793,6 +794,24 @@ export class MessageDB {
     } catch (e) {
       WKLogger.error(`查询最大orderSeq错误，`, this.tag, 'queryMaxMessageOrderSeqWithChannel', e.message)
       return orderSeq
+    } finally {
+      resultSet?.close()
+    }
+  }
+
+  queryMaxMessageSeqWithChannel(channelId: string, channelType: number) {
+    let sql = `SELECT max(message_seq) message_seq FROM ${WKDBConst.tableMessage} WHERE channel_id=? AND channel_type=?`
+    let messageSeq = 0
+    let resultSet: relationalStore.ResultSet | undefined
+    try {
+      resultSet = WKDBHelper.shared.getDB()?.querySqlSync(sql, [channelId, channelType])
+      if (resultSet?.goToNextRow()) {
+        messageSeq = WKDBConst.getNumber(resultSet, 'message_seq')
+      }
+      return messageSeq
+    } catch (e) {
+      WKLogger.error(`查询最大messageSeq错误，`, this.tag, ' queryMaxMessageSeqWithChannel', e.message)
+      return messageSeq
     } finally {
       resultSet?.close()
     }
@@ -892,6 +911,7 @@ export class MessageDB {
   }
 
   serializeMsgExtra(result: relationalStore.ResultSet): WKMsgExtra {
+
     let extra = new WKMsgExtra()
     extra.messageId = WKDBConst.getString(result, 'message_id')
     extra.channelId = WKDBConst.getString(result, 'channel_id')
@@ -900,6 +920,7 @@ export class MessageDB {
     extra.readedCount = WKDBConst.getNumber(result, 'readed_count')
     extra.unreadCount = WKDBConst.getNumber(result, 'unread_count')
     extra.revoke = WKDBConst.getNumber(result, 'revoke')
+    WKLogger.error(`是否撤回:${extra.revoke}`)
     extra.revoker = WKDBConst.getString(result, 'revoker')
     extra.isMutualDeleted = WKDBConst.getNumber(result, 'is_mutual_deleted')
     extra.extraVersion = WKDBConst.getNumber(result, 'extra_version')

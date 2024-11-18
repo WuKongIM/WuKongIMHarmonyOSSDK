@@ -12936,3 +12936,142 @@ at /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/inte
 [2024-11-15T18:03:45.268] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
 [2024-11-15T18:03:45.275] [DEBUG] debug-file - worker[9] exits with exit code 1.
 [2024-11-15T18:03:45.279] [DEBUG] debug-file - worker[10] exits with exit code 1.
+[2024-11-18T21:25:23.956] [DEBUG] debug-file - env: nodejsVersion=v18.20.1
+[2024-11-18T21:25:24.026] [DEBUG] debug-file - env: daemon=true
+[2024-11-18T21:25:23.961] [DEBUG] debug-file - env: hvigor-config.json5 content = { modelVersion: '5.0.0', dependencies: {} }
+[2024-11-18T21:25:24.863] [DEBUG] debug-file - hvigor start cli arguments:{
+  prop: [ 'product=default' ],
+  sync: true,
+  parallel: true,
+  incremental: true,
+  daemon: true,
+  _: [ '--analyze=normal' ]
+}
+[2024-11-18T21:25:24.850] [DEBUG] debug-file - java daemon tryConnect failed Error: connect ECONNREFUSED 127.0.0.1:45050
+[2024-11-18T21:25:24.864] [DEBUG] debug-file - java daemon started at port 45050 pid 3351
+[2024-11-18T21:25:24.918] [DEBUG] debug-file - session manager: set active socket. socketId=rwqjdLpYnjYOcABTAAAB
+[2024-11-18T21:25:25.927] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2024-11-18T21:25:25.963] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: true,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' }
+}
+[2024-11-18T21:25:25.979] [DEBUG] debug-file - Cache service initialization finished in 16 ms 
+[2024-11-18T21:25:25.997] [DEBUG] debug-file - hvigorfile, resolving /Users/songlun/Desktop/workspace/hmworkspace/wukongim/hvigorfile.ts
+[2024-11-18T21:25:28.936] [DEBUG] debug-file - hvigorfile, require result:  {}
+[2024-11-18T21:25:28.937] [DEBUG] debug-file - hvigorfile, binding system plugins {}
+[2024-11-18T21:25:29.278] [DEBUG] debug-file - Start initialize project's product build option map with build mode debug.
+[2024-11-18T21:25:29.278] [DEBUG] debug-file - Picking option from product 'default' with build mode 'debug'.
+[2024-11-18T21:25:29.279] [DEBUG] debug-file - Product 'default' build option: {}
+[2024-11-18T21:25:29.279] [DEBUG] debug-file - End initialize project's product build option map with build mode 'debug'.
+[2024-11-18T21:25:29.284] [DEBUG] debug-file - Product 'default' using build option: {
+  "debuggable": true
+} in this build.
+[2024-11-18T21:25:29.292] [DEBUG] debug-file - No signingConfig found, initRemoteHspCache failed.
+[2024-11-18T21:25:29.300] [DEBUG] debug-file - Local scan or download HarmonyOS sdk components toolchains,ets,js,native,previewer
+[2024-11-18T21:25:29.314] [DEBUG] debug-file - Local scan or download hmscore sdk components toolchains,ets,native
+[2024-11-18T21:25:29.323] [DEBUG] debug-file - Start recording SDK configuration permission data.
+[2024-11-18T21:25:29.389] [DEBUG] debug-file - Sdk init in 95 ms 
+[2024-11-18T21:25:29.415] [DEBUG] debug-file - Project task initialization takes 24 ms 
+[2024-11-18T21:25:29.416] [DEBUG] debug-file - hvigorfile, resolve finished /Users/songlun/Desktop/workspace/hmworkspace/wukongim/hvigorfile.ts
+[2024-11-18T21:25:29.423] [DEBUG] debug-file - hvigorfile, resolving /Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/hvigorfile.ts
+[2024-11-18T21:25:29.431] [DEBUG] debug-file - hvigorfile, require result:  {}
+[2024-11-18T21:25:29.431] [DEBUG] debug-file - hvigorfile, binding system plugins {}
+[2024-11-18T21:25:29.451] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2024-11-18T21:25:29.452] [DEBUG] debug-file - Target 'default' config: {}
+[2024-11-18T21:25:29.452] [DEBUG] debug-file - Target 'ohosTest' config: {}
+[2024-11-18T21:25:29.454] [DEBUG] debug-file - Module 'entry' target 'default' build option: {
+  "debuggable": true,
+  "copyFrom": "default"
+}
+[2024-11-18T21:25:29.454] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option: {
+  "debuggable": true
+}
+[2024-11-18T21:25:29.454] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2024-11-18T21:25:29.454] [DEBUG] debug-file - Module 'entry' target 'default' using build option: {
+  "debuggable": true,
+  "copyFrom": "default"
+} in this build.
+[2024-11-18T21:25:29.463] [DEBUG] debug-file - Module entry task initialization takes 6 ms 
+[2024-11-18T21:25:29.464] [DEBUG] debug-file - hvigorfile, resolve finished /Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/hvigorfile.ts
+[2024-11-18T21:25:29.475] [DEBUG] debug-file - hvigorfile, resolving /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/hvigorfile.ts
+[2024-11-18T21:25:29.483] [DEBUG] debug-file - hvigorfile, require result:  {}
+[2024-11-18T21:25:29.483] [DEBUG] debug-file - hvigorfile, binding system plugins {}
+[2024-11-18T21:25:29.548] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=wkim, buildMode=debug
+[2024-11-18T21:25:29.548] [DEBUG] debug-file - Target 'default' config: {}
+[2024-11-18T21:25:29.548] [DEBUG] debug-file - Module 'wkim' target 'default' build option: {
+  "debuggable": true,
+  "copyFrom": "default"
+}
+[2024-11-18T21:25:29.548] [DEBUG] debug-file - End initialize module-target build option map, moduleName=wkim
+[2024-11-18T21:25:29.549] [DEBUG] debug-file - Module 'wkim' target 'default' using build option: {
+  "debuggable": true,
+  "copyFrom": "default"
+} in this build.
+[2024-11-18T21:25:29.552] [DEBUG] debug-file - Module wkim task initialization takes 2 ms 
+[2024-11-18T21:25:29.552] [DEBUG] debug-file - hvigorfile, resolve finished /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/hvigorfile.ts
+[2024-11-18T21:25:29.675] [DEBUG] debug-file - hvigorfile, resolve hvigorfile dependencies in 122 ms 
+[2024-11-18T21:25:29.677] [DEBUG] debug-file - project has submodules:entry,wkim
+[2024-11-18T21:25:29.677] [DEBUG] debug-file - module:wkim no need to execute packageHap
+[2024-11-18T21:25:29.679] [DEBUG] debug-file - start to load updatedOhPackageInfo to the disk
+[2024-11-18T21:25:29.687] [DEBUG] debug-file - load to the disk finished
+[2024-11-18T21:25:29.693] [DEBUG] debug-file - Module wukongim Collected Dependency: 
+[2024-11-18T21:25:29.694] [DEBUG] debug-file - Module wukongim's total dependency: 0
+[2024-11-18T21:25:29.698] [DEBUG] debug-file - Module entry Collected Dependency: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim
+[2024-11-18T21:25:29.699] [DEBUG] debug-file - Module entry's total dependency: 1
+[2024-11-18T21:25:29.711] [DEBUG] debug-file - Module wkim Collected Dependency: 
+[2024-11-18T21:25:29.711] [DEBUG] debug-file - Module wkim's total dependency: 0
+[2024-11-18T21:25:29.714] [DEBUG] debug-file - Configuration phase cost:3 s 729 ms 
+[2024-11-18T21:25:29.720] [DEBUG] debug-file - Configuration task cost before running: 3 s 780 ms 
+[2024-11-18T21:25:29.720] [DEBUG] debug-file - Executing task :entry:init
+[2024-11-18T21:25:29.721] [DEBUG] debug-file - entry : init cost memory 0.0154876708984375
+[2024-11-18T21:25:29.722] [DEBUG] debug-file - runTaskFromQueue task cost before running: 3 s 782 ms 
+[2024-11-18T21:25:29.723] [INFO] debug-file - Finished :entry:init... after 2 ms 
+[2024-11-18T21:25:29.723] [DEBUG] debug-file - Executing task :wkim:init
+[2024-11-18T21:25:29.723] [DEBUG] debug-file - wkim : init cost memory 0.0121002197265625
+[2024-11-18T21:25:29.724] [DEBUG] debug-file - runTaskFromQueue task cost before running: 3 s 784 ms 
+[2024-11-18T21:25:29.724] [INFO] debug-file - Finished :wkim:init... after 1 ms 
+[2024-11-18T21:25:29.724] [DEBUG] debug-file - Executing task ::init
+[2024-11-18T21:25:29.724] [DEBUG] debug-file - wukongim : init cost memory 0.0127716064453125
+[2024-11-18T21:25:29.724] [DEBUG] debug-file - runTaskFromQueue task cost before running: 3 s 784 ms 
+[2024-11-18T21:25:29.724] [INFO] debug-file - Finished ::init... after 1 ms 
+[2024-11-18T21:25:29.729] [DEBUG] debug-file - Module 'entry' target 'default' using build option: {
+  "debuggable": true,
+  "copyFrom": "default"
+} in this build.
+[2024-11-18T21:25:29.732] [DEBUG] debug-file - Module 'entry' target 'ohosTest' using build option: {
+  "debuggable": true
+} in this build.
+[2024-11-18T21:25:29.741] [DEBUG] debug-file - Module 'wkim' target 'default' using build option: {
+  "debuggable": true,
+  "copyFrom": "default"
+} in this build.
+[2024-11-18T21:25:29.747] [DEBUG] debug-file - Since there is no instance or instance is terminated, create a new worker pool.
+[2024-11-18T21:25:29.748] [DEBUG] debug-file - Worker pool is initialized with config:  {
+  minPoolNum: 2,
+  maxPoolNum: undefined,
+  maxCoreSize: undefined,
+  cacheCapacity: undefined,
+  cacheTtl: undefined
+}
+[2024-11-18T21:25:29.749] [DEBUG] debug-file - Create  resident worker with id: 0.
+[2024-11-18T21:25:29.757] [DEBUG] debug-file - Create  resident worker with id: 1.
+[2024-11-18T21:25:29.760] [DEBUG] debug-file - Cleanup worker 0.
+[2024-11-18T21:25:29.760] [DEBUG] debug-file - Worker 0 has been cleaned up.
+[2024-11-18T21:25:29.760] [DEBUG] debug-file - Current idle worker size: 1.
+[2024-11-18T21:25:29.760] [DEBUG] debug-file - Current resident worker size: 2.
+[2024-11-18T21:25:29.761] [DEBUG] debug-file - Cleanup worker 1.
+[2024-11-18T21:25:29.761] [DEBUG] debug-file - Worker 1 has been cleaned up.
+[2024-11-18T21:25:29.761] [DEBUG] debug-file - Current idle worker size: 0.
+[2024-11-18T21:25:29.761] [DEBUG] debug-file - Current resident worker size: 2.
+[2024-11-18T21:25:29.761] [DEBUG] debug-file - hvigor build process will be closed.
+[2024-11-18T21:25:30.042] [DEBUG] debug-file - worker[0] exits with exit code 0.
+[2024-11-18T21:25:30.043] [DEBUG] debug-file - worker[1] exits with exit code 0.
+[2024-11-18T21:25:30.075] [DEBUG] debug-file - session manager: send message to worker process.
+[2024-11-18T21:25:30.075] [DEBUG] debug-file - session manager: send message to worker process.
+[2024-11-18T21:25:30.075] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2024-11-18T21:25:30.075] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.

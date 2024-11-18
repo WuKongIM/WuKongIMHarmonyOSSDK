@@ -4,3 +4,5 @@
 * fix:update sync channel message
 ### 1.0.2
 * fix:add message reaction
+### 1.0.3
+* fix:update query channel message

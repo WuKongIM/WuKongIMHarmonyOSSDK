@@ -61,7 +61,7 @@ export class ChannelDB {
       }
       return row > 0
     } catch (e) {
-      WKLogger.error('新增或修改channel错误', this.tag, 'insertOrUpdate')
+      WKLogger.error('新增或修改channel错误', this.tag, 'insertOrUpdate', e)
       return false
     }
   }

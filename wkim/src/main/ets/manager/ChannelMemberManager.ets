@@ -185,13 +185,13 @@ export class ChannelMemberManager {
     })
   }
 
-  addDeletedListener(iRefresh: RefreshListener) {
-    this.deletedListeners.push(iRefresh)
+  addDeletedListener(listener: DeletedListener) {
+    this.deletedListeners.push(listener)
   }
 
-  removeDeletedListener(iRefresh: RefreshListener) {
+  removeDeletedListener(listener: DeletedListener) {
     for (let i = 0; i < this.deletedListeners.length; i++) {
-      if (this.deletedListeners[i] === iRefresh) {
+      if (this.deletedListeners[i] === listener) {
         this.deletedListeners.splice(i, 1)
         break
       }

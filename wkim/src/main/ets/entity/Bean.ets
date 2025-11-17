@@ -65,7 +65,7 @@ export class WKChannelMember {
   updatedAt: string = ''
   version = 0
   robot = 0
-  extra?: Record<string, object>
+  extra?: Record<string, Object>
   remark: string = ''
   memberInviteUID: string = ''
   forbiddenExpirationTime = 0
@@ -127,7 +127,7 @@ export class WKMsg {
   // 话题ID
   topicId = "";
   // 本地扩展
-  localExtraMap?: Record<string, object>
+  localExtraMap?: Record<string, Object>
   // 远程扩展
   remoteExtra?: WKMsgExtra
   // 消息回应点赞数据

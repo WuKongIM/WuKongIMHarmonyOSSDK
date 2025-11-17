@@ -1,4 +1,7 @@
 {
+	"CommonInfo":{
+		"current.select.target":"default"
+	},
 	"BuildOptions":{
 		"SELECT_BUILD_TARGET":"default",
 		"BUILD_PATH":{
@@ -14,8 +17,5 @@
 			"JS_LITE_ASSETS_PATH":"/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/loader_out_lite/default",
 			"JS_SUPER_VISUAL_PATH":"/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/cache/default/default@CompileJS/jsbundle"
 		}
-	},
-	"CommonInfo":{
-		"current.select.target":"default"
 	}
 }

@@ -27,17 +27,7 @@
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library" exported="" scope="PROVIDED">
-      <library name="ArkTS-HarmonyOS-5.0.0(hms)" type="ArkUI">
-        <CLASSES />
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$APPLICATION_HOME_DIR$/sdk/default/hms/ets/api" />
-          <root url="file://$APPLICATION_HOME_DIR$/sdk/default/hms/ets/kits" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" exported="" scope="PROVIDED">
-      <library name="ArkTS-HarmonyOS-5.0.0(openharmony)" type="ArkUI">
+      <library name="ArkTS-HarmonyOS-5.0.3(openharmony)" type="ArkUI">
         <CLASSES />
         <JAVADOC />
         <SOURCES>
@@ -45,6 +35,16 @@
           <root url="file://$APPLICATION_HOME_DIR$/sdk/default/openharmony/ets/component" />
           <root url="file://$APPLICATION_HOME_DIR$/sdk/default/openharmony/ets/kits" />
           <root url="file://$APPLICATION_HOME_DIR$/sdk/default/openharmony/ets/arkts" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="" scope="PROVIDED">
+      <library name="ArkTS-HarmonyOS-5.0.3(hms)" type="ArkUI">
+        <CLASSES />
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$APPLICATION_HOME_DIR$/sdk/default/hms/ets/api" />
+          <root url="file://$APPLICATION_HOME_DIR$/sdk/default/hms/ets/kits" />
         </SOURCES>
       </library>
     </orderEntry>

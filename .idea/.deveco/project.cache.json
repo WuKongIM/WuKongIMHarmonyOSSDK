@@ -1,4 +1,10 @@
 {
+	"CommonInfo":{
+		"crossplatform.projectType":"",
+		"project.ide.version":"5.0.9.310",
+		"current.select.product":"default",
+		"current.select.buildMode":"release"
+	},
 	"BuildOptions":{
 		"BUNDLE_NAME":"com.xinbida.WKIM",
 		"SELECT_BUILD_MODE":"release",
@@ -6,11 +12,5 @@
 			"OUTPUT_PATH":"/Users/songlun/Desktop/workspace/hmworkspace/wukongim/build/outputs/default"
 		},
 		"SELECT_BUILD_PRODUCT":"default"
-	},
-	"CommonInfo":{
-		"crossplatform.projectType":"",
-		"project.ide.version":"5.0.3.910",
-		"current.select.product":"default",
-		"current.select.buildMode":"release"
 	}
 }

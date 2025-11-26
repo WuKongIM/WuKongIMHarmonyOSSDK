@@ -6,3 +6,5 @@
 * fix:add message reaction
 ### 1.0.3
 * fix:update query channel message
+### 1.0.4
+* fix:修改监听删除频道成员事件参数类型错误问题

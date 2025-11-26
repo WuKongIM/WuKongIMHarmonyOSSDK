@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/entry/entry.iml" filepath="$PROJECT_DIR$/.idea/modules/entry/entry.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/wkim/wkim.iml" filepath="$PROJECT_DIR$/.idea/modules/wkim/wkim.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/entry.iml" filepath="$PROJECT_DIR$/.idea/modules/entry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/wkim.iml" filepath="$PROJECT_DIR$/.idea/modules/wkim.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/wukongim.iml" filepath="$PROJECT_DIR$/.idea/modules/wukongim.iml" />
     </modules>
   </component>

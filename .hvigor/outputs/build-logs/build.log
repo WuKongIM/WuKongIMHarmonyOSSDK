@@ -17286,3 +17286,1306 @@ at /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/inte
 [2025-11-17T11:11:26.397] [DEBUG] debug-file - worker[7] exits with exit code 1.
 [2025-11-17T11:11:26.398] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
 [2025-11-17T11:11:26.403] [DEBUG] debug-file - worker[8] exits with exit code 1.
+[2025-11-17T11:33:11.667] [DEBUG] debug-file - env: nodejsVersion=v18.20.1
+[2025-11-17T11:33:11.678] [DEBUG] debug-file - env: daemon=true
+[2025-11-17T11:33:11.667] [DEBUG] debug-file - env: hvigor-config.json5 content = { modelVersion: '5.0.0', dependencies: {} }
+[2025-11-17T11:33:11.884] [DEBUG] debug-file - java daemon tryConnect failed Error: connect ECONNREFUSED 127.0.0.1:45050
+[2025-11-17T11:33:11.892] [DEBUG] debug-file - java daemon started at port 45050 pid 48699
+[2025-11-17T11:33:11.914] [DEBUG] debug-file - session manager: set active socket. socketId=klgTXYBla6gSJcF0AAAB
+[2025-11-17T11:33:12.145] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-11-17T11:33:12.147] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: true,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined
+}
+[2025-11-17T11:33:12.148] [DEBUG] debug-file - Since current hvigor version 6.0.6 differs from last hvigor version 
+      5.15.5, delete file-cache.json and task-cache.json.
+[2025-11-17T11:33:12.149] [DEBUG] debug-file - Cache service initialization finished in 2 ms 
+[2025-11-17T11:33:12.150] [DEBUG] debug-file - hvigorfile, resolving /Users/songlun/Desktop/workspace/hmworkspace/wukongim/hvigorfile.ts
+[2025-11-17T11:33:12.963] [DEBUG] debug-file - hvigorfile, require result:  {}
+[2025-11-17T11:33:12.963] [DEBUG] debug-file - hvigorfile, binding system plugins {}
+[2025-11-17T11:33:13.084] [DEBUG] debug-file - Start initialize project's product build option map with build mode release.
+[2025-11-17T11:33:13.084] [DEBUG] debug-file - Picking option from product 'default' with build mode 'release'.
+[2025-11-17T11:33:13.084] [DEBUG] debug-file - Product 'default' build option initialized
+[2025-11-17T11:33:13.084] [DEBUG] debug-file - End initialize project's product build option map with build mode 'release'.
+[2025-11-17T11:33:13.085] [DEBUG] debug-file - Obtain build option for product 'default'in this build.
+[2025-11-17T11:33:13.087] [DEBUG] debug-file - No signingConfig found, initRemoteHspCache failed.
+[2025-11-17T11:33:13.088] [DEBUG] debug-file - Local scan or download HarmonyOS sdk components toolchains,ets,js,native,previewer
+[2025-11-17T11:33:13.088] [DEBUG] debug-file - Local scan or download hmscore sdk components toolchains,ets,native
+[2025-11-17T11:33:13.089] [DEBUG] debug-file - Start recording SDK configuration permission data.
+[2025-11-17T11:33:13.105] [DEBUG] debug-file - Sdk init in 18 ms 
+[2025-11-17T11:33:13.107] [DEBUG] debug-file - Project task initialization takes 2 ms 
+[2025-11-17T11:33:13.107] [DEBUG] debug-file - hvigorfile, resolve finished /Users/songlun/Desktop/workspace/hmworkspace/wukongim/hvigorfile.ts
+[2025-11-17T11:33:13.107] [DEBUG] debug-file - hvigorfile, resolving /Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/hvigorfile.ts
+[2025-11-17T11:33:13.110] [DEBUG] debug-file - hvigorfile, require result:  {}
+[2025-11-17T11:33:13.110] [DEBUG] debug-file - hvigorfile, binding system plugins {}
+[2025-11-17T11:33:13.110] [DEBUG] debug-file - failed to load cangjie to dynamically generate schemas: Error: Cannot find module '@ohos/cangjie-build-support/index'
+Require stack:
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/factory/plugin-factory.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/index.js
+- /Users/songlun/Desktop/workspace/hmworkspace/wukongim/hvigorfile.ts
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/configuration.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/boot/index.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/daemon/cluster/worker-process-lifecycle.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/daemon/process/daemon-process-boot-script.js
+[2025-11-17T11:33:13.115] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=release
+[2025-11-17T11:33:13.115] [DEBUG] debug-file - Target 'default' config initialized
+[2025-11-17T11:33:13.115] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2025-11-17T11:33:13.116] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2025-11-17T11:33:13.116] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2025-11-17T11:33:13.116] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2025-11-17T11:33:13.116] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2025-11-17T11:33:13.116] [DEBUG] debug-file - Target 'default' config initialized
+[2025-11-17T11:33:13.116] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2025-11-17T11:33:13.116] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2025-11-17T11:33:13.116] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2025-11-17T11:33:13.116] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2025-11-17T11:33:13.116] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=release
+[2025-11-17T11:33:13.116] [DEBUG] debug-file - Target 'default' config initialized
+[2025-11-17T11:33:13.116] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2025-11-17T11:33:13.116] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2025-11-17T11:33:13.116] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2025-11-17T11:33:13.116] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2025-11-17T11:33:13.116] [DEBUG] debug-file - Obtain build option for module 'entry' target 'default'in this build.
+[2025-11-17T11:33:13.118] [DEBUG] debug-file - Module entry task initialization takes 2 ms 
+[2025-11-17T11:33:13.118] [DEBUG] debug-file - hvigorfile, resolve finished /Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/hvigorfile.ts
+[2025-11-17T11:33:13.118] [DEBUG] debug-file - hvigorfile, resolving /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/hvigorfile.ts
+[2025-11-17T11:33:13.121] [DEBUG] debug-file - hvigorfile, require result:  {}
+[2025-11-17T11:33:13.121] [DEBUG] debug-file - hvigorfile, binding system plugins {}
+[2025-11-17T11:33:13.122] [DEBUG] debug-file - failed to load cangjie to dynamically generate schemas: Error: Cannot find module '@ohos/cangjie-build-support/index'
+Require stack:
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/factory/plugin-factory.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/index.js
+- /Users/songlun/Desktop/workspace/hmworkspace/wukongim/hvigorfile.ts
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/configuration.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/boot/index.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/daemon/cluster/worker-process-lifecycle.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/daemon/process/daemon-process-boot-script.js
+[2025-11-17T11:33:13.136] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=wkim, buildMode=release
+[2025-11-17T11:33:13.136] [DEBUG] debug-file - Target 'default' config initialized
+[2025-11-17T11:33:13.136] [DEBUG] debug-file - Module 'wkim' target 'default' build option initialized
+[2025-11-17T11:33:13.136] [DEBUG] debug-file - End initialize module-target build option map, moduleName=wkim
+[2025-11-17T11:33:13.136] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=wkim, buildMode=debug
+[2025-11-17T11:33:13.136] [DEBUG] debug-file - Target 'default' config initialized
+[2025-11-17T11:33:13.136] [DEBUG] debug-file - Module 'wkim' target 'default' build option initialized
+[2025-11-17T11:33:13.136] [DEBUG] debug-file - End initialize module-target build option map, moduleName=wkim
+[2025-11-17T11:33:13.136] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=wkim, buildMode=release
+[2025-11-17T11:33:13.136] [DEBUG] debug-file - Target 'default' config initialized
+[2025-11-17T11:33:13.137] [DEBUG] debug-file - Module 'wkim' target 'default' build option initialized
+[2025-11-17T11:33:13.137] [DEBUG] debug-file - End initialize module-target build option map, moduleName=wkim
+[2025-11-17T11:33:13.137] [DEBUG] debug-file - Obtain build option for module 'wkim' target 'default'in this build.
+[2025-11-17T11:33:13.137] [DEBUG] debug-file - Module wkim task initialization takes 1 ms 
+[2025-11-17T11:33:13.137] [DEBUG] debug-file - hvigorfile, resolve finished /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/hvigorfile.ts
+[2025-11-17T11:33:13.171] [DEBUG] debug-file - hvigorfile, resolve hvigorfile dependencies in 34 ms 
+[2025-11-17T11:33:13.172] [DEBUG] debug-file - project has submodules:entry,wkim
+[2025-11-17T11:33:13.172] [DEBUG] debug-file - module:wkim no need to execute packageHap
+[2025-11-17T11:33:13.172] [DEBUG] debug-file - start to load updatedOhPackageInfo to the disk
+[2025-11-17T11:33:13.174] [DEBUG] debug-file - load to the disk finished
+[2025-11-17T11:33:13.175] [DEBUG] debug-file - Start to initialize dependency information.
+[2025-11-17T11:33:13.176] [DEBUG] debug-file - Module wukongim Collected Dependency: 
+[2025-11-17T11:33:13.176] [DEBUG] debug-file - Module wukongim's total dependency: 0
+[2025-11-17T11:33:13.176] [DEBUG] debug-file - Start to initialize dependency information.
+[2025-11-17T11:33:13.177] [DEBUG] debug-file - Module entry Collected Dependency: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim
+[2025-11-17T11:33:13.177] [DEBUG] debug-file - Module entry's total dependency: 1
+[2025-11-17T11:33:13.179] [DEBUG] debug-file - Start to initialize dependency information.
+[2025-11-17T11:33:13.179] [DEBUG] debug-file - Module wkim Collected Dependency: 
+[2025-11-17T11:33:13.179] [DEBUG] debug-file - Module wkim's total dependency: 0
+[2025-11-17T11:33:13.180] [DEBUG] debug-file - Configuration phase cost:1 s 31 ms 
+[2025-11-17T11:33:13.181] [DEBUG] debug-file - Configuration task cost before running: 1 s 36 ms 
+[2025-11-17T11:33:13.181] [DEBUG] debug-file - Executing task :wkim:clean
+[2025-11-17T11:33:13.181] [DEBUG] debug-file - clean: Worker pool is inactive.
+[2025-11-17T11:33:13.182] [DEBUG] debug-file - wkim : clean cost memory 0.0841217041015625
+[2025-11-17T11:33:13.182] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 37 ms 
+[2025-11-17T11:33:13.182] [INFO] debug-file - Finished :wkim:clean... after 1 ms 
+[2025-11-17T11:33:13.183] [DEBUG] debug-file - Executing task :wkim:default@PreBuild
+[2025-11-17T11:33:13.183] [WARN] debug-file - The project has not explicitly set the 'targetSdkVersion' version at build-profile.json5. It is recommended to configure it. Reference: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-build-profile-app#section45865492619
+[2025-11-17T11:33:13.184] [DEBUG] debug-file - Task 'wkim:default@PreBuild' cost while wrapping incremental declarations: 1 ms 
+[2025-11-17T11:33:13.230] [DEBUG] debug-file - current product is not Atomic service.
+[2025-11-17T11:33:13.230] [DEBUG] debug-file - Use tool [darwin: JAVA_HOME, CLASSPATH]
+ [
+  {
+    JAVA_HOME: '/Applications/DevEco-Studio.app/Contents/jbr/Contents/Home'
+  },
+  { CLASSPATH: undefined }
+]
+[2025-11-17T11:33:13.230] [DEBUG] debug-file - Use tool [darwin: NODE_HOME]
+ [
+  {
+    NODE_HOME: '/Applications/DevEco-Studio.app/Contents/tools/node/bin'
+  }
+]
+[2025-11-17T11:33:13.291] [DEBUG] debug-file - wkim : default@PreBuild cost memory 10.768013000488281
+[2025-11-17T11:33:13.291] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 146 ms 
+[2025-11-17T11:33:13.291] [INFO] debug-file - Finished :wkim:default@PreBuild... after 108 ms 
+[2025-11-17T11:33:13.292] [DEBUG] debug-file - Executing task :wkim:default@ProcessOHPackageJson
+[2025-11-17T11:33:13.292] [DEBUG] debug-file - jsonObjWithoutAtModule {"name":"@wukong/wkim","license":"Apache-2.0","devDependencies":{},"author":"wukongim","description":"WuKongIM HarmonyOS SDK","main":"index.ets","type":"module","version":"1.0.4","dependencies":{},"repository":"https://github.com/WuKongIM/WuKongIMHarmonyOSSDK","keywords":["WuKong","chat","im","聊天"],"homepage":"https://githubim.com/","ohos":{"org":"wukong"}}
+[2025-11-17T11:33:13.293] [DEBUG] debug-file - wkim : default@ProcessOHPackageJson cost memory 0.03786468505859375
+[2025-11-17T11:33:13.293] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 148 ms 
+[2025-11-17T11:33:13.293] [INFO] debug-file - Finished :wkim:default@ProcessOHPackageJson... after 1 ms 
+[2025-11-17T11:33:13.294] [DEBUG] debug-file - Executing task :wkim:default@CreateHarBuildProfile
+[2025-11-17T11:33:13.294] [DEBUG] debug-file - Task 'wkim:default@CreateHarBuildProfile' cost while wrapping incremental declarations: 1 ms 
+[2025-11-17T11:33:13.295] [DEBUG] debug-file - wkim : default@CreateHarBuildProfile cost memory 0.05194091796875
+[2025-11-17T11:33:13.295] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 150 ms 
+[2025-11-17T11:33:13.295] [INFO] debug-file - Finished :wkim:default@CreateHarBuildProfile... after 2 ms 
+[2025-11-17T11:33:13.296] [DEBUG] debug-file - Executing task :wkim:default@CreateHarModuleInfo
+[2025-11-17T11:33:13.296] [DEBUG] debug-file - Task 'wkim:default@CreateHarModuleInfo' cost while wrapping incremental declarations: 1 ms 
+[2025-11-17T11:33:13.296] [DEBUG] debug-file - wkim : default@CreateHarModuleInfo cost memory 0.2172088623046875
+[2025-11-17T11:33:13.296] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 151 ms 
+[2025-11-17T11:33:13.296] [INFO] debug-file - Finished :wkim:default@CreateHarModuleInfo... after 1 ms 
+[2025-11-17T11:33:13.297] [DEBUG] debug-file - Executing task :wkim:default@ConfigureCmake
+[2025-11-17T11:33:13.297] [DEBUG] debug-file - wkim : default@ConfigureCmake cost memory 0.01624298095703125
+[2025-11-17T11:33:13.297] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 152 ms 
+[2025-11-17T11:33:13.297] [INFO] debug-file - Finished :wkim:default@ConfigureCmake... after 1 ms 
+[2025-11-17T11:33:13.297] [DEBUG] debug-file - Executing task :wkim:default@MergeProfile
+[2025-11-17T11:33:13.298] [DEBUG] debug-file - Task 'wkim:default@MergeProfile' cost while wrapping incremental declarations: 1 ms 
+[2025-11-17T11:33:13.298] [DEBUG] debug-file - Change app api release type with 'Release'
+[2025-11-17T11:33:13.298] [DEBUG] debug-file - Change app compile API version with '6.0.0.47'
+[2025-11-17T11:33:13.298] [DEBUG] debug-file - Change app target API version with '60000020'
+[2025-11-17T11:33:13.298] [DEBUG] debug-file - Change app minimum API version with '40100011'
+[2025-11-17T11:33:13.298] [DEBUG] debug-file - Use cli appEnvironment
+[2025-11-17T11:33:13.301] [DEBUG] debug-file - wkim : default@MergeProfile cost memory 0.42523193359375
+[2025-11-17T11:33:13.301] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 156 ms 
+[2025-11-17T11:33:13.302] [INFO] debug-file - Finished :wkim:default@MergeProfile... after 4 ms 
+[2025-11-17T11:33:13.303] [DEBUG] debug-file - Executing task :wkim:default@GeneratePkgContextInfo
+[2025-11-17T11:33:13.308] [DEBUG] debug-file - Task 'wkim:default@GeneratePkgContextInfo' cost while wrapping incremental declarations: 1 ms 
+[2025-11-17T11:33:13.308] [DEBUG] debug-file - wkim : default@GeneratePkgContextInfo cost memory 0.23102569580078125
+[2025-11-17T11:33:13.308] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 163 ms 
+[2025-11-17T11:33:13.308] [INFO] debug-file - Finished :wkim:default@GeneratePkgContextInfo... after 6 ms 
+[2025-11-17T11:33:13.309] [DEBUG] debug-file - Executing task :wkim:default@ProcessIntegratedHsp
+[2025-11-17T11:33:13.310] [DEBUG] debug-file - wkim : default@ProcessIntegratedHsp cost memory 0.03287506103515625
+[2025-11-17T11:33:13.310] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 165 ms 
+[2025-11-17T11:33:13.310] [INFO] debug-file - Finished :wkim:default@ProcessIntegratedHsp... after 1 ms 
+[2025-11-17T11:33:13.311] [DEBUG] debug-file - Executing task :wkim:default@ProcessModulePrivacyProfile
+[2025-11-17T11:33:13.311] [DEBUG] debug-file - wkim : default@ProcessModulePrivacyProfile cost memory 0.0253448486328125
+[2025-11-17T11:33:13.311] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 166 ms 
+[2025-11-17T11:33:13.312] [INFO] debug-file - Finished :wkim:default@ProcessModulePrivacyProfile... after 1 ms 
+[2025-11-17T11:33:13.312] [DEBUG] debug-file - Executing task :wkim:default@BuildNativeWithCmake
+[2025-11-17T11:33:13.313] [DEBUG] debug-file - wkim : default@BuildNativeWithCmake cost memory 0.01772308349609375
+[2025-11-17T11:33:13.313] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 168 ms 
+[2025-11-17T11:33:13.313] [INFO] debug-file - Finished :wkim:default@BuildNativeWithCmake... after 1 ms 
+[2025-11-17T11:33:13.314] [DEBUG] debug-file - Executing task :wkim:default@ProcessProfile
+[2025-11-17T11:33:13.314] [DEBUG] debug-file - Task 'wkim:default@ProcessProfile' cost while wrapping incremental declarations: 1 ms 
+[2025-11-17T11:33:13.315] [DEBUG] debug-file - [
+  '/Applications/DevEco-Studio.app/Contents/tools/node/bin/node',
+  '/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/bin/ark/ts2abc.js',
+  '--target-api-version',
+  '11'
+]
+[2025-11-17T11:33:13.495] [DEBUG] debug-file - 11.0.2.0
+[2025-11-17T11:33:13.496] [DEBUG] debug-file - No need to add fake ui ability because of in HAR module.
+[2025-11-17T11:33:13.500] [DEBUG] debug-file - wkim : default@ProcessProfile cost memory -30.23389434814453
+[2025-11-17T11:33:13.500] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 355 ms 
+[2025-11-17T11:33:13.500] [INFO] debug-file - Finished :wkim:default@ProcessProfile... after 187 ms 
+[2025-11-17T11:33:13.501] [DEBUG] debug-file - Executing task :wkim:default@ProcessRouterMap
+[2025-11-17T11:33:13.501] [DEBUG] debug-file - wkim : default@ProcessRouterMap cost memory 0.05086517333984375
+[2025-11-17T11:33:13.501] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 356 ms 
+[2025-11-17T11:33:13.502] [INFO] debug-file - Finished :wkim:default@ProcessRouterMap... after 1 ms 
+[2025-11-17T11:33:13.502] [DEBUG] debug-file - Executing task :wkim:default@ProcessShareConfig
+[2025-11-17T11:33:13.502] [DEBUG] debug-file - wkim : default@ProcessShareConfig cost memory 0.04909515380859375
+[2025-11-17T11:33:13.502] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 357 ms 
+[2025-11-17T11:33:13.502] [INFO] debug-file - Finished :wkim:default@ProcessShareConfig... after 1 ms 
+[2025-11-17T11:33:13.502] [DEBUG] debug-file - Executing task :wkim:default@ProcessStartupConfig
+[2025-11-17T11:33:13.502] [DEBUG] debug-file - Task 'wkim:default@ProcessStartupConfig' cost while wrapping incremental declarations: 1 ms 
+[2025-11-17T11:33:13.503] [DEBUG] debug-file - wkim : default@ProcessStartupConfig cost memory 0.0648956298828125
+[2025-11-17T11:33:13.503] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 358 ms 
+[2025-11-17T11:33:13.503] [INFO] debug-file - Finished :wkim:default@ProcessStartupConfig... after 1 ms 
+[2025-11-17T11:33:13.503] [DEBUG] debug-file - Executing task :wkim:default@BuildNativeWithNinja
+[2025-11-17T11:33:13.503] [DEBUG] debug-file - wkim : default@BuildNativeWithNinja cost memory 0.17995452880859375
+[2025-11-17T11:33:13.503] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 358 ms 
+[2025-11-17T11:33:13.503] [INFO] debug-file - Finished :wkim:default@BuildNativeWithNinja... after 1 ms 
+[2025-11-17T11:33:13.504] [DEBUG] debug-file - restool module names: wkim,entry; moduleName=wkim, taskName=default@ProcessResource
+[2025-11-17T11:33:13.504] [DEBUG] debug-file - Executing task :wkim:default@ProcessResource
+[2025-11-17T11:33:13.504] [DEBUG] debug-file - Task 'wkim:default@ProcessResource' cost while wrapping incremental declarations: 1 ms 
+[2025-11-17T11:33:13.505] [DEBUG] debug-file - wkim : default@ProcessResource cost memory 0.10366058349609375
+[2025-11-17T11:33:13.505] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 360 ms 
+[2025-11-17T11:33:13.505] [INFO] debug-file - Finished :wkim:default@ProcessResource... after 1 ms 
+[2025-11-17T11:33:13.505] [DEBUG] debug-file - Executing task :wkim:default@GenerateLoaderJson
+[2025-11-17T11:33:13.506] [DEBUG] debug-file - Task 'wkim:default@GenerateLoaderJson' cost while wrapping incremental declarations: 1 ms 
+[2025-11-17T11:33:13.509] [DEBUG] debug-file - wkim : default@GenerateLoaderJson cost memory 0.45951080322265625
+[2025-11-17T11:33:13.509] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 364 ms 
+[2025-11-17T11:33:13.510] [INFO] debug-file - Finished :wkim:default@GenerateLoaderJson... after 4 ms 
+[2025-11-17T11:33:13.510] [DEBUG] debug-file - Executing task :wkim:default@ProcessLibs
+[2025-11-17T11:33:13.513] [DEBUG] debug-file - Worker dispatch failed, running processLibs on main thread.
+[2025-11-17T11:33:13.513] [DEBUG] debug-file - wkim : default@ProcessLibs cost memory 0.5046768188476562
+[2025-11-17T11:33:13.513] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 368 ms 
+[2025-11-17T11:33:13.514] [INFO] debug-file - Finished :wkim:default@ProcessLibs... after 4 ms 
+[2025-11-17T11:33:13.514] [DEBUG] debug-file - restool module names: wkim,entry; moduleName=wkim, taskName=default@CompileResource
+[2025-11-17T11:33:13.514] [DEBUG] debug-file - Executing task :wkim:default@CompileResource
+[2025-11-17T11:33:13.515] [DEBUG] debug-file - Use tool [/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/restool]
+ [
+  '/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/restool',
+  '-l',
+  '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default/resConfig.json'
+]
+[2025-11-17T11:33:13.515] [DEBUG] debug-file - current process  memoryUsage: {
+  rss: 265584640,
+  heapTotal: 180633600,
+  heapUsed: 122769752,
+  external: 3021066,
+  arrayBuffers: 990131
+} os memoryUsage :31.807373046875
+[2025-11-17T11:33:13.562] [DEBUG] debug-file - Info: Pack: normal pack mode
+
+[2025-11-17T11:33:13.901] [DEBUG] debug-file - Info: hardware concurrency count is : 10
+Info: thread count is : 10
+
+[2025-11-17T11:33:13.901] [DEBUG] debug-file - Info: thread pool is started
+Info: file '.DS_Store' is ignored by default regular pattern '\..+'.
+
+[2025-11-17T11:33:13.902] [DEBUG] debug-file - Warning: 'page_show' conflict, first declared.
+at /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/resources/base/element/string.json
+but declared again.
+at /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default/resource_str/base/element/string.json
+Warning: 'page_show' conflict, first declared.
+at /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/resources/en_US/element/string.json
+but declared again.
+at /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default/resource_str/en_US/element/string.json
+Warning: 'page_show' conflict, first declared.
+at /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/resources/zh_CN/element/string.json
+but declared again.
+at /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default/resource_str/zh_CN/element/string.json
+
+[2025-11-17T11:33:13.902] [DEBUG] debug-file - Info: no icons need to scale, icon ids size is 0.
+
+[2025-11-17T11:33:13.904] [DEBUG] debug-file - Info: restool resources compile success.
+
+[2025-11-17T11:33:13.904] [DEBUG] debug-file - Info: thread pool is stopped
+
+[2025-11-17T11:33:13.906] [DEBUG] debug-file - wkim : default@CompileResource cost memory 0.34766387939453125
+[2025-11-17T11:33:13.906] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 761 ms 
+[2025-11-17T11:33:13.906] [INFO] debug-file - Finished :wkim:default@CompileResource... after 392 ms 
+[2025-11-17T11:33:13.907] [DEBUG] debug-file - Executing task :wkim:default@DoNativeStrip
+[2025-11-17T11:33:13.907] [DEBUG] debug-file - Task 'wkim:default@DoNativeStrip' cost while wrapping incremental declarations: 1 ms 
+[2025-11-17T11:33:13.908] [DEBUG] debug-file - wkim : default@DoNativeStrip cost memory 0.0473175048828125
+[2025-11-17T11:33:13.908] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 763 ms 
+[2025-11-17T11:33:13.909] [INFO] debug-file - Finished :wkim:default@DoNativeStrip... after 2 ms 
+[2025-11-17T11:33:13.909] [DEBUG] debug-file - Executing task :wkim:default@ProcessObfuscationFiles
+[2025-11-17T11:33:13.910] [DEBUG] debug-file - wkim : default@ProcessObfuscationFiles cost memory 0.01727294921875
+[2025-11-17T11:33:13.910] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 765 ms 
+[2025-11-17T11:33:13.910] [INFO] debug-file - Finished :wkim:default@ProcessObfuscationFiles... after 1 ms 
+[2025-11-17T11:33:13.911] [DEBUG] debug-file - Executing task :wkim:default@HarCompileArkTS
+[2025-11-17T11:33:13.912] [DEBUG] debug-file - obfuscationOptions: undefined
+[2025-11-17T11:33:13.914] [DEBUG] debug-file - Clean the arkts cache due to obfuscation file changes.
+[2025-11-17T11:33:13.916] [DEBUG] debug-file - build config:
+[2025-11-17T11:33:13.916] [DEBUG] debug-file - {
+  moduleType: 'har',
+  perf: 0,
+  targetName: '.default',
+  packageManagerType: 'ohpm',
+  localPropertiesPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/local.properties',
+  isPreview: false,
+  isOhosTest: false,
+  isLocalTest: false,
+  buildMode: 'Release',
+  hotReloadBuild: undefined,
+  watchMode: 'false',
+  aceProfilePath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default/resources/base/profile',
+  etsLoaderPath: '/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader',
+  modulePath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim',
+  testFrameworkPar: {
+    testMode: undefined,
+    coveragePathFilter: undefined,
+    coverageMode: undefined
+  },
+  needCoverageInsert: false,
+  debugLine: false,
+  projectTopDir: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim',
+  compileSdkVersion: 20,
+  compatibleSdkVersion: 11,
+  compatibleSdkVersionStage: undefined,
+  bundleName: 'c***M',
+  etsLoaderVersion: '6.0.0.47',
+  etsLoaderReleaseType: 'Release',
+  aotCompileMode: 'type',
+  apPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/modules.ap',
+  entryModuleName: 'wkim',
+  entryModuleVersion: '1.0.4',
+  entryPackageName: '@wukong/wkim',
+  allModuleNameHash: '1266ac401374f49ea205c44ac3285344',
+  externalApiPaths: [ '/Applications/DevEco-Studio.app/Contents/sdk/default/hms/ets' ],
+  compilerTypes: [],
+  isCrossplatform: false,
+  hvigorPluginFile: undefined,
+  compilePluginPath: undefined,
+  buildGeneratedProfilePath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/generated/profile/default',
+  bundleType: 'app',
+  arkTSVersion: undefined,
+  apiVersion: 20,
+  needCompleteSourcesMap: false,
+  isFaMode: false,
+  strictMode: undefined,
+  buildDir: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build',
+  deviceTypes: [ 'default', 'tablet' ],
+  useNormalizedOHMUrl: false,
+  pkgContextInfo: undefined,
+  ohPackagePathMap: {},
+  dependencyAliasMap: {},
+  permission: {
+    requestPermissions: [ [Object], [Object] ],
+    definePermissions: undefined
+  },
+  integratedHsp: false,
+  projectArkOption: undefined,
+  sourceMapDir: undefined,
+  branchElimination: false,
+  transformLib: undefined,
+  caseSensitiveCheck: false,
+  tsImportSendable: false,
+  resolveConflictMode: true,
+  depName2RootPath: {},
+  depName2DepInfo: {},
+  rootPathSet: [ '/Users/songlun/Desktop/workspace/hmworkspace/wukongim' ],
+  useNativeResolver: true,
+  shouldEmitJs: true,
+  useTscResolve: false,
+  singleFileEmit: false,
+  userProjectConfig: {
+    autoLazyImport: false,
+    allowEmptyBundleName: false,
+    reExportCheckMode: 'noCheck',
+    executionMode: 'memory',
+    usePathPlaceholder: false,
+    writeRollupCache: true,
+    isExpandImportEnabled: false,
+    expandImportExclude: '',
+    ignoreCrossplatformCheck: false,
+    isPreloadSoEnabled: false
+  },
+  skipOhModulesLint: false,
+  executionMode: 'memory',
+  autoLazyImport: false,
+  allowEmptyBundleName: false,
+  reExportCheckMode: 'noCheck',
+  usePathPlaceholder: false,
+  writeRollupCache: true,
+  isExpandImportEnabled: false,
+  expandImportExclude: '',
+  ignoreCrossplatformCheck: false,
+  isPreloadSoEnabled: false,
+  arkCompileCachePath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/cache/default/default@HarCompileArkTS/esmodule',
+  aceModuleJsonPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default/ark_module.json',
+  appResource: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default/ResourceTable.txt',
+  rawFileResource: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default/resources/rawfile',
+  resourceTableHash: 'b151208bbf8ea2a2c4b298414af9d912',
+  runtimeOS: 'HarmonyOS',
+  sdkInfo: 'false:20:6.0.0.47:Release',
+  aceModuleRoot: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets',
+  compileMode: 'esmodule',
+  aceSuperVisualPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/supervisual',
+  aceBuildJson: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/loader/default/loader.json',
+  cachePath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/cache/default/default@HarCompileArkTS/esmodule/release',
+  aceModuleBuild: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/loader_out/default',
+  supportChunks: true,
+  declaredFilesPath: undefined,
+  shouldCollectDirectImportees: false,
+  isByteCodeHarOptimize: false,
+  expandImportPath: undefined,
+  pkgNameToPkgBriefInfo: {
+    '@wukong/wkim': {
+      pkgRoot: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim',
+      originalSourceRoots: undefined,
+      sourceRoots: [Array],
+      pkgName: '@wukong/wkim'
+    }
+  },
+  projectModel: {
+    '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main': {
+      moduleName: 'entry',
+      modulePkgPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry',
+      belongProjectPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim'
+    },
+    '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/ohosTest': {
+      moduleName: 'entry_test',
+      modulePkgPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry',
+      belongProjectPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim'
+    },
+    '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry': {
+      moduleName: 'entry',
+      modulePkgPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry',
+      belongProjectPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim'
+    },
+    '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main': {
+      moduleName: 'wkim',
+      modulePkgPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim',
+      belongProjectPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim'
+    },
+    '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim': {
+      moduleName: 'wkim',
+      modulePkgPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim',
+      belongProjectPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim'
+    },
+    '/Users/songlun/Desktop/workspace/hmworkspace/wukongim': {
+      moduleName: 'wukongim',
+      modulePkgPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim',
+      belongProjectPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim'
+    }
+  },
+  pkgJsonFileHash: 'eb4d72df1d20970b963475597fb8db06',
+  allModulePaths: [
+    '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry',
+    '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim'
+  ],
+  routerMap: {},
+  obfuscationOptions: undefined,
+  byteCodeHarToDependencyKeys: undefined,
+  compileBlockPkg: [],
+  mockParams: {
+    decorator: '@MockSetup',
+    packageName: '@ohos/hamock',
+    etsSourceRootPath: 'src/main/ets',
+    mockConfigPath: undefined,
+    mockConfigKey2ModuleInfo: {},
+    source2ModuleIdMap: {}
+  },
+  copyCodeResourceEnable: true,
+  copyCodeResourceExcludes: [],
+  copyCodeResourceIncludes: undefined,
+  uiTransformOptimization: false,
+  sdkPath: '/Applications/DevEco-Studio.app/Contents/sdk',
+  needPreloadSoFileSet: {},
+  preloadSoFilePath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/preload/default/preload.json',
+  useSourceHash: false,
+  localModuleParamMap: {},
+  otherPaths: {
+    '@wukong/wkim/*': [ '../*', '../../../build/default/generated/profile/default/*' ]
+  },
+  collectImportersConfig: undefined,
+  byteCodeHar: false,
+  obfuscate: undefined,
+  skipBuildEnd: true
+}
+[2025-11-17T11:33:13.917] [DEBUG] debug-file - Compile arkts with external api path: /Applications/DevEco-Studio.app/Contents/sdk/default/hms/ets
+[2025-11-17T11:33:13.917] [DEBUG] debug-file - Since there is no instance or instance is terminated, create a new worker pool.
+[2025-11-17T11:33:13.917] [DEBUG] debug-file - Worker pool is initialized with config:  {
+  minPoolNum: 2,
+  maxPoolNum: undefined,
+  maxCoreSize: undefined,
+  cacheCapacity: undefined,
+  cacheTtl: undefined
+}
+[2025-11-17T11:33:13.917] [DEBUG] debug-file - Create  resident worker with id: 0.
+[2025-11-17T11:33:13.918] [DEBUG] debug-file - Create  resident worker with id: 1.
+[2025-11-17T11:33:13.919] [DEBUG] debug-file - default@HarCompileArkTS work[0] is submitted.
+[2025-11-17T11:33:13.919] [DEBUG] debug-file - default@HarCompileArkTS work[0] is pushed to ready queue.
+[2025-11-17T11:33:13.919] [DEBUG] debug-file - A work dispatched to worker[9] failed because unable to get work from ready queue.
+[2025-11-17T11:33:13.919] [DEBUG] debug-file - A work dispatched to worker[8] failed because unable to get work from ready queue.
+[2025-11-17T11:33:13.919] [DEBUG] debug-file - A work dispatched to worker[7] failed because unable to get work from ready queue.
+[2025-11-17T11:33:13.919] [DEBUG] debug-file - A work dispatched to worker[6] failed because unable to get work from ready queue.
+[2025-11-17T11:33:13.919] [DEBUG] debug-file - A work dispatched to worker[5] failed because unable to get work from ready queue.
+[2025-11-17T11:33:13.919] [DEBUG] debug-file - Create  resident worker with id: 4.
+[2025-11-17T11:33:13.919] [DEBUG] debug-file - default@HarCompileArkTS work[0] has been dispatched to worker[4].
+[2025-11-17T11:33:13.919] [DEBUG] debug-file - default@HarCompileArkTS work[0] is dispatched.
+[2025-11-17T11:33:13.920] [DEBUG] debug-file - CopyResources startTime: 939600067331916
+[2025-11-17T11:33:13.920] [DEBUG] debug-file - default@HarCompileArkTS work[1] is submitted.
+[2025-11-17T11:33:13.920] [DEBUG] debug-file - default@HarCompileArkTS work[1] is pushed to ready queue.
+[2025-11-17T11:33:13.920] [DEBUG] debug-file - A work dispatched to worker[9] failed because unable to get work from ready queue.
+[2025-11-17T11:33:13.920] [DEBUG] debug-file - Create  resident worker with id: 8.
+[2025-11-17T11:33:13.920] [DEBUG] debug-file - default@HarCompileArkTS work[1] has been dispatched to worker[8].
+[2025-11-17T11:33:13.920] [DEBUG] debug-file - default@HarCompileArkTS work[1] is dispatched.
+[2025-11-17T11:33:13.920] [DEBUG] debug-file - wkim : default@HarCompileArkTS cost memory 1.4598464965820312
+[2025-11-17T11:33:13.920] [DEBUG] debug-file - Executing task :wkim:default@CacheNativeLibs
+[2025-11-17T11:33:13.921] [DEBUG] debug-file - Task 'wkim:default@CacheNativeLibs' cost while wrapping incremental declarations: 1 ms 
+[2025-11-17T11:33:13.921] [DEBUG] debug-file - default@CacheNativeLibs work[2] is submitted.
+[2025-11-17T11:33:13.921] [DEBUG] debug-file - default@CacheNativeLibs work[2] is pushed to ready queue.
+[2025-11-17T11:33:13.921] [DEBUG] debug-file - A work dispatched to worker[9] failed because unable to get work from ready queue.
+[2025-11-17T11:33:13.921] [DEBUG] debug-file - A work dispatched to worker[8] failed because of worker busy.
+[2025-11-17T11:33:13.921] [DEBUG] debug-file - Create  resident worker with id: 7.
+[2025-11-17T11:33:13.921] [DEBUG] debug-file - default@CacheNativeLibs work[2] has been dispatched to worker[7].
+[2025-11-17T11:33:13.921] [DEBUG] debug-file - default@CacheNativeLibs work[2] is dispatched.
+[2025-11-17T11:33:13.921] [DEBUG] debug-file - wkim : default@CacheNativeLibs cost memory 0.2716827392578125
+[2025-11-17T11:33:14.327] [DEBUG] debug-file - worker[8] has one work done.
+[2025-11-17T11:33:14.327] [DEBUG] debug-file - CopyResources is end, endTime: 939600474730291
+[2025-11-17T11:33:14.327] [DEBUG] debug-file - default@HarCompileArkTS work[1] done.
+[2025-11-17T11:33:14.343] [DEBUG] debug-file - worker[7] has one work done.
+[2025-11-17T11:33:14.344] [DEBUG] debug-file - default@CacheNativeLibs work[2] done.
+[2025-11-17T11:33:14.344] [INFO] debug-file - Finished :wkim:default@CacheNativeLibs... after 4 ms 
+[2025-11-17T11:33:14.529] [DEBUG] debug-file - A work dispatched to worker[8] failed because unable to get work from ready queue.
+[2025-11-17T11:33:14.546] [DEBUG] debug-file - A work dispatched to worker[7] failed because unable to get work from ready queue.
+[2025-11-17T11:33:18.649] [WARN] debug-file - [33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CommonUtil.ets:50:24
+ 'decodeWithStream' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CommonUtil.ets:55:18
+ The 'JSON' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CommonUtil.ets:55:23
+ The 'parse' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CommonUtil.ets:64:18
+ The 'JSON' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CommonUtil.ets:64:23
+ The 'parse' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CommonUtil.ets:73:7
+ The 'JSON' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CommonUtil.ets:73:12
+ The 'parse' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CommonUtil.ets:102:18
+ The 'JSON' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CommonUtil.ets:102:23
+ The 'parse' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CommonUtil.ets:102:29
+ The 'JSON' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CommonUtil.ets:102:34
+ The 'stringify' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CommonUtil.ets:114:19
+ The 'JSON' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CommonUtil.ets:114:24
+ The 'parse' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CommonUtil.ets:114:30
+ The 'JSON' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CommonUtil.ets:114:35
+ The 'stringify' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CryptoUtils.ets:25:18
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CryptoUtils.ets:26:32
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CryptoUtils.ets:27:17
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CryptoUtils.ets:28:18
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CryptoUtils.ets:43:18
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CryptoUtils.ets:44:22
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CryptoUtils.ets:44:29
+ The 'convertKeySync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CryptoUtils.ets:45:22
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CryptoUtils.ets:45:29
+ The 'convertKeySync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CryptoUtils.ets:47:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CryptoUtils.ets:47:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CryptoUtils.ets:47:52
+ The 'generateSecretSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CryptoUtils.ets:57:14
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CryptoUtils.ets:58:5
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CryptoUtils.ets:58:8
+ The 'updateSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CryptoUtils.ets:59:44
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CryptoUtils.ets:59:47
+ The 'digestSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CryptoUtils.ets:84:27
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CryptoUtils.ets:85:18
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CryptoUtils.ets:86:15
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CryptoUtils.ets:86:31
+ The 'convertKeySync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CryptoUtils.ets:89:5
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CryptoUtils.ets:89:12
+ The 'initSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CryptoUtils.ets:90:18
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CryptoUtils.ets:90:25
+ The 'doFinalSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CryptoUtils.ets:98:27
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CryptoUtils.ets:99:18
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CryptoUtils.ets:100:15
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CryptoUtils.ets:100:31
+ The 'convertKeySync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CryptoUtils.ets:104:5
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CryptoUtils.ets:104:12
+ The 'initSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CryptoUtils.ets:105:18
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CryptoUtils.ets:105:25
+ The 'doFinalSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/PreferencesUtil.ets:10:19
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/PreferencesUtil.ets:13:18
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/PreferencesUtil.ets:14:20
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/PreferencesUtil.ets:17:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/PreferencesUtil.ets:18:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/PreferencesUtil.ets:24:19
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/PreferencesUtil.ets:26:18
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/PreferencesUtil.ets:27:19
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/PreferencesUtil.ets:32:19
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/PreferencesUtil.ets:34:18
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/PreferencesUtil.ets:35:5
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/WKDBHelper.ets:22:21
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/WKDBHelper.ets:22:49
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/WKDBHelper.ets:32:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/WKDBHelper.ets:32:15
+ The 'close' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/WKDBHelper.ets:38:16
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/WKDBHelper.ets:38:16
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/WKDBHelper.ets:51:28
+ The 'executeSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/WKDBHelper.ets:68:16
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/WKDBHelper.ets:68:16
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReminderDB.ets:22:46
+ The 'querySqlSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReminderDB.ets:31:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReminderDB.ets:41:46
+ The 'querySqlSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReminderDB.ets:51:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReminderDB.ets:65:36
+ The 'insertSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReminderDB.ets:71:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReminderDB.ets:81:46
+ The 'querySqlSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReminderDB.ets:91:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReminderDB.ets:101:46
+ The 'querySqlSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReminderDB.ets:111:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReminderDB.ets:119:14
+ The 'JSON' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReminderDB.ets:119:19
+ The 'stringify' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/entity/Bean.ets:411:67
+ The 'JSON' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/entity/Bean.ets:411:72
+ The 'stringify' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelDB.ets:22:46
+ The 'querySync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelDB.ets:31:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelDB.ets:44:36
+ The 'insertSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelDB.ets:50:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelDB.ets:57:44
+ The 'insertSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelDB.ets:75:46
+ The 'querySqlSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelDB.ets:84:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelDB.ets:95:46
+ The 'querySqlSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelDB.ets:104:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ChannelManager.ets:26:9
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ChannelManager.ets:27:14
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ChannelManager.ets:31:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ChannelManager.ets:98:5
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ChannelManager.ets:128:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelMemberDB.ets:33:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelMemberDB.ets:43:46
+ The 'querySqlSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelMemberDB.ets:52:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelMemberDB.ets:61:46
+ The 'querySqlSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelMemberDB.ets:70:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelMemberDB.ets:80:46
+ The 'querySqlSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelMemberDB.ets:89:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelMemberDB.ets:99:46
+ The 'querySqlSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelMemberDB.ets:108:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelMemberDB.ets:129:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelMemberDB.ets:144:44
+ The 'updateSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/CMDManager.ets:25:39
+ The 'JSON' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/CMDManager.ets:25:44
+ The 'stringify' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReactionDB.ets:21:46
+ The 'querySqlSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReactionDB.ets:30:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReactionDB.ets:40:46
+ The 'querySqlSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReactionDB.ets:50:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReactionDB.ets:60:46
+ The 'querySqlSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReactionDB.ets:70:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReactionDB.ets:83:36
+ The 'insertSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReactionDB.ets:89:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:73:46
+ The 'querySqlSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:167:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:282:11
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:283:18
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:344:46
+ The 'querySqlSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:353:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:394:46
+ The 'querySqlSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:403:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:413:46
+ The 'querySqlSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:423:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:432:46
+ The 'querySqlSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:442:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:450:46
+ The 'querySqlSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:460:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:470:46
+ The 'querySqlSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:480:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:489:46
+ The 'querySqlSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:498:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:507:46
+ The 'querySqlSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:516:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:526:46
+ The 'querySqlSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:536:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:546:46
+ The 'querySqlSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:555:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:564:46
+ The 'querySqlSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:573:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:586:44
+ The 'updateSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:606:44
+ The 'updateSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:625:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:627:36
+ The 'insertSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:631:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:700:36
+ The 'insertSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:707:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:722:44
+ The 'insertSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:738:44
+ The 'updateSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:759:34
+ The 'updateSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:771:46
+ The 'querySqlSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:780:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:789:46
+ The 'querySqlSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:798:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:807:46
+ The 'querySqlSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:816:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:827:46
+ The 'querySqlSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:836:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:845:46
+ The 'querySqlSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:855:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:864:44
+ The 'updateSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:870:80
+ The 'JSON' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:870:85
+ The 'stringify' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:940:15
+ The 'JSON' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:940:20
+ The 'stringify' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ConversationDB.ets:31:46
+ The 'querySqlSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ConversationDB.ets:60:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ConversationDB.ets:70:46
+ The 'querySqlSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ConversationDB.ets:80:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ConversationDB.ets:90:46
+ The 'querySqlSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ConversationDB.ets:99:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ConversationDB.ets:106:44
+ The 'deleteSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ConversationDB.ets:123:44
+ The 'updateSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ConversationDB.ets:140:44
+ The 'updateSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ConversationDB.ets:156:46
+ The 'querySqlSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ConversationDB.ets:165:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ConversationDB.ets:201:44
+ The 'insertSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ConversationDB.ets:223:36
+ The 'insertSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ConversationDB.ets:229:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ConversationDB.ets:243:36
+ The 'insertSync' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ConversationDB.ets:249:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ConnectionManager.ets:387:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ConnectionManager.ets:391:13
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ConnectionManager.ets:412:9
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ConnectionManager.ets:415:5
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ConnectionManager.ets:423:10
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ConnectionManager.ets:425:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ConnectionManager.ets:432:11
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ConnectionManager.ets:439:9
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ConnectionManager.ets:442:5
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/MessageManager.ets:85:5
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/MessageManager.ets:183:19
+ The 'JSON' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/MessageManager.ets:183:24
+ The 'stringify' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/MessageManager.ets:231:15
+ The 'JSON' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/MessageManager.ets:231:20
+ The 'stringify' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/MessageManager.ets:451:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/MessageManager.ets:482:16
+ The 'JSON' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/MessageManager.ets:482:21
+ The 'parse' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/MessageManager.ets:488:10
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/MessageManager.ets:491:22
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/MessageManager.ets:611:19
+ The 'JSON' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/MessageManager.ets:611:24
+ The 'stringify' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/MessageManager.ets:639:21
+ The 'JSON' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/MessageManager.ets:639:26
+ The 'stringify' API is supported since SDK version 12. However, the current compatible SDK version is 11.
+[39m[39m
+
+[2025-11-17T11:33:18.649] [DEBUG] debug-file - Ark compile task finished.finished time is 939604796902041
+[2025-11-17T11:33:18.653] [DEBUG] debug-file - worker[4] has one work done.
+[2025-11-17T11:33:18.656] [DEBUG] debug-file - default@HarCompileArkTS work[0] done.
+[2025-11-17T11:33:18.656] [DEBUG] debug-file - A work dispatched to worker[4] failed because unable to get work from ready queue.
+[2025-11-17T11:33:18.657] [INFO] debug-file - Finished :wkim:default@HarCompileArkTS... after 4 s 2 ms 
+[2025-11-17T11:33:18.658] [DEBUG] debug-file - Executing task :wkim:default@ProcessHarArtifacts
+[2025-11-17T11:33:18.658] [DEBUG] debug-file - File: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/resources/base/profile/insight_intent.json' from 'insightIntentJsonPath' is not exists, just ignore.
+[2025-11-17T11:33:18.658] [DEBUG] debug-file - File: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/preload/default/preload.json' from 'preloadSoFilePath' is not exists, just ignore.
+[2025-11-17T11:33:18.658] [DEBUG] debug-file - Task 'wkim:default@ProcessHarArtifacts' cost while wrapping incremental declarations: 1 ms 
+[2025-11-17T11:33:18.702] [DEBUG] debug-file - Since current module is not byte code har, just return.
+[2025-11-17T11:33:18.703] [DEBUG] debug-file - wkim : default@ProcessHarArtifacts cost memory -2.9736480712890625
+[2025-11-17T11:33:18.703] [DEBUG] debug-file - runTaskFromQueue task cost before running: 6 s 558 ms 
+[2025-11-17T11:33:18.703] [INFO] debug-file - Finished :wkim:default@ProcessHarArtifacts... after 46 ms 
+[2025-11-17T11:33:18.704] [DEBUG] debug-file - Executing task :wkim:default@PackageHar
+[2025-11-17T11:33:18.725] [DEBUG] debug-file - wkim : default@PackageHar cost memory 3.39453125
+[2025-11-17T11:33:18.726] [DEBUG] debug-file - runTaskFromQueue task cost before running: 6 s 580 ms 
+[2025-11-17T11:33:18.726] [INFO] debug-file - Finished :wkim:default@PackageHar... after 22 ms 
+[2025-11-17T11:33:18.726] [DEBUG] debug-file - Executing task :wkim:default@PackageSignHar
+[2025-11-17T11:33:18.727] [WARN] debug-file - Will skip sign 'har'. No signingConfigs profile is configured in current project.
+             If needed, configure the signingConfigs in /Users/songlun/Desktop/workspace/hmworkspace/wukongim/build-profile.json5.
+[2025-11-17T11:33:18.727] [DEBUG] debug-file - wkim : default@PackageSignHar cost memory 0.06119537353515625
+[2025-11-17T11:33:18.727] [DEBUG] debug-file - runTaskFromQueue task cost before running: 6 s 582 ms 
+[2025-11-17T11:33:18.727] [INFO] debug-file - Finished :wkim:default@PackageSignHar... after 1 ms 
+[2025-11-17T11:33:18.727] [DEBUG] debug-file - Executing task :wkim:default@PackingCheckHar
+[2025-11-17T11:33:18.727] [DEBUG] debug-file - wkim : default@PackingCheckHar cost memory 0.01627349853515625
+[2025-11-17T11:33:18.727] [DEBUG] debug-file - runTaskFromQueue task cost before running: 6 s 582 ms 
+[2025-11-17T11:33:18.727] [INFO] debug-file - Finished :wkim:default@PackingCheckHar... after 1 ms 
+[2025-11-17T11:33:18.728] [DEBUG] debug-file - Executing task :wkim:default@CollectDebugSymbol
+[2025-11-17T11:33:18.728] [DEBUG] debug-file - sourceMaps.map for module wkim does not exist
+[2025-11-17T11:33:18.728] [DEBUG] debug-file - nameCache.json for module wkim does not exists
+[2025-11-17T11:33:18.728] [DEBUG] debug-file - There are no cpp libraries for module wkim
+[2025-11-17T11:33:18.728] [DEBUG] debug-file - wkim : default@CollectDebugSymbol cost memory 0.1579742431640625
+[2025-11-17T11:33:18.728] [DEBUG] debug-file - runTaskFromQueue task cost before running: 6 s 583 ms 
+[2025-11-17T11:33:18.728] [INFO] debug-file - Finished :wkim:default@CollectDebugSymbol... after 1 ms 
+[2025-11-17T11:33:18.729] [DEBUG] debug-file - Executing task :wkim:assembleHar
+[2025-11-17T11:33:18.729] [DEBUG] debug-file - wkim : assembleHar cost memory 0.014404296875
+[2025-11-17T11:33:18.729] [DEBUG] debug-file - runTaskFromQueue task cost before running: 6 s 584 ms 
+[2025-11-17T11:33:18.729] [INFO] debug-file - Finished :wkim:assembleHar... after 1 ms 
+[2025-11-17T11:33:18.729] [INFO] debug-file - BUILD SUCCESSFUL in 6 s 584 ms 
+[2025-11-17T11:33:18.730] [DEBUG] debug-file - Update task wkim:default@PreBuild input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/AppScope/app.json5 cache by regenerate.
+[2025-11-17T11:33:18.730] [DEBUG] debug-file - Update task wkim:default@PreBuild input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/module.json5 cache by regenerate.
+[2025-11-17T11:33:18.730] [DEBUG] debug-file - Update task wkim:default@PreBuild input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/build-profile.json5 cache by regenerate.
+[2025-11-17T11:33:18.730] [DEBUG] debug-file - Update task wkim:default@PreBuild input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build-profile.json5 cache by regenerate.
+[2025-11-17T11:33:18.730] [DEBUG] debug-file - Update task wkim:default@PreBuild input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/hvigor/hvigor-config.json5 cache by regenerate.
+[2025-11-17T11:33:18.730] [DEBUG] debug-file - Update task wkim:default@PreBuild input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/oh-package.json5 cache by regenerate.
+[2025-11-17T11:33:18.730] [DEBUG] debug-file - Update task wkim:default@PreBuild input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/oh-package.json5 cache by regenerate.
+[2025-11-17T11:33:18.730] [DEBUG] debug-file - Incremental task wkim:default@PreBuild post-execution cost:1 ms .
+[2025-11-17T11:33:18.730] [DEBUG] debug-file - Update task wkim:default@CreateHarBuildProfile input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/AppScope/app.json5 cache by regenerate.
+[2025-11-17T11:33:18.730] [DEBUG] debug-file - Update task wkim:default@CreateHarBuildProfile input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/build-profile.json5 cache by regenerate.
+[2025-11-17T11:33:18.730] [DEBUG] debug-file - Update task wkim:default@CreateHarBuildProfile output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/BuildProfile.ets cache.
+[2025-11-17T11:33:18.730] [DEBUG] debug-file - Incremental task wkim:default@CreateHarBuildProfile post-execution cost:1 ms .
+[2025-11-17T11:33:18.730] [DEBUG] debug-file - Update task wkim:default@CreateHarModuleInfo output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/generated/profile/default/ModuleInfo.ts cache.
+[2025-11-17T11:33:18.730] [DEBUG] debug-file - Incremental task wkim:default@CreateHarModuleInfo post-execution cost:1 ms .
+[2025-11-17T11:33:18.730] [DEBUG] debug-file - Update task wkim:default@MergeProfile input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/AppScope/app.json5 cache by regenerate.
+[2025-11-17T11:33:18.731] [DEBUG] debug-file - Update task wkim:default@MergeProfile input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/build-profile.json5 cache by regenerate.
+[2025-11-17T11:33:18.731] [DEBUG] debug-file - Update task wkim:default@MergeProfile input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/module.json5 cache by regenerate.
+[2025-11-17T11:33:18.731] [DEBUG] debug-file - Update task wkim:default@MergeProfile output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/merge_profile/default/module.json cache.
+[2025-11-17T11:33:18.731] [DEBUG] debug-file - Incremental task wkim:default@MergeProfile post-execution cost:1 ms .
+[2025-11-17T11:33:18.731] [DEBUG] debug-file - Update task wkim:default@GeneratePkgContextInfo output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/loader/default/pkgContextInfo.json cache.
+[2025-11-17T11:33:18.731] [DEBUG] debug-file - Incremental task wkim:default@GeneratePkgContextInfo post-execution cost:1 ms .
+[2025-11-17T11:33:18.731] [DEBUG] debug-file - Update task wkim:default@ProcessIntegratedHsp output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/build/cache/default/integrated_hsp/integratedHspCache.json cache.
+[2025-11-17T11:33:18.731] [DEBUG] debug-file - Incremental task wkim:default@ProcessIntegratedHsp post-execution cost:1 ms .
+[2025-11-17T11:33:18.731] [DEBUG] debug-file - Update task wkim:default@ProcessModulePrivacyProfile output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/privacy_profile/default/pac.json5 cache.
+[2025-11-17T11:33:18.731] [DEBUG] debug-file - Incremental task wkim:default@ProcessModulePrivacyProfile post-execution cost:1 ms .
+[2025-11-17T11:33:18.731] [DEBUG] debug-file - Update task wkim:default@ProcessProfile input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/merge_profile/default/module.json cache by regenerate.
+[2025-11-17T11:33:18.731] [DEBUG] debug-file - Update task wkim:default@ProcessProfile output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/process_profile/default/module.json cache.
+[2025-11-17T11:33:18.731] [DEBUG] debug-file - Incremental task wkim:default@ProcessProfile post-execution cost:1 ms .
+[2025-11-17T11:33:18.731] [DEBUG] debug-file - Update task wkim:default@ProcessRouterMap input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/oh-package.json5 cache by regenerate.
+[2025-11-17T11:33:18.731] [DEBUG] debug-file - Update task wkim:default@ProcessRouterMap input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/oh-package.json5 cache by regenerate.
+[2025-11-17T11:33:18.731] [DEBUG] debug-file - Update task wkim:default@ProcessRouterMap input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/module.json5 cache by regenerate.
+[2025-11-17T11:33:18.731] [DEBUG] debug-file - Update task wkim:default@ProcessRouterMap output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/router_map/default/temp-router-map.json cache.
+[2025-11-17T11:33:18.731] [DEBUG] debug-file - Update task wkim:default@ProcessRouterMap output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/router_map/default/loader-router-map.json cache.
+[2025-11-17T11:33:18.731] [DEBUG] debug-file - Incremental task wkim:default@ProcessRouterMap post-execution cost:1 ms .
+[2025-11-17T11:33:18.731] [DEBUG] debug-file - Update task wkim:default@ProcessShareConfig input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/oh-package.json5 cache by regenerate.
+[2025-11-17T11:33:18.731] [DEBUG] debug-file - Update task wkim:default@ProcessShareConfig input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/oh-package.json5 cache by regenerate.
+[2025-11-17T11:33:18.731] [DEBUG] debug-file - Update task wkim:default@ProcessShareConfig input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/module.json5 cache by regenerate.
+[2025-11-17T11:33:18.731] [DEBUG] debug-file - Update task wkim:default@ProcessShareConfig output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/share_config/default/temp-share-config.json cache.
+[2025-11-17T11:33:18.731] [DEBUG] debug-file - Incremental task wkim:default@ProcessShareConfig post-execution cost:1 ms .
+[2025-11-17T11:33:18.731] [DEBUG] debug-file - Update task wkim:default@ProcessStartupConfig output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/startup/default/startup_config.json cache.
+[2025-11-17T11:33:18.732] [DEBUG] debug-file - Incremental task wkim:default@ProcessStartupConfig post-execution cost:1 ms .
+[2025-11-17T11:33:18.732] [DEBUG] debug-file - Update task wkim:default@ProcessResource output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default/resConfig.json cache.
+[2025-11-17T11:33:18.732] [DEBUG] debug-file - Update task wkim:default@ProcessResource output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default/opt-compression.json cache.
+[2025-11-17T11:33:18.732] [DEBUG] debug-file - Incremental task wkim:default@ProcessResource post-execution cost:1 ms .
+[2025-11-17T11:33:18.732] [DEBUG] debug-file - Update task wkim:default@GenerateLoaderJson input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets cache by regenerate.
+[2025-11-17T11:33:18.738] [DEBUG] debug-file - Update task wkim:default@GenerateLoaderJson output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/loader/default/loader.json cache.
+[2025-11-17T11:33:18.738] [DEBUG] debug-file - Incremental task wkim:default@GenerateLoaderJson post-execution cost:7 ms .
+[2025-11-17T11:33:18.738] [DEBUG] debug-file - Update task wkim:default@ProcessLibs input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/build-profile.json5 cache by regenerate.
+[2025-11-17T11:33:18.738] [DEBUG] debug-file - Update task wkim:default@ProcessLibs input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build-profile.json5 cache by regenerate.
+[2025-11-17T11:33:18.738] [DEBUG] debug-file - Update task wkim:default@ProcessLibs output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/libs/default cache.
+[2025-11-17T11:33:18.738] [DEBUG] debug-file - Incremental task wkim:default@ProcessLibs post-execution cost:1 ms .
+[2025-11-17T11:33:18.738] [DEBUG] debug-file - Update task wkim:default@CompileResource input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/resources cache by regenerate.
+[2025-11-17T11:33:18.739] [DEBUG] debug-file - Update task wkim:default@CompileResource input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default/resource_str cache by regenerate.
+[2025-11-17T11:33:18.739] [DEBUG] debug-file - Update task wkim:default@CompileResource input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/process_profile/default/module.json cache by regenerate.
+[2025-11-17T11:33:18.739] [DEBUG] debug-file - Update task wkim:default@CompileResource input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default/resConfig.json cache by regenerate.
+[2025-11-17T11:33:18.739] [DEBUG] debug-file - Update task wkim:default@CompileResource output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default cache.
+[2025-11-17T11:33:18.740] [DEBUG] debug-file - Update task wkim:default@CompileResource output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/generated/r/default/ResourceTable.h cache.
+[2025-11-17T11:33:18.740] [DEBUG] debug-file - Update task wkim:default@CompileResource output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/generated/r/default cache.
+[2025-11-17T11:33:18.740] [DEBUG] debug-file - Incremental task wkim:default@CompileResource post-execution cost:2 ms .
+[2025-11-17T11:33:18.740] [DEBUG] debug-file - Update task wkim:default@DoNativeStrip input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/libs/default cache by regenerate.
+[2025-11-17T11:33:18.740] [DEBUG] debug-file - Update task wkim:default@DoNativeStrip output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/stripped_native_libs/default cache.
+[2025-11-17T11:33:18.740] [DEBUG] debug-file - Incremental task wkim:default@DoNativeStrip post-execution cost:1 ms .
+[2025-11-17T11:33:18.740] [DEBUG] debug-file - Update task wkim:default@HarCompileArkTS input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/loader/default cache by regenerate.
+[2025-11-17T11:33:18.740] [DEBUG] debug-file - Update task wkim:default@HarCompileArkTS input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default/resources/rawfile cache by regenerate.
+[2025-11-17T11:33:18.740] [DEBUG] debug-file - Update task wkim:default@HarCompileArkTS input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default/ResourceTable.txt cache by regenerate.
+[2025-11-17T11:33:18.740] [DEBUG] debug-file - Update task wkim:default@HarCompileArkTS input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default/ark_module.json cache by regenerate.
+[2025-11-17T11:33:18.740] [DEBUG] debug-file - Update task wkim:default@HarCompileArkTS input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets cache by regenerate.
+[2025-11-17T11:33:18.741] [DEBUG] debug-file - Update task wkim:default@HarCompileArkTS input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/index.ets cache by regenerate.
+[2025-11-17T11:33:18.741] [DEBUG] debug-file - Update task wkim:default@HarCompileArkTS input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/BuildProfile.ets cache by regenerate.
+[2025-11-17T11:33:18.741] [DEBUG] debug-file - Update task wkim:default@HarCompileArkTS output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/loader_out/default cache.
+[2025-11-17T11:33:18.741] [DEBUG] debug-file - Update task wkim:default@HarCompileArkTS output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/outputs/default/mapping/sourceMaps.map cache.
+[2025-11-17T11:33:18.741] [DEBUG] debug-file - Incremental task wkim:default@HarCompileArkTS post-execution cost:2 ms .
+[2025-11-17T11:33:18.741] [DEBUG] debug-file - Update task wkim:default@CacheNativeLibs input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/stripped_native_libs/default cache by regenerate.
+[2025-11-17T11:33:18.741] [DEBUG] debug-file - Update task wkim:default@CacheNativeLibs input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/libs/default cache by regenerate.
+[2025-11-17T11:33:18.741] [DEBUG] debug-file - Update task wkim:default@CacheNativeLibs output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/patch/default/base_native_libs.json cache.
+[2025-11-17T11:33:18.741] [DEBUG] debug-file - Incremental task wkim:default@CacheNativeLibs post-execution cost:1 ms .
+[2025-11-17T11:33:18.741] [DEBUG] debug-file - Update task wkim:default@ProcessHarArtifacts input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/process_profile/default cache by regenerate.
+[2025-11-17T11:33:18.741] [DEBUG] debug-file - Update task wkim:default@ProcessHarArtifacts input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim cache by regenerate.
+[2025-11-17T11:33:18.746] [DEBUG] debug-file - Update task wkim:default@ProcessHarArtifacts input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/generated/pm/default cache by regenerate.
+[2025-11-17T11:33:18.746] [DEBUG] debug-file - Update task wkim:default@ProcessHarArtifacts input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/stripped_native_libs/default cache by regenerate.
+[2025-11-17T11:33:18.746] [DEBUG] debug-file - Update task wkim:default@ProcessHarArtifacts input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default/ResourceTable.txt cache by regenerate.
+[2025-11-17T11:33:18.746] [DEBUG] debug-file - Update task wkim:default@ProcessHarArtifacts output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/cache/default/default@PackageHar cache.
+[2025-11-17T11:33:18.747] [DEBUG] debug-file - Update task wkim:default@ProcessHarArtifacts output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/outputs/default/mapping/sourceMaps.map cache.
+[2025-11-17T11:33:18.747] [DEBUG] debug-file - Update task wkim:default@ProcessHarArtifacts output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/cache/default/default@PackageHar/pac.json5 cache.
+[2025-11-17T11:33:18.748] [DEBUG] debug-file - Incremental task wkim:default@ProcessHarArtifacts post-execution cost:7 ms .
+[2025-11-17T11:33:18.748] [DEBUG] debug-file - Update task wkim:default@PackageHar output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/cache/default/default@PackageHar cache.
+[2025-11-17T11:33:18.749] [DEBUG] debug-file - Update task wkim:default@PackageHar output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/outputs/default cache.
+[2025-11-17T11:33:18.749] [DEBUG] debug-file - Incremental task wkim:default@PackageHar post-execution cost:2 ms .
+[2025-11-17T11:33:18.749] [DEBUG] debug-file - Update task wkim:default@PackageSignHar input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/cache/default/default@PackageHar cache by regenerate.
+[2025-11-17T11:33:18.751] [DEBUG] debug-file - Update task wkim:default@PackageSignHar input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/cache/default/default@PackageSignHar cache by regenerate.
+[2025-11-17T11:33:18.751] [DEBUG] debug-file - Update task wkim:default@PackageSignHar output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/outputs/default/wkim-signed.har cache.
+[2025-11-17T11:33:18.751] [DEBUG] debug-file - Incremental task wkim:default@PackageSignHar post-execution cost:2 ms .
+[2025-11-17T11:33:18.751] [DEBUG] debug-file - Update task wkim:default@CollectDebugSymbol input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/libs/default cache by regenerate.
+[2025-11-17T11:33:18.751] [DEBUG] debug-file - Update task wkim:default@CollectDebugSymbol output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/outputs/default/symbol cache.
+[2025-11-17T11:33:18.751] [DEBUG] debug-file - Incremental task wkim:default@CollectDebugSymbol post-execution cost:1 ms .
+[2025-11-17T11:33:18.761] [DEBUG] debug-file - Cleanup worker 0.
+[2025-11-17T11:33:18.761] [DEBUG] debug-file - Worker 0 has been cleaned up.
+[2025-11-17T11:33:18.761] [DEBUG] debug-file - Current idle worker size: 4.
+[2025-11-17T11:33:18.761] [DEBUG] debug-file - Current resident worker size: 5.
+[2025-11-17T11:33:18.761] [DEBUG] debug-file - Cleanup worker 1.
+[2025-11-17T11:33:18.761] [DEBUG] debug-file - Worker 1 has been cleaned up.
+[2025-11-17T11:33:18.761] [DEBUG] debug-file - Current idle worker size: 3.
+[2025-11-17T11:33:18.761] [DEBUG] debug-file - Current resident worker size: 5.
+[2025-11-17T11:33:18.761] [DEBUG] debug-file - Cleanup worker 8.
+[2025-11-17T11:33:18.761] [DEBUG] debug-file - Worker 8 has been cleaned up.
+[2025-11-17T11:33:18.761] [DEBUG] debug-file - Current idle worker size: 2.
+[2025-11-17T11:33:18.761] [DEBUG] debug-file - Current resident worker size: 5.
+[2025-11-17T11:33:18.761] [DEBUG] debug-file - Cleanup worker 7.
+[2025-11-17T11:33:18.761] [DEBUG] debug-file - Worker 7 has been cleaned up.
+[2025-11-17T11:33:18.761] [DEBUG] debug-file - Current idle worker size: 1.
+[2025-11-17T11:33:18.761] [DEBUG] debug-file - Current resident worker size: 5.
+[2025-11-17T11:33:18.762] [DEBUG] debug-file - hvigor build process will be closed.
+[2025-11-17T11:33:18.770] [DEBUG] debug-file - session manager: send message to worker process.
+[2025-11-17T11:33:18.770] [DEBUG] debug-file - session manager: send message to worker process.
+[2025-11-17T11:33:18.770] [DEBUG] debug-file - worker[0] exits with exit code 1.
+[2025-11-17T11:33:18.771] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-11-17T11:33:18.771] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-11-17T11:33:18.771] [DEBUG] debug-file - worker[1] exits with exit code 1.
+[2025-11-17T11:33:18.773] [DEBUG] debug-file - worker[7] exits with exit code 1.
+[2025-11-17T11:33:18.773] [DEBUG] debug-file - worker[8] exits with exit code 1.

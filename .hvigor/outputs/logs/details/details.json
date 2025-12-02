@@ -9,7 +9,7 @@
         "MODULE_NAME": "9c795491bcb264ace9d5411b0667e14e",
         "API_TYPE": "stageMode",
         "INCREMENTAL_TASKS": {
-          "COMPILE_ARKTS": false
+          "COMPILE_ARKTS": true
         }
       }
     ],
@@ -23,36 +23,28 @@
     "IS_HVIGORFILE_TYPE_CHECK": false,
     "TASK_TIME": {
       "9c795491bcb264ace9d5411b0667e14e": {
-        "clean": 520958,
-        "PreBuild": 108047500,
-        "ProcessOHPackageJson": 741833,
-        "CreateHarBuildProfile": 1487375,
-        "CreateHarModuleInfo": 433042,
-        "ConfigureCmake": 130250,
-        "MergeProfile": 4295333,
-        "GeneratePkgContextInfo": 5795625,
-        "ProcessIntegratedHsp": 400834,
-        "ProcessModulePrivacyProfile": 712125,
-        "BuildNativeWithCmake": 245333,
-        "ProcessProfile": 186700584,
-        "ProcessRouterMap": 483709,
-        "ProcessShareConfig": 293667,
-        "ProcessStartupConfig": 333459,
-        "BuildNativeWithNinja": 328375,
-        "ProcessResource": 688417,
-        "GenerateLoaderJson": 4440792,
-        "ProcessLibs": 3271083,
-        "CompileResource": 392049334,
-        "DoNativeStrip": 1719458,
-        "ProcessObfuscationFiles": 343625,
-        "CacheNativeLibs": 423662875,
-        "HarCompileArkTS": 4745320875,
-        "ProcessHarArtifacts": 45319000,
-        "PackageHar": 21864333,
-        "PackageSignHar": 441166,
-        "PackingCheckHar": 109042,
-        "CollectDebugSymbol": 657458,
-        "assembleHar": 94500
+        "PreBuild": 114854084,
+        "ProcessOHPackageJson": 650167,
+        "CreateHarBuildProfile": 994708,
+        "CreateHarModuleInfo": 344166,
+        "ConfigureCmake": 137917,
+        "GeneratePkgContextInfo": 5245958,
+        "ProcessIntegratedHsp": 436042,
+        "ProcessModulePrivacyProfile": 245291,
+        "BuildNativeWithCmake": 88208,
+        "ProcessRouterMap": 347417,
+        "ProcessShareConfig": 391334,
+        "ProcessStartupConfig": 291583,
+        "BuildNativeWithNinja": 221833,
+        "GenerateLoaderJson": 9508208,
+        "ProcessObfuscationFiles": 88000,
+        "HarCompileArkTS": 4100425833,
+        "ProcessHarArtifacts": 52322041,
+        "PackageHar": 29529625,
+        "PackageSignHar": 337791,
+        "PackingCheckHar": 101292,
+        "CollectDebugSymbol": 628833,
+        "assembleHar": 75500
       }
     },
     "APIS": [
@@ -78,7 +70,7 @@
       "getCommandEntryTask"
     ],
     "CONFIG_PROPERTIES": {},
-    "BUILD_ID": "202511171133121450",
-    "TOTAL_TIME": 6583773208
+    "BUILD_ID": "202512021120202810",
+    "TOTAL_TIME": 5349079166
   }
 }

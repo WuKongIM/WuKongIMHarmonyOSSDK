@@ -61,7 +61,7 @@ export class WKProtocol {
     return writer.toUint8List()
   }
 
-  decode(data: Uint8Array): WKPacket {
+  decode(data: Uint8Array): WKPacket | undefined {
     let reader = new WKReader(data)
     let header = decodeHeader(reader)
     if (header.packetType == WKPacketType.ping) {
@@ -71,7 +71,7 @@ export class WKProtocol {
       return new WKPongPacket()
     }
     let func: (header: WKPacketHeader, reader: WKReader) => WKPacket = this.packetDecodeMap[header.packetType]
-    if (func == null) {
+    if (func === null || func === undefined) {
       WKLogger.error(`不支持的协议包->${header.packetType}`)
     }
     return func(header, reader)

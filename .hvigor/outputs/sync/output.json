@@ -2,9 +2,6 @@
   "ohos-module-entry": {
     "SELECT_TARGET": "default",
     "MODULE_BUILD_DIR": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build",
-    "DEPENDENCY_INFO": {
-      "@wukong/wkim": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim"
-    },
     "TARGETS": {
       "default": {
         "SOURCE_ROOT": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main",
@@ -22,10 +19,11 @@
           "JS_SUPER_VISUAL_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/cache/default/default@CompileJS/jsbundle",
           "WORKER_LOADER": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/loader/default/loader.json",
           "MANIFEST_JSON": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/manifest/default",
-          "OUTPUT_METADATA_JSON": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/hap_metadata/default/output_metadata.json"
+          "OUTPUT_METADATA_JSON": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/hap_metadata/default/output_metadata.json",
+          "SOURCE_MAP_DIR": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/source_map/default"
         },
         "BUILD_OPTION": {
-          "debuggable": true
+          "debuggable": false
         }
       },
       "ohosTest": {
@@ -44,7 +42,8 @@
           "JS_SUPER_VISUAL_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/cache/ohosTest/ohosTest@OhosTestCompileJS/jsbundle",
           "WORKER_LOADER": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/loader/ohosTest/loader.json",
           "MANIFEST_JSON": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/manifest/ohosTest",
-          "OUTPUT_METADATA_JSON": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/hap_metadata/ohosTest/output_metadata.json"
+          "OUTPUT_METADATA_JSON": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/hap_metadata/ohosTest/output_metadata.json",
+          "SOURCE_MAP_DIR": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/source_map/ohosTest"
         },
         "BUILD_OPTION": {
           "debuggable": true
@@ -53,7 +52,7 @@
     },
     "BUILD_OPTION": {
       "default-default": {
-        "debuggable": true,
+        "debuggable": false,
         "copyFrom": "default"
       }
     },
@@ -70,12 +69,12 @@
           "runtimeOS": "HarmonyOS"
         }
       ]
-    }
+    },
+    "BUILD_CACHE_DIR": ""
   },
   "ohos-module-wkim": {
     "SELECT_TARGET": "default",
     "MODULE_BUILD_DIR": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build",
-    "DEPENDENCY_INFO": {},
     "TARGETS": {
       "default": {
         "SOURCE_ROOT": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main",
@@ -93,16 +92,17 @@
           "JS_SUPER_VISUAL_PATH": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/cache/default/default@HarCompileJS/jsbundle",
           "WORKER_LOADER": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/loader/default/loader.json",
           "MANIFEST_JSON": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/manifest/default",
-          "OUTPUT_METADATA_JSON": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/hap_metadata/default/output_metadata.json"
+          "OUTPUT_METADATA_JSON": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/hap_metadata/default/output_metadata.json",
+          "SOURCE_MAP_DIR": "/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/source_map/default"
         },
         "BUILD_OPTION": {
-          "debuggable": true
+          "debuggable": false
         }
       }
     },
     "BUILD_OPTION": {
       "default-default": {
-        "debuggable": true,
+        "debuggable": false,
         "copyFrom": "default"
       }
     },
@@ -115,7 +115,8 @@
           "runtimeOS": "HarmonyOS"
         }
       ]
-    }
+    },
+    "BUILD_CACHE_DIR": ""
   },
   "ohos-project": {
     "SELECT_PRODUCT_NAME": "default",
@@ -182,7 +183,8 @@
     },
     "OVERALL_PROJECT_PATHS": [
       "/Users/songlun/Desktop/workspace/hmworkspace/wukongim"
-    ]
+    ],
+    "BUILD_CACHE_DIR": ""
   },
   "version": 1
 }

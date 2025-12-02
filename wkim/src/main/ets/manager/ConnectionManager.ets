@@ -266,6 +266,10 @@ export class ConnectionManager {
 
   private decodePacket(data: Uint8Array) {
     let packet = WKIM.shared.config.protocol.decode(data)
+    if (packet === undefined) {
+      WKLogger.error(`未知包--->`)
+      return
+    }
     WKLogger.error(`包类型：${packet?.header.packetType}`)
     if (packet.header.packetType === WKPacketType.connAck) {
       let connAck = packet as WKConnectAckPacket

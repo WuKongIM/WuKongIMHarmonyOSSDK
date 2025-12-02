@@ -8,3 +8,5 @@
 * fix:update query channel message
 ### 1.0.4
 * fix:修改监听删除频道成员事件参数类型错误问题
+### 1.0.5
+* fix:修改错误码闪退问题

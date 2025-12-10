@@ -23,28 +23,28 @@
     "IS_HVIGORFILE_TYPE_CHECK": false,
     "TASK_TIME": {
       "9c795491bcb264ace9d5411b0667e14e": {
-        "PreBuild": 114854084,
-        "ProcessOHPackageJson": 650167,
-        "CreateHarBuildProfile": 994708,
-        "CreateHarModuleInfo": 344166,
-        "ConfigureCmake": 137917,
-        "GeneratePkgContextInfo": 5245958,
-        "ProcessIntegratedHsp": 436042,
-        "ProcessModulePrivacyProfile": 245291,
-        "BuildNativeWithCmake": 88208,
-        "ProcessRouterMap": 347417,
-        "ProcessShareConfig": 391334,
-        "ProcessStartupConfig": 291583,
-        "BuildNativeWithNinja": 221833,
-        "GenerateLoaderJson": 9508208,
-        "ProcessObfuscationFiles": 88000,
-        "HarCompileArkTS": 4100425833,
-        "ProcessHarArtifacts": 52322041,
-        "PackageHar": 29529625,
-        "PackageSignHar": 337791,
-        "PackingCheckHar": 101292,
-        "CollectDebugSymbol": 628833,
-        "assembleHar": 75500
+        "PreBuild": 95649708,
+        "ProcessOHPackageJson": 677458,
+        "CreateHarBuildProfile": 952208,
+        "CreateHarModuleInfo": 359250,
+        "ConfigureCmake": 131166,
+        "GeneratePkgContextInfo": 3800459,
+        "ProcessIntegratedHsp": 393042,
+        "ProcessModulePrivacyProfile": 216875,
+        "BuildNativeWithCmake": 91625,
+        "ProcessRouterMap": 436167,
+        "ProcessShareConfig": 394042,
+        "ProcessStartupConfig": 331542,
+        "BuildNativeWithNinja": 226334,
+        "GenerateLoaderJson": 9069417,
+        "ProcessObfuscationFiles": 120083,
+        "HarCompileArkTS": 3146333041,
+        "ProcessHarArtifacts": 44968750,
+        "PackageHar": 17352875,
+        "PackageSignHar": 447125,
+        "PackingCheckHar": 114834,
+        "CollectDebugSymbol": 648834,
+        "assembleHar": 76792
       }
     },
     "APIS": [
@@ -70,7 +70,7 @@
       "getCommandEntryTask"
     ],
     "CONFIG_PROPERTIES": {},
-    "BUILD_ID": "202512021120202810",
-    "TOTAL_TIME": 5349079166
+    "BUILD_ID": "202512101422213260",
+    "TOTAL_TIME": 4192267333
   }
 }

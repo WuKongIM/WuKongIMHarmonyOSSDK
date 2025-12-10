@@ -183,8 +183,8 @@ export class MessageManager {
     msg.content = JSON.stringify(json)
     if (!option.header.noPersist) {
       let row = MessageDB.shared.insert(msg)
-      this.setInserted(msg)
       msg.clientSeq = row
+      this.setInserted(msg)
       // 更新最近会话
       if (msg.clientSeq > 0) {
         let convMsg = ConversationDB.shared.insertWithWKMsg(msg, true)

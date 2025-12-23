@@ -22,29 +22,36 @@
     "IS_PARALLEL": true,
     "IS_HVIGORFILE_TYPE_CHECK": false,
     "TASK_TIME": {
+      "1043bfc77febe75fafec0c4309faccf1": {
+        "init": 91375
+      },
       "9c795491bcb264ace9d5411b0667e14e": {
-        "PreBuild": 95649708,
-        "ProcessOHPackageJson": 677458,
-        "CreateHarBuildProfile": 952208,
-        "CreateHarModuleInfo": 359250,
-        "ConfigureCmake": 131166,
-        "GeneratePkgContextInfo": 3800459,
-        "ProcessIntegratedHsp": 393042,
-        "ProcessModulePrivacyProfile": 216875,
-        "BuildNativeWithCmake": 91625,
-        "ProcessRouterMap": 436167,
-        "ProcessShareConfig": 394042,
-        "ProcessStartupConfig": 331542,
-        "BuildNativeWithNinja": 226334,
-        "GenerateLoaderJson": 9069417,
-        "ProcessObfuscationFiles": 120083,
-        "HarCompileArkTS": 3146333041,
-        "ProcessHarArtifacts": 44968750,
-        "PackageHar": 17352875,
-        "PackageSignHar": 447125,
-        "PackingCheckHar": 114834,
-        "CollectDebugSymbol": 648834,
-        "assembleHar": 76792
+        "init": 68083,
+        "PreBuild": 78837208,
+        "ProcessOHPackageJson": 898166,
+        "CreateHarBuildProfile": 1211792,
+        "CreateHarModuleInfo": 394250,
+        "ConfigureCmake": 214709,
+        "GeneratePkgContextInfo": 4539833,
+        "ProcessIntegratedHsp": 328542,
+        "ProcessModulePrivacyProfile": 252083,
+        "BuildNativeWithCmake": 95500,
+        "ProcessRouterMap": 553875,
+        "ProcessShareConfig": 331000,
+        "ProcessStartupConfig": 346833,
+        "BuildNativeWithNinja": 163209,
+        "GenerateLoaderJson": 10384500,
+        "ProcessObfuscationFiles": 117167,
+        "HarCompileArkTS": 4282913417,
+        "ProcessHarArtifacts": 44000875,
+        "PackageHar": 26442750,
+        "PackageSignHar": 361833,
+        "PackingCheckHar": 196292,
+        "CollectDebugSymbol": 812625,
+        "assembleHar": 74042
+      },
+      "APP": {
+        "init": 125416
       }
     },
     "APIS": [
@@ -70,7 +77,7 @@
       "getCommandEntryTask"
     ],
     "CONFIG_PROPERTIES": {},
-    "BUILD_ID": "202512101422213260",
-    "TOTAL_TIME": 4192267333
+    "BUILD_ID": "202512221158133380",
+    "TOTAL_TIME": 4554762209
   }
 }

@@ -17,6 +17,7 @@ import { ChannelDB } from './ChannelDB';
 import { ChannelMemberDB } from './ChannelMemberDB';
 import { ReactionDB } from './ReactionDB';
 import { HashMap, JSON } from '@kit.ArkTS';
+import { WKSendAckPacket } from '../protocol/WKPacket';
 
 export class MessageDB {
   static shared: MessageDB = new MessageDB();
@@ -868,6 +869,29 @@ export class MessageDB {
       return false
     } catch (e) {
       WKLogger.error('修改消息字段错误', this.tag, 'updateMsgWithFieldAndClientMsgNo', JSON.stringify(cv), e.message)
+      return false
+    }
+  }
+
+
+  updateMsgSendStatus(sendAck: WKSendAckPacket) {
+    let orderSeq = WKIM.shared.messageManager().getOrderSeq(sendAck.messageSeq)
+    let cv: relationalStore.ValuesBucket = {
+      'message_id': sendAck.messageId,
+      "message_seq": sendAck.messageSeq,
+      "status": sendAck.reasonCode,
+      "order_seq": orderSeq
+    }
+    try {
+      let p = new relationalStore.RdbPredicates(WKDBConst.tableMessage)
+      p.equalTo('client_seq', sendAck.clientSeq)
+      let row = WKDBHelper.shared.getDB()?.updateSync(cv, p)
+      if (row !== undefined && row > 0) {
+        return true
+      }
+      return false
+    } catch (e) {
+      WKLogger.error('修改发送消息回执错误', this.tag, 'updateWithSendAck', JSON.stringify(cv), e.message)
       return false
     }
   }

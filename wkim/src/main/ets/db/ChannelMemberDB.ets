@@ -135,7 +135,7 @@ export class ChannelMemberDB {
     let vb: relationalStore.ValuesBucket = {}
     vb[fieldName] = v
     try {
-      let p = new relationalStore.RdbPredicates(WKDBConst.tableMessage)
+      let p = new relationalStore.RdbPredicates(WKDBConst.tableChannelMember)
       p.equalTo('channel_id', channelId)
         .and()
         .equalTo('channel_type', channelType)

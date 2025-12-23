@@ -256,6 +256,7 @@ export class MessageManager {
   }
 
   setSendStatus(packet: WKSendAckPacket) {
+    this.updateMsgSendStatus(packet)
     this.sendStatusListeners.forEach((l) => {
       l(packet.clientSeq, packet.messageId, packet.messageSeq, packet.reasonCode)
     })
@@ -731,5 +732,9 @@ export class MessageManager {
       uiMsgs.push(uiMsg)
       WKIM.shared.conversationManager().setRefresh(uiMsgs)
     }
+  }
+
+  updateMsgSendStatus(sendAck: WKSendAckPacket) {
+    MessageDB.shared.updateMsgSendStatus(sendAck)
   }
 }

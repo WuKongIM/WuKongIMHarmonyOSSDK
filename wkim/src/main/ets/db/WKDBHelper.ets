@@ -3,6 +3,7 @@ import { CommonUtil } from '../common/CommonUtil';
 import { PreferencesUtil } from '../common/PreferencesUtil';
 import { WKLogger } from '../common/WKLogger';
 import { WKIM } from '../WKIM';
+
 export class WKDBHelper {
   static shared: WKDBHelper = new WKDBHelper();
 
@@ -27,9 +28,9 @@ export class WKDBHelper {
     return this.db
   }
 
-  closeDB() {
+  async closeDB() {
     if (this.db !== undefined) {
-      this.db.close()
+      await this.db.close()
       this.db = undefined
     }
   }
@@ -48,7 +49,7 @@ export class WKDBHelper {
         let list = this.getSqlList(name.replaceAll('\n', ''))
         list.forEach((sql) => {
           try {
-             this.getDB()?.executeSync(sql)
+            this.getDB()?.executeSync(sql)
             if (v > tempMaxV) {
               tempMaxV = v
             }

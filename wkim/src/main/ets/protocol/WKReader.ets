@@ -7,7 +7,8 @@ export class WKReader {
 
   constructor(_data: Uint8Array) {
     this.data = _data
-    this.byteData = new DataView(_data.buffer)
+    this.byteData = new DataView(_data.buffer, _data.byteOffset, _data.byteLength)
+    // this.byteData = new DataView(_data.buffer)
   }
 
   readByte(): number {

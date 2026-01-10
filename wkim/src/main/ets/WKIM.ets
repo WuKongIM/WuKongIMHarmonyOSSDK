@@ -23,7 +23,7 @@ export class WKIM {
     this.config.uid = uid
     this.config.token = token
     this.config.address = address
-    CryptoUtils.init()
+    // await CryptoUtils.shared.init()
     await WKDBHelper.shared.init()
   }
 

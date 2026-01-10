@@ -276,10 +276,28 @@ struct Main {
   build() {
     Column() {
       Row() {
-        Text(this.titleText).fontColor(Color.White).fontSize(22).fontWeight(FontWeight.Bold).margin({
-          left: 10
-        })
-      }.width('100%').height('10%').backgroundColor('#ff3f91f6')
+        Text(this.titleText)
+          .fontColor(Color.White)
+          .fontSize(22)
+          .fontWeight(FontWeight.Bold)
+          .margin({ left: 10 })
+          .layoutWeight(1)
+
+        Text('退出')
+          .fontColor(Color.White)
+          .fontSize(16)
+          .padding({ left: 15, right: 15, top: 8, bottom: 8 })
+          .backgroundColor('#ff2979ff')
+          .borderRadius(6)
+          .margin({ right: 15 })
+          .onClick(() => {
+            WKIM.shared.connectionManager().disConnection(true)
+            router.replaceUrl({ url: 'pages/Index' })
+          })
+      }
+      .width('100%')
+      .height('10%')
+      .backgroundColor('#ff3f91f6')
       .expandSafeArea([SafeAreaType.SYSTEM, SafeAreaType.KEYBOARD], [SafeAreaEdge.TOP])
 
 

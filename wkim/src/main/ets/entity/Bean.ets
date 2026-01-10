@@ -1,7 +1,6 @@
-import { JSON, util } from '@kit.ArkTS'
+import { JSON } from '@kit.ArkTS'
 import { CommonUtil } from '../common/CommonUtil'
 import { DateUtil } from '../common/DateUtil'
-import { WKLogger } from '../common/WKLogger'
 import { ReminderDB } from '../db/ReminderDB'
 import { WKMessageContent } from '../model/WKMessageContent'
 import { WKIM } from '../WKIM'
@@ -239,10 +238,7 @@ export class WKConversation {
     if (this.msg === undefined) {
       this.msg = WKIM.shared.messageManager().getWithClientMsgNo(this.lastClientMsgNo)
     }
-    if (this.msg === undefined) {
-      return undefined
-    }
-    if (this.msg.isDeleted === 1) {
+    if (this.msg === undefined || this.msg.isDeleted === 1) {
       return undefined
     }
     return this.msg
@@ -253,6 +249,9 @@ export class WKConversation {
   }
 
   getChannel(): WKChannel | undefined {
+    if (this.channel === undefined) {
+      this.channel = WKIM.shared.channelManager().getChannel(this.channelId,this.channelType)
+    }
     return this.channel
   }
 

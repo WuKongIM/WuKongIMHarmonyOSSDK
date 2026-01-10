@@ -46,7 +46,7 @@ export class WKConnectPacket extends WKPacket {
     this.uid = WKIM.shared.config.uid!
     this.token = WKIM.shared.config.token!
     this.clientTimestamp = DateUtil.getCurrentMills()
-    this.clientKey = CryptoUtils.getPublicKey()
+    this.clientKey = CryptoUtils.shared.getPublicKey()
     this.deviceFlag = WKIM.shared.config.deviceFlagApp
   }
 }
@@ -134,12 +134,12 @@ export class WKSendPacket extends WKPacket {
     sb.append(this.channelId)
     sb.append(this.channelType)
     sb.append(content)
-    let msgKey = CryptoUtils.aesEncrypt(sb.toString())
-    return CryptoUtils.digestMD5(CommonUtil.stringToUint8Array(msgKey))
+    let msgKey = CryptoUtils.shared.aesEncrypt(sb.toString())
+    return CryptoUtils.shared.digestMD5(CommonUtil.stringToUint8Array(msgKey))
   }
 
   encodeMsgContent(): string {
-    return CryptoUtils.aesEncrypt(this.payload)
+    return CryptoUtils.shared.aesEncrypt(this.payload)
   }
 }
 

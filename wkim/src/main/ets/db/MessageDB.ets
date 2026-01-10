@@ -678,9 +678,9 @@ export class MessageDB {
           if (existList[j].clientMsgNo === saveList[i].clientMsgNo) {
             isSave = false
           }
-          if (isSave) {
-            realSaveList.push(saveList[i])
-          }
+        }
+        if (isSave) {
+          realSaveList.push(saveList[i])
         }
       }
     } else {
@@ -944,7 +944,6 @@ export class MessageDB {
     extra.readedCount = WKDBConst.getNumber(result, 'readed_count')
     extra.unreadCount = WKDBConst.getNumber(result, 'unread_count')
     extra.revoke = WKDBConst.getNumber(result, 'revoke')
-    WKLogger.error(`是否撤回:${extra.revoke}`)
     extra.revoker = WKDBConst.getString(result, 'revoker')
     extra.isMutualDeleted = WKDBConst.getNumber(result, 'is_mutual_deleted')
     extra.extraVersion = WKDBConst.getNumber(result, 'extra_version')

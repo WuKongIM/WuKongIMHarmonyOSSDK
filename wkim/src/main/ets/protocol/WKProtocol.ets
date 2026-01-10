@@ -43,12 +43,14 @@ export class WKProtocol {
     this.packetDecodeMap[WKPacketType.disconnect] = decodeDisconnect
   }
 
-  encode(packet: WKPacket): Uint8Array {
+
+  encode(packet: WKPacket): Uint8Array | undefined {
     let writer = new WKWriter()
     if (packet.header.packetType != WKPacketType.ping && packet.header.packetType != WKPacketType.pong) {
       let func: (packet: WKPacket) => Array<number> = this.packetEncodeMap[packet.header.packetType]
       if (func === null || func === undefined) {
-        WKLogger.error(`不支持的协议包->${packet.header.packetType}`)
+        WKLogger.error(`编码不支持的协议包->${packet.header.packetType}`)
+        return undefined
       }
       let body: Array<number> = func!(packet)
       let header: Array<number> = encodeHeader(packet, body.length)
@@ -72,7 +74,8 @@ export class WKProtocol {
     }
     let func: (header: WKPacketHeader, reader: WKReader) => WKPacket = this.packetDecodeMap[header.packetType]
     if (func === null || func === undefined) {
-      WKLogger.error(`不支持的协议包->${header.packetType}`)
+      WKLogger.error(`解码不支持的协议包->${header.packetType}`)
+      return undefined
     }
     return func(header, reader)
   }

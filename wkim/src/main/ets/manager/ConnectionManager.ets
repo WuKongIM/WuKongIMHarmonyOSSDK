@@ -72,9 +72,9 @@ export class ConnectionManager {
     }
   }
 
-  private setConnectStatus(status: number,reasonCode?:number,connInfo?:ConnectionInfo) {
+  private setConnectStatus(status: number, reasonCode?: number, connInfo?: ConnectionInfo) {
     this.connectStatusListeners.forEach((back) => {
-      back(status,reasonCode,connInfo)
+      back(status, reasonCode, connInfo)
     })
   }
 
@@ -104,6 +104,7 @@ export class ConnectionManager {
     if (isLogout) {
       MessageDB.shared.updateSendingToFail()
       WKDBHelper.shared.closeDB()
+      CryptoUtils.shared.clear()
       WKIM.shared.config.uid = undefined
       WKIM.shared.config.token = undefined
       WKIM.shared.config.address = undefined
@@ -180,7 +181,9 @@ export class ConnectionManager {
 
   private addOnMessage() {
     this.tcpSocket?.on('message', (value: socket.SocketMessageInfo) => {
-      let data = new Uint8Array(value.message)
+      // let data = new Uint8Array(value.message)
+      // this.cutData(data)
+      let data = new Uint8Array(value.message).slice() // 或 new Uint8Array([...new Uint8Array(value.message)])
       this.cutData(data)
     })
     this.tcpSocket?.on('close', () => {
@@ -219,7 +222,14 @@ export class ConnectionManager {
             this._cacheData = lastMsgBytes;
             break;
           }
+          // 在解析 remainingLength 之前，先检查至少有足够字节读取 header
+          if (lastMsgBytes.length < 2) {
+            // 数据不足，等待更多数据
+            this._cacheData = lastMsgBytes;
+            break;
+          }
           let remainingLength = readData.readVariableLength();
+
           if (remainingLength == -1) {
             //剩余长度被分包
             this._cacheData = lastMsgBytes;
@@ -275,13 +285,13 @@ export class ConnectionManager {
       let connAck = packet as WKConnectAckPacket
       if (connAck.reasonCode === 1) {
         WKIM.shared.config.protoVersion = connAck.serviceProtoVersion
-        CryptoUtils.setServerKeyAndSalt(connAck.serverKey, connAck.salt)
+        CryptoUtils.shared.setServerKeyAndSalt(connAck.serverKey, connAck.salt)
         this.resendMsg()
         this.startCheckNetworkTimer()
         this.startHeartTimer()
-        this.setConnectStatus(WKConnectStatus.success,connAck.reasonCode,new ConnectionInfo(connAck.nodeId))
+        this.setConnectStatus(WKConnectStatus.success, connAck.reasonCode, new ConnectionInfo(connAck.nodeId))
         this.setConnectStatus(WKConnectStatus.syncing)
-        WKLogger.error('连接ack成功')
+        WKLogger.error('连接成功')
         WKIM.shared.conversationManager().sync().then(() => {
           this.setConnectStatus(WKConnectStatus.syncCompleted)
         })
@@ -290,7 +300,7 @@ export class ConnectionManager {
         if (connAck.reasonCode === WKConnectStatus.kicked) {
           status = WKConnectStatus.kicked
         }
-        this.setConnectStatus(status,connAck.reasonCode)
+        this.setConnectStatus(status, connAck.reasonCode)
         WKLogger.error(`连接失败，code:${connAck.reasonCode}`)
       }
     } else if (packet.header.packetType === WKPacketType.recv) {
@@ -332,13 +342,17 @@ export class ConnectionManager {
     sb.append(packet.channelType)
     sb.append(packet.payload)
     let encryptContent = sb.toString()
-    let result = CryptoUtils.aesEncrypt(encryptContent)
-    let localMsgKey = CryptoUtils.digestMD5(CommonUtil.stringToUint8Array(result))
+    let result = CryptoUtils.shared.aesEncrypt(encryptContent)
+    if (result === '') {
+      WKLogger.error('收到消息本地未初始化密钥')
+      return
+    }
+    let localMsgKey = CryptoUtils.shared.digestMD5(CommonUtil.stringToUint8Array(result))
     if (packet.msgKey != localMsgKey) {
-      WKLogger.error(`非法消息-->期望msgKey：$localMsgKey，实际msgKey：${packet.msgKey}`)
+      WKLogger.error(`非法消息-->期望msgKey：${localMsgKey}，实际msgKey：${packet.msgKey}`)
       return
     } else {
-      packet.payload = CryptoUtils.aesDecrypt(packet.payload)
+      packet.payload = CryptoUtils.shared.aesDecrypt(packet.payload)
       WKLogger.debug(packet.toString())
       this.saveRecvMsg(packet)
     }
@@ -368,7 +382,7 @@ export class ConnectionManager {
     if (packet.header.noPersist === false && packet.header.syncOnce === false) {
       let seq = MessageDB.shared.insert(msg)
       msg.clientSeq = seq
-      let conv = ConversationDB.shared.insertWithWKMsg(msg,false)
+      let conv = ConversationDB.shared.insertWithWKMsg(msg, false)
       let list: WKConversation[] = []
       list.push(conv)
       WKIM.shared.conversationManager().setRefresh(list)
@@ -380,7 +394,8 @@ export class ConnectionManager {
     }
   }
 
-  private sendConnPacket() {
+  private async sendConnPacket() {
+    await CryptoUtils.shared.init()
     this.sendPacket(new WKConnectPacket())
   }
 
@@ -391,6 +406,9 @@ export class ConnectionManager {
       this.sendingMsgMap.set(send.clientSeq, new SendingMsg(send))
     }
     let data = WKIM.shared.config.protocol.encode(packet)
+    if (data === undefined || data === null) {
+      return
+    }
     let tcpSendOption: socket.TCPSendOptions = {
       data: buffer.from(data).buffer
     }

@@ -49,7 +49,7 @@ export class UIMsg {
           this.sendStatusIVURL = 'imgs/loading.png'
         } else if (this.msg.status === WKSendMsgResult.success) {
           this.sendStatusIVURL = 'imgs/success.png'
-        } else if (this.msg.status === WKSendMsgResult.success) {
+        } else  {
           this.sendStatusIVURL = 'imgs/error.png'
         }
       } else {

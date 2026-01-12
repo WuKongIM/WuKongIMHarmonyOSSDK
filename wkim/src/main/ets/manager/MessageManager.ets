@@ -200,15 +200,32 @@ export class MessageManager {
       }
       WKIM.shared.config.provider.uploadAttachmentCallback(msg)
         .then((result: [boolean, WKMsg]) => {
+          let wkMsg = result[1]
           if (result[0]) {
+            this.updateContent(wkMsg.clientMsgNo, wkMsg.messageContent!)
             this.sendPacket(result[1])
           } else {
+            let result = this.updateMsgStatus(wkMsg.clientMsgNo, WKSendMsgResult.fail)
+            if (result) {
+              let sendAck = new WKSendAckPacket()
+              sendAck.clientSeq = wkMsg.clientSeq
+              sendAck.reasonCode = WKSendMsgResult.fail
+              this.setSendStatus(sendAck)
+            }
             WKLogger.error('上传文件失败')
           }
         })
     } else {
       this.sendPacket(msg)
     }
+  }
+
+  updateMsgStatus(clientMsgNo: string, status: number): boolean {
+    let cv: relationalStore.ValuesBucket = {
+      'status': status
+    }
+    return MessageDB.shared.updateMsgFieldWithClientMsgNo(clientMsgNo, cv)
+
   }
 
   private sendPacket(wkMsg: WKMsg) {

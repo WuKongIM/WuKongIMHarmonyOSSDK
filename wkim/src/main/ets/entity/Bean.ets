@@ -1,6 +1,7 @@
 import { JSON } from '@kit.ArkTS'
 import { CommonUtil } from '../common/CommonUtil'
 import { DateUtil } from '../common/DateUtil'
+import { ChannelMemberDB } from '../db/ChannelMemberDB'
 import { ReminderDB } from '../db/ReminderDB'
 import { WKMessageContent } from '../model/WKMessageContent'
 import { WKIM } from '../WKIM'
@@ -144,6 +145,9 @@ export class WKMsg {
   }
 
   getChannelInfo(): WKChannel | undefined {
+    if (this.channelInfo === undefined) {
+      this.channelInfo = WKIM.shared.channelManager().getChannel(this.channelId, this.channelType)
+    }
     return this.channelInfo
   }
 
@@ -152,6 +156,9 @@ export class WKMsg {
   }
 
   getFrom(): WKChannel | undefined {
+    if (this.from === undefined) {
+      this.from = WKIM.shared.channelManager().getChannel(this.fromUID, WKChannelType.personal)
+    }
     return this.from
   }
 
@@ -160,6 +167,9 @@ export class WKMsg {
   }
 
   getMemberOfFrom(): WKChannelMember | undefined {
+    if (this.memberOfFrom === undefined) {
+      this.memberOfFrom = ChannelMemberDB.shared.queryWithUID(this.channelId, this.channelType, this.fromUID)
+    }
     return this.memberOfFrom
   }
 
@@ -250,7 +260,7 @@ export class WKConversation {
 
   getChannel(): WKChannel | undefined {
     if (this.channel === undefined) {
-      this.channel = WKIM.shared.channelManager().getChannel(this.channelId,this.channelType)
+      this.channel = WKIM.shared.channelManager().getChannel(this.channelId, this.channelType)
     }
     return this.channel
   }

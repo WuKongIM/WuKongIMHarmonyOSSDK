@@ -18112,3 +18112,1976 @@ Require stack:
 [2026-01-13T11:13:56.215] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
 [2026-01-13T11:13:56.215] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
 [2026-01-13T11:13:56.216] [DEBUG] debug-file - worker[8] exits with exit code 1.
+[2026-01-13T11:19:21.748] [DEBUG] debug-file - session manager: set active socket. socketId=KHgT7CM_utxi5T16AAAL
+[2026-01-13T11:19:21.761] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-01-13T11:19:21.769] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: true,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined
+}
+[2026-01-13T11:19:21.777] [DEBUG] debug-file - Cache service initialization finished in 8 ms 
+[2026-01-13T11:19:21.778] [DEBUG] debug-file - hvigorfile, resolving /Users/songlun/Desktop/workspace/hmworkspace/wukongim/hvigorfile.ts
+[2026-01-13T11:19:21.795] [DEBUG] debug-file - hvigorfile, require result:  {}
+[2026-01-13T11:19:21.795] [DEBUG] debug-file - hvigorfile, binding system plugins {}
+[2026-01-13T11:19:21.807] [DEBUG] debug-file - Start initialize project's product build option map with build mode release.
+[2026-01-13T11:19:21.808] [DEBUG] debug-file - Picking option from product 'default' with build mode 'release'.
+[2026-01-13T11:19:21.809] [DEBUG] debug-file - Product 'default' build option initialized
+[2026-01-13T11:19:21.810] [DEBUG] debug-file - End initialize project's product build option map with build mode 'release'.
+[2026-01-13T11:19:21.813] [DEBUG] debug-file - Obtain build option for product 'default'in this build.
+[2026-01-13T11:19:21.816] [DEBUG] debug-file - No signingConfig found, initRemoteHspCache failed.
+[2026-01-13T11:19:21.817] [DEBUG] debug-file - Start recording SDK configuration permission data.
+[2026-01-13T11:19:21.890] [DEBUG] debug-file - Sdk init in 73 ms 
+[2026-01-13T11:19:21.895] [DEBUG] debug-file - Project task initialization takes 5 ms 
+[2026-01-13T11:19:21.895] [DEBUG] debug-file - hvigorfile, resolve finished /Users/songlun/Desktop/workspace/hmworkspace/wukongim/hvigorfile.ts
+[2026-01-13T11:19:21.895] [DEBUG] debug-file - hvigorfile, resolving /Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/hvigorfile.ts
+[2026-01-13T11:19:21.897] [DEBUG] debug-file - hvigorfile, require result:  {}
+[2026-01-13T11:19:21.897] [DEBUG] debug-file - hvigorfile, binding system plugins {}
+[2026-01-13T11:19:21.897] [DEBUG] debug-file - failed to load cangjie to dynamically generate schemas: Error: Cannot find module '@ohos/cangjie-build-support/index'
+Require stack:
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/factory/plugin-factory.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/index.js
+- /Users/songlun/Desktop/workspace/hmworkspace/wukongim/hvigorfile.ts
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/configuration.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/boot/index.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/daemon/cluster/worker-process-lifecycle.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/daemon/process/daemon-process-boot-script.js
+[2026-01-13T11:19:21.900] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=release
+[2026-01-13T11:19:21.900] [DEBUG] debug-file - Target 'default' config initialized
+[2026-01-13T11:19:21.900] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-01-13T11:19:21.901] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-01-13T11:19:21.902] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2026-01-13T11:19:21.902] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-01-13T11:19:21.902] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2026-01-13T11:19:21.902] [DEBUG] debug-file - Target 'default' config initialized
+[2026-01-13T11:19:21.905] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-01-13T11:19:21.905] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-01-13T11:19:21.905] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2026-01-13T11:19:21.905] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-01-13T11:19:21.905] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=release
+[2026-01-13T11:19:21.905] [DEBUG] debug-file - Target 'default' config initialized
+[2026-01-13T11:19:21.905] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-01-13T11:19:21.906] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-01-13T11:19:21.906] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2026-01-13T11:19:21.906] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-01-13T11:19:21.906] [DEBUG] debug-file - Obtain build option for module 'entry' target 'default'in this build.
+[2026-01-13T11:19:21.907] [DEBUG] debug-file - Module entry task initialization takes 1 ms 
+[2026-01-13T11:19:21.907] [DEBUG] debug-file - hvigorfile, resolve finished /Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/hvigorfile.ts
+[2026-01-13T11:19:21.907] [DEBUG] debug-file - hvigorfile, resolving /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/hvigorfile.ts
+[2026-01-13T11:19:21.913] [DEBUG] debug-file - hvigorfile, require result:  {}
+[2026-01-13T11:19:21.913] [DEBUG] debug-file - hvigorfile, binding system plugins {}
+[2026-01-13T11:19:21.913] [DEBUG] debug-file - failed to load cangjie to dynamically generate schemas: Error: Cannot find module '@ohos/cangjie-build-support/index'
+Require stack:
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/factory/plugin-factory.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/index.js
+- /Users/songlun/Desktop/workspace/hmworkspace/wukongim/hvigorfile.ts
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/configuration.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/boot/index.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/daemon/cluster/worker-process-lifecycle.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/daemon/process/daemon-process-boot-script.js
+[2026-01-13T11:19:21.915] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=wkim, buildMode=release
+[2026-01-13T11:19:21.915] [DEBUG] debug-file - Target 'default' config initialized
+[2026-01-13T11:19:21.915] [DEBUG] debug-file - Module 'wkim' target 'default' build option initialized
+[2026-01-13T11:19:21.915] [DEBUG] debug-file - End initialize module-target build option map, moduleName=wkim
+[2026-01-13T11:19:21.915] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=wkim, buildMode=debug
+[2026-01-13T11:19:21.916] [DEBUG] debug-file - Target 'default' config initialized
+[2026-01-13T11:19:21.916] [DEBUG] debug-file - Module 'wkim' target 'default' build option initialized
+[2026-01-13T11:19:21.916] [DEBUG] debug-file - End initialize module-target build option map, moduleName=wkim
+[2026-01-13T11:19:21.916] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=wkim, buildMode=release
+[2026-01-13T11:19:21.916] [DEBUG] debug-file - Target 'default' config initialized
+[2026-01-13T11:19:21.916] [DEBUG] debug-file - Module 'wkim' target 'default' build option initialized
+[2026-01-13T11:19:21.916] [DEBUG] debug-file - End initialize module-target build option map, moduleName=wkim
+[2026-01-13T11:19:21.916] [DEBUG] debug-file - Obtain build option for module 'wkim' target 'default'in this build.
+[2026-01-13T11:19:21.918] [DEBUG] debug-file - Module wkim task initialization takes 1 ms 
+[2026-01-13T11:19:21.918] [DEBUG] debug-file - hvigorfile, resolve finished /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/hvigorfile.ts
+[2026-01-13T11:19:21.990] [DEBUG] debug-file - hvigorfile, resolve hvigorfile dependencies in 72 ms 
+[2026-01-13T11:19:21.990] [DEBUG] debug-file - project has submodules:entry,wkim
+[2026-01-13T11:19:21.990] [DEBUG] debug-file - module:wkim no need to execute packageHap
+[2026-01-13T11:19:21.992] [DEBUG] debug-file - start to load updatedOhPackageInfo to the disk
+[2026-01-13T11:19:21.995] [DEBUG] debug-file - load to the disk finished
+[2026-01-13T11:19:21.996] [DEBUG] debug-file - Start to initialize dependency information.
+[2026-01-13T11:19:21.996] [DEBUG] debug-file - Module wukongim Collected Dependency: 
+[2026-01-13T11:19:21.997] [DEBUG] debug-file - Module wukongim's total dependency: 0
+[2026-01-13T11:19:21.997] [DEBUG] debug-file - Start to initialize dependency information.
+[2026-01-13T11:19:21.998] [DEBUG] debug-file - Module entry Collected Dependency: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim
+[2026-01-13T11:19:21.998] [DEBUG] debug-file - Module entry's total dependency: 1
+[2026-01-13T11:19:21.999] [DEBUG] debug-file - Start to initialize dependency information.
+[2026-01-13T11:19:21.999] [DEBUG] debug-file - Module wkim Collected Dependency: 
+[2026-01-13T11:19:21.999] [DEBUG] debug-file - Module wkim's total dependency: 0
+[2026-01-13T11:19:21.999] [DEBUG] debug-file - Configuration phase cost:223 ms 
+[2026-01-13T11:19:22.000] [DEBUG] debug-file - Configuration task cost before running: 236 ms 
+[2026-01-13T11:19:22.001] [DEBUG] debug-file - Executing task :wkim:default@PreBuild
+[2026-01-13T11:19:22.001] [WARN] debug-file - The project has not explicitly set the 'targetSdkVersion' version at build-profile.json5. It is recommended to configure it. Reference: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-build-profile-app#section45865492619
+[2026-01-13T11:19:22.002] [DEBUG] debug-file - Task 'wkim:default@PreBuild' cost while wrapping incremental declarations: 1 ms 
+[2026-01-13T11:19:22.002] [DEBUG] debug-file - wkim:default@PreBuild is not up-to-date, since the input file '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/oh-package.json5' has been changed.
+[2026-01-13T11:19:22.002] [DEBUG] debug-file - Incremental task wkim:default@PreBuild pre-execution cost: 1 ms .
+[2026-01-13T11:19:22.049] [DEBUG] debug-file - current product is not Atomic service.
+[2026-01-13T11:19:22.049] [DEBUG] debug-file - Use tool [darwin: JAVA_HOME, CLASSPATH]
+ [
+  {
+    JAVA_HOME: '/Applications/DevEco-Studio.app/Contents/jbr/Contents/Home'
+  },
+  { CLASSPATH: undefined }
+]
+[2026-01-13T11:19:22.049] [DEBUG] debug-file - Use tool [darwin: NODE_HOME]
+ [
+  {
+    NODE_HOME: '/Applications/DevEco-Studio.app/Contents/tools/node/bin'
+  }
+]
+[2026-01-13T11:19:22.080] [DEBUG] debug-file - wkim : default@PreBuild cost memory 5.147178649902344
+[2026-01-13T11:19:22.080] [DEBUG] debug-file - runTaskFromQueue task cost before running: 316 ms 
+[2026-01-13T11:19:22.081] [INFO] debug-file - Finished :wkim:default@PreBuild... after 79 ms 
+[2026-01-13T11:19:22.082] [DEBUG] debug-file - Executing task :wkim:default@ProcessOHPackageJson
+[2026-01-13T11:19:22.083] [DEBUG] debug-file - jsonObjWithoutAtModule {"name":"@wukong/wkim","license":"Apache-2.0","devDependencies":{},"author":"wukongim","description":"WuKongIM HarmonyOS SDK","main":"index.ets","type":"module","version":"1.1.1","dependencies":{},"repository":"https://github.com/WuKongIM/WuKongIMHarmonyOSSDK","keywords":["WuKong","chat","im","聊天"],"homepage":"https://githubim.com/","ohos":{"org":"wukong"}}
+[2026-01-13T11:19:22.083] [DEBUG] debug-file - wkim : default@ProcessOHPackageJson cost memory 0.03720855712890625
+[2026-01-13T11:19:22.083] [DEBUG] debug-file - runTaskFromQueue task cost before running: 319 ms 
+[2026-01-13T11:19:22.083] [INFO] debug-file - Finished :wkim:default@ProcessOHPackageJson... after 1 ms 
+[2026-01-13T11:19:22.084] [DEBUG] debug-file - Executing task :wkim:default@CreateHarBuildProfile
+[2026-01-13T11:19:22.084] [DEBUG] debug-file - Task 'wkim:default@CreateHarBuildProfile' cost while wrapping incremental declarations: 1 ms 
+[2026-01-13T11:19:22.084] [DEBUG] debug-file - wkim:default@CreateHarBuildProfile is not up-to-date, since the task snapshots are different.
+[2026-01-13T11:19:22.084] [DEBUG] debug-file - Incremental task wkim:default@CreateHarBuildProfile pre-execution cost: 1 ms .
+[2026-01-13T11:19:22.084] [DEBUG] debug-file - wkim : default@CreateHarBuildProfile cost memory 0.0951385498046875
+[2026-01-13T11:19:22.084] [DEBUG] debug-file - runTaskFromQueue task cost before running: 321 ms 
+[2026-01-13T11:19:22.084] [INFO] debug-file - Finished :wkim:default@CreateHarBuildProfile... after 1 ms 
+[2026-01-13T11:19:22.085] [DEBUG] debug-file - Executing task :wkim:default@CreateHarModuleInfo
+[2026-01-13T11:19:22.085] [DEBUG] debug-file - Task 'wkim:default@CreateHarModuleInfo' cost while wrapping incremental declarations: 1 ms 
+[2026-01-13T11:19:22.085] [DEBUG] debug-file - wkim : default@CreateHarModuleInfo cost memory 0.0399017333984375
+[2026-01-13T11:19:22.085] [DEBUG] debug-file - runTaskFromQueue task cost before running: 321 ms 
+[2026-01-13T11:19:22.085] [INFO] debug-file - Finished :wkim:default@CreateHarModuleInfo... after 1 ms 
+[2026-01-13T11:19:22.085] [DEBUG] debug-file - Executing task :wkim:default@ConfigureCmake
+[2026-01-13T11:19:22.085] [DEBUG] debug-file - wkim : default@ConfigureCmake cost memory 0.0157928466796875
+[2026-01-13T11:19:22.085] [DEBUG] debug-file - runTaskFromQueue task cost before running: 321 ms 
+[2026-01-13T11:19:22.085] [INFO] debug-file - Finished :wkim:default@ConfigureCmake... after 1 ms 
+[2026-01-13T11:19:22.085] [DEBUG] debug-file - Executing task :wkim:default@MergeProfile
+[2026-01-13T11:19:22.085] [DEBUG] debug-file - Task 'wkim:default@MergeProfile' cost while wrapping incremental declarations: 1 ms 
+[2026-01-13T11:19:22.085] [DEBUG] debug-file - wkim:default@MergeProfile is not up-to-date, since the output file '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/merge_profile/default/module.json' does not exist.
+[2026-01-13T11:19:22.085] [DEBUG] debug-file - Incremental task wkim:default@MergeProfile pre-execution cost: 1 ms .
+[2026-01-13T11:19:22.086] [DEBUG] debug-file - Change app api release type with 'Release'
+[2026-01-13T11:19:22.086] [DEBUG] debug-file - Change app compile API version with '6.0.0.47'
+[2026-01-13T11:19:22.086] [DEBUG] debug-file - Change app target API version with '60000020'
+[2026-01-13T11:19:22.086] [DEBUG] debug-file - Change app minimum API version with '50000012'
+[2026-01-13T11:19:22.086] [DEBUG] debug-file - Use cli appEnvironment
+[2026-01-13T11:19:22.087] [DEBUG] debug-file - wkim : default@MergeProfile cost memory 0.18445587158203125
+[2026-01-13T11:19:22.087] [DEBUG] debug-file - runTaskFromQueue task cost before running: 323 ms 
+[2026-01-13T11:19:22.087] [INFO] debug-file - Finished :wkim:default@MergeProfile... after 2 ms 
+[2026-01-13T11:19:22.088] [DEBUG] debug-file - Executing task :wkim:default@GeneratePkgContextInfo
+[2026-01-13T11:19:22.089] [DEBUG] debug-file - Task 'wkim:default@GeneratePkgContextInfo' cost while wrapping incremental declarations: 1 ms 
+[2026-01-13T11:19:22.089] [DEBUG] debug-file - wkim : default@GeneratePkgContextInfo cost memory 0.23813629150390625
+[2026-01-13T11:19:22.089] [DEBUG] debug-file - runTaskFromQueue task cost before running: 326 ms 
+[2026-01-13T11:19:22.089] [INFO] debug-file - Finished :wkim:default@GeneratePkgContextInfo... after 2 ms 
+[2026-01-13T11:19:22.090] [DEBUG] debug-file - Executing task :wkim:default@ProcessIntegratedHsp
+[2026-01-13T11:19:22.090] [DEBUG] debug-file - wkim:default@ProcessIntegratedHsp is not up-to-date, since the output file '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/build/cache/default/integrated_hsp/integratedHspCache.json' does not exist.
+[2026-01-13T11:19:22.090] [DEBUG] debug-file - Incremental task wkim:default@ProcessIntegratedHsp pre-execution cost: 1 ms .
+[2026-01-13T11:19:22.090] [DEBUG] debug-file - wkim : default@ProcessIntegratedHsp cost memory 0.06320953369140625
+[2026-01-13T11:19:22.090] [DEBUG] debug-file - runTaskFromQueue task cost before running: 327 ms 
+[2026-01-13T11:19:22.090] [INFO] debug-file - Finished :wkim:default@ProcessIntegratedHsp... after 1 ms 
+[2026-01-13T11:19:22.091] [DEBUG] debug-file - Executing task :wkim:default@ProcessModulePrivacyProfile
+[2026-01-13T11:19:22.091] [DEBUG] debug-file - wkim:default@ProcessModulePrivacyProfile is not up-to-date, since the output file '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/privacy_profile/default/pac.json5' does not exist.
+[2026-01-13T11:19:22.091] [DEBUG] debug-file - Incremental task wkim:default@ProcessModulePrivacyProfile pre-execution cost: 1 ms .
+[2026-01-13T11:19:22.091] [DEBUG] debug-file - wkim : default@ProcessModulePrivacyProfile cost memory 0.05161285400390625
+[2026-01-13T11:19:22.091] [DEBUG] debug-file - runTaskFromQueue task cost before running: 327 ms 
+[2026-01-13T11:19:22.091] [INFO] debug-file - Finished :wkim:default@ProcessModulePrivacyProfile... after 1 ms 
+[2026-01-13T11:19:22.091] [DEBUG] debug-file - Executing task :wkim:default@BuildNativeWithCmake
+[2026-01-13T11:19:22.091] [DEBUG] debug-file - wkim : default@BuildNativeWithCmake cost memory 0.01685333251953125
+[2026-01-13T11:19:22.091] [DEBUG] debug-file - runTaskFromQueue task cost before running: 327 ms 
+[2026-01-13T11:19:22.093] [INFO] debug-file - Finished :wkim:default@BuildNativeWithCmake... after 1 ms 
+[2026-01-13T11:19:22.093] [DEBUG] debug-file - Executing task :wkim:default@ProcessProfile
+[2026-01-13T11:19:22.093] [DEBUG] debug-file - Task 'wkim:default@ProcessProfile' cost while wrapping incremental declarations: 1 ms 
+[2026-01-13T11:19:22.093] [DEBUG] debug-file - wkim:default@ProcessProfile is not up-to-date, since the input file '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/merge_profile/default/module.json' has been changed.
+[2026-01-13T11:19:22.094] [DEBUG] debug-file - Incremental task wkim:default@ProcessProfile pre-execution cost: 1 ms .
+[2026-01-13T11:19:22.094] [DEBUG] debug-file - [
+  '/Applications/DevEco-Studio.app/Contents/tools/node/bin/node',
+  '/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/bin/ark/ts2abc.js',
+  '--target-api-version',
+  '12',
+  '--target-api-sub-version',
+  'beta1'
+]
+[2026-01-13T11:19:22.156] [DEBUG] debug-file - 12.0.2.0
+[2026-01-13T11:19:22.157] [DEBUG] debug-file - No need to add fake ui ability because of in HAR module.
+[2026-01-13T11:19:22.158] [DEBUG] debug-file - wkim : default@ProcessProfile cost memory 0.30908203125
+[2026-01-13T11:19:22.159] [DEBUG] debug-file - runTaskFromQueue task cost before running: 395 ms 
+[2026-01-13T11:19:22.159] [INFO] debug-file - Finished :wkim:default@ProcessProfile... after 66 ms 
+[2026-01-13T11:19:22.160] [DEBUG] debug-file - Executing task :wkim:default@ProcessRouterMap
+[2026-01-13T11:19:22.160] [DEBUG] debug-file - wkim:default@ProcessRouterMap is not up-to-date, since the input file '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/oh-package.json5' has been changed.
+[2026-01-13T11:19:22.160] [DEBUG] debug-file - Incremental task wkim:default@ProcessRouterMap pre-execution cost: 1 ms .
+[2026-01-13T11:19:22.160] [DEBUG] debug-file - wkim : default@ProcessRouterMap cost memory 0.09169769287109375
+[2026-01-13T11:19:22.160] [DEBUG] debug-file - runTaskFromQueue task cost before running: 397 ms 
+[2026-01-13T11:19:22.160] [INFO] debug-file - Finished :wkim:default@ProcessRouterMap... after 1 ms 
+[2026-01-13T11:19:22.161] [DEBUG] debug-file - Executing task :wkim:default@ProcessShareConfig
+[2026-01-13T11:19:22.161] [DEBUG] debug-file - wkim:default@ProcessShareConfig is not up-to-date, since the input file '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/oh-package.json5' has been changed.
+[2026-01-13T11:19:22.161] [DEBUG] debug-file - Incremental task wkim:default@ProcessShareConfig pre-execution cost: 1 ms .
+[2026-01-13T11:19:22.161] [DEBUG] debug-file - wkim : default@ProcessShareConfig cost memory 0.0894012451171875
+[2026-01-13T11:19:22.161] [DEBUG] debug-file - runTaskFromQueue task cost before running: 397 ms 
+[2026-01-13T11:19:22.161] [INFO] debug-file - Finished :wkim:default@ProcessShareConfig... after 1 ms 
+[2026-01-13T11:19:22.161] [DEBUG] debug-file - Executing task :wkim:default@ProcessStartupConfig
+[2026-01-13T11:19:22.161] [DEBUG] debug-file - Task 'wkim:default@ProcessStartupConfig' cost while wrapping incremental declarations: 1 ms 
+[2026-01-13T11:19:22.161] [DEBUG] debug-file - wkim:default@ProcessStartupConfig is not up-to-date, since the output file '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/startup/default/startup_config.json' does not exist.
+[2026-01-13T11:19:22.161] [DEBUG] debug-file - Incremental task wkim:default@ProcessStartupConfig pre-execution cost: 1 ms .
+[2026-01-13T11:19:22.161] [DEBUG] debug-file - wkim : default@ProcessStartupConfig cost memory 0.097259521484375
+[2026-01-13T11:19:22.161] [DEBUG] debug-file - runTaskFromQueue task cost before running: 398 ms 
+[2026-01-13T11:19:22.162] [INFO] debug-file - Finished :wkim:default@ProcessStartupConfig... after 1 ms 
+[2026-01-13T11:19:22.162] [DEBUG] debug-file - Executing task :wkim:default@BuildNativeWithNinja
+[2026-01-13T11:19:22.162] [DEBUG] debug-file - wkim : default@BuildNativeWithNinja cost memory 0.02684783935546875
+[2026-01-13T11:19:22.162] [DEBUG] debug-file - runTaskFromQueue task cost before running: 398 ms 
+[2026-01-13T11:19:22.162] [INFO] debug-file - Finished :wkim:default@BuildNativeWithNinja... after 1 ms 
+[2026-01-13T11:19:22.162] [DEBUG] debug-file - restool module names: wkim,entry; moduleName=wkim, taskName=default@ProcessResource
+[2026-01-13T11:19:22.163] [DEBUG] debug-file - Executing task :wkim:default@ProcessResource
+[2026-01-13T11:19:22.163] [DEBUG] debug-file - Task 'wkim:default@ProcessResource' cost while wrapping incremental declarations: 1 ms 
+[2026-01-13T11:19:22.163] [DEBUG] debug-file - wkim:default@ProcessResource is not up-to-date, since the output file '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default/resConfig.json' does not exist.
+[2026-01-13T11:19:22.163] [DEBUG] debug-file - Incremental task wkim:default@ProcessResource pre-execution cost: 1 ms .
+[2026-01-13T11:19:22.164] [DEBUG] debug-file - wkim : default@ProcessResource cost memory 0.12465667724609375
+[2026-01-13T11:19:22.164] [DEBUG] debug-file - runTaskFromQueue task cost before running: 400 ms 
+[2026-01-13T11:19:22.164] [INFO] debug-file - Finished :wkim:default@ProcessResource... after 2 ms 
+[2026-01-13T11:19:22.164] [DEBUG] debug-file - Executing task :wkim:default@GenerateLoaderJson
+[2026-01-13T11:19:22.164] [DEBUG] debug-file - Task 'wkim:default@GenerateLoaderJson' cost while wrapping incremental declarations: 1 ms 
+[2026-01-13T11:19:22.167] [DEBUG] debug-file - wkim:default@GenerateLoaderJson is not up-to-date, since the output file '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/loader/default/loader.json' does not exist.
+[2026-01-13T11:19:22.167] [DEBUG] debug-file - Incremental task wkim:default@GenerateLoaderJson pre-execution cost: 3 ms .
+[2026-01-13T11:19:22.170] [DEBUG] debug-file - wkim : default@GenerateLoaderJson cost memory 0.742523193359375
+[2026-01-13T11:19:22.170] [DEBUG] debug-file - runTaskFromQueue task cost before running: 406 ms 
+[2026-01-13T11:19:22.171] [INFO] debug-file - Finished :wkim:default@GenerateLoaderJson... after 6 ms 
+[2026-01-13T11:19:22.171] [DEBUG] debug-file - Executing task :wkim:default@ProcessLibs
+[2026-01-13T11:19:22.172] [DEBUG] debug-file - wkim:default@ProcessLibs is not up-to-date, since the output file '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/libs/default' does not exist.
+[2026-01-13T11:19:22.172] [DEBUG] debug-file - Incremental task wkim:default@ProcessLibs pre-execution cost: 1 ms .
+[2026-01-13T11:19:22.174] [DEBUG] debug-file - Worker dispatch failed, running processLibs on main thread.
+[2026-01-13T11:19:22.176] [DEBUG] debug-file - wkim : default@ProcessLibs cost memory 0.27651214599609375
+[2026-01-13T11:19:22.176] [DEBUG] debug-file - runTaskFromQueue task cost before running: 412 ms 
+[2026-01-13T11:19:22.176] [INFO] debug-file - Finished :wkim:default@ProcessLibs... after 6 ms 
+[2026-01-13T11:19:22.177] [DEBUG] debug-file - restool module names: wkim,entry; moduleName=wkim, taskName=default@CompileResource
+[2026-01-13T11:19:22.178] [DEBUG] debug-file - Executing task :wkim:default@CompileResource
+[2026-01-13T11:19:22.179] [DEBUG] debug-file - wkim:default@CompileResource is not up-to-date, since the input file '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/process_profile/default/module.json' has been changed.
+[2026-01-13T11:19:22.179] [DEBUG] debug-file - Incremental task wkim:default@CompileResource pre-execution cost: 1 ms .
+[2026-01-13T11:19:22.181] [DEBUG] debug-file - Use tool [/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/restool]
+ [
+  '/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/restool',
+  '-l',
+  '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default/resConfig.json'
+]
+[2026-01-13T11:19:22.181] [DEBUG] debug-file - current process  memoryUsage: {
+  rss: 171950080,
+  heapTotal: 172687360,
+  heapUsed: 132079496,
+  external: 3470280,
+  arrayBuffers: 1421672
+} os memoryUsage :31.865798950195312
+[2026-01-13T11:19:22.197] [DEBUG] debug-file - Info: Pack: normal pack mode
+
+[2026-01-13T11:19:22.249] [DEBUG] debug-file - Info: hardware concurrency count is : 10
+Info: thread count is : 10
+Info: thread pool is started
+
+[2026-01-13T11:19:22.249] [DEBUG] debug-file - Info: file '.DS_Store' is ignored by default regular pattern '\..+'.
+
+[2026-01-13T11:19:22.251] [DEBUG] debug-file - Info: no icons need to scale, icon ids size is 0.
+
+[2026-01-13T11:19:22.251] [DEBUG] debug-file - Info: restool resources compile success.
+
+[2026-01-13T11:19:22.252] [DEBUG] debug-file - Info: thread pool is stopped
+
+[2026-01-13T11:19:22.255] [DEBUG] debug-file - wkim : default@CompileResource cost memory -9.912338256835938
+[2026-01-13T11:19:22.255] [DEBUG] debug-file - runTaskFromQueue task cost before running: 491 ms 
+[2026-01-13T11:19:22.255] [INFO] debug-file - Finished :wkim:default@CompileResource... after 78 ms 
+[2026-01-13T11:19:22.256] [DEBUG] debug-file - Executing task :wkim:default@DoNativeStrip
+[2026-01-13T11:19:22.256] [DEBUG] debug-file - Task 'wkim:default@DoNativeStrip' cost while wrapping incremental declarations: 1 ms 
+[2026-01-13T11:19:22.256] [DEBUG] debug-file - wkim:default@DoNativeStrip is not up-to-date, since the output file '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/stripped_native_libs/default' does not exist.
+[2026-01-13T11:19:22.256] [DEBUG] debug-file - Incremental task wkim:default@DoNativeStrip pre-execution cost: 1 ms .
+[2026-01-13T11:19:22.258] [DEBUG] debug-file - wkim : default@DoNativeStrip cost memory 0.08257293701171875
+[2026-01-13T11:19:22.258] [DEBUG] debug-file - runTaskFromQueue task cost before running: 494 ms 
+[2026-01-13T11:19:22.259] [INFO] debug-file - Finished :wkim:default@DoNativeStrip... after 2 ms 
+[2026-01-13T11:19:22.260] [DEBUG] debug-file - Executing task :wkim:default@ProcessObfuscationFiles
+[2026-01-13T11:19:22.260] [DEBUG] debug-file - wkim : default@ProcessObfuscationFiles cost memory 0.0168304443359375
+[2026-01-13T11:19:22.260] [DEBUG] debug-file - runTaskFromQueue task cost before running: 496 ms 
+[2026-01-13T11:19:22.260] [INFO] debug-file - Finished :wkim:default@ProcessObfuscationFiles... after 1 ms 
+[2026-01-13T11:19:22.262] [DEBUG] debug-file - Executing task :wkim:default@HarCompileArkTS
+[2026-01-13T11:19:22.262] [DEBUG] debug-file - obfuscationOptions: undefined
+[2026-01-13T11:19:22.267] [DEBUG] debug-file - wkim:default@HarCompileArkTS is not up-to-date, since the input file '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/loader/default' has been changed.
+[2026-01-13T11:19:22.267] [DEBUG] debug-file - Incremental task wkim:default@HarCompileArkTS pre-execution cost: 3 ms .
+[2026-01-13T11:19:22.274] [DEBUG] debug-file - build config:
+[2026-01-13T11:19:22.276] [DEBUG] debug-file - {
+  moduleType: 'har',
+  perf: 0,
+  targetName: '.default',
+  packageManagerType: 'ohpm',
+  localPropertiesPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/local.properties',
+  isPreview: false,
+  isOhosTest: false,
+  isLocalTest: false,
+  buildMode: 'Release',
+  hotReloadBuild: undefined,
+  watchMode: 'false',
+  aceProfilePath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default/resources/base/profile',
+  etsLoaderPath: '/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader',
+  modulePath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim',
+  testFrameworkPar: {
+    testMode: undefined,
+    coveragePathFilter: undefined,
+    coverageMode: undefined
+  },
+  needCoverageInsert: false,
+  debugLine: false,
+  projectTopDir: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim',
+  compileSdkVersion: 20,
+  compatibleSdkVersion: 12,
+  compatibleSdkVersionStage: 'beta1',
+  bundleName: 'c***M',
+  etsLoaderVersion: '6.0.0.47',
+  etsLoaderReleaseType: 'Release',
+  aotCompileMode: 'type',
+  apPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/modules.ap',
+  entryModuleName: 'wkim',
+  entryModuleVersion: '1.1.1',
+  entryPackageName: '@wukong/wkim',
+  allModuleNameHash: '1266ac401374f49ea205c44ac3285344',
+  externalApiPaths: [ '/Applications/DevEco-Studio.app/Contents/sdk/default/hms/ets' ],
+  compilerTypes: [],
+  isCrossplatform: false,
+  hvigorPluginFile: undefined,
+  compilePluginPath: undefined,
+  buildGeneratedProfilePath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/generated/profile/default',
+  bundleType: 'app',
+  arkTSVersion: undefined,
+  apiVersion: 20,
+  needCompleteSourcesMap: false,
+  isFaMode: false,
+  strictMode: undefined,
+  buildDir: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build',
+  deviceTypes: [ 'default', 'tablet' ],
+  useNormalizedOHMUrl: false,
+  pkgContextInfo: undefined,
+  ohPackagePathMap: {},
+  dependencyAliasMap: {},
+  permission: {
+    requestPermissions: [ [Object], [Object] ],
+    definePermissions: undefined
+  },
+  integratedHsp: false,
+  projectArkOption: undefined,
+  sourceMapDir: undefined,
+  branchElimination: false,
+  transformLib: undefined,
+  caseSensitiveCheck: false,
+  tsImportSendable: false,
+  resolveConflictMode: true,
+  depName2RootPath: {},
+  depName2DepInfo: {},
+  rootPathSet: [ '/Users/songlun/Desktop/workspace/hmworkspace/wukongim' ],
+  useNativeResolver: true,
+  shouldEmitJs: true,
+  useTscResolve: false,
+  singleFileEmit: false,
+  userProjectConfig: {
+    autoLazyImport: false,
+    allowEmptyBundleName: false,
+    reExportCheckMode: 'noCheck',
+    executionMode: 'memory',
+    usePathPlaceholder: false,
+    writeRollupCache: true,
+    isExpandImportEnabled: false,
+    expandImportExclude: '',
+    ignoreCrossplatformCheck: false,
+    isPreloadSoEnabled: false
+  },
+  skipOhModulesLint: false,
+  executionMode: 'memory',
+  autoLazyImport: false,
+  allowEmptyBundleName: false,
+  reExportCheckMode: 'noCheck',
+  usePathPlaceholder: false,
+  writeRollupCache: true,
+  isExpandImportEnabled: false,
+  expandImportExclude: '',
+  ignoreCrossplatformCheck: false,
+  isPreloadSoEnabled: false,
+  arkCompileCachePath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/cache/default/default@HarCompileArkTS/esmodule',
+  aceModuleJsonPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default/ark_module.json',
+  appResource: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default/ResourceTable.txt',
+  rawFileResource: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default/resources/rawfile',
+  resourceTableHash: 'b151208bbf8ea2a2c4b298414af9d912',
+  runtimeOS: 'HarmonyOS',
+  sdkInfo: 'false:20:6.0.0.47:Release',
+  aceModuleRoot: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets',
+  compileMode: 'esmodule',
+  aceSuperVisualPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/supervisual',
+  aceBuildJson: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/loader/default/loader.json',
+  cachePath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/cache/default/default@HarCompileArkTS/esmodule/release',
+  aceModuleBuild: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/loader_out/default',
+  supportChunks: true,
+  declaredFilesPath: undefined,
+  shouldCollectDirectImportees: false,
+  isByteCodeHarOptimize: false,
+  expandImportPath: undefined,
+  pkgNameToPkgBriefInfo: {
+    '@wukong/wkim': {
+      pkgRoot: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim',
+      originalSourceRoots: undefined,
+      sourceRoots: [Array],
+      pkgName: '@wukong/wkim'
+    }
+  },
+  projectModel: {
+    '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main': {
+      moduleName: 'entry',
+      modulePkgPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry',
+      belongProjectPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim'
+    },
+    '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/ohosTest': {
+      moduleName: 'entry_test',
+      modulePkgPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry',
+      belongProjectPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim'
+    },
+    '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry': {
+      moduleName: 'entry',
+      modulePkgPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry',
+      belongProjectPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim'
+    },
+    '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main': {
+      moduleName: 'wkim',
+      modulePkgPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim',
+      belongProjectPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim'
+    },
+    '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim': {
+      moduleName: 'wkim',
+      modulePkgPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim',
+      belongProjectPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim'
+    },
+    '/Users/songlun/Desktop/workspace/hmworkspace/wukongim': {
+      moduleName: 'wukongim',
+      modulePkgPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim',
+      belongProjectPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim'
+    }
+  },
+  pkgJsonFileHash: 'da2684febbb383aa5c8096d4f872f569',
+  allModulePaths: [
+    '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry',
+    '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim'
+  ],
+  routerMap: {},
+  obfuscationOptions: undefined,
+  byteCodeHarToDependencyKeys: undefined,
+  compileBlockPkg: [],
+  mockParams: {
+    decorator: '@MockSetup',
+    packageName: '@ohos/hamock',
+    etsSourceRootPath: 'src/main/ets',
+    mockConfigPath: undefined,
+    mockConfigKey2ModuleInfo: {},
+    source2ModuleIdMap: {}
+  },
+  copyCodeResourceEnable: true,
+  copyCodeResourceExcludes: [],
+  copyCodeResourceIncludes: undefined,
+  uiTransformOptimization: false,
+  sdkPath: '/Applications/DevEco-Studio.app/Contents/sdk',
+  needPreloadSoFileSet: {},
+  preloadSoFilePath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/preload/default/preload.json',
+  useSourceHash: false,
+  localModuleParamMap: {},
+  otherPaths: {
+    '@wukong/wkim/*': [ '../*', '../../../build/default/generated/profile/default/*' ]
+  },
+  collectImportersConfig: undefined,
+  byteCodeHar: false,
+  obfuscate: undefined,
+  skipBuildEnd: true
+}
+[2026-01-13T11:19:22.276] [DEBUG] debug-file - Compile arkts with external api path: /Applications/DevEco-Studio.app/Contents/sdk/default/hms/ets
+[2026-01-13T11:19:22.277] [DEBUG] debug-file - default@HarCompileArkTS work[11] is submitted.
+[2026-01-13T11:19:22.277] [DEBUG] debug-file - default@HarCompileArkTS work[11] is pushed to ready queue.
+[2026-01-13T11:19:22.277] [DEBUG] debug-file - default@HarCompileArkTS work[11] is not dispatched.
+[2026-01-13T11:19:22.277] [DEBUG] debug-file - CopyResources startTime: 336001726326208
+[2026-01-13T11:19:22.277] [DEBUG] debug-file - default@HarCompileArkTS work[12] is submitted.
+[2026-01-13T11:19:22.277] [DEBUG] debug-file - default@HarCompileArkTS work[12] is pushed to ready queue.
+[2026-01-13T11:19:22.277] [DEBUG] debug-file - default@HarCompileArkTS work[12] is not dispatched.
+[2026-01-13T11:19:22.278] [DEBUG] debug-file - wkim : default@HarCompileArkTS cost memory 0.9914703369140625
+[2026-01-13T11:19:22.280] [DEBUG] debug-file - Executing task :wkim:default@CacheNativeLibs
+[2026-01-13T11:19:22.280] [DEBUG] debug-file - Task 'wkim:default@CacheNativeLibs' cost while wrapping incremental declarations: 1 ms 
+[2026-01-13T11:19:22.281] [DEBUG] debug-file - wkim:default@CacheNativeLibs is not up-to-date, since the output file '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/patch/default/base_native_libs.json' does not exist.
+[2026-01-13T11:19:22.281] [DEBUG] debug-file - Incremental task wkim:default@CacheNativeLibs pre-execution cost: 1 ms .
+[2026-01-13T11:19:22.281] [DEBUG] debug-file - default@CacheNativeLibs work[13] is submitted.
+[2026-01-13T11:19:22.281] [DEBUG] debug-file - default@CacheNativeLibs work[13] is pushed to ready queue.
+[2026-01-13T11:19:22.281] [DEBUG] debug-file - default@CacheNativeLibs work[13] is not dispatched.
+[2026-01-13T11:19:22.281] [DEBUG] debug-file - wkim : default@CacheNativeLibs cost memory 0.11944580078125
+[2026-01-13T11:19:22.378] [DEBUG] debug-file - A work dispatched to worker[9] failed because unable to get work from ready queue.
+[2026-01-13T11:19:22.378] [DEBUG] debug-file - Create  resident worker with id: 8.
+[2026-01-13T11:19:22.378] [DEBUG] debug-file - default@HarCompileArkTS work[12] has been dispatched to worker[8].
+[2026-01-13T11:19:22.378] [DEBUG] debug-file - A work dispatched to worker[9] failed because unable to get work from ready queue.
+[2026-01-13T11:19:22.378] [DEBUG] debug-file - A work dispatched to worker[8] failed because of worker busy.
+[2026-01-13T11:19:22.378] [DEBUG] debug-file - Create  resident worker with id: 7.
+[2026-01-13T11:19:22.379] [DEBUG] debug-file - default@CacheNativeLibs work[13] has been dispatched to worker[7].
+[2026-01-13T11:19:22.382] [DEBUG] debug-file - A work dispatched to worker[9] failed because unable to get work from ready queue.
+[2026-01-13T11:19:22.382] [DEBUG] debug-file - A work dispatched to worker[8] failed because of worker busy.
+[2026-01-13T11:19:22.382] [DEBUG] debug-file - A work dispatched to worker[7] failed because of worker busy.
+[2026-01-13T11:19:22.382] [DEBUG] debug-file - A work dispatched to worker[6] failed because unable to get work from ready queue.
+[2026-01-13T11:19:22.382] [DEBUG] debug-file - A work dispatched to worker[5] failed because unable to get work from ready queue.
+[2026-01-13T11:19:22.382] [DEBUG] debug-file - default@HarCompileArkTS work[11] has been dispatched to worker[4].
+[2026-01-13T11:19:23.023] [DEBUG] debug-file - worker[8] has one work done.
+[2026-01-13T11:19:23.023] [DEBUG] debug-file - CopyResources is end, endTime: 336002472275333
+[2026-01-13T11:19:23.023] [DEBUG] debug-file - default@HarCompileArkTS work[12] done.
+[2026-01-13T11:19:23.033] [DEBUG] debug-file - worker[7] has one work done.
+[2026-01-13T11:19:23.033] [DEBUG] debug-file - default@CacheNativeLibs work[13] done.
+[2026-01-13T11:19:23.033] [INFO] debug-file - Finished :wkim:default@CacheNativeLibs... after 3 ms 
+[2026-01-13T11:19:23.124] [DEBUG] debug-file - A work dispatched to worker[8] failed because unable to get work from ready queue.
+[2026-01-13T11:19:23.133] [DEBUG] debug-file - A work dispatched to worker[7] failed because unable to get work from ready queue.
+[2026-01-13T11:19:26.366] [WARN] debug-file - [33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/CommonUtil.ets:50:24
+ 'decodeWithStream' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/PreferencesUtil.ets:10:19
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/PreferencesUtil.ets:13:18
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/PreferencesUtil.ets:14:20
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/PreferencesUtil.ets:17:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/PreferencesUtil.ets:18:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/PreferencesUtil.ets:24:19
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/PreferencesUtil.ets:26:18
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/PreferencesUtil.ets:27:19
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/PreferencesUtil.ets:32:19
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/PreferencesUtil.ets:34:18
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/PreferencesUtil.ets:35:5
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/WKDBHelper.ets:23:21
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/WKDBHelper.ets:23:49
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/WKDBHelper.ets:33:13
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/WKDBHelper.ets:39:16
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/WKDBHelper.ets:39:16
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/WKDBHelper.ets:69:16
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/WKDBHelper.ets:69:16
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelMemberDB.ets:33:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelMemberDB.ets:52:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelMemberDB.ets:70:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelMemberDB.ets:89:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelMemberDB.ets:108:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelMemberDB.ets:129:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReminderDB.ets:31:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReminderDB.ets:51:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReminderDB.ets:71:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReminderDB.ets:91:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReminderDB.ets:111:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelDB.ets:31:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelDB.ets:50:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelDB.ets:84:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelDB.ets:104:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ChannelManager.ets:26:9
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ChannelManager.ets:27:14
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ChannelManager.ets:31:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ChannelManager.ets:98:5
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ChannelManager.ets:128:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReactionDB.ets:30:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReactionDB.ets:50:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReactionDB.ets:70:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReactionDB.ets:89:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:168:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:283:11
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:284:18
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:354:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:404:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:424:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:443:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:461:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:481:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:499:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:517:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:537:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:556:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:574:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:626:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:632:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:708:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:781:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:799:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:817:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:837:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:856:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ConversationDB.ets:60:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ConversationDB.ets:80:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ConversationDB.ets:99:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ConversationDB.ets:165:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ConversationDB.ets:229:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ConversationDB.ets:249:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ConnectionManager.ets:406:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ConnectionManager.ets:413:13
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ConnectionManager.ets:434:9
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ConnectionManager.ets:437:5
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ConnectionManager.ets:445:10
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ConnectionManager.ets:447:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ConnectionManager.ets:454:11
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ConnectionManager.ets:461:9
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ConnectionManager.ets:464:5
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/MessageManager.ets:85:5
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/MessageManager.ets:469:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/MessageManager.ets:506:10
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/MessageManager.ets:509:22
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+
+[2026-01-13T11:19:26.366] [DEBUG] debug-file - Ark compile task finished.finished time is 336005814982500
+[2026-01-13T11:19:26.385] [DEBUG] debug-file - worker[4] has one work done.
+[2026-01-13T11:19:26.388] [DEBUG] debug-file - default@HarCompileArkTS work[11] done.
+[2026-01-13T11:19:26.388] [DEBUG] debug-file - A work dispatched to worker[4] failed because unable to get work from ready queue.
+[2026-01-13T11:19:26.392] [INFO] debug-file - Finished :wkim:default@HarCompileArkTS... after 3 s 992 ms 
+[2026-01-13T11:19:26.395] [DEBUG] debug-file - Executing task :wkim:default@ProcessHarArtifacts
+[2026-01-13T11:19:26.395] [DEBUG] debug-file - File: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/resources/base/profile/insight_intent.json' from 'insightIntentJsonPath' is not exists, just ignore.
+[2026-01-13T11:19:26.395] [DEBUG] debug-file - File: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/preload/default/preload.json' from 'preloadSoFilePath' is not exists, just ignore.
+[2026-01-13T11:19:26.395] [DEBUG] debug-file - Task 'wkim:default@ProcessHarArtifacts' cost while wrapping incremental declarations: 1 ms 
+[2026-01-13T11:19:26.398] [DEBUG] debug-file - wkim:default@ProcessHarArtifacts is not up-to-date, since the input file '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/process_profile/default' has been changed.
+[2026-01-13T11:19:26.398] [DEBUG] debug-file - Incremental task wkim:default@ProcessHarArtifacts pre-execution cost: 1 ms .
+[2026-01-13T11:19:26.456] [DEBUG] debug-file - Since current module is not byte code har, just return.
+[2026-01-13T11:19:26.464] [DEBUG] debug-file - wkim : default@ProcessHarArtifacts cost memory -0.3714599609375
+[2026-01-13T11:19:26.464] [DEBUG] debug-file - runTaskFromQueue task cost before running: 4 s 700 ms 
+[2026-01-13T11:19:26.466] [INFO] debug-file - Finished :wkim:default@ProcessHarArtifacts... after 70 ms 
+[2026-01-13T11:19:26.468] [DEBUG] debug-file - Executing task :wkim:default@PackageHar
+[2026-01-13T11:19:26.472] [DEBUG] debug-file - wkim:default@PackageHar is not up-to-date, since the output file '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/cache/default/default@PackageHar' has been changed.
+[2026-01-13T11:19:26.472] [DEBUG] debug-file - Incremental task wkim:default@PackageHar pre-execution cost: 4 ms .
+[2026-01-13T11:19:26.495] [DEBUG] debug-file - wkim : default@PackageHar cost memory 4.045402526855469
+[2026-01-13T11:19:26.495] [DEBUG] debug-file - runTaskFromQueue task cost before running: 4 s 731 ms 
+[2026-01-13T11:19:26.495] [INFO] debug-file - Finished :wkim:default@PackageHar... after 28 ms 
+[2026-01-13T11:19:26.496] [DEBUG] debug-file - Executing task :wkim:default@PackageSignHar
+[2026-01-13T11:19:26.496] [WARN] debug-file - Will skip sign 'har'. No signingConfigs profile is configured in current project.
+             If needed, configure the signingConfigs in /Users/songlun/Desktop/workspace/hmworkspace/wukongim/build-profile.json5.
+[2026-01-13T11:19:26.496] [DEBUG] debug-file - wkim : default@PackageSignHar cost memory 0.0514373779296875
+[2026-01-13T11:19:26.496] [DEBUG] debug-file - runTaskFromQueue task cost before running: 4 s 732 ms 
+[2026-01-13T11:19:26.496] [INFO] debug-file - Finished :wkim:default@PackageSignHar... after 1 ms 
+[2026-01-13T11:19:26.496] [DEBUG] debug-file - Executing task :wkim:default@PackingCheckHar
+[2026-01-13T11:19:26.497] [DEBUG] debug-file - wkim : default@PackingCheckHar cost memory 0.0157470703125
+[2026-01-13T11:19:26.497] [DEBUG] debug-file - runTaskFromQueue task cost before running: 4 s 733 ms 
+[2026-01-13T11:19:26.497] [INFO] debug-file - Finished :wkim:default@PackingCheckHar... after 1 ms 
+[2026-01-13T11:19:26.497] [DEBUG] debug-file - Executing task :wkim:default@CollectDebugSymbol
+[2026-01-13T11:19:26.497] [DEBUG] debug-file - wkim:default@CollectDebugSymbol is not up-to-date, since the output file '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/outputs/default/symbol' does not exist.
+[2026-01-13T11:19:26.497] [DEBUG] debug-file - Incremental task wkim:default@CollectDebugSymbol pre-execution cost: 1 ms .
+[2026-01-13T11:19:26.497] [DEBUG] debug-file - sourceMaps.map for module wkim does not exist
+[2026-01-13T11:19:26.497] [DEBUG] debug-file - nameCache.json for module wkim does not exists
+[2026-01-13T11:19:26.497] [DEBUG] debug-file - There are no cpp libraries for module wkim
+[2026-01-13T11:19:26.497] [DEBUG] debug-file - wkim : default@CollectDebugSymbol cost memory 0.2042236328125
+[2026-01-13T11:19:26.497] [DEBUG] debug-file - runTaskFromQueue task cost before running: 4 s 734 ms 
+[2026-01-13T11:19:26.497] [INFO] debug-file - Finished :wkim:default@CollectDebugSymbol... after 1 ms 
+[2026-01-13T11:19:26.498] [DEBUG] debug-file - Executing task :wkim:assembleHar
+[2026-01-13T11:19:26.498] [DEBUG] debug-file - wkim : assembleHar cost memory 0.0138702392578125
+[2026-01-13T11:19:26.498] [DEBUG] debug-file - runTaskFromQueue task cost before running: 4 s 734 ms 
+[2026-01-13T11:19:26.498] [INFO] debug-file - Finished :wkim:assembleHar... after 1 ms 
+[2026-01-13T11:19:26.498] [INFO] debug-file - BUILD SUCCESSFUL in 4 s 734 ms 
+[2026-01-13T11:19:26.498] [DEBUG] debug-file - Update task wkim:default@PreBuild input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/AppScope/app.json5 cache by regenerate.
+[2026-01-13T11:19:26.498] [DEBUG] debug-file - Update task wkim:default@PreBuild input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/module.json5 cache by regenerate.
+[2026-01-13T11:19:26.498] [DEBUG] debug-file - Update task wkim:default@PreBuild input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/build-profile.json5 cache by regenerate.
+[2026-01-13T11:19:26.498] [DEBUG] debug-file - Update task wkim:default@PreBuild input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build-profile.json5 cache by regenerate.
+[2026-01-13T11:19:26.498] [DEBUG] debug-file - Update task wkim:default@PreBuild input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/hvigor/hvigor-config.json5 cache by regenerate.
+[2026-01-13T11:19:26.498] [DEBUG] debug-file - Update task wkim:default@PreBuild input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/oh-package.json5 cache from map.
+[2026-01-13T11:19:26.498] [DEBUG] debug-file - Update task wkim:default@PreBuild input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/oh-package.json5 cache by regenerate.
+[2026-01-13T11:19:26.499] [DEBUG] debug-file - Incremental task wkim:default@PreBuild post-execution cost:1 ms .
+[2026-01-13T11:19:26.499] [DEBUG] debug-file - Update task wkim:default@CreateHarBuildProfile input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/AppScope/app.json5 cache by regenerate.
+[2026-01-13T11:19:26.499] [DEBUG] debug-file - Update task wkim:default@CreateHarBuildProfile input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/build-profile.json5 cache by regenerate.
+[2026-01-13T11:19:26.499] [DEBUG] debug-file - Update task wkim:default@CreateHarBuildProfile output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/BuildProfile.ets cache.
+[2026-01-13T11:19:26.499] [DEBUG] debug-file - Incremental task wkim:default@CreateHarBuildProfile post-execution cost:1 ms .
+[2026-01-13T11:19:26.499] [DEBUG] debug-file - Update task wkim:default@CreateHarModuleInfo output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/generated/profile/default/ModuleInfo.ts cache.
+[2026-01-13T11:19:26.499] [DEBUG] debug-file - Incremental task wkim:default@CreateHarModuleInfo post-execution cost:1 ms .
+[2026-01-13T11:19:26.499] [DEBUG] debug-file - Update task wkim:default@MergeProfile input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/AppScope/app.json5 cache by regenerate.
+[2026-01-13T11:19:26.500] [DEBUG] debug-file - Update task wkim:default@MergeProfile input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/build-profile.json5 cache by regenerate.
+[2026-01-13T11:19:26.500] [DEBUG] debug-file - Update task wkim:default@MergeProfile input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/module.json5 cache by regenerate.
+[2026-01-13T11:19:26.500] [DEBUG] debug-file - Update task wkim:default@MergeProfile output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/merge_profile/default/module.json cache.
+[2026-01-13T11:19:26.500] [DEBUG] debug-file - Incremental task wkim:default@MergeProfile post-execution cost:1 ms .
+[2026-01-13T11:19:26.500] [DEBUG] debug-file - Update task wkim:default@GeneratePkgContextInfo output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/loader/default/pkgContextInfo.json cache.
+[2026-01-13T11:19:26.500] [DEBUG] debug-file - Incremental task wkim:default@GeneratePkgContextInfo post-execution cost:1 ms .
+[2026-01-13T11:19:26.500] [DEBUG] debug-file - Update task wkim:default@ProcessIntegratedHsp output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/build/cache/default/integrated_hsp/integratedHspCache.json cache.
+[2026-01-13T11:19:26.500] [DEBUG] debug-file - Incremental task wkim:default@ProcessIntegratedHsp post-execution cost:1 ms .
+[2026-01-13T11:19:26.500] [DEBUG] debug-file - Update task wkim:default@ProcessModulePrivacyProfile output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/privacy_profile/default/pac.json5 cache.
+[2026-01-13T11:19:26.501] [DEBUG] debug-file - Incremental task wkim:default@ProcessModulePrivacyProfile post-execution cost:1 ms .
+[2026-01-13T11:19:26.501] [DEBUG] debug-file - Update task wkim:default@ProcessProfile input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/merge_profile/default/module.json cache from map.
+[2026-01-13T11:19:26.501] [DEBUG] debug-file - Update task wkim:default@ProcessProfile output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/process_profile/default/module.json cache.
+[2026-01-13T11:19:26.501] [DEBUG] debug-file - Incremental task wkim:default@ProcessProfile post-execution cost:1 ms .
+[2026-01-13T11:19:26.501] [DEBUG] debug-file - Update task wkim:default@ProcessRouterMap input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/oh-package.json5 cache from map.
+[2026-01-13T11:19:26.501] [DEBUG] debug-file - Update task wkim:default@ProcessRouterMap input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/oh-package.json5 cache by regenerate.
+[2026-01-13T11:19:26.501] [DEBUG] debug-file - Update task wkim:default@ProcessRouterMap input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/module.json5 cache by regenerate.
+[2026-01-13T11:19:26.501] [DEBUG] debug-file - Update task wkim:default@ProcessRouterMap output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/router_map/default/temp-router-map.json cache.
+[2026-01-13T11:19:26.501] [DEBUG] debug-file - Update task wkim:default@ProcessRouterMap output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/router_map/default/loader-router-map.json cache.
+[2026-01-13T11:19:26.501] [DEBUG] debug-file - Incremental task wkim:default@ProcessRouterMap post-execution cost:1 ms .
+[2026-01-13T11:19:26.501] [DEBUG] debug-file - Update task wkim:default@ProcessShareConfig input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/oh-package.json5 cache from map.
+[2026-01-13T11:19:26.502] [DEBUG] debug-file - Update task wkim:default@ProcessShareConfig input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/oh-package.json5 cache by regenerate.
+[2026-01-13T11:19:26.502] [DEBUG] debug-file - Update task wkim:default@ProcessShareConfig input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/module.json5 cache by regenerate.
+[2026-01-13T11:19:26.502] [DEBUG] debug-file - Update task wkim:default@ProcessShareConfig output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/share_config/default/temp-share-config.json cache.
+[2026-01-13T11:19:26.502] [DEBUG] debug-file - Incremental task wkim:default@ProcessShareConfig post-execution cost:1 ms .
+[2026-01-13T11:19:26.502] [DEBUG] debug-file - Update task wkim:default@ProcessStartupConfig output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/startup/default/startup_config.json cache.
+[2026-01-13T11:19:26.502] [DEBUG] debug-file - Incremental task wkim:default@ProcessStartupConfig post-execution cost:1 ms .
+[2026-01-13T11:19:26.502] [DEBUG] debug-file - Update task wkim:default@ProcessResource output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default/resConfig.json cache.
+[2026-01-13T11:19:26.502] [DEBUG] debug-file - Update task wkim:default@ProcessResource output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default/opt-compression.json cache.
+[2026-01-13T11:19:26.502] [DEBUG] debug-file - Incremental task wkim:default@ProcessResource post-execution cost:1 ms .
+[2026-01-13T11:19:26.502] [DEBUG] debug-file - Update task wkim:default@GenerateLoaderJson input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets cache by regenerate.
+[2026-01-13T11:19:26.503] [DEBUG] debug-file - Update task wkim:default@GenerateLoaderJson output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/loader/default/loader.json cache.
+[2026-01-13T11:19:26.503] [DEBUG] debug-file - Incremental task wkim:default@GenerateLoaderJson post-execution cost:2 ms .
+[2026-01-13T11:19:26.503] [DEBUG] debug-file - Update task wkim:default@ProcessLibs input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/build-profile.json5 cache by regenerate.
+[2026-01-13T11:19:26.503] [DEBUG] debug-file - Update task wkim:default@ProcessLibs input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build-profile.json5 cache by regenerate.
+[2026-01-13T11:19:26.503] [DEBUG] debug-file - Update task wkim:default@ProcessLibs output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/libs/default cache.
+[2026-01-13T11:19:26.503] [DEBUG] debug-file - Incremental task wkim:default@ProcessLibs post-execution cost:1 ms .
+[2026-01-13T11:19:26.503] [DEBUG] debug-file - Update task wkim:default@CompileResource input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/resources cache by regenerate.
+[2026-01-13T11:19:26.504] [DEBUG] debug-file - Update task wkim:default@CompileResource input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/process_profile/default/module.json cache from map.
+[2026-01-13T11:19:26.504] [DEBUG] debug-file - Update task wkim:default@CompileResource input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default/resConfig.json cache by regenerate.
+[2026-01-13T11:19:26.504] [DEBUG] debug-file - Update task wkim:default@CompileResource output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default cache.
+[2026-01-13T11:19:26.504] [DEBUG] debug-file - Update task wkim:default@CompileResource output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/generated/r/default/ResourceTable.h cache.
+[2026-01-13T11:19:26.504] [DEBUG] debug-file - Update task wkim:default@CompileResource output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/generated/r/default cache.
+[2026-01-13T11:19:26.504] [DEBUG] debug-file - Incremental task wkim:default@CompileResource post-execution cost:2 ms .
+[2026-01-13T11:19:26.504] [DEBUG] debug-file - Update task wkim:default@DoNativeStrip input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/libs/default cache by regenerate.
+[2026-01-13T11:19:26.504] [DEBUG] debug-file - Update task wkim:default@DoNativeStrip output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/stripped_native_libs/default cache.
+[2026-01-13T11:19:26.504] [DEBUG] debug-file - Incremental task wkim:default@DoNativeStrip post-execution cost:1 ms .
+[2026-01-13T11:19:26.505] [DEBUG] debug-file - Update task wkim:default@HarCompileArkTS input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/loader/default cache from map.
+[2026-01-13T11:19:26.505] [DEBUG] debug-file - Update task wkim:default@HarCompileArkTS input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default/resources/rawfile cache by regenerate.
+[2026-01-13T11:19:26.505] [DEBUG] debug-file - Update task wkim:default@HarCompileArkTS input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default/ResourceTable.txt cache by regenerate.
+[2026-01-13T11:19:26.505] [DEBUG] debug-file - Update task wkim:default@HarCompileArkTS input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default/ark_module.json cache by regenerate.
+[2026-01-13T11:19:26.505] [DEBUG] debug-file - Update task wkim:default@HarCompileArkTS input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets cache by regenerate.
+[2026-01-13T11:19:26.506] [DEBUG] debug-file - Update task wkim:default@HarCompileArkTS input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/index.ets cache by regenerate.
+[2026-01-13T11:19:26.506] [DEBUG] debug-file - Update task wkim:default@HarCompileArkTS input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/BuildProfile.ets cache by regenerate.
+[2026-01-13T11:19:26.506] [DEBUG] debug-file - Update task wkim:default@HarCompileArkTS output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/loader_out/default cache.
+[2026-01-13T11:19:26.506] [DEBUG] debug-file - Update task wkim:default@HarCompileArkTS output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/outputs/default/mapping/sourceMaps.map cache.
+[2026-01-13T11:19:26.506] [DEBUG] debug-file - Incremental task wkim:default@HarCompileArkTS post-execution cost:2 ms .
+[2026-01-13T11:19:26.506] [DEBUG] debug-file - Update task wkim:default@CacheNativeLibs input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/stripped_native_libs/default cache by regenerate.
+[2026-01-13T11:19:26.506] [DEBUG] debug-file - Update task wkim:default@CacheNativeLibs input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/libs/default cache by regenerate.
+[2026-01-13T11:19:26.506] [DEBUG] debug-file - Update task wkim:default@CacheNativeLibs output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/patch/default/base_native_libs.json cache.
+[2026-01-13T11:19:26.506] [DEBUG] debug-file - Incremental task wkim:default@CacheNativeLibs post-execution cost:1 ms .
+[2026-01-13T11:19:26.506] [DEBUG] debug-file - Update task wkim:default@ProcessHarArtifacts input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/process_profile/default cache from map.
+[2026-01-13T11:19:26.506] [DEBUG] debug-file - Update task wkim:default@ProcessHarArtifacts input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim cache by regenerate.
+[2026-01-13T11:19:26.509] [DEBUG] debug-file - Update task wkim:default@ProcessHarArtifacts input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/generated/pm/default cache by regenerate.
+[2026-01-13T11:19:26.509] [DEBUG] debug-file - Update task wkim:default@ProcessHarArtifacts input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/stripped_native_libs/default cache by regenerate.
+[2026-01-13T11:19:26.509] [DEBUG] debug-file - Update task wkim:default@ProcessHarArtifacts input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default/ResourceTable.txt cache by regenerate.
+[2026-01-13T11:19:26.509] [DEBUG] debug-file - Update task wkim:default@ProcessHarArtifacts output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/cache/default/default@PackageHar cache.
+[2026-01-13T11:19:26.512] [DEBUG] debug-file - Update task wkim:default@ProcessHarArtifacts output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/outputs/default/mapping/sourceMaps.map cache.
+[2026-01-13T11:19:26.512] [DEBUG] debug-file - Update task wkim:default@ProcessHarArtifacts output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/cache/default/default@PackageHar/pac.json5 cache.
+[2026-01-13T11:19:26.512] [DEBUG] debug-file - Incremental task wkim:default@ProcessHarArtifacts post-execution cost:7 ms .
+[2026-01-13T11:19:26.512] [DEBUG] debug-file - Update task wkim:default@PackageHar output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/cache/default/default@PackageHar cache.
+[2026-01-13T11:19:26.514] [DEBUG] debug-file - Update task wkim:default@PackageHar output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/outputs/default cache.
+[2026-01-13T11:19:26.514] [DEBUG] debug-file - Incremental task wkim:default@PackageHar post-execution cost:2 ms .
+[2026-01-13T11:19:26.514] [DEBUG] debug-file - Update task wkim:default@PackageSignHar input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/cache/default/default@PackageHar cache by regenerate.
+[2026-01-13T11:19:26.516] [DEBUG] debug-file - Update task wkim:default@PackageSignHar input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/cache/default/default@PackageSignHar cache by regenerate.
+[2026-01-13T11:19:26.516] [DEBUG] debug-file - Update task wkim:default@PackageSignHar output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/outputs/default/wkim-signed.har cache.
+[2026-01-13T11:19:26.516] [DEBUG] debug-file - Incremental task wkim:default@PackageSignHar post-execution cost:2 ms .
+[2026-01-13T11:19:26.516] [DEBUG] debug-file - Update task wkim:default@CollectDebugSymbol input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/libs/default cache by regenerate.
+[2026-01-13T11:19:26.516] [DEBUG] debug-file - Update task wkim:default@CollectDebugSymbol output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/outputs/default/symbol cache.
+[2026-01-13T11:19:26.516] [DEBUG] debug-file - Incremental task wkim:default@CollectDebugSymbol post-execution cost:1 ms .
+[2026-01-13T11:19:26.527] [DEBUG] debug-file - Cleanup worker 8.
+[2026-01-13T11:19:26.527] [DEBUG] debug-file - Worker 8 has been cleaned up.
+[2026-01-13T11:19:26.527] [DEBUG] debug-file - Current idle worker size: 2.
+[2026-01-13T11:19:26.527] [DEBUG] debug-file - Current resident worker size: 3.
+[2026-01-13T11:19:26.528] [DEBUG] debug-file - Cleanup worker 7.
+[2026-01-13T11:19:26.528] [DEBUG] debug-file - Worker 7 has been cleaned up.
+[2026-01-13T11:19:26.528] [DEBUG] debug-file - Current idle worker size: 1.
+[2026-01-13T11:19:26.528] [DEBUG] debug-file - Current resident worker size: 3.
+[2026-01-13T11:19:26.528] [DEBUG] debug-file - hvigor build process will be closed.
+[2026-01-13T11:19:26.534] [DEBUG] debug-file - worker[8] exits with exit code 1.
+[2026-01-13T11:19:26.535] [DEBUG] debug-file - worker[7] exits with exit code 1.
+[2026-01-13T11:19:26.551] [DEBUG] debug-file - session manager: send message to worker process.
+[2026-01-13T11:19:26.551] [DEBUG] debug-file - session manager: send message to worker process.
+[2026-01-13T11:19:26.552] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-01-13T11:19:26.552] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-01-13T11:33:46.223] [DEBUG] debug-file - session manager: set active socket. socketId=zeAH3570nhCoMdPlAAAN
+[2026-01-13T11:33:46.234] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-01-13T11:33:46.271] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: true,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined
+}
+[2026-01-13T11:33:46.297] [DEBUG] debug-file - Cache service initialization finished in 26 ms 
+[2026-01-13T11:33:46.300] [DEBUG] debug-file - hvigorfile, resolving /Users/songlun/Desktop/workspace/hmworkspace/wukongim/hvigorfile.ts
+[2026-01-13T11:33:46.352] [DEBUG] debug-file - hvigorfile, require result:  {}
+[2026-01-13T11:33:46.352] [DEBUG] debug-file - hvigorfile, binding system plugins {}
+[2026-01-13T11:33:46.372] [DEBUG] debug-file - Start initialize project's product build option map with build mode release.
+[2026-01-13T11:33:46.372] [DEBUG] debug-file - Picking option from product 'default' with build mode 'release'.
+[2026-01-13T11:33:46.372] [DEBUG] debug-file - Product 'default' build option initialized
+[2026-01-13T11:33:46.372] [DEBUG] debug-file - End initialize project's product build option map with build mode 'release'.
+[2026-01-13T11:33:46.373] [DEBUG] debug-file - Obtain build option for product 'default'in this build.
+[2026-01-13T11:33:46.374] [DEBUG] debug-file - No signingConfig found, initRemoteHspCache failed.
+[2026-01-13T11:33:46.382] [DEBUG] debug-file - Start recording SDK configuration permission data.
+[2026-01-13T11:33:46.439] [DEBUG] debug-file - Sdk init in 64 ms 
+[2026-01-13T11:33:46.456] [DEBUG] debug-file - Project task initialization takes 15 ms 
+[2026-01-13T11:33:46.456] [DEBUG] debug-file - hvigorfile, resolve finished /Users/songlun/Desktop/workspace/hmworkspace/wukongim/hvigorfile.ts
+[2026-01-13T11:33:46.457] [DEBUG] debug-file - hvigorfile, resolving /Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/hvigorfile.ts
+[2026-01-13T11:33:46.465] [DEBUG] debug-file - hvigorfile, require result:  {}
+[2026-01-13T11:33:46.465] [DEBUG] debug-file - hvigorfile, binding system plugins {}
+[2026-01-13T11:33:46.468] [DEBUG] debug-file - failed to load cangjie to dynamically generate schemas: Error: Cannot find module '@ohos/cangjie-build-support/index'
+Require stack:
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/factory/plugin-factory.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/index.js
+- /Users/songlun/Desktop/workspace/hmworkspace/wukongim/hvigorfile.ts
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/configuration.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/boot/index.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/daemon/cluster/worker-process-lifecycle.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/daemon/process/daemon-process-boot-script.js
+[2026-01-13T11:33:46.476] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=release
+[2026-01-13T11:33:46.476] [DEBUG] debug-file - Target 'default' config initialized
+[2026-01-13T11:33:46.476] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-01-13T11:33:46.476] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-01-13T11:33:46.476] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2026-01-13T11:33:46.476] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-01-13T11:33:46.476] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2026-01-13T11:33:46.476] [DEBUG] debug-file - Target 'default' config initialized
+[2026-01-13T11:33:46.476] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-01-13T11:33:46.476] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-01-13T11:33:46.476] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2026-01-13T11:33:46.476] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-01-13T11:33:46.476] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=release
+[2026-01-13T11:33:46.476] [DEBUG] debug-file - Target 'default' config initialized
+[2026-01-13T11:33:46.476] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-01-13T11:33:46.478] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-01-13T11:33:46.478] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2026-01-13T11:33:46.478] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-01-13T11:33:46.478] [DEBUG] debug-file - Obtain build option for module 'entry' target 'default'in this build.
+[2026-01-13T11:33:46.482] [DEBUG] debug-file - Module entry task initialization takes 3 ms 
+[2026-01-13T11:33:46.482] [DEBUG] debug-file - hvigorfile, resolve finished /Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/hvigorfile.ts
+[2026-01-13T11:33:46.483] [DEBUG] debug-file - hvigorfile, resolving /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/hvigorfile.ts
+[2026-01-13T11:33:46.487] [DEBUG] debug-file - hvigorfile, require result:  {}
+[2026-01-13T11:33:46.488] [DEBUG] debug-file - hvigorfile, binding system plugins {}
+[2026-01-13T11:33:46.488] [DEBUG] debug-file - failed to load cangjie to dynamically generate schemas: Error: Cannot find module '@ohos/cangjie-build-support/index'
+Require stack:
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/factory/plugin-factory.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/index.js
+- /Users/songlun/Desktop/workspace/hmworkspace/wukongim/hvigorfile.ts
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/configuration.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/boot/index.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/daemon/cluster/worker-process-lifecycle.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/daemon/process/daemon-process-boot-script.js
+[2026-01-13T11:33:46.493] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=wkim, buildMode=release
+[2026-01-13T11:33:46.493] [DEBUG] debug-file - Target 'default' config initialized
+[2026-01-13T11:33:46.493] [DEBUG] debug-file - Module 'wkim' target 'default' build option initialized
+[2026-01-13T11:33:46.493] [DEBUG] debug-file - End initialize module-target build option map, moduleName=wkim
+[2026-01-13T11:33:46.494] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=wkim, buildMode=debug
+[2026-01-13T11:33:46.494] [DEBUG] debug-file - Target 'default' config initialized
+[2026-01-13T11:33:46.494] [DEBUG] debug-file - Module 'wkim' target 'default' build option initialized
+[2026-01-13T11:33:46.494] [DEBUG] debug-file - End initialize module-target build option map, moduleName=wkim
+[2026-01-13T11:33:46.494] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=wkim, buildMode=release
+[2026-01-13T11:33:46.494] [DEBUG] debug-file - Target 'default' config initialized
+[2026-01-13T11:33:46.494] [DEBUG] debug-file - Module 'wkim' target 'default' build option initialized
+[2026-01-13T11:33:46.494] [DEBUG] debug-file - End initialize module-target build option map, moduleName=wkim
+[2026-01-13T11:33:46.494] [DEBUG] debug-file - Obtain build option for module 'wkim' target 'default'in this build.
+[2026-01-13T11:33:46.497] [DEBUG] debug-file - Module wkim task initialization takes 2 ms 
+[2026-01-13T11:33:46.497] [DEBUG] debug-file - hvigorfile, resolve finished /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/hvigorfile.ts
+[2026-01-13T11:33:46.588] [DEBUG] debug-file - hvigorfile, resolve hvigorfile dependencies in 91 ms 
+[2026-01-13T11:33:46.588] [DEBUG] debug-file - project has submodules:entry,wkim
+[2026-01-13T11:33:46.588] [DEBUG] debug-file - module:wkim no need to execute packageHap
+[2026-01-13T11:33:46.589] [DEBUG] debug-file - start to load updatedOhPackageInfo to the disk
+[2026-01-13T11:33:46.594] [DEBUG] debug-file - load to the disk finished
+[2026-01-13T11:33:46.595] [DEBUG] debug-file - Start to initialize dependency information.
+[2026-01-13T11:33:46.596] [DEBUG] debug-file - Module wukongim Collected Dependency: 
+[2026-01-13T11:33:46.597] [DEBUG] debug-file - Module wukongim's total dependency: 0
+[2026-01-13T11:33:46.598] [DEBUG] debug-file - Start to initialize dependency information.
+[2026-01-13T11:33:46.598] [DEBUG] debug-file - Module entry Collected Dependency: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim
+[2026-01-13T11:33:46.598] [DEBUG] debug-file - Module entry's total dependency: 1
+[2026-01-13T11:33:46.600] [DEBUG] debug-file - Start to initialize dependency information.
+[2026-01-13T11:33:46.601] [DEBUG] debug-file - Module wkim Collected Dependency: 
+[2026-01-13T11:33:46.601] [DEBUG] debug-file - Module wkim's total dependency: 0
+[2026-01-13T11:33:46.603] [DEBUG] debug-file - Configuration phase cost:305 ms 
+[2026-01-13T11:33:46.605] [DEBUG] debug-file - Configuration task cost before running: 352 ms 
+[2026-01-13T11:33:46.608] [DEBUG] debug-file - Executing task :entry:default@PreBuild
+[2026-01-13T11:33:46.609] [WARN] debug-file - The project has not explicitly set the 'targetSdkVersion' version at build-profile.json5. It is recommended to configure it. Reference: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-build-profile-app#section45865492619
+[2026-01-13T11:33:46.611] [DEBUG] debug-file - Task 'entry:default@PreBuild' cost while wrapping incremental declarations: 1 ms 
+[2026-01-13T11:33:46.614] [DEBUG] debug-file - Incremental task entry:default@PreBuild pre-execution cost: 2 ms .
+[2026-01-13T11:33:46.614] [DEBUG] debug-file - entry : default@PreBuild cost memory 0.36956024169921875
+[2026-01-13T11:33:46.614] [INFO] debug-file - UP-TO-DATE :entry:default@PreBuild...  
+[2026-01-13T11:33:46.615] [DEBUG] debug-file - Executing task :wkim:default@PreBuild
+[2026-01-13T11:33:46.615] [DEBUG] debug-file - Task 'wkim:default@PreBuild' cost while wrapping incremental declarations: 1 ms 
+[2026-01-13T11:33:46.615] [DEBUG] debug-file - Incremental task wkim:default@PreBuild pre-execution cost: 1 ms .
+[2026-01-13T11:33:46.616] [DEBUG] debug-file - wkim : default@PreBuild cost memory 0.2189788818359375
+[2026-01-13T11:33:46.616] [INFO] debug-file - UP-TO-DATE :wkim:default@PreBuild...  
+[2026-01-13T11:33:46.616] [DEBUG] debug-file - Executing task :entry:default@CreateModuleInfo
+[2026-01-13T11:33:46.616] [DEBUG] debug-file - Task 'entry:default@CreateModuleInfo' cost while wrapping incremental declarations: 1 ms 
+[2026-01-13T11:33:46.616] [DEBUG] debug-file - entry : default@CreateModuleInfo cost memory 0.03876495361328125
+[2026-01-13T11:33:46.616] [DEBUG] debug-file - runTaskFromQueue task cost before running: 364 ms 
+[2026-01-13T11:33:46.616] [INFO] debug-file - Finished :entry:default@CreateModuleInfo... after 1 ms 
+[2026-01-13T11:33:46.617] [DEBUG] debug-file - Executing task :entry:default@GenerateMetadata
+[2026-01-13T11:33:46.618] [DEBUG] debug-file - Task 'entry:default@GenerateMetadata' cost while wrapping incremental declarations: 1 ms 
+[2026-01-13T11:33:46.618] [DEBUG] debug-file - Incremental task entry:default@GenerateMetadata pre-execution cost: 1 ms .
+[2026-01-13T11:33:46.618] [DEBUG] debug-file - entry : default@GenerateMetadata cost memory 0.0800933837890625
+[2026-01-13T11:33:46.618] [INFO] debug-file - UP-TO-DATE :entry:default@GenerateMetadata...  
+[2026-01-13T11:33:46.619] [DEBUG] debug-file - Executing task :entry:default@PreCheckSyscap
+[2026-01-13T11:33:46.619] [DEBUG] debug-file - entry : default@PreCheckSyscap cost memory 0.01599884033203125
+[2026-01-13T11:33:46.619] [DEBUG] debug-file - runTaskFromQueue task cost before running: 366 ms 
+[2026-01-13T11:33:46.619] [INFO] debug-file - Finished :entry:default@PreCheckSyscap... after 1 ms 
+[2026-01-13T11:33:46.619] [DEBUG] debug-file - Executing task :entry:default@GeneratePkgContextInfo
+[2026-01-13T11:33:46.621] [DEBUG] debug-file - Task 'entry:default@GeneratePkgContextInfo' cost while wrapping incremental declarations: 1 ms 
+[2026-01-13T11:33:46.621] [DEBUG] debug-file - entry : default@GeneratePkgContextInfo cost memory 0.30389404296875
+[2026-01-13T11:33:46.621] [DEBUG] debug-file - runTaskFromQueue task cost before running: 369 ms 
+[2026-01-13T11:33:46.621] [INFO] debug-file - Finished :entry:default@GeneratePkgContextInfo... after 2 ms 
+[2026-01-13T11:33:46.622] [DEBUG] debug-file - Executing task :entry:default@ProcessIntegratedHsp
+[2026-01-13T11:33:46.622] [DEBUG] debug-file - entry:default@ProcessIntegratedHsp is not up-to-date, since the output file '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/build/cache/default/integrated_hsp/integratedHspCache.json' does not exist.
+[2026-01-13T11:33:46.622] [DEBUG] debug-file - Incremental task entry:default@ProcessIntegratedHsp pre-execution cost: 1 ms .
+[2026-01-13T11:33:46.622] [DEBUG] debug-file - entry : default@ProcessIntegratedHsp cost memory 0.0626068115234375
+[2026-01-13T11:33:46.622] [DEBUG] debug-file - runTaskFromQueue task cost before running: 370 ms 
+[2026-01-13T11:33:46.622] [INFO] debug-file - Finished :entry:default@ProcessIntegratedHsp... after 1 ms 
+[2026-01-13T11:33:46.623] [DEBUG] debug-file - Executing task :wkim:default@CreateHarBuildProfile
+[2026-01-13T11:33:46.623] [DEBUG] debug-file - Task 'wkim:default@CreateHarBuildProfile' cost while wrapping incremental declarations: 1 ms 
+[2026-01-13T11:33:46.623] [DEBUG] debug-file - Incremental task wkim:default@CreateHarBuildProfile pre-execution cost: 1 ms .
+[2026-01-13T11:33:46.623] [DEBUG] debug-file - wkim : default@CreateHarBuildProfile cost memory 0.0814361572265625
+[2026-01-13T11:33:46.623] [INFO] debug-file - UP-TO-DATE :wkim:default@CreateHarBuildProfile...  
+[2026-01-13T11:33:46.623] [DEBUG] debug-file - Executing task :wkim:default@ConfigureCmake
+[2026-01-13T11:33:46.623] [DEBUG] debug-file - wkim : default@ConfigureCmake cost memory 0.0157928466796875
+[2026-01-13T11:33:46.623] [DEBUG] debug-file - runTaskFromQueue task cost before running: 371 ms 
+[2026-01-13T11:33:46.624] [INFO] debug-file - Finished :wkim:default@ConfigureCmake... after 1 ms 
+[2026-01-13T11:33:46.624] [DEBUG] debug-file - Executing task :wkim:default@MergeProfile
+[2026-01-13T11:33:46.624] [DEBUG] debug-file - Task 'wkim:default@MergeProfile' cost while wrapping incremental declarations: 1 ms 
+[2026-01-13T11:33:46.624] [DEBUG] debug-file - Incremental task wkim:default@MergeProfile pre-execution cost: 1 ms .
+[2026-01-13T11:33:46.624] [DEBUG] debug-file - wkim : default@MergeProfile cost memory 0.11026763916015625
+[2026-01-13T11:33:46.624] [INFO] debug-file - UP-TO-DATE :wkim:default@MergeProfile...  
+[2026-01-13T11:33:46.627] [DEBUG] debug-file - Executing task :entry:default@SyscapTransform
+[2026-01-13T11:33:46.627] [DEBUG] debug-file - File: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main/syscap.json' from 'sysCapJsonPath' is not exists, just ignore.
+[2026-01-13T11:33:46.628] [DEBUG] debug-file - Task 'entry:default@SyscapTransform' cost while wrapping incremental declarations: 1 ms 
+[2026-01-13T11:33:46.629] [DEBUG] debug-file - entry:default@SyscapTransform is not up-to-date, since the output file '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/syscap/default/rpcid.sc' does not exist.
+[2026-01-13T11:33:46.629] [DEBUG] debug-file - Incremental task entry:default@SyscapTransform pre-execution cost: 2 ms .
+[2026-01-13T11:33:46.629] [DEBUG] debug-file - entry : default@SyscapTransform cost memory 0.287933349609375
+[2026-01-13T11:33:46.630] [DEBUG] debug-file - runTaskFromQueue task cost before running: 377 ms 
+[2026-01-13T11:33:46.630] [INFO] debug-file - Finished :entry:default@SyscapTransform... after 3 ms 
+[2026-01-13T11:33:46.631] [DEBUG] debug-file - Executing task :entry:default@ProcessRouterMap
+[2026-01-13T11:33:46.631] [DEBUG] debug-file - Incremental task entry:default@ProcessRouterMap pre-execution cost: 1 ms .
+[2026-01-13T11:33:46.631] [DEBUG] debug-file - entry : default@ProcessRouterMap cost memory 0.10898590087890625
+[2026-01-13T11:33:46.632] [INFO] debug-file - UP-TO-DATE :entry:default@ProcessRouterMap...  
+[2026-01-13T11:33:46.632] [DEBUG] debug-file - Executing task :entry:default@ProcessShareConfig
+[2026-01-13T11:33:46.632] [DEBUG] debug-file - Incremental task entry:default@ProcessShareConfig pre-execution cost: 1 ms .
+[2026-01-13T11:33:46.632] [DEBUG] debug-file - entry : default@ProcessShareConfig cost memory 0.0990753173828125
+[2026-01-13T11:33:46.632] [INFO] debug-file - UP-TO-DATE :entry:default@ProcessShareConfig...  
+[2026-01-13T11:33:46.632] [DEBUG] debug-file - Executing task :entry:default@ProcessStartupConfig
+[2026-01-13T11:33:46.632] [DEBUG] debug-file - Task 'entry:default@ProcessStartupConfig' cost while wrapping incremental declarations: 1 ms 
+[2026-01-13T11:33:46.633] [DEBUG] debug-file - entry:default@ProcessStartupConfig is not up-to-date, since the output file '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/startup/default/startup_config.json' does not exist.
+[2026-01-13T11:33:46.633] [DEBUG] debug-file - Incremental task entry:default@ProcessStartupConfig pre-execution cost: 1 ms .
+[2026-01-13T11:33:46.633] [DEBUG] debug-file - entry : default@ProcessStartupConfig cost memory 0.09942626953125
+[2026-01-13T11:33:46.633] [DEBUG] debug-file - runTaskFromQueue task cost before running: 380 ms 
+[2026-01-13T11:33:46.633] [INFO] debug-file - Finished :entry:default@ProcessStartupConfig... after 1 ms 
+[2026-01-13T11:33:46.633] [DEBUG] debug-file - Executing task :entry:default@CreateBuildProfile
+[2026-01-13T11:33:46.633] [DEBUG] debug-file - Task 'entry:default@CreateBuildProfile' cost while wrapping incremental declarations: 1 ms 
+[2026-01-13T11:33:46.633] [DEBUG] debug-file - Incremental task entry:default@CreateBuildProfile pre-execution cost: 1 ms .
+[2026-01-13T11:33:46.633] [DEBUG] debug-file - entry : default@CreateBuildProfile cost memory 0.084381103515625
+[2026-01-13T11:33:46.633] [INFO] debug-file - UP-TO-DATE :entry:default@CreateBuildProfile...  
+[2026-01-13T11:33:46.635] [DEBUG] debug-file - Executing task :wkim:default@BuildNativeWithCmake
+[2026-01-13T11:33:46.635] [DEBUG] debug-file - wkim : default@BuildNativeWithCmake cost memory 0.01685333251953125
+[2026-01-13T11:33:46.635] [DEBUG] debug-file - runTaskFromQueue task cost before running: 383 ms 
+[2026-01-13T11:33:46.635] [INFO] debug-file - Finished :wkim:default@BuildNativeWithCmake... after 1 ms 
+[2026-01-13T11:33:46.636] [DEBUG] debug-file - Executing task :entry:default@MergeProfile
+[2026-01-13T11:33:46.636] [DEBUG] debug-file - Task 'entry:default@MergeProfile' cost while wrapping incremental declarations: 1 ms 
+[2026-01-13T11:33:46.637] [DEBUG] debug-file - entry:default@MergeProfile is not up-to-date, since the task snapshots are different.
+[2026-01-13T11:33:46.637] [DEBUG] debug-file - Incremental task entry:default@MergeProfile pre-execution cost: 1 ms .
+[2026-01-13T11:33:46.637] [DEBUG] debug-file - Change app api release type with 'Release'
+[2026-01-13T11:33:46.637] [DEBUG] debug-file - Change app compile API version with '6.0.0.47'
+[2026-01-13T11:33:46.637] [DEBUG] debug-file - Change app target API version with '60000020'
+[2026-01-13T11:33:46.637] [DEBUG] debug-file - Change app minimum API version with '50000012'
+[2026-01-13T11:33:46.637] [DEBUG] debug-file - Use cli appEnvironment
+[2026-01-13T11:33:46.641] [DEBUG] debug-file - entry : default@MergeProfile cost memory 0.3698272705078125
+[2026-01-13T11:33:46.642] [DEBUG] debug-file - runTaskFromQueue task cost before running: 389 ms 
+[2026-01-13T11:33:46.642] [INFO] debug-file - Finished :entry:default@MergeProfile... after 6 ms 
+[2026-01-13T11:33:46.643] [DEBUG] debug-file - Obtain build option for module 'wkim' target 'default'in this build.
+[2026-01-13T11:33:46.644] [DEBUG] debug-file - Executing task :entry:default@GenerateLoaderJson
+[2026-01-13T11:33:46.644] [DEBUG] debug-file - Task 'entry:default@GenerateLoaderJson' cost while wrapping incremental declarations: 1 ms 
+[2026-01-13T11:33:46.645] [DEBUG] debug-file - Obtain build option for module 'wkim' target 'default'in this build.
+[2026-01-13T11:33:46.646] [DEBUG] debug-file - Obtain build option for module 'wkim' target 'default'in this build.
+[2026-01-13T11:33:46.646] [DEBUG] debug-file - Obtain build option for module 'wkim' target 'default'in this build.
+[2026-01-13T11:33:46.646] [DEBUG] debug-file - Obtain build option for module 'wkim' target 'default'in this build.
+[2026-01-13T11:33:46.646] [DEBUG] debug-file - Obtain build option for module 'wkim' target 'default'in this build.
+[2026-01-13T11:33:46.647] [DEBUG] debug-file - Incremental task entry:default@GenerateLoaderJson pre-execution cost: 1 ms .
+[2026-01-13T11:33:46.647] [DEBUG] debug-file - entry : default@GenerateLoaderJson cost memory 0.47412872314453125
+[2026-01-13T11:33:46.647] [DEBUG] debug-file - Obtain build option for module 'wkim' target 'default'in this build.
+[2026-01-13T11:33:46.647] [DEBUG] debug-file - Obtain build option for module 'wkim' target 'default'in this build.
+[2026-01-13T11:33:46.647] [INFO] debug-file - UP-TO-DATE :entry:default@GenerateLoaderJson...  
+[2026-01-13T11:33:46.648] [DEBUG] debug-file - Executing task :entry:default@ConfigureCmake
+[2026-01-13T11:33:46.648] [DEBUG] debug-file - entry : default@ConfigureCmake cost memory 0.015777587890625
+[2026-01-13T11:33:46.648] [DEBUG] debug-file - runTaskFromQueue task cost before running: 395 ms 
+[2026-01-13T11:33:46.648] [INFO] debug-file - Finished :entry:default@ConfigureCmake... after 1 ms 
+[2026-01-13T11:33:46.648] [DEBUG] debug-file - Executing task :wkim:default@BuildNativeWithNinja
+[2026-01-13T11:33:46.649] [DEBUG] debug-file - wkim : default@BuildNativeWithNinja cost memory 0.02277374267578125
+[2026-01-13T11:33:46.649] [DEBUG] debug-file - runTaskFromQueue task cost before running: 396 ms 
+[2026-01-13T11:33:46.649] [INFO] debug-file - Finished :wkim:default@BuildNativeWithNinja... after 1 ms 
+[2026-01-13T11:33:46.649] [DEBUG] debug-file - Executing task :entry:default@MakePackInfo
+[2026-01-13T11:33:46.649] [DEBUG] debug-file - Incremental task entry:default@MakePackInfo pre-execution cost: 1 ms .
+[2026-01-13T11:33:46.649] [DEBUG] debug-file - entry : default@MakePackInfo cost memory 0.09220123291015625
+[2026-01-13T11:33:46.649] [INFO] debug-file - UP-TO-DATE :entry:default@MakePackInfo...  
+[2026-01-13T11:33:46.650] [DEBUG] debug-file - Executing task :entry:default@ProcessProfile
+[2026-01-13T11:33:46.651] [DEBUG] debug-file - Task 'entry:default@ProcessProfile' cost while wrapping incremental declarations: 1 ms 
+[2026-01-13T11:33:46.651] [DEBUG] debug-file - entry:default@ProcessProfile is not up-to-date, since the input file '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/merge_profile/default/module.json' has been changed.
+[2026-01-13T11:33:46.651] [DEBUG] debug-file - Incremental task entry:default@ProcessProfile pre-execution cost: 1 ms .
+[2026-01-13T11:33:46.651] [DEBUG] debug-file - [
+  '/Applications/DevEco-Studio.app/Contents/tools/node/bin/node',
+  '/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/bin/ark/ts2abc.js',
+  '--target-api-version',
+  '12',
+  '--target-api-sub-version',
+  'beta1'
+]
+[2026-01-13T11:33:46.708] [DEBUG] debug-file - 12.0.2.0
+[2026-01-13T11:33:46.708] [DEBUG] debug-file - No need to add fake ui ability because of not in preview process.
+[2026-01-13T11:33:46.709] [DEBUG] debug-file - entry : default@ProcessProfile cost memory 0.31685638427734375
+[2026-01-13T11:33:46.709] [DEBUG] debug-file - runTaskFromQueue task cost before running: 457 ms 
+[2026-01-13T11:33:46.709] [INFO] debug-file - Finished :entry:default@ProcessProfile... after 60 ms 
+[2026-01-13T11:33:46.710] [DEBUG] debug-file - Executing task :entry:default@BuildNativeWithCmake
+[2026-01-13T11:33:46.710] [DEBUG] debug-file - entry : default@BuildNativeWithCmake cost memory 0.01683807373046875
+[2026-01-13T11:33:46.710] [DEBUG] debug-file - runTaskFromQueue task cost before running: 457 ms 
+[2026-01-13T11:33:46.710] [INFO] debug-file - Finished :entry:default@BuildNativeWithCmake... after 1 ms 
+[2026-01-13T11:33:46.710] [DEBUG] debug-file - Executing task :wkim:default@ProcessLibs
+[2026-01-13T11:33:46.711] [DEBUG] debug-file - Incremental task wkim:default@ProcessLibs pre-execution cost: 1 ms .
+[2026-01-13T11:33:46.711] [DEBUG] debug-file - wkim : default@ProcessLibs cost memory 0.085052490234375
+[2026-01-13T11:33:46.711] [INFO] debug-file - UP-TO-DATE :wkim:default@ProcessLibs...  
+[2026-01-13T11:33:46.712] [DEBUG] debug-file - restool module names: entry,wkim; moduleName=entry, taskName=default@ProcessResource
+[2026-01-13T11:33:46.713] [DEBUG] debug-file - Executing task :entry:default@ProcessResource
+[2026-01-13T11:33:46.714] [DEBUG] debug-file - Task 'entry:default@ProcessResource' cost while wrapping incremental declarations: 1 ms 
+[2026-01-13T11:33:46.714] [DEBUG] debug-file - entry:default@ProcessResource is not up-to-date, since the task snapshots are different.
+[2026-01-13T11:33:46.714] [DEBUG] debug-file - Incremental task entry:default@ProcessResource pre-execution cost: 1 ms .
+[2026-01-13T11:33:46.715] [DEBUG] debug-file - entry : default@ProcessResource cost memory 0.15372467041015625
+[2026-01-13T11:33:46.716] [DEBUG] debug-file - runTaskFromQueue task cost before running: 463 ms 
+[2026-01-13T11:33:46.718] [INFO] debug-file - Finished :entry:default@ProcessResource... after 3 ms 
+[2026-01-13T11:33:46.719] [DEBUG] debug-file - Executing task :wkim:default@DoNativeStrip
+[2026-01-13T11:33:46.719] [DEBUG] debug-file - Task 'wkim:default@DoNativeStrip' cost while wrapping incremental declarations: 1 ms 
+[2026-01-13T11:33:46.720] [DEBUG] debug-file - Incremental task wkim:default@DoNativeStrip pre-execution cost: 1 ms .
+[2026-01-13T11:33:46.720] [DEBUG] debug-file - wkim : default@DoNativeStrip cost memory 0.06793212890625
+[2026-01-13T11:33:46.720] [INFO] debug-file - UP-TO-DATE :wkim:default@DoNativeStrip...  
+[2026-01-13T11:33:46.720] [DEBUG] debug-file - restool module names: entry,wkim; moduleName=entry, taskName=default@CompileResource
+[2026-01-13T11:33:46.721] [DEBUG] debug-file - Executing task :entry:default@CompileResource
+[2026-01-13T11:33:46.724] [DEBUG] debug-file - entry:default@CompileResource is not up-to-date, since the input file '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/process_profile/default/module.json' has been changed.
+[2026-01-13T11:33:46.724] [DEBUG] debug-file - Incremental task entry:default@CompileResource pre-execution cost: 3 ms .
+[2026-01-13T11:33:46.836] [DEBUG] debug-file - Use tool [/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/restool]
+ [
+  '/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/restool',
+  '-l',
+  '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/res/default/resConfig.json'
+]
+[2026-01-13T11:33:46.837] [DEBUG] debug-file - current process  memoryUsage: {
+  rss: 165642240,
+  heapTotal: 170590208,
+  heapUsed: 126184664,
+  external: 3450539,
+  arrayBuffers: 1417643
+} os memoryUsage :31.920425415039062
+[2026-01-13T11:33:46.877] [DEBUG] debug-file - Info: Pack: normal pack mode
+
+[2026-01-13T11:33:46.939] [DEBUG] debug-file - Info: hardware concurrency count is : 10
+Info: thread count is : 10
+
+[2026-01-13T11:33:46.939] [DEBUG] debug-file - Info: thread pool is started
+
+[2026-01-13T11:33:46.939] [DEBUG] debug-file - Info: GenericCompiler::CompileFiles
+
+[2026-01-13T11:33:46.942] [DEBUG] debug-file - Info: GenericCompiler::CompileFiles
+
+[2026-01-13T11:33:46.942] [DEBUG] debug-file - Info: GenericCompiler::CompileFiles
+
+[2026-01-13T11:33:46.943] [DEBUG] debug-file - Info: file '.DS_Store' is ignored by default regular pattern '\..+'.
+
+[2026-01-13T11:33:46.945] [DEBUG] debug-file - 01-13 11:33:46.944 62033 58724619 E C01400/ImageTranscoderUtils: DecodeToRGBA IN
+01-13 11:33:46.945 62033 58724619 E C01400/ImageTranscoderUtils: ImageFilter IN /Users/songlun/Desktop/workspace/hmworkspace/wukongim/AppScope/resources/base/media/app_icon.png
+
+[2026-01-13T11:33:46.948] [DEBUG] debug-file - 01-13 11:33:46.948 62033 58724619 E C01400/ImageTranscoder: TranscodeSLR Only zoom-out is supported.
+
+[2026-01-13T11:33:46.948] [DEBUG] debug-file - Warning: ScaleImage failed, error message: INVALID_PARAMETERS, file path = /Users/songlun/Desktop/workspace/hmworkspace/wukongim/AppScope/resources/base/media/app_icon.png
+
+[2026-01-13T11:33:46.949] [DEBUG] debug-file - 01-13 11:33:46.949 62033 58724619 E C01400/ImageTranscoderUtils: DecodeToRGBA IN
+01-13 11:33:46.949 62033 58724619 E C01400/ImageTranscoderUtils: ImageFilter IN /Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main/resources/base/media/icon.png
+
+[2026-01-13T11:33:46.949] [DEBUG] debug-file - 01-13 11:33:46.949 62033 58724619 E C01400/ImageTranscoder: TranscodeSLR Only zoom-out is supported.
+Warning: ScaleImage failed, error message: INVALID_PARAMETERS, file path = /Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main/resources/base/media/icon.png
+
+[2026-01-13T11:33:46.949] [DEBUG] debug-file - Warning: The width or height of the png file referenced by the icon exceeds the limit (41 pixels)
+at /Users/songlun/Desktop/workspace/hmworkspace/wukongim/AppScope/resources/base/media/app_icon.png
+
+[2026-01-13T11:33:46.949] [DEBUG] debug-file - Warning: The width or height of the png file referenced by the icon exceeds the limit (41 pixels)
+at /Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main/resources/base/media/icon.png
+
+[2026-01-13T11:33:46.950] [DEBUG] debug-file - Info: restool resources compile success.
+
+[2026-01-13T11:33:46.950] [DEBUG] debug-file - Info: thread pool is stopped
+
+[2026-01-13T11:33:46.953] [DEBUG] debug-file - entry : default@CompileResource cost memory -9.057723999023438
+[2026-01-13T11:33:46.954] [DEBUG] debug-file - runTaskFromQueue task cost before running: 701 ms 
+[2026-01-13T11:33:46.954] [INFO] debug-file - Finished :entry:default@CompileResource... after 233 ms 
+[2026-01-13T11:33:46.954] [DEBUG] debug-file - Executing task :entry:default@BuildNativeWithNinja
+[2026-01-13T11:33:46.955] [DEBUG] debug-file - entry : default@BuildNativeWithNinja cost memory 0.02272796630859375
+[2026-01-13T11:33:46.955] [DEBUG] debug-file - runTaskFromQueue task cost before running: 702 ms 
+[2026-01-13T11:33:46.955] [INFO] debug-file - Finished :entry:default@BuildNativeWithNinja... after 1 ms 
+[2026-01-13T11:33:46.955] [DEBUG] debug-file - Executing task :entry:default@CompileArkTS
+[2026-01-13T11:33:46.955] [DEBUG] debug-file - obfuscationOptions: undefined
+[2026-01-13T11:33:46.958] [DEBUG] debug-file - entry:default@CompileArkTS is not up-to-date, since the input file '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets' has been changed.
+[2026-01-13T11:33:46.959] [DEBUG] debug-file - Incremental task entry:default@CompileArkTS pre-execution cost: 2 ms .
+[2026-01-13T11:33:46.963] [DEBUG] debug-file - build config:
+[2026-01-13T11:33:46.963] [DEBUG] debug-file - {
+  moduleType: 'entry',
+  perf: 0,
+  targetName: '.default',
+  packageManagerType: 'ohpm',
+  localPropertiesPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/local.properties',
+  isPreview: false,
+  isOhosTest: false,
+  isLocalTest: false,
+  buildMode: 'Release',
+  hotReloadBuild: undefined,
+  watchMode: 'false',
+  aceProfilePath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/res/default/resources/base/profile',
+  etsLoaderPath: '/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader',
+  modulePath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry',
+  testFrameworkPar: {
+    testMode: undefined,
+    coveragePathFilter: undefined,
+    coverageMode: undefined
+  },
+  needCoverageInsert: false,
+  debugLine: false,
+  projectTopDir: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim',
+  compileSdkVersion: 20,
+  compatibleSdkVersion: 12,
+  compatibleSdkVersionStage: 'beta1',
+  bundleName: 'c***M',
+  etsLoaderVersion: '6.0.0.47',
+  etsLoaderReleaseType: 'Release',
+  aotCompileMode: 'type',
+  apPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/modules.ap',
+  entryModuleName: 'entry',
+  entryModuleVersion: '1.0.0',
+  entryPackageName: 'entry',
+  allModuleNameHash: '1266ac401374f49ea205c44ac3285344',
+  externalApiPaths: [ '/Applications/DevEco-Studio.app/Contents/sdk/default/hms/ets' ],
+  compilerTypes: [],
+  isCrossplatform: false,
+  hvigorPluginFile: undefined,
+  compilePluginPath: undefined,
+  buildGeneratedProfilePath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/generated/profile/default',
+  bundleType: 'app',
+  arkTSVersion: undefined,
+  apiVersion: 20,
+  needCompleteSourcesMap: false,
+  isFaMode: false,
+  strictMode: undefined,
+  buildDir: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build',
+  deviceTypes: [ 'phone', 'tablet' ],
+  useNormalizedOHMUrl: false,
+  pkgContextInfo: undefined,
+  ohPackagePathMap: {},
+  dependencyAliasMap: {},
+  permission: { requestPermissions: undefined, definePermissions: undefined },
+  integratedHsp: false,
+  projectArkOption: undefined,
+  sourceMapDir: undefined,
+  branchElimination: false,
+  transformLib: undefined,
+  caseSensitiveCheck: false,
+  tsImportSendable: false,
+  resolveConflictMode: true,
+  depName2RootPath: {},
+  depName2DepInfo: {},
+  rootPathSet: [ '/Users/songlun/Desktop/workspace/hmworkspace/wukongim' ],
+  useNativeResolver: true,
+  shouldEmitJs: true,
+  useTscResolve: false,
+  singleFileEmit: false,
+  userProjectConfig: {
+    autoLazyImport: false,
+    allowEmptyBundleName: false,
+    reExportCheckMode: 'noCheck',
+    executionMode: 'memory',
+    usePathPlaceholder: false,
+    writeRollupCache: true,
+    isExpandImportEnabled: false,
+    expandImportExclude: '',
+    ignoreCrossplatformCheck: false,
+    isPreloadSoEnabled: false
+  },
+  skipOhModulesLint: false,
+  executionMode: 'memory',
+  autoLazyImport: false,
+  allowEmptyBundleName: false,
+  reExportCheckMode: 'noCheck',
+  usePathPlaceholder: false,
+  writeRollupCache: true,
+  isExpandImportEnabled: false,
+  expandImportExclude: '',
+  ignoreCrossplatformCheck: false,
+  isPreloadSoEnabled: false,
+  arkCompileCachePath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/cache/default/default@CompileArkTS/esmodule',
+  aceModuleJsonPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/res/default/ark_module.json',
+  appResource: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/res/default/ResourceTable.txt',
+  rawFileResource: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/res/default/resources/rawfile',
+  resourceTableHash: '0758a8f46f21abe11026f72c4d424cc2',
+  runtimeOS: 'HarmonyOS',
+  sdkInfo: 'false:20:6.0.0.47:Release',
+  aceModuleRoot: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main/ets',
+  compileMode: 'esmodule',
+  aceSuperVisualPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main/supervisual',
+  aceBuildJson: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/loader/default/loader.json',
+  cachePath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/cache/default/default@CompileArkTS/esmodule/release',
+  aceModuleBuild: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/loader_out/default/ets',
+  supportChunks: true,
+  declaredFilesPath: undefined,
+  shouldCollectDirectImportees: false,
+  isByteCodeHarOptimize: false,
+  expandImportPath: undefined,
+  pkgNameToPkgBriefInfo: {
+    '@wukong/wkim': {
+      pkgRoot: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim',
+      pkgName: '@wukong/wkim',
+      sourceRoots: [Array],
+      originalSourceRoots: undefined
+    },
+    entry: {
+      pkgRoot: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry',
+      originalSourceRoots: undefined,
+      sourceRoots: [Array],
+      pkgName: 'entry'
+    }
+  },
+  projectModel: {
+    '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main': {
+      moduleName: 'entry',
+      modulePkgPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry',
+      belongProjectPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim'
+    },
+    '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/ohosTest': {
+      moduleName: 'entry_test',
+      modulePkgPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry',
+      belongProjectPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim'
+    },
+    '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry': {
+      moduleName: 'entry',
+      modulePkgPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry',
+      belongProjectPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim'
+    },
+    '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main': {
+      moduleName: 'wkim',
+      modulePkgPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim',
+      belongProjectPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim'
+    },
+    '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim': {
+      moduleName: 'wkim',
+      modulePkgPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim',
+      belongProjectPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim'
+    },
+    '/Users/songlun/Desktop/workspace/hmworkspace/wukongim': {
+      moduleName: 'wukongim',
+      modulePkgPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim',
+      belongProjectPath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim'
+    }
+  },
+  pkgJsonFileHash: 'da2684febbb383aa5c8096d4f872f569',
+  allModulePaths: [
+    '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry',
+    '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim'
+  ],
+  routerMap: {},
+  obfuscationOptions: undefined,
+  byteCodeHarToDependencyKeys: undefined,
+  compileBlockPkg: [],
+  mockParams: {
+    decorator: '@MockSetup',
+    packageName: '@ohos/hamock',
+    etsSourceRootPath: 'src/main/ets',
+    mockConfigPath: undefined,
+    mockConfigKey2ModuleInfo: {},
+    source2ModuleIdMap: {}
+  },
+  copyCodeResourceEnable: true,
+  copyCodeResourceExcludes: [],
+  copyCodeResourceIncludes: undefined,
+  uiTransformOptimization: false,
+  sdkPath: '/Applications/DevEco-Studio.app/Contents/sdk',
+  needPreloadSoFileSet: {},
+  preloadSoFilePath: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/preload/default/preload.json',
+  useSourceHash: false,
+  localModuleParamMap: {},
+  otherPaths: {
+    '@wukong/wkim/*': [
+      '../../../../wkim/src/main/*',
+      '../../../../wkim/build/default/generated/profile/default/*'
+    ],
+    'entry/*': [ '../*', '../../../build/default/generated/profile/default/*' ]
+  },
+  collectImportersConfig: undefined
+}
+[2026-01-13T11:33:46.963] [DEBUG] debug-file - Compile arkts with external api path: /Applications/DevEco-Studio.app/Contents/sdk/default/hms/ets
+[2026-01-13T11:33:46.964] [DEBUG] debug-file - default@CompileArkTS work[14] is submitted.
+[2026-01-13T11:33:46.964] [DEBUG] debug-file - default@CompileArkTS work[14] is pushed to ready queue.
+[2026-01-13T11:33:46.964] [DEBUG] debug-file - default@CompileArkTS work[14] is not dispatched.
+[2026-01-13T11:33:46.964] [DEBUG] debug-file - CopyResources startTime: 336866409354875
+[2026-01-13T11:33:46.964] [DEBUG] debug-file - default@CompileArkTS work[15] is submitted.
+[2026-01-13T11:33:46.964] [DEBUG] debug-file - default@CompileArkTS work[15] is pushed to ready queue.
+[2026-01-13T11:33:46.964] [DEBUG] debug-file - default@CompileArkTS work[15] is not dispatched.
+[2026-01-13T11:33:46.964] [DEBUG] debug-file - entry : default@CompileArkTS cost memory 1.3801727294921875
+[2026-01-13T11:33:46.965] [DEBUG] debug-file - Executing task :entry:default@BuildJS
+[2026-01-13T11:33:46.965] [DEBUG] debug-file - entry : default@BuildJS cost memory 0.1041107177734375
+[2026-01-13T11:33:46.965] [DEBUG] debug-file - runTaskFromQueue task cost before running: 713 ms 
+[2026-01-13T11:33:46.965] [INFO] debug-file - Finished :entry:default@BuildJS... after 1 ms 
+[2026-01-13T11:33:46.965] [DEBUG] debug-file - Executing task :entry:default@ProcessLibs
+[2026-01-13T11:33:46.967] [DEBUG] debug-file - Incremental task entry:default@ProcessLibs pre-execution cost: 1 ms .
+[2026-01-13T11:33:46.967] [DEBUG] debug-file - entry : default@ProcessLibs cost memory 0.2808990478515625
+[2026-01-13T11:33:46.967] [INFO] debug-file - UP-TO-DATE :entry:default@ProcessLibs...  
+[2026-01-13T11:33:46.968] [DEBUG] debug-file - Executing task :entry:default@DoNativeStrip
+[2026-01-13T11:33:46.968] [DEBUG] debug-file - Task 'entry:default@DoNativeStrip' cost while wrapping incremental declarations: 1 ms 
+[2026-01-13T11:33:46.968] [DEBUG] debug-file - Incremental task entry:default@DoNativeStrip pre-execution cost: 1 ms .
+[2026-01-13T11:33:46.968] [DEBUG] debug-file - entry : default@DoNativeStrip cost memory 0.06678009033203125
+[2026-01-13T11:33:46.968] [INFO] debug-file - UP-TO-DATE :entry:default@DoNativeStrip...  
+[2026-01-13T11:33:46.969] [DEBUG] debug-file - Executing task :entry:default@CacheNativeLibs
+[2026-01-13T11:33:46.969] [DEBUG] debug-file - Task 'entry:default@CacheNativeLibs' cost while wrapping incremental declarations: 1 ms 
+[2026-01-13T11:33:46.969] [DEBUG] debug-file - Incremental task entry:default@CacheNativeLibs pre-execution cost: 1 ms .
+[2026-01-13T11:33:46.969] [DEBUG] debug-file - entry : default@CacheNativeLibs cost memory 0.123382568359375
+[2026-01-13T11:33:46.969] [INFO] debug-file - UP-TO-DATE :entry:default@CacheNativeLibs...  
+[2026-01-13T11:33:47.066] [DEBUG] debug-file - A work dispatched to worker[9] failed because unable to get work from ready queue.
+[2026-01-13T11:33:47.066] [DEBUG] debug-file - Create  resident worker with id: 8.
+[2026-01-13T11:33:47.069] [DEBUG] debug-file - default@CompileArkTS work[15] has been dispatched to worker[8].
+[2026-01-13T11:33:47.070] [DEBUG] debug-file - A work dispatched to worker[9] failed because unable to get work from ready queue.
+[2026-01-13T11:33:47.070] [DEBUG] debug-file - A work dispatched to worker[8] failed because of worker busy.
+[2026-01-13T11:33:47.070] [DEBUG] debug-file - A work dispatched to worker[7] failed because unable to get work from ready queue.
+[2026-01-13T11:33:47.070] [DEBUG] debug-file - A work dispatched to worker[6] failed because unable to get work from ready queue.
+[2026-01-13T11:33:47.070] [DEBUG] debug-file - A work dispatched to worker[5] failed because unable to get work from ready queue.
+[2026-01-13T11:33:47.070] [DEBUG] debug-file - default@CompileArkTS work[14] has been dispatched to worker[4].
+[2026-01-13T11:33:47.660] [DEBUG] debug-file - worker[8] has one work done.
+[2026-01-13T11:33:47.660] [DEBUG] debug-file - CopyResources is end, endTime: 336867105141458
+[2026-01-13T11:33:47.660] [DEBUG] debug-file - default@CompileArkTS work[15] done.
+[2026-01-13T11:33:47.764] [DEBUG] debug-file - A work dispatched to worker[8] failed because unable to get work from ready queue.
+[2026-01-13T11:33:51.943] [WARN] debug-file - [33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/PreferencesUtil.ets:13:18
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/PreferencesUtil.ets:14:20
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/PreferencesUtil.ets:17:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/PreferencesUtil.ets:18:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/PreferencesUtil.ets:26:18
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/PreferencesUtil.ets:27:19
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/PreferencesUtil.ets:34:18
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/common/PreferencesUtil.ets:35:5
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/WKDBHelper.ets:23:21
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/WKDBHelper.ets:33:13
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/WKDBHelper.ets:39:16
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/WKDBHelper.ets:69:16
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelMemberDB.ets:33:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelMemberDB.ets:52:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelMemberDB.ets:70:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelMemberDB.ets:89:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelMemberDB.ets:108:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelMemberDB.ets:129:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReminderDB.ets:31:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReminderDB.ets:51:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReminderDB.ets:71:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReminderDB.ets:91:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReminderDB.ets:111:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelDB.ets:31:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelDB.ets:50:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelDB.ets:84:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ChannelDB.ets:104:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ChannelManager.ets:26:9
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ChannelManager.ets:27:14
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ChannelManager.ets:31:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ChannelManager.ets:98:5
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ChannelManager.ets:128:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReactionDB.ets:30:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReactionDB.ets:50:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReactionDB.ets:70:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ReactionDB.ets:89:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:168:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:283:11
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:284:18
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:354:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:404:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:424:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:443:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:461:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:481:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:499:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:517:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:537:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:556:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:574:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:626:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:632:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:708:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:781:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:799:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:817:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:837:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/MessageDB.ets:856:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ConversationDB.ets:60:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ConversationDB.ets:80:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ConversationDB.ets:99:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ConversationDB.ets:165:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ConversationDB.ets:229:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/db/ConversationDB.ets:249:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ConnectionManager.ets:85:21
+ To use this API, you need to apply for the permissions: ohos.permission.INTERNET
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ConnectionManager.ets:169:20
+ To use this API, you need to apply for the permissions: ohos.permission.INTERNET
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ConnectionManager.ets:406:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ConnectionManager.ets:413:13
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ConnectionManager.ets:415:21
+ To use this API, you need to apply for the permissions: ohos.permission.INTERNET
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ConnectionManager.ets:434:9
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ConnectionManager.ets:437:5
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ConnectionManager.ets:445:10
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ConnectionManager.ets:447:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ConnectionManager.ets:454:11
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ConnectionManager.ets:461:9
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ConnectionManager.ets:464:5
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/ConnectionManager.ets:486:20
+ To use this API, you need to apply for the permissions: ohos.permission.GET_NETWORK_INFO
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/MessageManager.ets:85:5
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/MessageManager.ets:469:7
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/MessageManager.ets:506:10
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets/manager/MessageManager.ets:509:22
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main/ets/service/HttpUtil.ets:31:17
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main/ets/service/HttpUtil.ets:66:26
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main/ets/service/HttpUtil.ets:78:26
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main/ets/service/HttpUtil.ets:133:26
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main/ets/service/HttpUtil.ets:220:26
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main/ets/service/HttpUtil.ets:239:26
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main/ets/service/HttpUtil.ets:254:5
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main/ets/service/HttpUtil.ets:255:26
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main/ets/service/HttpUtil.ets:267:26
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main/ets/service/HttpUtil.ets:295:26
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main/ets/service/HttpUtil.ets:308:26
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main/ets/pages/Index.ets:77:26
+ 'showToast' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main/ets/pages/Index.ets:86:32
+ 'getContext' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main/ets/pages/Index.ets:87:22
+ 'replaceUrl' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main/ets/pages/Main.ets:295:20
+ 'replaceUrl' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main/ets/pages/Main.ets:317:20
+ 'pushUrl' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main/ets/pages/Chat.ets:77:31
+ 'getParams' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main/ets/pages/Chat.ets:78:33
+ 'getParams' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main/ets/pages/Chat.ets:198:27
+ 'show' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main/ets/pages/Chat.ets:243:18
+ 'back' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main/ets/pages/Chat.ets:355:26
+ 'showToast' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main/ets/pages/Chat.ets:543:27
+ 'show' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main/ets/pages/Chat.ets:699:27
+ 'show' has been deprecated.
+[39m[39m
+
+[2026-01-13T11:33:51.943] [DEBUG] debug-file - Ark compile task finished.finished time is 336871388038666
+[2026-01-13T11:33:51.952] [DEBUG] debug-file - worker[4] has one work done.
+[2026-01-13T11:33:51.961] [DEBUG] debug-file - default@CompileArkTS work[14] done.
+[2026-01-13T11:33:51.987] [INFO] debug-file - Finished :entry:default@CompileArkTS... after 4 s 872 ms 
+[2026-01-13T11:33:52.004] [DEBUG] debug-file - Executing task :entry:default@GeneratePkgModuleJson
+[2026-01-13T11:33:52.004] [DEBUG] debug-file - File: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/preload/default/preload.json' from 'preloadSoJsonPath' is not exists, just ignore.
+[2026-01-13T11:33:52.004] [DEBUG] debug-file - Task 'entry:default@GeneratePkgModuleJson' cost while wrapping incremental declarations: 1 ms 
+[2026-01-13T11:33:52.005] [DEBUG] debug-file - entry:default@GeneratePkgModuleJson is not up-to-date, since the input file '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/res/default/module.json' has been changed.
+[2026-01-13T11:33:52.005] [DEBUG] debug-file - Incremental task entry:default@GeneratePkgModuleJson pre-execution cost: 1 ms .
+[2026-01-13T11:33:52.006] [DEBUG] debug-file - entry : default@GeneratePkgModuleJson cost memory 0.092559814453125
+[2026-01-13T11:33:52.006] [DEBUG] debug-file - runTaskFromQueue task cost before running: 5 s 754 ms 
+[2026-01-13T11:33:52.006] [INFO] debug-file - Finished :entry:default@GeneratePkgModuleJson... after 3 ms 
+[2026-01-13T11:33:52.007] [DEBUG] debug-file - Executing task :entry:default@ProcessCompiledResources
+[2026-01-13T11:33:52.007] [DEBUG] debug-file - File: '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/preload/default/preload.json' from 'preloadSoJsonPath' is not exists, just ignore.
+[2026-01-13T11:33:52.008] [DEBUG] debug-file - Task 'entry:default@ProcessCompiledResources' cost while wrapping incremental declarations: 1 ms 
+[2026-01-13T11:33:52.008] [DEBUG] debug-file - entry : default@ProcessCompiledResources cost memory 0.06232452392578125
+[2026-01-13T11:33:52.008] [DEBUG] debug-file - runTaskFromQueue task cost before running: 5 s 756 ms 
+[2026-01-13T11:33:52.009] [INFO] debug-file - Finished :entry:default@ProcessCompiledResources... after 2 ms 
+[2026-01-13T11:33:52.011] [DEBUG] debug-file - Executing task :entry:default@PackageHap
+[2026-01-13T11:33:52.019] [DEBUG] debug-file - entry:default@PackageHap is not up-to-date, since the input file '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/res/default/module.json' has been changed.
+[2026-01-13T11:33:52.020] [DEBUG] debug-file - Incremental task entry:default@PackageHap pre-execution cost: 4 ms .
+[2026-01-13T11:33:52.020] [DEBUG] debug-file - Use tool [/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/lib/app_packing_tool.jar]
+ [
+  'java',
+  '-Dfile.encoding=utf-8',
+  '-jar',
+  '/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/lib/app_packing_tool.jar',
+  '--mode',
+  'hap',
+  '--force',
+  'true',
+  '--lib-path',
+  '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/stripped_native_libs/default',
+  '--json-path',
+  '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/package/default/module.json',
+  '--resources-path',
+  '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/res/default/resources',
+  '--index-path',
+  '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/res/default/resources.index',
+  '--pack-info-path',
+  '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/outputs/default/pack.info',
+  '--out-path',
+  '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/outputs/default/entry-default-unsigned.hap',
+  '--ets-path',
+  '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/loader_out/default/ets'
+]
+[2026-01-13T11:33:52.313] [DEBUG] debug-file - java daemon socket received message:{"code":0,"message":"pack success"}
+[2026-01-13T11:33:52.314] [DEBUG] debug-file - entry : default@PackageHap cost memory 0.55535888671875
+[2026-01-13T11:33:52.314] [DEBUG] debug-file - runTaskFromQueue task cost before running: 6 s 62 ms 
+[2026-01-13T11:33:52.315] [INFO] debug-file - Finished :entry:default@PackageHap... after 303 ms 
+[2026-01-13T11:33:52.316] [DEBUG] debug-file - Executing task :entry:default@PackingCheck
+[2026-01-13T11:33:52.320] [DEBUG] debug-file - entry : default@PackingCheck cost memory 0.3789825439453125
+[2026-01-13T11:33:52.320] [DEBUG] debug-file - runTaskFromQueue task cost before running: 6 s 68 ms 
+[2026-01-13T11:33:52.320] [INFO] debug-file - Finished :entry:default@PackingCheck... after 5 ms 
+[2026-01-13T11:33:52.321] [DEBUG] debug-file - Executing task :entry:default@SignHap
+[2026-01-13T11:33:52.321] [WARN] debug-file - Will skip sign 'hos_hap'. No signingConfigs profile is configured in current project.
+             If needed, configure the signingConfigs in /Users/songlun/Desktop/workspace/hmworkspace/wukongim/build-profile.json5.
+[2026-01-13T11:33:52.321] [DEBUG] debug-file - entry:default@SignHap is not up-to-date, since the input file '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/outputs/default/entry-default-unsigned.hap' has been changed.
+[2026-01-13T11:33:52.321] [DEBUG] debug-file - Incremental task entry:default@SignHap pre-execution cost: 1 ms .
+[2026-01-13T11:33:52.322] [DEBUG] debug-file - entry : default@SignHap cost memory 0.092254638671875
+[2026-01-13T11:33:52.322] [DEBUG] debug-file - runTaskFromQueue task cost before running: 6 s 69 ms 
+[2026-01-13T11:33:52.322] [INFO] debug-file - Finished :entry:default@SignHap... after 1 ms 
+[2026-01-13T11:33:52.322] [DEBUG] debug-file - Executing task :entry:default@CollectDebugSymbol
+[2026-01-13T11:33:52.322] [DEBUG] debug-file - entry:default@CollectDebugSymbol is not up-to-date, since the input file '/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/cache/default/default@CompileArkTS/esmodule/release/sourceMaps.map' has been changed.
+[2026-01-13T11:33:52.322] [DEBUG] debug-file - Incremental task entry:default@CollectDebugSymbol pre-execution cost: 1 ms .
+[2026-01-13T11:33:52.323] [DEBUG] debug-file - nameCache.json for module entry does not exists
+[2026-01-13T11:33:52.323] [DEBUG] debug-file - There are no cpp libraries for module entry
+[2026-01-13T11:33:52.323] [DEBUG] debug-file - entry : default@CollectDebugSymbol cost memory 0.21717071533203125
+[2026-01-13T11:33:52.323] [DEBUG] debug-file - runTaskFromQueue task cost before running: 6 s 70 ms 
+[2026-01-13T11:33:52.323] [INFO] debug-file - Finished :entry:default@CollectDebugSymbol... after 1 ms 
+[2026-01-13T11:33:52.323] [DEBUG] debug-file - Executing task :entry:assembleHap
+[2026-01-13T11:33:52.323] [DEBUG] debug-file - entry : assembleHap cost memory 0.013824462890625
+[2026-01-13T11:33:52.323] [DEBUG] debug-file - runTaskFromQueue task cost before running: 6 s 71 ms 
+[2026-01-13T11:33:52.323] [INFO] debug-file - Finished :entry:assembleHap... after 1 ms 
+[2026-01-13T11:33:52.324] [INFO] debug-file - BUILD SUCCESSFUL in 6 s 72 ms 
+[2026-01-13T11:33:52.324] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@PreBuild is up-to-date.
+[2026-01-13T11:33:52.325] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task wkim:default@PreBuild is up-to-date.
+[2026-01-13T11:33:52.325] [DEBUG] debug-file - Update task entry:default@CreateModuleInfo output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/generated/profile/default/ModuleInfo.ts cache.
+[2026-01-13T11:33:52.325] [DEBUG] debug-file - Incremental task entry:default@CreateModuleInfo post-execution cost:1 ms .
+[2026-01-13T11:33:52.325] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@GenerateMetadata is up-to-date.
+[2026-01-13T11:33:52.325] [DEBUG] debug-file - Update task entry:default@GeneratePkgContextInfo output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/loader/default/pkgContextInfo.json cache.
+[2026-01-13T11:33:52.325] [DEBUG] debug-file - Incremental task entry:default@GeneratePkgContextInfo post-execution cost:1 ms .
+[2026-01-13T11:33:52.325] [DEBUG] debug-file - Update task entry:default@ProcessIntegratedHsp output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/build/cache/default/integrated_hsp/integratedHspCache.json cache.
+[2026-01-13T11:33:52.325] [DEBUG] debug-file - Incremental task entry:default@ProcessIntegratedHsp post-execution cost:1 ms .
+[2026-01-13T11:33:52.325] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task wkim:default@CreateHarBuildProfile is up-to-date.
+[2026-01-13T11:33:52.325] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task wkim:default@MergeProfile is up-to-date.
+[2026-01-13T11:33:52.325] [DEBUG] debug-file - Update task entry:default@SyscapTransform input file:/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/syscap_tool cache by regenerate.
+[2026-01-13T11:33:52.325] [DEBUG] debug-file - Update task entry:default@SyscapTransform input file:/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/api/device-define cache by regenerate.
+[2026-01-13T11:33:52.325] [DEBUG] debug-file - Update task entry:default@SyscapTransform output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/syscap/default/rpcid.sc cache.
+[2026-01-13T11:33:52.325] [DEBUG] debug-file - Incremental task entry:default@SyscapTransform post-execution cost:1 ms .
+[2026-01-13T11:33:52.326] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@ProcessRouterMap is up-to-date.
+[2026-01-13T11:33:52.326] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@ProcessShareConfig is up-to-date.
+[2026-01-13T11:33:52.326] [DEBUG] debug-file - Update task entry:default@ProcessStartupConfig output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/startup/default/startup_config.json cache.
+[2026-01-13T11:33:52.326] [DEBUG] debug-file - Incremental task entry:default@ProcessStartupConfig post-execution cost:1 ms .
+[2026-01-13T11:33:52.326] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@CreateBuildProfile is up-to-date.
+[2026-01-13T11:33:52.326] [DEBUG] debug-file - Update task entry:default@MergeProfile input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/AppScope/app.json5 cache by regenerate.
+[2026-01-13T11:33:52.326] [DEBUG] debug-file - Update task entry:default@MergeProfile input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/build-profile.json5 cache by regenerate.
+[2026-01-13T11:33:52.326] [DEBUG] debug-file - Update task entry:default@MergeProfile input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main/module.json5 cache by regenerate.
+[2026-01-13T11:33:52.326] [DEBUG] debug-file - Update task entry:default@MergeProfile input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/merge_profile/default/module.json cache by regenerate.
+[2026-01-13T11:33:52.326] [DEBUG] debug-file - Update task entry:default@MergeProfile output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/merge_profile/default/module.json cache.
+[2026-01-13T11:33:52.326] [DEBUG] debug-file - Incremental task entry:default@MergeProfile post-execution cost:1 ms .
+[2026-01-13T11:33:52.327] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@GenerateLoaderJson is up-to-date.
+[2026-01-13T11:33:52.327] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@MakePackInfo is up-to-date.
+[2026-01-13T11:33:52.327] [DEBUG] debug-file - Update task entry:default@ProcessProfile input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/merge_profile/default/module.json cache from map.
+[2026-01-13T11:33:52.327] [DEBUG] debug-file - Update task entry:default@ProcessProfile output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/process_profile/default/module.json cache.
+[2026-01-13T11:33:52.327] [DEBUG] debug-file - Incremental task entry:default@ProcessProfile post-execution cost:1 ms .
+[2026-01-13T11:33:52.327] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task wkim:default@ProcessLibs is up-to-date.
+[2026-01-13T11:33:52.327] [DEBUG] debug-file - Update task entry:default@ProcessResource output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/res/default/resConfig.json cache.
+[2026-01-13T11:33:52.327] [DEBUG] debug-file - Update task entry:default@ProcessResource output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/res/default/opt-compression.json cache.
+[2026-01-13T11:33:52.327] [DEBUG] debug-file - Incremental task entry:default@ProcessResource post-execution cost:1 ms .
+[2026-01-13T11:33:52.327] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task wkim:default@DoNativeStrip is up-to-date.
+[2026-01-13T11:33:52.327] [DEBUG] debug-file - Update task entry:default@CompileResource input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main/resources cache by regenerate.
+[2026-01-13T11:33:52.327] [DEBUG] debug-file - Update task entry:default@CompileResource input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/resources cache by regenerate.
+[2026-01-13T11:33:52.328] [DEBUG] debug-file - Update task entry:default@CompileResource input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/AppScope/resources cache by regenerate.
+[2026-01-13T11:33:52.328] [DEBUG] debug-file - Update task entry:default@CompileResource input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/process_profile/default/module.json cache from map.
+[2026-01-13T11:33:52.328] [DEBUG] debug-file - Update task entry:default@CompileResource input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/res/default/resConfig.json cache by regenerate.
+[2026-01-13T11:33:52.328] [DEBUG] debug-file - Update task entry:default@CompileResource output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/res/default cache.
+[2026-01-13T11:33:52.330] [DEBUG] debug-file - Update task entry:default@CompileResource output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/generated/r/default/ResourceTable.h cache.
+[2026-01-13T11:33:52.330] [DEBUG] debug-file - Update task entry:default@CompileResource output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/generated/r/default cache.
+[2026-01-13T11:33:52.330] [DEBUG] debug-file - Incremental task entry:default@CompileResource post-execution cost:4 ms .
+[2026-01-13T11:33:52.330] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/loader/default cache by regenerate.
+[2026-01-13T11:33:52.330] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/index.ets cache by regenerate.
+[2026-01-13T11:33:52.330] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/src/main/ets cache from map.
+[2026-01-13T11:33:52.330] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/res/default/resources/rawfile cache by regenerate.
+[2026-01-13T11:33:52.331] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/res/default/ResourceTable.txt cache by regenerate.
+[2026-01-13T11:33:52.331] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/res/default/ark_module.json cache by regenerate.
+[2026-01-13T11:33:52.331] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/res/default/resources/base/profile cache by regenerate.
+[2026-01-13T11:33:52.331] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/src/main/ets cache by regenerate.
+[2026-01-13T11:33:52.332] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/generated/profile/default/BuildProfile.ets cache by regenerate.
+[2026-01-13T11:33:52.332] [DEBUG] debug-file - Update task entry:default@CompileArkTS input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/BuildProfile.ets cache by regenerate.
+[2026-01-13T11:33:52.333] [DEBUG] debug-file - Update task entry:default@CompileArkTS output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/loader_out/default/ets cache.
+[2026-01-13T11:33:52.334] [DEBUG] debug-file - Incremental task entry:default@CompileArkTS post-execution cost:4 ms .
+[2026-01-13T11:33:52.335] [DEBUG] debug-file - Update task entry:default@BuildJS input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/loader/default cache by regenerate.
+[2026-01-13T11:33:52.336] [DEBUG] debug-file - Update task entry:default@BuildJS input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/index.ets cache by regenerate.
+[2026-01-13T11:33:52.336] [DEBUG] debug-file - Update task entry:default@BuildJS input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/res/default/resources/rawfile cache by regenerate.
+[2026-01-13T11:33:52.337] [DEBUG] debug-file - Update task entry:default@BuildJS input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/res/default/ResourceTable.txt cache by regenerate.
+[2026-01-13T11:33:52.337] [DEBUG] debug-file - Update task entry:default@BuildJS input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/res/default/ark_module.json cache by regenerate.
+[2026-01-13T11:33:52.337] [DEBUG] debug-file - Update task entry:default@BuildJS input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/res/default/resources/base/profile cache by regenerate.
+[2026-01-13T11:33:52.337] [DEBUG] debug-file - Update task entry:default@BuildJS output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/loader_out/default/js cache.
+[2026-01-13T11:33:52.338] [DEBUG] debug-file - Incremental task entry:default@BuildJS post-execution cost:4 ms .
+[2026-01-13T11:33:52.338] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@ProcessLibs is up-to-date.
+[2026-01-13T11:33:52.338] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@DoNativeStrip is up-to-date.
+[2026-01-13T11:33:52.338] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@CacheNativeLibs is up-to-date.
+[2026-01-13T11:33:52.338] [DEBUG] debug-file - Update task entry:default@GeneratePkgModuleJson input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/res/default/module.json cache from map.
+[2026-01-13T11:33:52.338] [DEBUG] debug-file - Update task entry:default@GeneratePkgModuleJson output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/package/default/module.json cache.
+[2026-01-13T11:33:52.338] [DEBUG] debug-file - Incremental task entry:default@GeneratePkgModuleJson post-execution cost:1 ms .
+[2026-01-13T11:33:52.338] [DEBUG] debug-file - Incremental task entry:default@ProcessCompiledResources post-execution cost:1 ms .
+[2026-01-13T11:33:52.338] [DEBUG] debug-file - Update task entry:default@PackageHap input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/stripped_native_libs/default cache by regenerate.
+[2026-01-13T11:33:52.339] [DEBUG] debug-file - Update task entry:default@PackageHap input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/res/default/module.json cache from map.
+[2026-01-13T11:33:52.339] [DEBUG] debug-file - Update task entry:default@PackageHap input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/res/default/resources cache by regenerate.
+[2026-01-13T11:33:52.340] [DEBUG] debug-file - Update task entry:default@PackageHap input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/res/default/resources.index cache by regenerate.
+[2026-01-13T11:33:52.340] [DEBUG] debug-file - Update task entry:default@PackageHap input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/outputs/default/pack.info cache by regenerate.
+[2026-01-13T11:33:52.340] [DEBUG] debug-file - Update task entry:default@PackageHap input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/loader_out/default/ets cache by regenerate.
+[2026-01-13T11:33:52.340] [DEBUG] debug-file - Update task entry:default@PackageHap input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/cache/default/default@CompileArkTS/esmodule/release/sourceMaps.map cache by regenerate.
+[2026-01-13T11:33:52.340] [DEBUG] debug-file - Update task entry:default@PackageHap input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/generated/profile/default/BuildProfile.ets cache by regenerate.
+[2026-01-13T11:33:52.340] [DEBUG] debug-file - Update task entry:default@PackageHap output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/outputs/default/entry-default-unsigned.hap cache.
+[2026-01-13T11:33:52.340] [DEBUG] debug-file - Update task entry:default@PackageHap output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/source_map/default/sourceMaps.map cache.
+[2026-01-13T11:33:52.340] [DEBUG] debug-file - Update task entry:default@PackageHap output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/outputs/default/mapping/sourceMaps.map cache.
+[2026-01-13T11:33:52.340] [DEBUG] debug-file - Incremental task entry:default@PackageHap post-execution cost:2 ms .
+[2026-01-13T11:33:52.341] [DEBUG] debug-file - Update task entry:default@SignHap input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/outputs/default/entry-default-unsigned.hap cache from map.
+[2026-01-13T11:33:52.341] [DEBUG] debug-file - Update task entry:default@SignHap output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/outputs/default/entry-default-signed.hap cache.
+[2026-01-13T11:33:52.342] [DEBUG] debug-file - Incremental task entry:default@SignHap post-execution cost:1 ms .
+[2026-01-13T11:33:52.342] [DEBUG] debug-file - Update task entry:default@CollectDebugSymbol input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/cache/default/default@CompileArkTS/esmodule/release/sourceMaps.map cache from map.
+[2026-01-13T11:33:52.342] [DEBUG] debug-file - Update task entry:default@CollectDebugSymbol input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/intermediates/libs/default cache by regenerate.
+[2026-01-13T11:33:52.342] [DEBUG] debug-file - Update task entry:default@CollectDebugSymbol output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/entry/build/default/outputs/default/symbol cache.
+[2026-01-13T11:33:52.343] [DEBUG] debug-file - Incremental task entry:default@CollectDebugSymbol post-execution cost:1 ms .
+[2026-01-13T11:33:52.360] [DEBUG] debug-file - Cleanup worker 8.
+[2026-01-13T11:33:52.360] [DEBUG] debug-file - Worker 8 has been cleaned up.
+[2026-01-13T11:33:52.360] [DEBUG] debug-file - Current idle worker size: 1.
+[2026-01-13T11:33:52.360] [DEBUG] debug-file - Current resident worker size: 2.
+[2026-01-13T11:33:52.361] [DEBUG] debug-file - hvigor build process will be closed.
+[2026-01-13T11:33:52.361] [DEBUG] debug-file - java daemon socket close code:1000 reason:close by user
+[2026-01-13T11:33:52.366] [DEBUG] debug-file - session manager: send message to worker process.
+[2026-01-13T11:33:52.366] [DEBUG] debug-file - session manager: send message to worker process.
+[2026-01-13T11:33:52.367] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-01-13T11:33:52.367] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-01-13T11:33:52.382] [DEBUG] debug-file - worker[8] exits with exit code 1.

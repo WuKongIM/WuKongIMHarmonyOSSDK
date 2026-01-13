@@ -24,7 +24,9 @@ export class PreferencesUtil {
     let context = getContext()
     let options: preferences.Options = { name: preName };
     let shared = preferences.getPreferencesSync(context, options)
-    let version = shared.getSync(sqlVersionKey, 0) as number
+    // 按用户区分 SQL 版本号，避免切换账号时跳过建表
+    let key = WKIM.shared.config.uid + "_" + sqlVersionKey
+    let version = shared.getSync(key, 0) as number
     return version
   }
 
@@ -32,6 +34,8 @@ export class PreferencesUtil {
     let context = getContext()
     let options: preferences.Options = { name: preName };
     let shared = preferences.getPreferencesSync(context, options)
-    shared.putSync(sqlVersionKey, v)
+    // 按用户区分 SQL 版本号，避免切换账号时跳过建表
+    let key = WKIM.shared.config.uid + "_" + sqlVersionKey
+    shared.putSync(key, v)
   }
 }

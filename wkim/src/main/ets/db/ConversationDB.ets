@@ -57,7 +57,7 @@ export class ConversationDB {
       WKLogger.error('查询最近会话错误,', this.tag, ':queryAll', e)
       return list
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
   }
 
@@ -77,7 +77,7 @@ export class ConversationDB {
     } catch (e) {
       return msg
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
   }
 
@@ -96,7 +96,7 @@ export class ConversationDB {
       WKLogger.error(`查询错误,`, this.tag, 'queryLastMsgSeqs')
       return lastMsgSeqs
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
   }
 
@@ -162,7 +162,7 @@ export class ConversationDB {
       WKLogger.error('查询最近会话扩展最大编号错误', this.tag, 'queryExtraMaxVersion')
       return version
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
   }
 
@@ -216,17 +216,20 @@ export class ConversationDB {
       let vb = this.getVB(list[i], true)
       vbs.push(vb)
     }
+    const db = WKDBHelper.shared.getDB()
+    if (!db) {
+      return
+    }
     try {
-      WKDBHelper.shared.getDB()?.beginTransaction()
+      db.beginTransaction()
       for (let i = 0; i < vbs.length; i++) {
-        let vb = vbs[i]
-        WKDBHelper.shared.getDB()?.insertSync(WKDBConst.tableConversation, vb,
+        db.insertSync(WKDBConst.tableConversation, vbs[i],
           relationalStore.ConflictResolution.ON_CONFLICT_REPLACE)
       }
+      db.commit()
     } catch (e) {
       WKLogger.error('批量插入最近会话错误，', this.tag, '：insertOrReplaces', e)
-    } finally {
-      WKDBHelper.shared.getDB()?.commit()
+      WKDBHelper.shared.safeRollBack()
     }
   }
 
@@ -236,17 +239,20 @@ export class ConversationDB {
       let vb = this.getExtraVB(list[i])
       vbs.push(vb)
     }
+    const db = WKDBHelper.shared.getDB()
+    if (!db) {
+      return
+    }
     try {
-      WKDBHelper.shared.getDB()?.beginTransaction()
+      db.beginTransaction()
       for (let i = 0; i < vbs.length; i++) {
-        let vb = vbs[i]
-        WKDBHelper.shared.getDB()?.insertSync(WKDBConst.tableConversationExtra, vb,
+        db.insertSync(WKDBConst.tableConversationExtra, vbs[i],
           relationalStore.ConflictResolution.ON_CONFLICT_REPLACE)
       }
+      db.commit()
     } catch (e) {
       WKLogger.error('批量插入最近会话扩展错误', this.tag, 'insertOrReplaceExtras', e)
-    } finally {
-      WKDBHelper.shared.getDB()?.commit()
+      WKDBHelper.shared.safeRollBack()
     }
   }
 

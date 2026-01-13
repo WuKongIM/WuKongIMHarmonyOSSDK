@@ -26,7 +26,7 @@ export class MessageDB {
   }
 
   private requestCount = 0
-  private readonly channelMinMsgSeqs: HashMap<string, number> = new HashMap()
+  // private readonly channelMinMsgSeqMap: HashMap<string, number> = new HashMap()
   readonly tag = 'MessageDB'
   readonly extraCols =
     `IFNULL(${WKDBConst.tableMessageExtra}.readed,0) as readed,IFNULL(${WKDBConst.tableMessageExtra}.readed_count,0) as readed_count,IFNULL(${WKDBConst.tableMessageExtra}.unread_count,0) as unread_count,IFNULL(${WKDBConst.tableMessageExtra}.revoke,0) as revoke,IFNULL(${WKDBConst.tableMessageExtra}.revoker,'') as revoker,IFNULL(${WKDBConst.tableMessageExtra}.extra_version,0) as extra_version,IFNULL(${WKDBConst.tableMessageExtra}.is_mutual_deleted,0) as is_mutual_deleted,IFNULL(${WKDBConst.tableMessageExtra}.need_upload,0) as need_upload,IFNULL(${WKDBConst.tableMessageExtra}.content_edit,'') as content_edit,IFNULL(${WKDBConst.tableMessageExtra}.edited_at,0) as edited_at,IFNULL(${WKDBConst.tableMessageExtra}.is_pinned,0) as is_pinned`;
@@ -165,7 +165,7 @@ export class MessageDB {
       WKLogger.error(`查询错误,${this.tag}:queryMessages`)
       return msgList
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
   }
 
@@ -277,12 +277,12 @@ export class MessageDB {
       startMsgSeq = 0
       endMsgSeq = 0
     }
-    let key = `${channel.channelId}_${channel.channelType}`
+    // let key = `${channel.channelId}_${channel.channelType}`
     if (!isSyncMsg) {
       let minSeq = 1;
-      if (this.channelMinMsgSeqs.hasKey(key)) {
-        minSeq = this.channelMinMsgSeqs.get(key)
-      }
+      // if (this.channelMinMsgSeqMap.hasKey(key)) {
+      //   minSeq = this.channelMinMsgSeqMap.get(key)
+      // }
       if (minMessageSeq == minSeq) {
         this.requestCount = 0
         //                more = 1
@@ -351,7 +351,7 @@ export class MessageDB {
       WKLogger.error('查询错误', this.tag, 'queryDeletedCount', e)
       return num
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
   }
 
@@ -401,7 +401,7 @@ export class MessageDB {
       WKLogger.error('查询错误', this.tag, 'queryMsgSeq', e)
       return seq
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
   }
 
@@ -421,7 +421,7 @@ export class MessageDB {
       WKLogger.error('查询错误', this.tag, 'queryWithClientMsgNos', e)
       return msgs
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
   }
 
@@ -440,7 +440,7 @@ export class MessageDB {
       WKLogger.error('查询失败', this.tag, 'queryExtraWithNeddUpload', e.message)
       return list
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
   }
 
@@ -458,7 +458,7 @@ export class MessageDB {
       WKLogger.error('查询失败', this.tag, 'queryExtraWithMsgId', `参数：{messageId:${messageId}`, e.message)
       return undefined
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
   }
 
@@ -478,7 +478,7 @@ export class MessageDB {
       WKLogger.error(`查询错误,${this.tag}:queryMsgExtrasWithMsgIds`)
       return msgs
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
   }
 
@@ -496,7 +496,7 @@ export class MessageDB {
       WKLogger.error(`查询报错,${this.tag}:queryWithMessageId`)
       return null
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
   }
 
@@ -514,7 +514,7 @@ export class MessageDB {
       WKLogger.error(`查询报错,${this.tag}:queryWithClientMsgNo`)
       return undefined
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
 
   }
@@ -534,7 +534,7 @@ export class MessageDB {
       WKLogger.error(`查询报错,${this.tag}:queryWithClientMsgNo`)
       return undefined
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
 
   }
@@ -553,7 +553,7 @@ export class MessageDB {
       WKLogger.error(`查询报错,${this.tag}:queryMaxExtraVersion`, e.message)
       return 0
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
   }
 
@@ -571,7 +571,7 @@ export class MessageDB {
       WKLogger.error(`查询报错,${this.tag}:queryMaxOrderSeq`)
       return 0
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
   }
 
@@ -621,15 +621,20 @@ export class MessageDB {
       let vb = this.getExtraVB(m)
       vbs.push(vb)
     })
-
+    const db = WKDBHelper.shared.getDB()
+    if (!db) {
+      return
+    }
     try {
-      WKDBHelper.shared.getDB()?.beginTransaction()
+      db.beginTransaction()
       vbs.forEach((vb) => {
-        WKDBHelper.shared.getDB()?.insertSync(WKDBConst.tableMessageExtra, vb,
+        db.insertSync(WKDBConst.tableMessageExtra, vb,
           relationalStore.ConflictResolution.ON_CONFLICT_REPLACE)
       })
-    } finally {
-      WKDBHelper.shared.getDB()?.commit()
+      db.commit()
+    } catch (e) {
+      WKLogger.error(`批量插入消息扩展错误，error:${e}`)
+      WKDBHelper.shared.safeRollBack()
     }
   }
 
@@ -695,17 +700,20 @@ export class MessageDB {
       let vb = this.getVB(realSaveList[i])
       vbs.push(vb)
     }
+    const db = WKDBHelper.shared.getDB()
+    if (!db) {
+      return
+    }
     try {
-      WKDBHelper.shared.getDB()?.beginTransaction()
+      db.beginTransaction()
       vbs.forEach((vb) => {
-        WKDBHelper.shared.getDB()?.insertSync(WKDBConst.tableMessage, vb,
+        db.insertSync(WKDBConst.tableMessage, vb,
           relationalStore.ConflictResolution.ON_CONFLICT_REPLACE)
       })
+      db.commit()
     } catch (e) {
-      WKLogger.error(e)
       WKLogger.error('批量插入消息错误 ', this.tag, ' inserts', e)
-    } finally {
-      WKDBHelper.shared.getDB()?.commit()
+      WKDBHelper.shared.safeRollBack()
     }
   }
 
@@ -778,7 +786,7 @@ export class MessageDB {
       WKLogger.error(`查询最大序号错误，`, this.tag, 'queryMaxMessageSeqNotDeletedWithChannel', e.message)
       return messageSeq
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
   }
 
@@ -796,7 +804,7 @@ export class MessageDB {
       WKLogger.error(`查询最大orderSeq错误，`, this.tag, 'queryMaxMessageOrderSeqWithChannel', e.message)
       return orderSeq
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
   }
 
@@ -814,7 +822,7 @@ export class MessageDB {
       WKLogger.error(`查询最大messageSeq错误，`, this.tag, ' queryMaxMessageSeqWithChannel', e.message)
       return messageSeq
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
   }
 
@@ -834,7 +842,7 @@ export class MessageDB {
       WKLogger.error(`查询最大orderSeq错误，`, this.tag, 'queryOrderSeq', e.message)
       return minOrderSeq
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
   }
 
@@ -853,7 +861,7 @@ export class MessageDB {
       WKLogger.error(`查询报错,${this.tag}:queryMaxOrderSeqNotDeletedWithChannel`, e.message)
       return undefined
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
 
   }

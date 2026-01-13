@@ -27,7 +27,7 @@ export class ReactionDB {
       WKLogger.error('查询频道最大回应seq错误', this.tag, 'queryMaxSeqWithChannel', e)
       return v
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
   }
 
@@ -47,7 +47,7 @@ export class ReactionDB {
       WKLogger.error('查询错误', this.tag, '：queryWithMsgIds，', e.message)
       return list
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
   }
 
@@ -67,7 +67,7 @@ export class ReactionDB {
       WKLogger.error('查询错误', this.tag, 'queryWithMsgId', e)
       return list
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
   }
 
@@ -77,16 +77,20 @@ export class ReactionDB {
       let vb = this.getVB(r)
       vbs.push(vb)
     })
+    const db = WKDBHelper.shared.getDB()
+    if (!db) {
+      return
+    }
     try {
-      WKDBHelper.shared.getDB()?.beginTransaction()
+      db.beginTransaction()
       vbs.forEach((vb) => {
-        WKDBHelper.shared.getDB()?.insertSync(WKDBConst.tableMessageReaction, vb,
+        db.insertSync(WKDBConst.tableMessageReaction, vb,
           relationalStore.ConflictResolution.ON_CONFLICT_REPLACE)
       })
+      db.commit()
     } catch (e) {
       WKLogger.error('批量插入回应错误', this.tag, 'inserts', e)
-    } finally {
-      WKDBHelper.shared.getDB()?.commit()
+      WKDBHelper.shared.safeRollBack()
     }
   }
 

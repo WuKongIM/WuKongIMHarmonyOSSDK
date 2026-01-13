@@ -105,4 +105,31 @@ export class WKDBHelper {
     }
     return list
   }
+
+  // 安全关闭 ResultSet，避免 finally 中的异常处理
+  safeClose(resultSet?: relationalStore.ResultSet) {
+    try {
+      resultSet?.close()
+    } catch (e) {
+      WKLogger.error('关闭ResultSet错误', 'safeClose', e)
+    }
+  }
+
+  // 安全提交事务
+  safeCommit() {
+    try {
+      this.db?.commit()
+    } catch (e) {
+      WKLogger.error('事务提交错误', 'safeCommit', e)
+    }
+  }
+
+  // 安全回滚事务
+  safeRollBack() {
+    try {
+      this.db?.rollBack()
+    } catch (e) {
+      WKLogger.error('事务回滚错误', 'safeRollBack', e)
+    }
+  }
 }

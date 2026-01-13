@@ -28,7 +28,7 @@ export class ChannelDB {
       WKLogger.error('查询错误', this.tag, 'query', e)
       return channel
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
   }
 
@@ -38,16 +38,20 @@ export class ChannelDB {
       let vb = this.getVB(c)
       vbs.push(vb)
     })
+    const db = WKDBHelper.shared.getDB()
+    if (!db) {
+      return
+    }
     try {
-      WKDBHelper.shared.getDB()?.beginTransaction()
+      db.beginTransaction()
       vbs.forEach((vb) => {
-        WKDBHelper.shared.getDB()?.insertSync(WKDBConst.tableChannel, vb,
+        db.insertSync(WKDBConst.tableChannel, vb,
           relationalStore.ConflictResolution.ON_CONFLICT_REPLACE)
       })
+      db.commit()
     } catch (e) {
       WKLogger.error('批量插入channel错误', this.tag, 'inserts', e)
-    } finally {
-      WKDBHelper.shared.getDB()?.commit()
+      WKDBHelper.shared.safeRollBack()
     }
   }
 
@@ -81,7 +85,7 @@ export class ChannelDB {
       WKLogger.error(`查询错误,${this.tag}:queryWithChannelIds`)
       return channels
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
   }
 
@@ -101,7 +105,7 @@ export class ChannelDB {
       WKLogger.error(`查询错误,${this.tag}:searchWithChannelTypeAndFollow`, e)
       return channels
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
   }
 

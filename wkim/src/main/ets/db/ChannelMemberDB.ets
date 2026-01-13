@@ -21,16 +21,20 @@ export class ChannelMemberDB {
       let vb = this.getVB(m)
       vbs.push(vb)
     })
+    const db = WKDBHelper.shared.getDB()
+    if (!db) {
+      return
+    }
     try {
-      WKDBHelper.shared.getDB()?.beginTransaction()
+      db.beginTransaction()
       vbs.forEach((vb) => {
-        WKDBHelper.shared.getDB()?.insert(WKDBConst.tableChannelMember, vb,
+        db.insertSync(WKDBConst.tableChannelMember, vb,
           relationalStore.ConflictResolution.ON_CONFLICT_REPLACE)
       })
+      db.commit()
     } catch (e) {
       WKLogger.error('批量插入错误', this.tag, 'inserts', e)
-    } finally {
-      WKDBHelper.shared.getDB()?.commit()
+      WKDBHelper.shared.safeRollBack()
     }
   }
 
@@ -46,10 +50,10 @@ export class ChannelMemberDB {
       }
       return v
     } catch (e) {
-      WKLogger.error('查询成员最大版本号错误,', this.tag, 'queryMaxVersion',e)
+      WKLogger.error('查询成员最大版本号错误,', this.tag, 'queryMaxVersion', e)
       return v
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
   }
 
@@ -67,7 +71,7 @@ export class ChannelMemberDB {
       WKLogger.error('查询错误,', this.tag, 'queryWithUID')
       return member
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
   }
 
@@ -86,7 +90,7 @@ export class ChannelMemberDB {
       WKLogger.error(`查询错误,${this.tag}:query`)
       return members
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
   }
 
@@ -105,7 +109,7 @@ export class ChannelMemberDB {
       WKLogger.error(`查询错误,${this.tag}:queryWithUIDs`)
       return members
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
   }
 
@@ -126,7 +130,7 @@ export class ChannelMemberDB {
       WKLogger.error(`分页查询错误,${this.tag}:queryWithUIDs`)
       return members
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
   }
 

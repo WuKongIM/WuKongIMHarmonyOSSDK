@@ -28,7 +28,7 @@ export class ReminderDB {
       WKLogger.error('查询提醒项最大编号错误,', this.tag, 'queryMaxVersion', e)
       return version
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
   }
 
@@ -48,7 +48,7 @@ export class ReminderDB {
       WKLogger.error('查询channel提醒项错误', this.tag, ':queryWithChannel', e.message)
       return list
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
   }
 
@@ -58,17 +58,20 @@ export class ReminderDB {
       let vb = this.getVB(list[i])
       vbs.push(vb)
     }
+    const db = WKDBHelper.shared.getDB()
+    if (!db) {
+      return
+    }
     try {
-      WKDBHelper.shared.getDB()?.beginTransaction()
+      db.beginTransaction()
       for (let i = 0; i < vbs.length; i++) {
-        let vb = vbs[i]
-        WKDBHelper.shared.getDB()?.insertSync(WKDBConst.tableReminders, vb,
+        db.insertSync(WKDBConst.tableReminders, vbs[i],
           relationalStore.ConflictResolution.ON_CONFLICT_REPLACE)
       }
+      db.commit()
     } catch (e) {
       WKLogger.error('批量插入提醒项错误', this.tag, 'insertOrReplaces', e)
-    } finally {
-      WKDBHelper.shared.getDB()?.commit()
+      WKDBHelper.shared.safeRollBack()
     }
   }
 
@@ -88,7 +91,7 @@ export class ReminderDB {
       WKLogger.error('批量查询提醒项错误', this.tag, 'queryWithChannelIds', e)
       return list
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
   }
 
@@ -108,7 +111,7 @@ export class ReminderDB {
       WKLogger.error('批量查询提醒项错误', this.tag, 'queryWithReminderIds', e)
       return list
     } finally {
-      resultSet?.close()
+      WKDBHelper.shared.safeClose(resultSet)
     }
   }
 

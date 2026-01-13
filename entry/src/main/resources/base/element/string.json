@@ -11,6 +11,14 @@
     {
       "name": "EntryAbility_label",
       "value": "label"
+    },
+    {
+      "name": "permission_internet_reason",
+      "value": "用于连接IM服务器进行即时通讯"
+    },
+    {
+      "name": "permission_network_info_reason",
+      "value": "用于获取网络状态以优化连接"
     }
   ]
 }

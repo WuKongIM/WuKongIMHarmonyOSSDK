@@ -20,6 +20,7 @@ import { WKVideoContent } from '@ohos/wkim/src/main/ets/model/WKVideoContent'
 import { HttpUtil } from './HttpUtil'
 import { OrderMessageContent } from '../msg/OrderMsg'
 import { CommonUtil } from '@ohos/wkim/src/main/ets/common/CommonUtil'
+import { util } from '@kit.ArkTS'
 
 export class IMUtil {
   static uid: string
@@ -82,7 +83,7 @@ export class IMUtil {
         let channelId = CommonUtil.readString(cmd.paramJsonObject!!, 'channel_id')
         let channelType = CommonUtil.readNumber(cmd.paramJsonObject!!, 'channel_type')
         WKLogger.error(`区同步消息扩展了${channelId}`)
-        if (channelId!==undefined) {
+        if (channelId !== undefined) {
           let version = WKIM.shared.messageManager().getMaxExtraVersion(channelId, channelType)
           HttpUtil.syncMsgExtra(channelId, channelType, version)
         }
@@ -137,6 +138,12 @@ let uploadAttachmentCallback = async (msg: WKMsg): Promise<[boolean, WKMsg]> => 
     let videoContent = msg.messageContent as WKVideoContent
     videoContent.url = 'xxxx'
     msg.messageContent = videoContent
+    return [true, msg]
+  } else if (msg.contentType === 56) {
+    let orderMsgContent = msg.messageContent as OrderMessageContent
+    orderMsgContent.imgUrl =
+      "https://img0.baidu.com/it/u=188409901,3824570996&fm=253&fmt=auto&app=120&f=JPEG?w=889&h=500"
+    msg.messageContent = orderMsgContent
     return [true, msg]
   }
   return [true, msg]

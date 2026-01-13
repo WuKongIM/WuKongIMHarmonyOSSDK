@@ -339,7 +339,6 @@ struct Chat {
           model.title = '新款MackBook Pro M3处理器'
           model.num = 99
           model.price = 98877
-          model.imgUrl = 'https://img0.baidu.com/it/u=188409901,3824570996&fm=253&fmt=auto&app=120&f=JPEG?w=889&h=500'
 
           let channel = this.channel
           if (channel === undefined) {
@@ -528,6 +527,7 @@ export default struct SendView {
     return this.uiMsg.msg.messageContent as OrderMessageContent
   }
 
+
   @Builder
   MsgMenuBuilder() {
     Flex({ direction: FlexDirection.Column, justifyContent: FlexAlign.Center, alignItems: ItemAlign.Center }) {
@@ -621,6 +621,23 @@ export default struct SendView {
                       .padding(10)
                       .fontWeight(FontWeight.Bold)
                     Text(`共${this.getOrderContent().num}件`)
+                      .fontSize(14)
+                      .fontColor('#fff')
+                      .padding(10)
+                      .fontWeight(FontWeight.Bold)
+                  }
+                  Column() {
+                    Text(`\本地地址${this.getOrderContent().localPath}`)
+                      .fontSize(14)
+                      .fontColor('#fff')
+                      .padding(10)
+                      .fontWeight(FontWeight.Bold)
+                    Text(`网络地址${this.getOrderContent().imgUrl}`)
+                      .fontSize(14)
+                      .fontColor('#fff')
+                      .padding(10)
+                      .fontWeight(FontWeight.Bold)
+                    Text(`消息类型${this.getOrderContent().contentType}`)
                       .fontSize(14)
                       .fontColor('#fff')
                       .padding(10)

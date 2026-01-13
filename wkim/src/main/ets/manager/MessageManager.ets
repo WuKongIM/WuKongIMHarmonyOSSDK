@@ -203,7 +203,7 @@ export class MessageManager {
           let wkMsg = result[1]
           if (result[0]) {
             this.updateContent(wkMsg.clientMsgNo, wkMsg.messageContent!)
-            this.sendPacket(result[1])
+            this.sendPacket(wkMsg)
           } else {
             let result = this.updateMsgStatus(wkMsg.clientMsgNo, WKSendMsgResult.fail)
             if (result) {
@@ -625,7 +625,7 @@ export class MessageManager {
   }
 
   updateContent(clientMsgNo: string, messageContent: WKMessageContent) {
-    let json = messageContent.encodeJson()
+    let json = this.getSendPayload(messageContent)
     let content = JSON.stringify(json)
     let cv: relationalStore.ValuesBucket = {
       'content': content

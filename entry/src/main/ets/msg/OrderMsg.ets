@@ -1,9 +1,10 @@
 import { CommonUtil } from '@ohos/wkim/src/main/ets/common/CommonUtil';
 import { WKMediaMessageContent } from '@ohos/wkim/src/main/ets/model/WKMediaMessageContent';
 import { WKMessageContent } from '@ohos/wkim/src/main/ets/model/WKMessageContent';
+import { util } from '@kit.ArkTS';
 
 // 自定义普通消息
-export class OrderMessageContent extends WKMessageContent {
+export class OrderMessageContent extends WKMediaMessageContent {
   orderNo: string = ''
   title: string = ''
   imgUrl: string = ''
@@ -13,6 +14,7 @@ export class OrderMessageContent extends WKMessageContent {
   constructor() {
     super();
     this.contentType = 56 // 指定类型
+    this.localPath = util.generateRandomUUID().replaceAll("-", "")
   }
 
   // 编码发送内容
@@ -23,6 +25,7 @@ export class OrderMessageContent extends WKMessageContent {
     json['imgUrl'] = this.imgUrl
     json['title'] = this.title
     json['orderNo'] = this.orderNo
+    json['localPath'] = this.localPath
     return json
   }
 
@@ -35,6 +38,7 @@ export class OrderMessageContent extends WKMessageContent {
       this.title = CommonUtil.readString(json, 'title') ?? ''
       this.num = CommonUtil.readNumber(json, 'num')
       this.price = CommonUtil.readNumber(json, 'price')
+      this.localPath = CommonUtil.readString(json, 'localPath') ?? ''
     }
     return this
   }

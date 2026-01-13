@@ -403,21 +403,29 @@ export class ConnectionManager {
     if (packet.header.packetType === WKPacketType.send) {
       let send = packet as WKSendPacket
       this.removeSendingMsg()
-      this.sendingMsgMap.set(send.clientSeq, new SendingMsg(send))
+      try {
+        this.sendingMsgMap.set(send.clientSeq, new SendingMsg(send))
+      } catch (error) {
+        WKLogger.error(`缓存发送包错误，code:${error.code},message:${error.message},error:${error}`)
+      }
     }
     let data = WKIM.shared.config.protocol.encode(packet)
     if (data === undefined || data === null) {
       return
     }
-    let tcpSendOption: socket.TCPSendOptions = {
-      data: buffer.from(data).buffer
+    try {
+      let tcpSendOption: socket.TCPSendOptions = {
+        data: buffer.from(data).buffer
+      }
+      this.tcpSocket?.send(tcpSendOption).then(() => {
+        WKLogger.debug(`发送消息成功`)
+      }).catch((err: BusinessError) => {
+        WKLogger.error(`发送消息错误，code:${err.code},message:${err.message}`)
+        this.close(true)
+      });
+    } catch (err) {
+      WKLogger.error(`发送消息异常，code:${err.code},message:${err.message}`)
     }
-    this.tcpSocket?.send(tcpSendOption).then(() => {
-      WKLogger.debug(`发送消息成功`)
-    }).catch((err: BusinessError) => {
-      WKLogger.error(`发送消息错误，code:${err.code},message:${err.message}`)
-      this.close(true)
-    });
   }
 
   private getAddress(): socket.NetAddress {
@@ -431,52 +439,67 @@ export class ConnectionManager {
   }
 
   private resendMsg() {
-    if (this.sendingMsgMap.isEmpty()) {
-      return
-    }
-    this.sendingMsgMap.forEach((msg) => {
-      if (msg?.isCanResend) {
-        this.sendPacket(msg.packet)
+    try {
+      if (this.sendingMsgMap.isEmpty()) {
+        return
       }
-    })
+      this.sendingMsgMap.forEach((msg) => {
+        if (msg?.isCanResend) {
+          this.sendPacket(msg.packet)
+        }
+      })
+    } catch (e) {
+      WKLogger.error(`重发消息错误，error:${e},code:${e.code},message:${e.message}`)
+    }
+
   }
 
   private removeSendingMsg() {
-    if (!this.sendingMsgMap.isEmpty()) {
-      let ids: number[] = new Array()
-      this.sendingMsgMap.forEach((sendingMsg, key) => {
-        if (sendingMsg?.isCanResend) {
-          ids.push(key!)
-        }
-      });
-      if (ids.length > 0) {
-        for (let i = 0; i < ids.length; i++) {
-          this.sendingMsgMap.remove(ids[i])
+    try {
+      if (!this.sendingMsgMap.isEmpty()) {
+        let ids: number[] = new Array()
+        this.sendingMsgMap.forEach((sendingMsg, key) => {
+          if (sendingMsg?.isCanResend) {
+            ids.push(key!)
+          }
+        });
+        if (ids.length > 0) {
+          for (let i = 0; i < ids.length; i++) {
+            this.sendingMsgMap.remove(ids[i])
+          }
         }
       }
+    } catch (e) {
+      WKLogger.error(`移除发送中消息错误，error:${e},code:${e.code},message:${e.message}`)
     }
+
   }
 
   private checkSendingMsg() {
-    if (this.sendingMsgMap.isEmpty()) {
-      return
-    }
-    this.sendingMsgMap.forEach((v, k) => {
-      if (v?.sendCount === 5 && v.isCanResend) {
-        v.isCanResend = false
-        // 修改发送状态
-      } else {
-        let nowTime = DateUtil.getCurrentSeconds()
-        if (nowTime - v?.sendTime! > 10) {
-          v!.sendTime = nowTime
-          v!.sendCount++
-          this.sendingMsgMap.set(k, v)
-          this.sendPacket(v?.packet!)
-          WKLogger.debug("消息发送失败，尝试重发中...");
-        }
+    try {
+
+      if (this.sendingMsgMap.isEmpty()) {
+        return
       }
-    })
-    this.removeSendingMsg()
+      this.sendingMsgMap.forEach((v, k) => {
+        if (v?.sendCount === 5 && v.isCanResend) {
+          v.isCanResend = false
+          // 修改发送状态
+        } else {
+          let nowTime = DateUtil.getCurrentSeconds()
+          if (nowTime - v?.sendTime! > 10) {
+            v!.sendTime = nowTime
+            v!.sendCount++
+            this.sendingMsgMap.set(k, v)
+            this.sendPacket(v?.packet!)
+            WKLogger.debug("消息发送失败，尝试重发中...");
+          }
+        }
+      })
+      this.removeSendingMsg()
+    } catch (e) {
+      WKLogger.error(`检查发送中消息错误，error:${e},code:${e.code},message:${e.message}`)
+    }
   }
 
   private startCheckNetworkTimer() {

@@ -47,7 +47,7 @@ export class CommonUtil {
     // return arrayString;
 
     let textDecoder = util.TextDecoder.create("utf-8", { ignoreBOM: true })
-    return textDecoder.decodeWithStream(new Uint8Array(array), { stream: false });
+    return textDecoder.decodeToString(new Uint8Array(array), { stream: false });
   }
 
   static jsonToRecord(jsonStr: string): Record<string, Object> | undefined {

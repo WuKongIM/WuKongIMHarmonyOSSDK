@@ -1,4 +1,3 @@
-import data from '@ohos.telephony.data';
 
 export class DateUtil {
   /**

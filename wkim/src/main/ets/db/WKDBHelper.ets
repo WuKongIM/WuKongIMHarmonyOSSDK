@@ -1,3 +1,4 @@
+import { Context } from '@kit.AbilityKit';
 import { relationalStore } from '@kit.ArkData';
 import { CommonUtil } from '../common/CommonUtil';
 import { PreferencesUtil } from '../common/PreferencesUtil';
@@ -12,6 +13,10 @@ export class WKDBHelper {
 
   private db?: relationalStore.RdbStore
 
+  private getAppContext(): Context {
+    return WKIM.shared.config.context ?? getContext()
+  }
+
   async init() {
     let uid = WKIM.shared.config.uid
     let name = `${uid}.db`
@@ -20,8 +25,12 @@ export class WKDBHelper {
       securityLevel: relationalStore.SecurityLevel.S1, // 数据库安全级别
       encrypt: false // 可选参数，指定数据库是否加密，默认不加密
     };
-    this.db = await relationalStore.getRdbStore(getContext(), STORE_CONFIG)
-    this.onUpgrade()
+    try {
+      this.db = await relationalStore.getRdbStore(this.getAppContext(), STORE_CONFIG)
+      this.onUpgrade()
+    } catch (e) {
+      WKLogger.error(`数据库初始化失败,code:${e.code},message:${e.message}`)
+    }
   }
 
   getDB(): relationalStore.RdbStore | undefined {
@@ -30,13 +39,23 @@ export class WKDBHelper {
 
   async closeDB() {
     if (this.db !== undefined) {
-      await this.db.close()
+      try {
+        await this.db.close()
+      } catch (e) {
+        WKLogger.error(`关闭数据库失败,code:${e.code},message:${e.message}`)
+      }
       this.db = undefined
     }
   }
 
   private onUpgrade() {
-    let data = getContext().resourceManager.getRawFileContentSync('sql.txt')
+    let data: Uint8Array
+    try {
+      data = this.getAppContext().resourceManager.getRawFileContentSync('sql.txt')
+    } catch (e) {
+      WKLogger.error(`读取sql.txt失败,code:${e.code},message:${e.message}`)
+      return
+    }
     let names = CommonUtil.uint8ArrayToString(data)
     let fileNames = names.split(',')
     let tempMaxV = 0
@@ -66,7 +85,13 @@ export class WKDBHelper {
 
   private getSqlList(fileName: string) {
     let list: string[] = []
-    let data = getContext().resourceManager.getRawFileContentSync(`${fileName}.sql`)
+    let data: Uint8Array
+    try {
+      data = this.getAppContext().resourceManager.getRawFileContentSync(`${fileName}.sql`)
+    } catch (e) {
+      WKLogger.error(`读取${fileName}.sql失败,code:${e.code},message:${e.message}`)
+      return list
+    }
     let names = CommonUtil.uint8ArrayToString(data)
     if (names.indexOf(';') > 0) {
       let sqls = names.split(';')

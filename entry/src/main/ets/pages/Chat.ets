@@ -507,10 +507,7 @@ struct Chat {
 export default struct SendView {
   @ObjectLink uiMsg: UIMsg
 
-  getColorBG() {
-    if (this.uiMsg.msg.contentType === 56) {
-      return '#ff40b317'
-    }
+  getColorBG(): string {
     return '#ff075cdb'
   }
 
@@ -585,91 +582,26 @@ export default struct SendView {
       Row() {
         Column() {
           if (this.uiMsg.msg.contentType === 56) {
-            Column() {
-              Text(`订单号:${this.getOrderContent().orderNo}`)
-                .fontSize(14)
-                .fontColor('#fff')
-                .margin({
-                  left: 10,
-                  top: 10,
-                  bottom: 10,
-                  right: 10
-                }).align(Alignment.Start)
-              Row() {
-                Image(this.getOrderContent().imgUrl)
-                  .width(80)
-                  .height(80)
-                  .objectFit(ImageFit.Cover)
-                  .align(Alignment.Start)
-                  .margin({
-                    left: 10
-                  })
-                Column() {
-                  Text(`${this.getOrderContent().title}`)
-                    .fontSize(14)
-                    .fontColor('#fff')
-                    .width('60%')
-                    .margin({
-                      left: 10, right: 10
-                    })
-                    .align(Alignment.Start)
-                    .fontWeight(FontWeight.Bold)
-                  Row() {
-                    Text(`\$${this.getOrderContent().price}`)
-                      .fontSize(14)
-                      .fontColor('#fff')
-                      .padding(10)
-                      .fontWeight(FontWeight.Bold)
-                    Text(`共${this.getOrderContent().num}件`)
-                      .fontSize(14)
-                      .fontColor('#fff')
-                      .padding(10)
-                      .fontWeight(FontWeight.Bold)
-                  }
-                  Column() {
-                    Text(`\本地地址${this.getOrderContent().localPath}`)
-                      .fontSize(14)
-                      .fontColor('#fff')
-                      .padding(10)
-                      .fontWeight(FontWeight.Bold)
-                    Text(`网络地址${this.getOrderContent().imgUrl}`)
-                      .fontSize(14)
-                      .fontColor('#fff')
-                      .padding(10)
-                      .fontWeight(FontWeight.Bold)
-                    Text(`消息类型${this.getOrderContent().contentType}`)
-                      .fontSize(14)
-                      .fontColor('#fff')
-                      .padding(10)
-                      .fontWeight(FontWeight.Bold)
-                  }
-                }
-              }
-            }
-
+            OrderMsgView({ orderContent: this.getOrderContent(), isSend: true })
           } else {
             Text(this.uiMsg.content)
               .fontSize(14)
               .fontColor('#fff')
               .padding(10)
+              .backgroundColor(this.getColorBG())
+              .borderRadius(10)
           }
-
-          Image(this.uiMsg.sendStatusIVURL).width(20).height(20)
+          Image(this.uiMsg.sendStatusIVURL).width(16).height(16).margin({ top: 4 })
         }
         .alignItems(HorizontalAlign.End)
-        .backgroundColor(this.getColorBG())
-        .margin({
-          left: 60
-        })
+        .margin({ left: 60 })
         .bindContextMenu(this.MsgMenuBuilder, ResponseType.LongPress, {
           borderRadius: 5
         })
       }.layoutWeight(1).justifyContent(FlexAlign.End)
 
-      Image(this.uiMsg.avatarURL).width(40).height(40).margin({ right: 10, left: 10 })
-    }.justifyContent(FlexAlign.End).width('100%').margin({
-      top: 10
-    })
+      Image(this.uiMsg.avatarURL).width(40).height(40).borderRadius(20).margin({ right: 10, left: 10 })
+    }.justifyContent(FlexAlign.End).width('100%').margin({ top: 10 })
   }
 }
 
@@ -739,64 +671,20 @@ export struct RecvView {
 
   build() {
     Row() {
-      Image(this.uiMsg.avatarURL).width(40).height(40).margin({ right: 10, left: 10 })
+      Image(this.uiMsg.avatarURL).width(40).height(40).borderRadius(20).margin({ right: 10, left: 10 })
       if (this.uiMsg.msg.contentType === 56) {
-        Column() {
-          Text(`订单号:${this.getOrderContent().orderNo}`)
-            .fontSize(14)
-            .fontColor('#fff').margin({
-            bottom: 10
-          })
-            .align(Alignment.Start)
-          Row() {
-            Image(this.getOrderContent().imgUrl)
-              .width(80)
-              .height(80)
-              .objectFit(ImageFit.Cover)
-              .align(Alignment.Start)
-
-            Column() {
-              Text(`${this.getOrderContent().title}`)
-                .fontSize(14)
-                .fontColor('#fff')
-                .margin({
-                  left: 10, right: 10
-                })
-                .width('60%')
-                .align(Alignment.Start)
-                .fontWeight(FontWeight.Bold)
-              Row() {
-                Text(`\$${this.getOrderContent().price}`)
-                  .fontSize(14)
-                  .fontColor('#fff')
-                  .padding(10)
-                  .fontWeight(FontWeight.Bold)
-                Text(`共${this.getOrderContent().num}件`)
-                  .fontSize(14)
-                  .fontColor('#fff')
-                  .padding(10)
-                  .fontWeight(FontWeight.Bold)
-              }
-            }
-          }
-        }.backgroundColor('#ff038f84').padding(10).bindContextMenu(this.MsgMenuBuilder, ResponseType.LongPress, {
-          borderRadius: 5
-        })
+        OrderMsgView({ orderContent: this.getOrderContent(), isSend: false })
+          .bindContextMenu(this.MsgMenuBuilder, ResponseType.LongPress, { borderRadius: 5 })
       } else {
         Text(this.uiMsg.content)
           .fontSize(14)
           .fontColor('#000')
           .padding(10)
           .backgroundColor('#fff')
-          .margin({ right: 60 })
-          .bindContextMenu(this.MsgMenuBuilder, ResponseType.LongPress, {
-            borderRadius: 5
-          })
+          .borderRadius(10)
+          .bindContextMenu(this.MsgMenuBuilder, ResponseType.LongPress, { borderRadius: 5 })
       }
-    }.margin({
-      top: 10,
-      right: 60
-    })
+    }.margin({ top: 10 }).alignItems(VerticalAlign.Top)
   }
 }
 
@@ -822,6 +710,70 @@ export struct RevokedView {
       top: 10,
       bottom: 10
     })
+  }
+}
+
+// 订单消息视图组件
+@Component
+export struct OrderMsgView {
+  orderContent: OrderMessageContent = new OrderMessageContent()
+  isSend: boolean = true
+
+  build() {
+    Column() {
+      // 订单号
+      Text(`订单号: ${this.orderContent.orderNo}`)
+        .fontSize(12)
+        .fontColor('rgba(255,255,255,0.8)')
+        .width('100%')
+        .padding({ left: 12, right: 12, top: 10 })
+
+      // 商品信息区域
+      Row() {
+        // 商品图片
+        Image(this.orderContent.imgUrl)
+          .width(70)
+          .height(70)
+          .borderRadius(6)
+          .objectFit(ImageFit.Cover)
+
+        // 商品详情
+        Column() {
+          Text(this.orderContent.title)
+            .fontSize(14)
+            .fontColor('#fff')
+            .fontWeight(FontWeight.Medium)
+            .maxLines(2)
+            .textOverflow({ overflow: TextOverflow.Ellipsis })
+            .width('100%')
+
+          Blank()
+
+          Row() {
+            Text(`¥${this.orderContent.price}`)
+              .fontSize(16)
+              .fontColor('#fff')
+              .fontWeight(FontWeight.Bold)
+
+            Text(`x${this.orderContent.num}`)
+              .fontSize(12)
+              .fontColor('rgba(255,255,255,0.7)')
+              .margin({ left: 8 })
+          }
+          .width('100%')
+          .justifyContent(FlexAlign.SpaceBetween)
+        }
+        .layoutWeight(1)
+        .height(70)
+        .margin({ left: 10 })
+        .alignItems(HorizontalAlign.Start)
+      }
+      .width('100%')
+      .padding(12)
+    }
+    .width(240)
+    .backgroundColor(this.isSend ? '#ff40b317' : '#ff038f84')
+    .borderRadius(10)
   }
 }
 

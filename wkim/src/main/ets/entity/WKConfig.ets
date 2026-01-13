@@ -1,3 +1,4 @@
+import { Context } from '@kit.AbilityKit'
 import { WKProtocol } from '../protocol/WKProtocol'
 import { WKProvider } from './WKProvider'
 
@@ -6,6 +7,7 @@ export class WKConfig {
     this.provider = new WKProvider()
   }
 
+  context?: Context
   uid?: string
   token?: string
   address?: string

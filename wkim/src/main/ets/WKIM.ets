@@ -1,5 +1,4 @@
-import { CryptoUtils } from './common/CryptoUtils';
-import { WKLogger } from './common/WKLogger';
+import { Context } from '@kit.AbilityKit';
 import { WKDBHelper } from './db/WKDBHelper';
 import { WKConfig } from './entity/WKConfig';
 import { ChannelManager } from './manager/ChannelManager';
@@ -19,10 +18,20 @@ export class WKIM {
 
   config: WKConfig
 
-  async init(uid: string, token: string, address?: string): Promise<void> {
+  /**
+   * 初始化 SDK
+   * @param uid 用户ID
+   * @param token 用户Token
+   * @param address 服务器地址（可选）
+   * @param context 应用上下文（可选，推荐传入以避免 getContext() 弃用警告）
+   */
+  async init(uid: string, token: string, address?: string, context?: Context): Promise<void> {
     this.config.uid = uid
     this.config.token = token
     this.config.address = address
+    if (context) {
+      this.config.context = context
+    }
     // await CryptoUtils.shared.init()
     await WKDBHelper.shared.init()
   }

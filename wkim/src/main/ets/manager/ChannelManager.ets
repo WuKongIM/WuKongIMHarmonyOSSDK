@@ -23,12 +23,20 @@ export class ChannelManager {
 
   public getChannel(channelId: string, channelType: number): WKChannel | undefined {
     let key = this.getCacheKey(channelId, channelType)
-    if (this.cacheMap.hasKey(key)) {
-      return this.cacheMap.get(key)
+    try {
+      if (this.cacheMap.hasKey(key)) {
+        return this.cacheMap.get(key)
+      }
+    } catch (error) {
+      WKLogger.error(`获取频道错误,code:${error.code},message:${error.message}`)
     }
     let channel = ChannelDB.shared.query(channelId, channelType)
     if (channel !== undefined) {
-      this.cacheMap.set(key, channel)
+      try {
+        this.cacheMap.set(key, channel)
+      } catch (error) {
+        WKLogger.error(`缓存频道错误,code:${error.code},message:${error.message}`)
+      }
     }
     return channel
   }
@@ -78,15 +86,17 @@ export class ChannelManager {
         this.addOrUpdate(channel)
       })
   }
-  addOrUpdates(list:WKChannel[]){
-    if (list.length==0) {
+
+  addOrUpdates(list: WKChannel[]) {
+    if (list.length == 0) {
       return
     }
-    list.forEach((channel)=>{
+    list.forEach((channel) => {
       this.update(channel)
     })
     ChannelDB.shared.inserts(list)
   }
+
   addOrUpdate(channel: WKChannel) {
     this.update(channel);
     this.setRefresh(channel);
@@ -95,37 +105,41 @@ export class ChannelManager {
 
   private update(channel: WKChannel) {
     let isAdd = true;
-    this.cacheMap.forEach((tempChannel: WKChannel, _) => {
-      if (tempChannel.channelId === channel.channelId && tempChannel.channelType === channel.channelType) {
-        isAdd = false
-        tempChannel.forbidden = channel.forbidden;
-        tempChannel.channelName = channel.channelName;
-        tempChannel.avatar = channel.avatar;
-        tempChannel.category = channel.category;
-        tempChannel.lastOffline = channel.lastOffline;
-        tempChannel.online = channel.online;
-        tempChannel.follow = channel.follow;
-        tempChannel.top = channel.top;
-        tempChannel.channelRemark = channel.channelRemark;
-        tempChannel.status = channel.status;
-        tempChannel.version = channel.version;
-        tempChannel.invite = channel.invite;
-        tempChannel.localExtra = channel.localExtra;
-        tempChannel.mute = channel.mute;
-        tempChannel.save = channel.save;
-        tempChannel.showNick = channel.showNick;
-        tempChannel.isDeleted = channel.isDeleted;
-        tempChannel.receipt = channel.receipt;
-        tempChannel.robot = channel.robot;
-        tempChannel.deviceFlag = channel.deviceFlag;
-        tempChannel.parentChannelId = channel.parentChannelId;
-        tempChannel.parentChannelType = channel.parentChannelType;
-        tempChannel.avatarCacheKey = channel.avatarCacheKey;
-        tempChannel.remoteExtra = channel.remoteExtra;
+    try {
+      this.cacheMap.forEach((tempChannel: WKChannel, _) => {
+        if (tempChannel.channelId === channel.channelId && tempChannel.channelType === channel.channelType) {
+          isAdd = false
+          tempChannel.forbidden = channel.forbidden;
+          tempChannel.channelName = channel.channelName;
+          tempChannel.avatar = channel.avatar;
+          tempChannel.category = channel.category;
+          tempChannel.lastOffline = channel.lastOffline;
+          tempChannel.online = channel.online;
+          tempChannel.follow = channel.follow;
+          tempChannel.top = channel.top;
+          tempChannel.channelRemark = channel.channelRemark;
+          tempChannel.status = channel.status;
+          tempChannel.version = channel.version;
+          tempChannel.invite = channel.invite;
+          tempChannel.localExtra = channel.localExtra;
+          tempChannel.mute = channel.mute;
+          tempChannel.save = channel.save;
+          tempChannel.showNick = channel.showNick;
+          tempChannel.isDeleted = channel.isDeleted;
+          tempChannel.receipt = channel.receipt;
+          tempChannel.robot = channel.robot;
+          tempChannel.deviceFlag = channel.deviceFlag;
+          tempChannel.parentChannelId = channel.parentChannelId;
+          tempChannel.parentChannelType = channel.parentChannelType;
+          tempChannel.avatarCacheKey = channel.avatarCacheKey;
+          tempChannel.remoteExtra = channel.remoteExtra;
+        }
+      })
+      if (isAdd) {
+        this.cacheMap.set(this.getCacheKey(channel.channelId, channel.channelType), channel)
       }
-    })
-    if (isAdd) {
-      this.cacheMap.set(this.getCacheKey(channel.channelId, channel.channelType), channel)
+    } catch (error) {
+      WKLogger.error(`更新频道错误,code:${error.code},message:${error.message}`)
     }
   }
 
@@ -162,8 +176,8 @@ export class ChannelManager {
   }
 
   setAvatarUpdated(channelId: string, channelType: number) {
-    this.avatarUpdatedListeners.forEach((b)=>{
-      b(channelId,channelType)
+    this.avatarUpdatedListeners.forEach((b) => {
+      b(channelId, channelType)
     })
   }
 

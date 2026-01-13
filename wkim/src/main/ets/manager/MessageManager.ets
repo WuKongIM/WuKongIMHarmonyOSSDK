@@ -54,12 +54,17 @@ export class MessageManager {
 
   private constructor() {
     this.contentModels = new HashMap()
-    this.contentModels.set(WKMsgContentType.Text, (jsonStr: string) => {
-      return new WKTextContent('').decodeJson(jsonStr)
-    })
-    this.contentModels.set(WKMsgContentType.Image, (jsonStr: string) => {
-      return new WKImageContent('').decodeJson(jsonStr)
-    })
+    try {
+      this.contentModels.set(WKMsgContentType.Text, (jsonStr: string) => {
+        return new WKTextContent('').decodeJson(jsonStr)
+      })
+      this.contentModels.set(WKMsgContentType.Image, (jsonStr: string) => {
+        return new WKImageContent('').decodeJson(jsonStr)
+      })
+    } catch (error) {
+      WKLogger.error(`添加默认消息model错误，code:${error.code},message:${error.message},error:${error}`)
+    }
+
     this.sendStatusListeners = new Array()
     this.clearChannelMsgListeners = new Array()
     this.refreshMessageListeners = new Array()
@@ -82,7 +87,11 @@ export class MessageManager {
   private uploadExtraIntervalId = 0
 
   registerMsgContent(contentType: number, model: (jsonStr: string) => WKMessageContent) {
-    this.contentModels.set(contentType, model)
+    try {
+      this.contentModels.set(contentType, model)
+    } catch (error) {
+      WKLogger.error(`注册消息model错误，error:${error},code:${error.code},message:${error.message}`)
+    }
   }
 
   private getOrNearbyMsgSeq(orderSeq: number) {
@@ -466,14 +475,18 @@ export class MessageManager {
     json['type'] = model.contentType
     if (model.entities !== undefined && model.entities?.length > 0) {
       let arr: Record<string, Object>[] = new Array()
-      model.entities?.forEach((v) => {
-        let json: Record<string, Object> = {}
-        json['offset'] = v.offset
-        json['length'] = v.length
-        json['type'] = v.type
-        json['value'] = v.value
-        arr.push(json)
-      })
+      try {
+        model.entities?.forEach((v) => {
+          let json: Record<string, Object> = {}
+          json['offset'] = v.offset
+          json['length'] = v.length
+          json['type'] = v.type
+          json['value'] = v.value
+          arr.push(json)
+        })
+      } catch (error) {
+        WKLogger.error(`编码发送消息体错误，code:${error.code},message:${error.message},error:${error}`)
+      }
       json['entities'] = arr
     }
     if (model.reply !== undefined) {
@@ -503,51 +516,56 @@ export class MessageManager {
       return new WKFormatErrorContent()
     }
     let type = Number(contentType).valueOf()
-    if (!this.contentModels.hasKey(type)) {
-      return new WKUnknownContent()
-    }
-    let msgContent = this.contentModels.get(type)
-    let model = msgContent(jsonStr)
-    let reply = json['reply']
-    if (reply !== null && reply !== undefined) {
-      let replyJson = reply as Record<string, Object>
-      model.reply = new WKReply().decode(replyJson)
-    }
-    let entities = json['entities']
-    if (entities !== null && entities !== undefined) {
-      model.entities = new ArrayList()
-      let jsonArr = entities as Record<string, Object>[]
-      jsonArr.forEach((v) => {
-        let entity = new WKMsgEntity()
-        entity.offset = CommonUtil.readNumber(v, 'offset')
-        entity.length = CommonUtil.readNumber(v, 'length')
-        entity.type = CommonUtil.readString(v, 'type') ?? ''
-        entity.value = CommonUtil.readString(v, 'value') ?? ''
-        model.entities?.add(entity)
-      })
-    }
-    let mention = json['mention']
-    if (mention !== null && mention !== undefined) {
-      let mentionJson = mention as Record<string, Object>
-      model.mentionInfo = new WKMentionInfo()
-      model.mentionInfo.mentionAll = CommonUtil.readNumber(mentionJson, 'all') > 0
-      let list = mentionJson['uids']
-      if (list instanceof Array) {
-        let uidList = list as Array<string>
-        if (uidList !== null && uidList.length > 0) {
-          model.mentionInfo.uidList = uidList
-          uidList.forEach((uid) => {
-            if (uid === WKIM.shared.config.uid) {
-              model.mentionInfo!.isMentionMe = true
-            }
-          })
+    try {
+      if (!this.contentModels.hasKey(type)) {
+        return new WKUnknownContent()
+      }
+      let msgContent = this.contentModels.get(type)
+      let model = msgContent(jsonStr)
+      let reply = json['reply']
+      if (reply !== null && reply !== undefined) {
+        let replyJson = reply as Record<string, Object>
+        model.reply = new WKReply().decode(replyJson)
+      }
+      let entities = json['entities']
+      if (entities !== null && entities !== undefined) {
+        model.entities = new ArrayList()
+        let jsonArr = entities as Record<string, Object>[]
+        jsonArr.forEach((v) => {
+          let entity = new WKMsgEntity()
+          entity.offset = CommonUtil.readNumber(v, 'offset')
+          entity.length = CommonUtil.readNumber(v, 'length')
+          entity.type = CommonUtil.readString(v, 'type') ?? ''
+          entity.value = CommonUtil.readString(v, 'value') ?? ''
+          model.entities?.add(entity)
+        })
+      }
+      let mention = json['mention']
+      if (mention !== null && mention !== undefined) {
+        let mentionJson = mention as Record<string, Object>
+        model.mentionInfo = new WKMentionInfo()
+        model.mentionInfo.mentionAll = CommonUtil.readNumber(mentionJson, 'all') > 0
+        let list = mentionJson['uids']
+        if (list instanceof Array) {
+          let uidList = list as Array<string>
+          if (uidList !== null && uidList.length > 0) {
+            model.mentionInfo.uidList = uidList
+            uidList.forEach((uid) => {
+              if (uid === WKIM.shared.config.uid) {
+                model.mentionInfo!.isMentionMe = true
+              }
+            })
+          }
+        }
+        if (model.mentionInfo.mentionAll) {
+          model.mentionInfo.isMentionMe = true
         }
       }
-      if (model.mentionInfo.mentionAll) {
-        model.mentionInfo.isMentionMe = true
-      }
+      return model
+    } catch (error) {
+      WKLogger.error(`解析消息类型错误，code:${error.code},message:${error.message},error:${error}`)
+      return new WKUnknownContent()
     }
-    return model
   }
 
   parsingMsg(msg: WKMsg) {

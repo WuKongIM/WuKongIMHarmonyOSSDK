@@ -1,3 +1,4 @@
+import { Context } from '@kit.AbilityKit'
 import { WKIM } from '@ohos/wkim'
 import { WKLogger } from '@ohos/wkim/src/main/ets/common/WKLogger'
 import {
@@ -25,9 +26,9 @@ import { util } from '@kit.ArkTS'
 export class IMUtil {
   static uid: string
 
-  static async init(_uid: string, _token: string) {
+  static async init(_uid: string, _token: string, context?: Context) {
     IMUtil.uid = _uid
-    await WKIM.shared.init(_uid, _token)
+    await WKIM.shared.init(_uid, _token, undefined, context)
     IMUtil.initListener()
     // 获取连接地址
     WKIM.shared.config.provider.connectAddrCallback = (): Promise<string> => {

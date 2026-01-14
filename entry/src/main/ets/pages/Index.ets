@@ -1,4 +1,5 @@
 import { promptAction, router } from '@kit.ArkUI'
+import { GlobalContext } from '../entryability/EntryAbility'
 import { HttpUtil } from '../service/HttpUtil'
 import { IMUtil } from '../service/IMUtil'
 
@@ -83,7 +84,7 @@ struct Index {
           }
           HttpUtil.login(this.apiURL, this.uid, this.token, async (code) => {
             if (code == 200) {
-             await IMUtil.init(this.uid,this.token)
+              await IMUtil.init(this.uid, this.token, GlobalContext.shared.getContext())
               router.replaceUrl({
                 url: 'pages/Main',
                 params: {

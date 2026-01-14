@@ -6,9 +6,34 @@ import Want from '@ohos.app.ability.Want';
 import { WKIM } from '@ohos/wkim';
 import { OrderMessageContent } from '../msg/OrderMsg';
 
+// 全局 Context 存储
+export class GlobalContext {
+  private static instance: GlobalContext
+  private _context?: Context
+
+  private constructor() {}
+
+  static get shared(): GlobalContext {
+    if (!GlobalContext.instance) {
+      GlobalContext.instance = new GlobalContext()
+    }
+    return GlobalContext.instance
+  }
+
+  setContext(context: Context) {
+    this._context = context
+  }
+
+  getContext(): Context | undefined {
+    return this._context
+  }
+}
+
 export default class EntryAbility extends UIAbility {
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
     console.error('onCreate创建')
+    // 保存全局 Context
+    GlobalContext.shared.setContext(this.context)
     // 注册自定义消息
     WKIM.shared.messageManager().registerMsgContent(56, (jsonStr: string) => {
       return new OrderMessageContent().decodeJson(jsonStr)

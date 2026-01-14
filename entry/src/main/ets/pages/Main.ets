@@ -10,6 +10,8 @@ import { DateUtil } from '@ohos/wkim/src/main/ets/common/DateUtil';
 import { router } from '@kit.ArkUI';
 import { IMUtil } from '../service/IMUtil';
 import { HttpUtil } from '../service/HttpUtil';
+import { LoginCacheUtil } from '../service/LoginCacheUtil';
+import { GlobalContext } from '../entryability/EntryAbility';
 
 function isRemind(list?: WKReminder[]): boolean {
   if (list === undefined || list.length === 0) {
@@ -182,6 +184,12 @@ struct Main {
             break
           case WKConnectStatus.kicked:
             this.titleText = '已断开[其他账号登录]'
+            // 清空本地用户资料
+            LoginCacheUtil.clearLoginInfo(GlobalContext.shared.getContext())
+            // 断开连接
+            WKIM.shared.connectionManager().disConnection(true)
+            // 跳转到登录页面
+            router.replaceUrl({ url: 'pages/Index' })
             break
         }
       })
@@ -291,6 +299,8 @@ struct Main {
           .borderRadius(6)
           .margin({ right: 15 })
           .onClick(() => {
+            // 清空本地用户资料
+            LoginCacheUtil.clearLoginInfo(GlobalContext.shared.getContext())
             WKIM.shared.connectionManager().disConnection(true)
             router.replaceUrl({ url: 'pages/Index' })
           })

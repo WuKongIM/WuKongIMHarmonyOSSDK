@@ -43,6 +43,10 @@ export class HttpUtil {
     return requestURL
   }
 
+  static setURL(url: string): void {
+    requestURL = url
+  }
+
   static login(url: string, uid: string, token: string, back: (code: number) => void) {
     requestURL = url
     let session = HttpUtil.getSession()

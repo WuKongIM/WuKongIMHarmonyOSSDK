@@ -409,6 +409,10 @@ export class ConnectionManager {
         WKLogger.error(`缓存发送包错误，code:${error.code},message:${error.message},error:${error}`)
       }
     }
+    if (!CryptoUtils.shared.isReady && packet.header.packetType !== WKPacketType.connect) {
+      WKLogger.error('未初始化密钥或未连接成功，等待连接成功后再发消息')
+      return
+    }
     let data = WKIM.shared.config.protocol.encode(packet)
     if (data === undefined || data === null) {
       return

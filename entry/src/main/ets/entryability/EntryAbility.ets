@@ -33,6 +33,7 @@ export default class EntryAbility extends UIAbility {
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
     console.error('onCreate创建')
     // 保存全局 Context
+
     GlobalContext.shared.setContext(this.context)
     // 注册自定义消息
     WKIM.shared.messageManager().registerMsgContent(56, (jsonStr: string) => {

@@ -34,26 +34,28 @@ export class PreferencesUtil {
   static getSqlMaxVersion(): number {
     let context = PreferencesUtil.getAppContext()
     let options: preferences.Options = { name: preName };
+    // 按用户区分 SQL 版本号，避免切换账号时跳过建表
+    let key = WKIM.shared.config.uid + "_" + sqlVersionKey
     try {
       let shared = preferences.getPreferencesSync(context, options)
-      let version = shared.getSync(sqlVersionKey, 0) as number
+      let version = shared.getSync(key, 0) as number
       return version
     } catch (error) {
       WKLogger.error(`获取sqlite最大版本号错误,error:${error}`)
       return 0
     }
-
   }
 
   static setSqlMaxVersion(v: number) {
     let context = PreferencesUtil.getAppContext()
     let options: preferences.Options = { name: preName };
+    // 按用户区分 SQL 版本号，避免切换账号时跳过建表
+    let key = WKIM.shared.config.uid + "_" + sqlVersionKey
     try {
       let shared = preferences.getPreferencesSync(context, options)
-      shared.putSync(sqlVersionKey, v)
+      shared.putSync(key, v)
     } catch (error) {
       WKLogger.error(`保存sqlite最大版本号错误,error:${error}`)
     }
-
   }
 }

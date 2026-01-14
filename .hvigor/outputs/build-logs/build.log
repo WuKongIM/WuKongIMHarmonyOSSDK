@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [2026-01-13T13:47:08.245] [INFO] debug-file - UP-TO-DATE :entry:default@MakePackInfo...  
 [2026-01-13T13:47:08.245] [DEBUG] debug-file - Executing task :entry:default@ProcessProfile
 [2026-01-13T13:47:08.246] [DEBUG] debug-file - Task 'entry:default@ProcessProfile' cost while wrapping incremental declarations: 1 ms 
@@ -5099,3 +5100,47 @@ Info: thread pool is stopped
 [2026-01-13T14:27:44.090] [DEBUG] debug-file - session manager: send message to worker process.
 [2026-01-13T14:27:44.091] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
 [2026-01-13T14:27:44.091] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+=======
+[2026-01-13T18:43:27.348] [DEBUG] debug-file - Update task wkim:default@HarCompileArkTS input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/BuildProfile.ets cache by regenerate.
+[2026-01-13T18:43:27.348] [DEBUG] debug-file - Update task wkim:default@HarCompileArkTS output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/loader_out/default cache.
+[2026-01-13T18:43:27.348] [DEBUG] debug-file - Update task wkim:default@HarCompileArkTS output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/outputs/default/mapping/sourceMaps.map cache.
+[2026-01-13T18:43:27.348] [DEBUG] debug-file - Incremental task wkim:default@HarCompileArkTS post-execution cost:2 ms .
+[2026-01-13T18:43:27.348] [DEBUG] debug-file - Update task wkim:default@CacheNativeLibs input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/stripped_native_libs/default cache by regenerate.
+[2026-01-13T18:43:27.348] [DEBUG] debug-file - Update task wkim:default@CacheNativeLibs input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/libs/default cache by regenerate.
+[2026-01-13T18:43:27.348] [DEBUG] debug-file - Update task wkim:default@CacheNativeLibs output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/patch/default/base_native_libs.json cache.
+[2026-01-13T18:43:27.348] [DEBUG] debug-file - Incremental task wkim:default@CacheNativeLibs post-execution cost:1 ms .
+[2026-01-13T18:43:27.348] [DEBUG] debug-file - Update task wkim:default@ProcessHarArtifacts input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/process_profile/default cache from map.
+[2026-01-13T18:43:27.348] [DEBUG] debug-file - Update task wkim:default@ProcessHarArtifacts input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim cache by regenerate.
+[2026-01-13T18:43:27.353] [DEBUG] debug-file - Update task wkim:default@ProcessHarArtifacts input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/generated/pm/default cache by regenerate.
+[2026-01-13T18:43:27.353] [DEBUG] debug-file - Update task wkim:default@ProcessHarArtifacts input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/stripped_native_libs/default cache by regenerate.
+[2026-01-13T18:43:27.353] [DEBUG] debug-file - Update task wkim:default@ProcessHarArtifacts input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/res/default/ResourceTable.txt cache by regenerate.
+[2026-01-13T18:43:27.353] [DEBUG] debug-file - Update task wkim:default@ProcessHarArtifacts output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/cache/default/default@PackageHar cache.
+[2026-01-13T18:43:27.356] [DEBUG] debug-file - Update task wkim:default@ProcessHarArtifacts output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/outputs/default/mapping/sourceMaps.map cache.
+[2026-01-13T18:43:27.357] [DEBUG] debug-file - Update task wkim:default@ProcessHarArtifacts output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/cache/default/default@PackageHar/pac.json5 cache.
+[2026-01-13T18:43:27.357] [DEBUG] debug-file - Incremental task wkim:default@ProcessHarArtifacts post-execution cost:9 ms .
+[2026-01-13T18:43:27.357] [DEBUG] debug-file - Update task wkim:default@PackageHar output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/cache/default/default@PackageHar cache.
+[2026-01-13T18:43:27.360] [DEBUG] debug-file - Update task wkim:default@PackageHar output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/outputs/default cache.
+[2026-01-13T18:43:27.361] [DEBUG] debug-file - Incremental task wkim:default@PackageHar post-execution cost:4 ms .
+[2026-01-13T18:43:27.361] [DEBUG] debug-file - Update task wkim:default@PackageSignHar input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/cache/default/default@PackageHar cache by regenerate.
+[2026-01-13T18:43:27.365] [DEBUG] debug-file - Update task wkim:default@PackageSignHar input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/cache/default/default@PackageSignHar cache by regenerate.
+[2026-01-13T18:43:27.365] [DEBUG] debug-file - Update task wkim:default@PackageSignHar output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/outputs/default/wkim-signed.har cache.
+[2026-01-13T18:43:27.365] [DEBUG] debug-file - Incremental task wkim:default@PackageSignHar post-execution cost:4 ms .
+[2026-01-13T18:43:27.365] [DEBUG] debug-file - Update task wkim:default@CollectDebugSymbol input file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/intermediates/libs/default cache by regenerate.
+[2026-01-13T18:43:27.365] [DEBUG] debug-file - Update task wkim:default@CollectDebugSymbol output file:/Users/songlun/Desktop/workspace/hmworkspace/wukongim/wkim/build/default/outputs/default/symbol cache.
+[2026-01-13T18:43:27.365] [DEBUG] debug-file - Incremental task wkim:default@CollectDebugSymbol post-execution cost:1 ms .
+[2026-01-13T18:43:27.377] [DEBUG] debug-file - Cleanup worker 8.
+[2026-01-13T18:43:27.377] [DEBUG] debug-file - Worker 8 has been cleaned up.
+[2026-01-13T18:43:27.377] [DEBUG] debug-file - Current idle worker size: 2.
+[2026-01-13T18:43:27.377] [DEBUG] debug-file - Current resident worker size: 3.
+[2026-01-13T18:43:27.377] [DEBUG] debug-file - Cleanup worker 7.
+[2026-01-13T18:43:27.377] [DEBUG] debug-file - Worker 7 has been cleaned up.
+[2026-01-13T18:43:27.377] [DEBUG] debug-file - Current idle worker size: 1.
+[2026-01-13T18:43:27.377] [DEBUG] debug-file - Current resident worker size: 3.
+[2026-01-13T18:43:27.378] [DEBUG] debug-file - hvigor build process will be closed.
+[2026-01-13T18:43:27.389] [DEBUG] debug-file - session manager: send message to worker process.
+[2026-01-13T18:43:27.389] [DEBUG] debug-file - session manager: send message to worker process.
+[2026-01-13T18:43:27.389] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-01-13T18:43:27.389] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-01-13T18:43:27.393] [DEBUG] debug-file - worker[7] exits with exit code 1.
+[2026-01-13T18:43:27.394] [DEBUG] debug-file - worker[8] exits with exit code 1.
+>>>>>>> main

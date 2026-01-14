@@ -1,0 +1,58 @@
+# HarmonyOS / DevEco Studio
+
+# 构建输出
+/build/
+**/build/
+
+# 依赖目录
+/node_modules/
+**/node_modules/
+/oh_modules/
+**/oh_modules/
+
+# 预览目录
+/.preview/
+**/.preview/
+
+# C++ 编译目录
+/.cxx/
+**/.cxx/
+
+# 测试目录
+/.test/
+**/.test/
+
+# hvigor 构建缓存
+/.hvigor/
+
+# IDE 配置（保留部分共享配置）
+/.idea/*
+!/.idea/modules.xml
+!/.idea/modules/
+!/.idea/.gitignore
+
+# 本地配置
+/local.properties
+
+# 日志文件
+*.log
+*.log.*
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 签名文件（敏感信息）
+*.p12
+*.jks
+*.keystore
+
+# 临时文件
+*.tmp
+*.temp
+*.swp
+*~
+
+# 调试文件
+*.hap
+*.har

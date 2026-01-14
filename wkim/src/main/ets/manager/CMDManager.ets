@@ -42,8 +42,9 @@ export class CMDManager {
         paramJson['channel_id'] = channelId
         paramJson['channel_type'] = channelType
       }
-    }else {
-      WKLogger.error('cmd的参数解析错误')
+    } else {
+      paramJson['channel_id'] = channelId
+      paramJson['channel_type'] = channelType
     }
     let cmd = new WKCMD(key.toString(), paramJson)
     switch (cmd.cmd) {

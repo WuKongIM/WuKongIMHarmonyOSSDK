@@ -89,6 +89,25 @@ export class ChannelDB {
     }
   }
 
+  queryWithFollowAndStatus(channelType: number, follow: number, status: number): WKChannel[] {
+    let resultSet: relationalStore.ResultSet | undefined
+    let channels: WKChannel[] = []
+    try {
+      let sql =
+        `select * from ${WKDBConst.tableChannel} where channel_type=? and follow=? and status=? and is_deleted=0`
+      resultSet = WKDBHelper.shared.getDB()?.querySqlSync(sql, [channelType, follow, status])
+      while (resultSet?.goToNextRow()) {
+        channels.push(this.serializeChannel(resultSet))
+      }
+      return channels
+    } catch (e) {
+      WKLogger.error(`查询错误,${this.tag}:queryWithFollowAndStatus`, e)
+      return channels
+    } finally {
+      WKDBHelper.shared.safeClose(resultSet)
+    }
+  }
+
   searchWithChannelTypeAndFollow(searchKey: string, channelType: number, follow: number) {
     let key = `%${searchKey}%`
     let sql =

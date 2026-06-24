@@ -57,6 +57,10 @@ export class ChannelManager {
     }
   }
 
+  getWithFollowAndStatus(channelType: number, follow: number, status: number): WKChannel[] {
+    return ChannelDB.shared.queryWithFollowAndStatus(channelType, follow, status)
+  }
+
   updateLocalExtra(channelId: string, channelType: number, extra: Record<string, Object> | undefined) {
     let channel = this.getChannel(channelId, channelType)
     if (channel !== undefined) {

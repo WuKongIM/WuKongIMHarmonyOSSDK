@@ -109,6 +109,10 @@ export class MessageManager {
     return MessageDB.shared.queryMaxMessageSeqWithChannel(channelId, channelType)
   }
 
+  getMaxReactionSeqWithChannel(channelId: string, channelType: number): number {
+    return ReactionDB.shared.queryMaxSeqWithChannel(channelId, channelType)
+  }
+
   getMaxExtraVersion(channelId: string, channelType: number): number {
     return MessageDB.shared.queryMaxExtraVersion(channelId, channelType)
   }

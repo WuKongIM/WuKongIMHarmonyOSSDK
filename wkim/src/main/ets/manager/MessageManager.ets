@@ -454,16 +454,23 @@ export class MessageManager {
     let msg = await WKIM.shared.config.provider.syncMessageCallback(channel, syncOption)
     if (msg.msgs !== undefined && msg.msgs.length > 0) {
       let msgExtraList = new Array<WKMsgExtra>()
+      let reactionList = new Array<WKMsgReaction>()
       msg.msgs.forEach((m) => {
         m.status = WKSendMsgResult.success
         if (m.remoteExtra !== undefined) {
           msgExtraList.push(m.remoteExtra)
         }
+        if (m.reactionList !== undefined && m.reactionList.length > 0) {
+          reactionList.push(...m.reactionList)
+        }
         this.parsingMsg(m)
       })
 
-      MessageDB.shared.inserts(msg.msgs)
       MessageDB.shared.insertExtras(msgExtraList)
+      MessageDB.shared.inserts(msg.msgs)
+      if (reactionList.length > 0) {
+        this.saveReactions(reactionList)
+      }
     }
     return msg
   }

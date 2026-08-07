@@ -645,16 +645,18 @@ export class MessageDB {
     }
     let saveList: WKMsg[] = []
     for (let i = 0, size = list.length; i < size; i++) {
-      let isAdd = true
+      let isExist = false
       for (let j = 0, len = saveList.length; j < len; j++) {
         if (saveList[j].clientMsgNo === list[i].clientMsgNo) {
-          isAdd = false
+          isExist = true
           break
         }
       }
-      if (isAdd) {
-        saveList.push(list[i])
+      if (isExist) {
+        list[i].clientMsgNo = WKIM.shared.messageManager().generateClientMsgNo()
+        list[i].isDeleted = 1
       }
+      saveList.push(list[i])
     }
     let tempClientMsgNos: string[] = []
     let existList: WKMsg[] = []
@@ -666,7 +668,9 @@ export class MessageDB {
         }
         tempClientMsgNos = []
       }
-      tempClientMsgNos.push(saveList[i].clientMsgNo)
+      if (saveList[i].clientMsgNo.length > 0) {
+        tempClientMsgNos.push(saveList[i].clientMsgNo)
+      }
     }
     if (tempClientMsgNos.length > 0) {
       let tempList = this.queryWithClientMsgNos(tempClientMsgNos)
@@ -676,20 +680,24 @@ export class MessageDB {
       tempClientMsgNos = []
     }
     let realSaveList: WKMsg[] = []
-    if (existList.length > 0) {
-      for (let i = 0, size = saveList.length; i < size; i++) {
-        let isSave = true
-        for (let j = 0, len = existList.length; j < len; j++) {
-          if (existList[j].clientMsgNo === saveList[i].clientMsgNo) {
+    for (let i = 0, size = saveList.length; i < size; i++) {
+      if (saveList[i].clientMsgNo.length === 0 || saveList[i].messageId.length === 0) {
+        continue
+      }
+      let isSave = true
+      for (let j = 0, len = existList.length; j < len; j++) {
+        if (existList[j].clientMsgNo === saveList[i].clientMsgNo) {
+          if (saveList[i].isDeleted === existList[j].isDeleted && existList[j].isDeleted === 1) {
             isSave = false
           }
-        }
-        if (isSave) {
-          realSaveList.push(saveList[i])
+          saveList[i].isDeleted = 1
+          saveList[i].clientMsgNo = WKIM.shared.messageManager().generateClientMsgNo()
+          break
         }
       }
-    } else {
-      realSaveList.push(...saveList)
+      if (isSave) {
+        realSaveList.push(saveList[i])
+      }
     }
 
     if (realSaveList.length === 0) {

@@ -50,6 +50,8 @@ export class ConnectionManager {
   private heartIntervalId = 0
   private requestIPIntervalId = 0
   private requestIPTime = 0
+  private reconnectTimerId = 0
+  private connectionAttemptId = 0
   private connStatus: number
   private isCanReconnect = true
   private networkChanged = false
@@ -79,25 +81,70 @@ export class ConnectionManager {
   }
 
   private close(isReconnect: boolean) {
-    this.tcpSocket?.off('message')
-    this.tcpSocket?.off('connect')
-    this.tcpSocket?.off('close')
-    this.tcpSocket?.close((err) => {
+    this.connectionAttemptId++
+    const socket = this.tcpSocket
+    this.tcpSocket = undefined
+    this.connStatus = ConnStatus.fail
+    let completed = false
+    const completeClose = () => {
+      if (completed) {
+        return
+      }
+      completed = true
+      if (isReconnect) {
+        this.scheduleReconnect()
+      }
+    }
+    if (socket === undefined) {
+      completeClose()
+      return
+    }
+    socket.off('message')
+    socket.off('connect')
+    socket.off('close')
+    socket.close((err) => {
       if (err) {
         WKLogger.error(`关闭连接错误，code:${err.code},msg:${err.message}`)
       }
-      this.connStatus = ConnStatus.fail
-      this.tcpSocket = undefined
-      if (isReconnect) {
-        setTimeout(() => {
-          this.connection()
-        }, 1000)
-
-      }
+      completeClose()
     })
   }
 
+  private scheduleReconnect() {
+    if (!this.isCanReconnect || this.reconnectTimerId !== 0) {
+      return
+    }
+    this.reconnectTimerId = setTimeout(() => {
+      this.reconnectTimerId = 0
+      this.connection()
+    }, 1000)
+  }
+
+  private clearReconnectTimer() {
+    if (this.reconnectTimerId !== 0) {
+      clearTimeout(this.reconnectTimerId)
+      this.reconnectTimerId = 0
+    }
+  }
+
+  private clearRequestIPTimer() {
+    if (this.requestIPIntervalId !== 0) {
+      clearInterval(this.requestIPIntervalId)
+      this.requestIPIntervalId = 0
+    }
+    this.requestIPTime = 0
+  }
+
+  private handleConnectionFailure(message: string, shouldReconnect: boolean = true) {
+    WKLogger.error(message)
+    this.clearRequestIPTimer()
+    this.setConnectStatus(WKConnectStatus.fail)
+    this.close(shouldReconnect)
+  }
+
   disConnection(isLogout: boolean) {
+    this.clearReconnectTimer()
+    this.clearRequestIPTimer()
     this.clearCheckNetworkTimer()
     this.clearHeartTimer()
     this.close(false)
@@ -120,6 +167,9 @@ export class ConnectionManager {
     if (this.connStatus === ConnStatus.conning) {
       return
     }
+    this.clearReconnectTimer()
+    this.clearRequestIPTimer()
+    const attemptId = ++this.connectionAttemptId
     this.connStatus = ConnStatus.conning
     this.setConnectStatus(WKConnectStatus.connecting)
     if (CommonUtil.strIsUnEmpty(WKIM.shared.config.address ?? '')) {
@@ -129,52 +179,74 @@ export class ConnectionManager {
       ConnectionManager.shared.connectionSocket()
     } else {
       if (WKIM.shared.config.provider.connectAddrCallback !== undefined) {
+        // Always wait for the current provider result. A stale address from the previous
+        // connection must not disable this attempt's address timeout.
+        this.ip = ''
+        this.port = 0
         this.requestIPIntervalId = setInterval(() => {
+          if (attemptId !== this.connectionAttemptId) {
+            return
+          }
           if (this.ip !== '') {
-            clearInterval(this.requestIPIntervalId)
+            this.clearRequestIPTimer()
+            return
           }
           WKLogger.error(`请求IP倒计时:${this.requestIPTime}/${WKIM.shared.config.requestIPTimeout}`)
           if (this.ip === '' && this.requestIPTime >= WKIM.shared.config.requestIPTimeout) {
-            clearInterval(this.requestIPIntervalId)
-            this.close(true)
+            this.handleConnectionFailure('请求连接地址超时')
+            return
           }
           this.requestIPTime += 1000
         }, 1000)
         WKIM.shared.config.provider.connectAddrCallback()
           .then((address) => {
+            if (attemptId !== this.connectionAttemptId) {
+              return
+            }
+            this.clearRequestIPTimer()
             let addr = address.split(":")
             this.ip = addr![0]
             this.port = Number(addr![1])
             ConnectionManager.shared.connectionSocket()
-            clearInterval(this.requestIPIntervalId)
+          })
+          .catch((error: Error) => {
+            if (attemptId !== this.connectionAttemptId) {
+              return
+            }
+            this.handleConnectionFailure(`请求连接地址失败:${error.message}`)
           })
       } else {
-        WKLogger.error('未提供connectAddrCallback')
+        this.handleConnectionFailure('未提供connectAddrCallback', false)
       }
     }
 
   }
 
   private connectionSocket() {
-    if (CommonUtil.strIsEmpty(this.ip) || this.port === 0) {
-      WKLogger.error(`非法地址，address:${this.ip}:${this.port}`)
-      this.close(true)
+    if (CommonUtil.strIsEmpty(this.ip) || !Number.isInteger(this.port) || this.port < 1 || this.port > 65535) {
+      this.handleConnectionFailure(`非法地址，address:${this.ip}:${this.port}`)
       return
     }
-    this.tcpSocket = socket.constructTCPSocketInstance()
+    const attemptId = this.connectionAttemptId
+    const tcpSocket = socket.constructTCPSocketInstance()
+    this.tcpSocket = tcpSocket
     let options: socket.TCPConnectOptions = {
       address: this.getAddress(),
       timeout: this.connTimeOut
     }
-    this.tcpSocket.connect(options).then(() => {
+    tcpSocket.connect(options).then(() => {
+      if (attemptId !== this.connectionAttemptId || this.tcpSocket !== tcpSocket) {
+        return
+      }
       WKLogger.error('连接成功')
       this.connStatus = ConnStatus.success
       this.addOnMessage()
       this.sendConnPacket()
     }).catch((err: BusinessError) => {
-      this.connStatus = ConnStatus.fail
-      this.close(true)
-      WKLogger.error(`连接socket错误，code:${err.code},message:${err.message}`)
+      if (attemptId !== this.connectionAttemptId || this.tcpSocket !== tcpSocket) {
+        return
+      }
+      this.handleConnectionFailure(`连接socket错误，code:${err.code},message:${err.message}`)
     })
 
   }

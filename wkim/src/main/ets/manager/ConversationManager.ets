@@ -73,6 +73,16 @@ export class ConversationManager {
     }
   }
 
+  updateMsgExtra(extra: WKConversationExtra) {
+    let result = ConversationDB.shared.insertOrReplaceExtras([extra])
+    if (result) {
+      let msg = ConversationDB.shared.query(extra.channelId, extra.channelType)
+      if (msg !== undefined) {
+        this.setRefresh([msg])
+      }
+    }
+  }
+
   async sync(): Promise<WKConversation[] | undefined> {
     if (WKIM.shared.config.provider.syncConversationCallback === undefined) {
       WKLogger.error('未提供syncConversationCallback')
@@ -144,6 +154,14 @@ export class ConversationManager {
 
   all(): WKConversation[] | undefined {
     return ConversationDB.shared.queryAll()
+  }
+
+  getWithChannel(channelId: string, channelType: number): WKConversation | undefined {
+    return ConversationDB.shared.query(channelId, channelType)
+  }
+
+  getMsgExtraWithChannel(channelId: string, channelType: number): WKConversationExtra | undefined {
+    return ConversationDB.shared.queryExtra(channelId, channelType)
   }
 
   addRefreshListener(l: RefreshListener) {

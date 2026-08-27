@@ -36,23 +36,23 @@ AlignTrailingComments: true
 AlignAfterOpenBracket: Align
 AlignArrayOfStructures: None
 AlignConsecutiveAssignments:
-    Enabled: false
-    AcrossEmptyLines: false
-    AcrossComments: false
-    AlignCompound: false
-    PadOperators: true
+  Enabled: false
+  AcrossEmptyLines: false
+  AcrossComments: false
+  AlignCompound: false
+  PadOperators: true
 AlignConsecutiveBitFields:
-    Enabled: false
-    AcrossEmptyLines: false
-    AcrossComments: false
+  Enabled: false
+  AcrossEmptyLines: false
+  AcrossComments: false
 AlignConsecutiveDeclarations:
-    Enabled: false
-    AcrossEmptyLines: false
-    AcrossComments: false
+  Enabled: false
+  AcrossEmptyLines: false
+  AcrossComments: false
 AlignConsecutiveMacros:
-    Enabled: false
-    AcrossEmptyLines: false
-    AcrossComments: false
+  Enabled: false
+  AcrossEmptyLines: false
+  AcrossComments: false
 PointerAlignment: Right
 QualifierAlignment: Leave
 ReferenceAlignment: Pointer
@@ -76,23 +76,23 @@ InsertBraces: false
 IndentExternBlock: NoIndent
 BreakBeforeBraces: Custom
 BraceWrapping:
-    AfterCaseLabel: false
-    AfterClass: false
-    AfterControlStatement: Never
-    AfterEnum: false
-    AfterFunction: false
-    AfterNamespace: false
-    AfterStruct: false
-    AfterUnion: false
-    AfterExternBlock: false
-    BeforeCatch: false
-    BeforeElse: false
-    BeforeLambdaBody: false
-    BeforeWhile: false
-    IndentBraces: false
-    SplitEmptyFunction: true
-    SplitEmptyRecord: true
-    SplitEmptyNamespace: true
+  AfterCaseLabel: false
+  AfterClass: false
+  AfterControlStatement: Never
+  AfterEnum: false
+  AfterFunction: false
+  AfterNamespace: false
+  AfterStruct: false
+  AfterUnion: false
+  AfterExternBlock: false
+  BeforeCatch: false
+  BeforeElse: false
+  BeforeLambdaBody: false
+  BeforeWhile: false
+  IndentBraces: false
+  SplitEmptyFunction: true
+  SplitEmptyRecord: true
+  SplitEmptyNamespace: true
 ReflowComments: true
 AllowAllArgumentsOnNextLine: true
 AllowAllParametersOfDeclarationOnNextLine: true

@@ -1,5 +1,6 @@
 import { relationalStore } from '@kit.ArkData';
 import { StringBuilder } from '../common/StringBuilder';
+import { WKLogger } from '../common/WKLogger';
 
 export class WKDBConst {
   static readonly tableMessage = 'message';
@@ -20,6 +21,7 @@ export class WKDBConst {
         return resultSet.getString(index)
       }
     } catch (e) {
+      WKLogger.error("获取数据库字段",e)
       return ''
     }
     return ''
@@ -32,6 +34,7 @@ export class WKDBConst {
         return resultSet.getLong(index)
       }
     } catch (e) {
+      WKLogger.error("获取数据库字段下标错误",e)
       return 0
     }
     return 0

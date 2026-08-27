@@ -34,10 +34,13 @@ import { WKMediaMessageContent } from '../model/WKMediaMessageContent'
 import { relationalStore } from '@kit.ArkData'
 import { DateUtil } from '../common/DateUtil'
 import { ReactionDB } from '../db/ReactionDB'
+import hilog from '@ohos.hilog'
 
 export type SendStatusPacket = (clientMsgSeq: number, messageId: string, messageSeq: number, reasonCode: number) => void
 
 export type ClearChannelMessage = (channelId: string, channelType: number) => void
+const CHAT_SDK_SEND_TRACE_TAG: string = 'ChatSdkSendTrace'
+const CHAT_SDK_SEND_TRACE_DOMAIN: number = 0x0000
 
 export type RefreshMessage = (msg: WKMsg) => void
 
@@ -109,12 +112,16 @@ export class MessageManager {
     return MessageDB.shared.queryMaxMessageSeqWithChannel(channelId, channelType)
   }
 
-  getMaxReactionSeqWithChannel(channelId: string, channelType: number): number {
-    return ReactionDB.shared.queryMaxSeqWithChannel(channelId, channelType)
+  getMinMessageSeqWithChannel(channelId: string, channelType: number): number {
+    return MessageDB.shared.queryMinMessageSeqWithChannel(channelId, channelType)
   }
 
   getMaxExtraVersion(channelId: string, channelType: number): number {
     return MessageDB.shared.queryMaxExtraVersion(channelId, channelType)
+  }
+
+  getMaxReactionSeqWithChannel(channelId: string, channelType: number): number {
+    return ReactionDB.shared.queryMaxSeqWithChannel(channelId, channelType)
   }
 
   getOrSyncHistoryMessages(channel: WKChannel, option: ChannelMsgOptions) {
@@ -186,6 +193,9 @@ export class MessageManager {
     let tempOrderSeq = MessageDB.shared
       .queryMaxOrderSeq(channel.channelId, channel.channelType)
     msg.orderSeq = tempOrderSeq + 1
+    hilog.info(CHAT_SDK_SEND_TRACE_DOMAIN, CHAT_SDK_SEND_TRACE_TAG, '%{public}s',
+      `send insert prepare channel=${msg.channelId}/${msg.channelType}, client=${msg.clientMsgNo}, tempOrderSeq=${tempOrderSeq}, orderSeq=${msg.orderSeq}, messageSeq=${msg.messageSeq}, type=${msg.contentType}, status=${msg.status}, noPersist=${msg.header.noPersist ? 1 : 0}`,
+    )
     msg.setChannelInfo(channel)
     let fromChannel =
       WKIM.shared.channelManager().getChannel(WKIM.shared.config.uid!, WKChannelType.personal)
@@ -197,6 +207,9 @@ export class MessageManager {
     if (!option.header.noPersist) {
       let row = MessageDB.shared.insert(msg)
       msg.clientSeq = row
+      hilog.info(CHAT_SDK_SEND_TRACE_DOMAIN, CHAT_SDK_SEND_TRACE_TAG, '%{public}s',
+        `send insert result channel=${msg.channelId}/${msg.channelType}, client=${msg.clientMsgNo}, clientSeq=${msg.clientSeq}, orderSeq=${msg.orderSeq}, messageSeq=${msg.messageSeq}, type=${msg.contentType}, status=${msg.status}`,
+      )
       this.setInserted(msg)
       // 更新最近会话
       if (msg.clientSeq > 0) {
@@ -415,6 +428,14 @@ export class MessageManager {
   }
 
   getOrderSeq(messageSeq: number) {
+    return messageSeq * this.wkOrderSeqFactor
+  }
+
+  getMessageOrderSeq(messageSeq: number, channelId: string, channelType: number): number {
+    if (messageSeq === 0) {
+      let tempOrderSeq = MessageDB.shared.queryMaxMessageOrderSeqWithChannel(channelId, channelType)
+      return tempOrderSeq + 1
+    }
     return messageSeq * this.wkOrderSeqFactor
   }
 

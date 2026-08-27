@@ -1,6 +1,7 @@
 import { Context } from '@kit.AbilityKit';
 import { WKDBHelper } from './db/WKDBHelper';
 import { WKConfig } from './entity/WKConfig';
+import { MessageDB } from './db/MessageDB';
 import { ChannelManager } from './manager/ChannelManager';
 import { ChannelMemberManager } from './manager/ChannelMemberManager';
 import { CMDManager } from './manager/CMDManager';
@@ -34,6 +35,7 @@ export class WKIM {
     }
     // await CryptoUtils.shared.init()
     await WKDBHelper.shared.init()
+    MessageDB.shared.updateSendingToFail()
   }
 
   // channel 管理

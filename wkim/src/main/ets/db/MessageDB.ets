@@ -18,6 +18,10 @@ import { ChannelMemberDB } from './ChannelMemberDB';
 import { ReactionDB } from './ReactionDB';
 import { HashMap, JSON } from '@kit.ArkTS';
 import { WKSendAckPacket } from '../protocol/WKPacket';
+import hilog from '@ohos.hilog';
+
+const CHAT_SDK_SEND_TRACE_TAG: string = 'ChatSdkSendTrace'
+const CHAT_SDK_SEND_TRACE_DOMAIN: number = 0x0000
 
 export class MessageDB {
   static shared: MessageDB = new MessageDB();
@@ -618,6 +622,7 @@ export class MessageDB {
   insertExtras(list: WKMsgExtra[]) {
     let vbs: relationalStore.ValuesBucket[] = []
     list.forEach((m) => {
+      m.contentEdit = this.normalizeContentEdit(m.contentEdit)
       let vb = this.getExtraVB(m)
       vbs.push(vb)
     })
@@ -834,6 +839,24 @@ export class MessageDB {
     }
   }
 
+  queryMinMessageSeqWithChannel(channelId: string, channelType: number) {
+    let sql = `SELECT min(message_seq) message_seq FROM ${WKDBConst.tableMessage} WHERE channel_id=? AND channel_type=?`
+    let messageSeq = 0
+    let resultSet: relationalStore.ResultSet | undefined
+    try {
+      resultSet = WKDBHelper.shared.getDB()?.querySqlSync(sql, [channelId, channelType])
+      if (resultSet?.goToNextRow()) {
+        messageSeq = WKDBConst.getNumber(resultSet, 'message_seq')
+      }
+      return messageSeq
+    } catch (e) {
+      WKLogger.error(`查询最小messageSeq错误，`, this.tag, ' queryMinMessageSeqWithChannel', e.message)
+      return messageSeq
+    } finally {
+      WKDBHelper.shared.safeClose(resultSet)
+    }
+  }
+
   queryOrderSeq(channelId: string, channelType: number, maxOrderSeq: number, limit: number) {
     let minOrderSeq = 0;
     let sql =
@@ -891,13 +914,18 @@ export class MessageDB {
 
 
   updateMsgSendStatus(sendAck: WKSendAckPacket) {
-    let orderSeq = WKIM.shared.messageManager().getOrderSeq(sendAck.messageSeq)
     let cv: relationalStore.ValuesBucket = {
-      'message_id': sendAck.messageId,
-      "message_seq": sendAck.messageSeq,
-      "status": sendAck.reasonCode,
-      "order_seq": orderSeq
+      "status": sendAck.reasonCode
     }
+    if (sendAck.messageId.length > 0) {
+      cv['message_id'] = sendAck.messageId
+    }
+    if (sendAck.messageSeq > 0) {
+      cv["message_seq"] = sendAck.messageSeq
+      cv["order_seq"] = WKIM.shared.messageManager().getOrderSeq(sendAck.messageSeq)
+    }
+    hilog.info(CHAT_SDK_SEND_TRACE_DOMAIN, CHAT_SDK_SEND_TRACE_TAG, '%{public}s',
+      `send status update clientSeq=${sendAck.clientSeq}, messageId=${sendAck.messageId}, messageSeq=${sendAck.messageSeq}, reason=${sendAck.reasonCode}, updateOrder=${sendAck.messageSeq > 0 ? 1 : 0}`)
     try {
       let p = new relationalStore.RdbPredicates(WKDBConst.tableMessage)
       p.equalTo('client_seq', sendAck.clientSeq)
@@ -964,7 +992,8 @@ export class MessageDB {
     extra.isMutualDeleted = WKDBConst.getNumber(result, 'is_mutual_deleted')
     extra.extraVersion = WKDBConst.getNumber(result, 'extra_version')
     extra.editedAt = WKDBConst.getNumber(result, 'edited_at')
-    extra.contentEdit = WKDBConst.getString(result, 'content_edit')
+    extra.contentEdit = this.normalizeContentEdit(WKDBConst.getString(result, 'content_edit'))
+    WKLogger.info(`serializeMsgExtra contentEdit typeof=${typeof extra.contentEdit}, value=${extra.contentEdit}`)
     extra.needUpload = WKDBConst.getNumber(result, 'need_upload')
     extra.isPinned = WKDBConst.getNumber(result, 'is_pinned')
     if (CommonUtil.strIsUnEmpty(extra.contentEdit)) {
@@ -1017,10 +1046,26 @@ export class MessageDB {
       'is_mutual_deleted': m.isMutualDeleted,
       'extra_version': m.extraVersion,
       'edited_at': m.editedAt,
-      'content_edit': m.contentEdit,
+      'content_edit': this.normalizeContentEdit(m.contentEdit),
       'need_upload': m.needUpload,
       'is_pinned': m.isPinned,
     }
     return vb
+  }
+
+  private normalizeContentEdit(contentEdit: Object): string {
+    WKLogger.info(`normalizeContentEdit typeof=${typeof contentEdit}, value=${JSON.stringify(contentEdit)}`)
+    if (contentEdit === null || contentEdit === undefined) {
+      return ''
+    }
+    if (typeof contentEdit === 'string') {
+      return contentEdit
+    }
+    try {
+      return JSON.stringify(contentEdit)
+    } catch (e) {
+      WKLogger.error(`序列化消息编辑内容错误，error:${e}`)
+      return ''
+    }
   }
 }

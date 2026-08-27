@@ -81,6 +81,25 @@ export class ConversationDB {
     }
   }
 
+  queryExtra(channelId: string, channelType: number): WKConversationExtra | undefined {
+    let resultSet: relationalStore.ResultSet | undefined
+    let extra: WKConversationExtra | undefined
+    let sql =
+      `SELECT ${WKDBConst.tableConversationExtra}.*,${WKDBConst.tableConversationExtra}.version AS extra_version FROM ${WKDBConst.tableConversationExtra} where channel_id=? and channel_type=?`
+    try {
+      resultSet = WKDBHelper.shared.getDB()?.querySqlSync(sql, [channelId, channelType])
+      if (resultSet?.goToNextRow()) {
+        extra = this.serializeConvMsgExtra(resultSet)
+      }
+      return extra
+    } catch (e) {
+      WKLogger.error('查询最近会话扩展错误', this.tag, 'queryExtra', e)
+      return extra
+    } finally {
+      WKDBHelper.shared.safeClose(resultSet)
+    }
+  }
+
   queryLastMsgSeqs(): string {
     let lastMsgSeqs = ''
     let sql =
@@ -233,7 +252,7 @@ export class ConversationDB {
     }
   }
 
-  insertOrReplaceExtras(list: WKConversationExtra[]) {
+  insertOrReplaceExtras(list: WKConversationExtra[]): boolean {
     let vbs: relationalStore.ValuesBucket[] = []
     for (let i = 0; i < list.length; i++) {
       let vb = this.getExtraVB(list[i])
@@ -241,7 +260,7 @@ export class ConversationDB {
     }
     const db = WKDBHelper.shared.getDB()
     if (!db) {
-      return
+      return false
     }
     try {
       db.beginTransaction()
@@ -250,9 +269,11 @@ export class ConversationDB {
           relationalStore.ConflictResolution.ON_CONFLICT_REPLACE)
       }
       db.commit()
+      return true
     } catch (e) {
       WKLogger.error('批量插入最近会话扩展错误', this.tag, 'insertOrReplaceExtras', e)
       WKDBHelper.shared.safeRollBack()
+      return false
     }
   }
 

@@ -1,4 +1,4 @@
-import { WKChannelType, WKConversation, WKConversationExtra, WKMsg, WKReminder } from '../entity/Bean'
+import { WKChannel, WKChannelType, WKConversation, WKConversationExtra, WKMsg, WKReminder } from '../entity/Bean'
 import { relationalStore } from '@kit.ArkData'
 import { WKDBConst } from './WKDBConst'
 import { CommonUtil } from '../common/CommonUtil'
@@ -32,7 +32,7 @@ export class ConversationDB {
       let channelIds: string[] = []
       while (resultSet?.goToNextRow()) {
         let m = this.serializeConvMsg(resultSet)
-        let c = ChannelDB.shared.serializeChannel(resultSet)
+        let c = this.serializeChannel(resultSet)
         m.setChannel(c)
         channelIds.push(m.channelId)
         list.push(m)
@@ -70,7 +70,7 @@ export class ConversationDB {
       resultSet = WKDBHelper.shared.getDB()?.querySqlSync(sql, [channelId, channelType])
       if (resultSet?.goToNextRow()) {
         msg = this.serializeConvMsg(resultSet)
-        let c = ChannelDB.shared.serializeChannel(resultSet)
+        let c = this.serializeChannel(resultSet)
         msg.setChannel(c)
       }
       return msg
@@ -275,6 +275,21 @@ export class ConversationDB {
       WKDBHelper.shared.safeRollBack()
       return false
     }
+  }
+
+  private serializeChannel(r: relationalStore.ResultSet): WKChannel {
+    let channel = ChannelDB.shared.serializeChannel(r)
+    // 使用频道别名无条件覆盖，避免保留会话的同名字段；零值和空值也需覆盖。
+    channel.status = WKDBConst.getNumber(r, 'channel_status')
+    channel.isDeleted = WKDBConst.getNumber(r, 'channel_is_deleted')
+    channel.version = WKDBConst.getNumber(r, 'channel_version')
+    channel.parentChannelId = WKDBConst.getString(r, 'c_parent_channel_id')
+    channel.parentChannelType = WKDBConst.getNumber(r, 'c_parent_channel_type')
+    let remoteExtra = WKDBConst.getString(r, 'channel_remote_extra')
+    channel.remoteExtra = CommonUtil.strIsUnEmpty(remoteExtra) ? CommonUtil.jsonToRecord(remoteExtra) : undefined
+    let extra = WKDBConst.getString(r, 'channel_extra')
+    channel.localExtra = CommonUtil.strIsUnEmpty(extra) ? CommonUtil.jsonToRecord(extra) : undefined
+    return channel
   }
 
   serializeConvMsg(r: relationalStore.ResultSet) {

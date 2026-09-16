@@ -43,7 +43,9 @@ export class ConnectionManager {
   private port: number = 0
   private connectStatusListeners: ConnStatusListener[]
   private sendingMsgMap: HashMap<number, SendingMsg> = new HashMap()
-  // private readonly checkNetInterval = 1000
+  private readonly checkSendingInterval = 1000
+  private readonly sendAckTimeout = 10
+  private readonly maxSendAttempts = 5
   private readonly connTimeOut = 6000
   private checkNetIntervalId = 0
   private netConn?: connection.NetConnection
@@ -51,10 +53,12 @@ export class ConnectionManager {
   private requestIPIntervalId = 0
   private requestIPTime = 0
   private reconnectTimerId = 0
+  private connAckTimerId = 0
   private connectionAttemptId = 0
   private connStatus: number
   private isCanReconnect = true
   private networkChanged = false
+  private connectStatus = WKConnectStatus.fail
 
   private constructor() {
     this.connectStatusListeners = new Array()
@@ -75,6 +79,7 @@ export class ConnectionManager {
   }
 
   private setConnectStatus(status: number, reasonCode?: number, connInfo?: ConnectionInfo) {
+    this.connectStatus = status
     this.connectStatusListeners.forEach((back) => {
       back(status, reasonCode, connInfo)
     })
@@ -85,28 +90,25 @@ export class ConnectionManager {
     const socket = this.tcpSocket
     this.tcpSocket = undefined
     this.connStatus = ConnStatus.fail
-    let completed = false
-    const completeClose = () => {
-      if (completed) {
-        return
-      }
-      completed = true
-      if (isReconnect) {
-        this.scheduleReconnect()
-      }
+    this._cacheData = null
+    this.clearConnAckTimer()
+    this.clearHeartTimer()
+    this.clearCheckNetworkTimer()
+    CryptoUtils.shared.clear()
+    if (isReconnect) {
+      this.scheduleReconnect()
     }
     if (socket === undefined) {
-      completeClose()
       return
     }
     socket.off('message')
     socket.off('connect')
     socket.off('close')
+    socket.off('error')
     socket.close((err) => {
       if (err) {
         WKLogger.error(`关闭连接错误，code:${err.code},msg:${err.message}`)
       }
-      completeClose()
     })
   }
 
@@ -127,6 +129,13 @@ export class ConnectionManager {
     }
   }
 
+  private clearConnAckTimer() {
+    if (this.connAckTimerId !== 0) {
+      clearTimeout(this.connAckTimerId)
+      this.connAckTimerId = 0
+    }
+  }
+
   private clearRequestIPTimer() {
     if (this.requestIPIntervalId !== 0) {
       clearInterval(this.requestIPIntervalId)
@@ -143,13 +152,20 @@ export class ConnectionManager {
   }
 
   disConnection(isLogout: boolean) {
+    this.isCanReconnect = false
     this.clearReconnectTimer()
     this.clearRequestIPTimer()
     this.clearCheckNetworkTimer()
     this.clearHeartTimer()
     this.close(false)
+    this.setConnectStatus(WKConnectStatus.fail)
     if (isLogout) {
       MessageDB.shared.updateSendingToFail()
+      try {
+        this.sendingMsgMap.clear()
+      } catch (e) {
+        WKLogger.error(`清理发送队列失败，error:${e}`)
+      }
       WKDBHelper.shared.closeDB()
       CryptoUtils.shared.clear()
       WKIM.shared.config.uid = undefined
@@ -164,9 +180,11 @@ export class ConnectionManager {
       WKLogger.error("未初始化uid或token未空")
       return
     }
-    if (this.connStatus === ConnStatus.conning) {
+    if (this.connStatus === ConnStatus.conning || this.connStatus === ConnStatus.authenticating ||
+      this.connStatus === ConnStatus.success) {
       return
     }
+    this.isCanReconnect = true
     this.clearReconnectTimer()
     this.clearRequestIPTimer()
     const attemptId = ++this.connectionAttemptId
@@ -239,9 +257,15 @@ export class ConnectionManager {
         return
       }
       WKLogger.error('连接成功')
-      this.connStatus = ConnStatus.success
-      this.addOnMessage()
-      this.sendConnPacket()
+      this.connStatus = ConnStatus.authenticating
+      this.addOnMessage(tcpSocket, attemptId)
+      this.connAckTimerId = setTimeout(() => {
+        if (attemptId === this.connectionAttemptId && this.tcpSocket === tcpSocket &&
+          this.connStatus === ConnStatus.authenticating) {
+          this.handleConnectionFailure('连接认证超时')
+        }
+      }, this.connTimeOut)
+      this.sendConnPacket(tcpSocket, attemptId)
     }).catch((err: BusinessError) => {
       if (attemptId !== this.connectionAttemptId || this.tcpSocket !== tcpSocket) {
         return
@@ -251,17 +275,29 @@ export class ConnectionManager {
 
   }
 
-  private addOnMessage() {
-    this.tcpSocket?.on('message', (value: socket.SocketMessageInfo) => {
+  private addOnMessage(tcpSocket: socket.TCPSocket, attemptId: number) {
+    tcpSocket.on('message', (value: socket.SocketMessageInfo) => {
+      if (attemptId !== this.connectionAttemptId || this.tcpSocket !== tcpSocket) {
+        return
+      }
       // let data = new Uint8Array(value.message)
       // this.cutData(data)
       let data = new Uint8Array(value.message).slice() // 或 new Uint8Array([...new Uint8Array(value.message)])
       this.cutData(data)
     })
-    this.tcpSocket?.on('close', () => {
-      WKLogger.error('断开连接')
+    tcpSocket.on('close', () => {
+      if (attemptId !== this.connectionAttemptId || this.tcpSocket !== tcpSocket) {
+        return
+      }
+      this.handleConnectionFailure('连接被动断开')
     })
-    this.tcpSocket?.on('connect', () => {
+    tcpSocket.on('error', (err: BusinessError) => {
+      if (attemptId !== this.connectionAttemptId || this.tcpSocket !== tcpSocket) {
+        return
+      }
+      this.handleConnectionFailure(`连接异常，code:${err.code},message:${err.message}`)
+    })
+    tcpSocket.on('connect', () => {
       WKLogger.error('已连接')
     })
   }
@@ -326,7 +362,7 @@ export class ConnectionManager {
         } else {
           this._cacheData = null;
           // 数据包错误，重连
-          this.connection();
+          this.handleConnectionFailure('收到非法数据包')
           break;
         }
       }
@@ -356,16 +392,31 @@ export class ConnectionManager {
     if (packet.header.packetType === WKPacketType.connAck) {
       let connAck = packet as WKConnectAckPacket
       if (connAck.reasonCode === 1) {
+        this.clearConnAckTimer()
         WKIM.shared.config.protoVersion = connAck.serviceProtoVersion
         CryptoUtils.shared.setServerKeyAndSalt(connAck.serverKey, connAck.salt)
+        if (!CryptoUtils.shared.isReady) {
+          this.handleConnectionFailure('连接会话密钥生成失败')
+          return
+        }
+        this.connStatus = ConnStatus.success
         this.resendMsg()
         this.startCheckNetworkTimer()
+        this.startSendingCheckTimer()
         this.startHeartTimer()
         this.setConnectStatus(WKConnectStatus.success, connAck.reasonCode, new ConnectionInfo(connAck.nodeId))
         this.setConnectStatus(WKConnectStatus.syncing)
         WKLogger.error('连接成功')
+        const syncAttemptId = this.connectionAttemptId
         WKIM.shared.conversationManager().sync().then(() => {
-          this.setConnectStatus(WKConnectStatus.syncCompleted)
+          if (syncAttemptId === this.connectionAttemptId && this.isConnected()) {
+            this.setConnectStatus(WKConnectStatus.syncCompleted)
+          }
+        }).catch((e: Error) => {
+          WKLogger.error(`同步会话失败:${e.message}`)
+          if (syncAttemptId === this.connectionAttemptId && this.isConnected()) {
+            this.setConnectStatus(WKConnectStatus.success)
+          }
         })
       } else {
         let status = WKConnectStatus.fail
@@ -374,6 +425,8 @@ export class ConnectionManager {
         }
         this.setConnectStatus(status, connAck.reasonCode)
         WKLogger.error(`连接失败，code:${connAck.reasonCode}`)
+        this.isCanReconnect = false
+        this.close(false)
       }
     } else if (packet.header.packetType === WKPacketType.recv) {
       let recvPacket = packet as WKRecvPacket
@@ -384,6 +437,11 @@ export class ConnectionManager {
       }
     } else if (packet.header.packetType === WKPacketType.sendAck) {
       let sendAck = packet as WKSendAckPacket
+      try {
+        this.sendingMsgMap.remove(sendAck.clientSeq)
+      } catch (e) {
+        WKLogger.error(`移除已回执消息失败，clientSeq:${sendAck.clientSeq},error:${e}`)
+      }
       WKIM.shared.messageManager().setSendStatus(sendAck)
     } else if (packet.header.packetType === WKPacketType.disconnect) {
       this.disConnection(true)
@@ -451,41 +509,83 @@ export class ConnectionManager {
     msg.topicId = packet.topicId
     msg.content = packet.payload
     WKIM.shared.messageManager().parsingMsg(msg)
-    // CMD 已在解析时派发；不进入消息存储和最近会话更新。
+    // CMD 已在解析时派发；不进入消息存储、发送恢复和最近会话更新。
     // 接收 ACK 仍由 decodePacket 在返回后按协议头处理。
     if (msg.contentType === WKMsgContentType.InsideMsg) {
       return
     }
+    let recoveredSendingMessage = false
     if (packet.header.noPersist === false && packet.header.syncOnce === false) {
+      let localMsg = MessageDB.shared.queryWithClientMsgNo(msg.clientMsgNo)
+      recoveredSendingMessage = localMsg !== undefined && localMsg.status !== WKSendMsgResult.success
       let seq = MessageDB.shared.insert(msg)
       msg.clientSeq = seq
+      if (recoveredSendingMessage) {
+        this.completeSending(seq)
+        let sendAck = new WKSendAckPacket()
+        sendAck.clientSeq = seq
+        sendAck.messageId = msg.messageId
+        sendAck.messageSeq = msg.messageSeq
+        sendAck.reasonCode = WKSendMsgResult.success
+        WKIM.shared.messageManager().setSendStatus(sendAck)
+      }
       let conv = ConversationDB.shared.insertWithWKMsg(msg, false)
       let list: WKConversation[] = []
       list.push(conv)
       WKIM.shared.conversationManager().setRefresh(list)
     }
-    let list = new Array<WKMsg>()
-    list.push(msg)
-    WKIM.shared.messageManager().pushNewMsgs(list)
+    if (recoveredSendingMessage) {
+      WKIM.shared.messageManager().refreshMessage(msg)
+    } else {
+      let list = new Array<WKMsg>()
+      list.push(msg)
+      WKIM.shared.messageManager().pushNewMsgs(list)
+    }
   }
 
-  private async sendConnPacket() {
-    await CryptoUtils.shared.init()
+  private async sendConnPacket(tcpSocket: socket.TCPSocket, attemptId: number) {
+    const initialized = await CryptoUtils.shared.init()
+    if (attemptId !== this.connectionAttemptId || this.tcpSocket !== tcpSocket ||
+      this.connStatus !== ConnStatus.authenticating || !initialized) {
+      return
+    }
     this.sendPacket(new WKConnectPacket())
   }
 
   sendPacket(packet: WKPacket) {
+    let sendingMsg: SendingMsg | undefined
     if (packet.header.packetType === WKPacketType.send) {
       let send = packet as WKSendPacket
-      this.removeSendingMsg()
       try {
-        this.sendingMsgMap.set(send.clientSeq, new SendingMsg(send))
+        if (this.sendingMsgMap.hasKey(send.clientSeq)) {
+          sendingMsg = this.sendingMsgMap.get(send.clientSeq)
+          sendingMsg!.packet = send
+        } else {
+          sendingMsg = new SendingMsg(send)
+          this.sendingMsgMap.set(send.clientSeq, sendingMsg)
+        }
       } catch (error) {
         WKLogger.error(`缓存发送包错误，code:${error.code},message:${error.message},error:${error}`)
       }
     }
-    if (!CryptoUtils.shared.isReady && packet.header.packetType !== WKPacketType.connect) {
-      WKLogger.error('未初始化密钥或未连接成功，等待连接成功后再发消息')
+    if (packet.header.packetType !== WKPacketType.connect && !this.isConnected()) {
+      WKLogger.error('连接尚未认证，等待连接成功后发送')
+      if (packet.header.packetType === WKPacketType.send) {
+        this.ensureConnected()
+      }
+      return
+    }
+    const tcpSocket = this.tcpSocket
+    if (tcpSocket === undefined) {
+      WKLogger.error('发送时socket不存在')
+      if (packet.header.packetType === WKPacketType.send) {
+        this.ensureConnected()
+      }
+      return
+    }
+    if (sendingMsg !== undefined && sendingMsg.sendCount >= this.maxSendAttempts) {
+      this.completeSending(sendingMsg.packet.clientSeq)
+      this.markMessageFailed(sendingMsg)
       return
     }
     let data = WKIM.shared.config.protocol.encode(packet)
@@ -496,14 +596,56 @@ export class ConnectionManager {
       let tcpSendOption: socket.TCPSendOptions = {
         data: buffer.from(data).buffer
       }
-      this.tcpSocket?.send(tcpSendOption).then(() => {
+      if (sendingMsg !== undefined) {
+        sendingMsg.sendCount++
+        sendingMsg.sendTime = DateUtil.getCurrentSeconds()
+        sendingMsg.awaitingAck = true
+      }
+      tcpSocket.send(tcpSendOption).then(() => {
         WKLogger.debug(`发送消息成功`)
       }).catch((err: BusinessError) => {
         WKLogger.error(`发送消息错误，code:${err.code},message:${err.message}`)
-        this.close(true)
+        if (sendingMsg !== undefined) {
+          sendingMsg.awaitingAck = false
+        }
+        if (this.tcpSocket === tcpSocket) {
+          this.handleConnectionFailure('发送包失败')
+        }
       });
     } catch (err) {
       WKLogger.error(`发送消息异常，code:${err.code},message:${err.message}`)
+      if (sendingMsg !== undefined) {
+        sendingMsg.awaitingAck = false
+      }
+      if (this.tcpSocket === tcpSocket) {
+        this.handleConnectionFailure('发送包异常')
+      }
+    }
+  }
+
+  getConnectionState(): number {
+    return this.connectStatus
+  }
+
+  getConnectStatus(): number {
+    return this.getConnectionState()
+  }
+
+  isConnected(): boolean {
+    return this.connStatus === ConnStatus.success && this.tcpSocket !== undefined && CryptoUtils.shared.isReady
+  }
+
+  ensureConnected() {
+    if (!this.isConnected()) {
+      this.connection()
+    }
+  }
+
+  completeSending(clientSeq: number) {
+    try {
+      this.sendingMsgMap.remove(clientSeq)
+    } catch (e) {
+      WKLogger.error(`移除已同步消息失败，clientSeq:${clientSeq},error:${e}`)
     }
   }
 
@@ -522,10 +664,15 @@ export class ConnectionManager {
       if (this.sendingMsgMap.isEmpty()) {
         return
       }
+      let messages: SendingMsg[] = new Array()
       this.sendingMsgMap.forEach((msg) => {
-        if (msg?.isCanResend) {
-          this.sendPacket(msg.packet)
+        if (msg !== undefined) {
+          messages.push(msg)
         }
+      })
+      messages.sort((a: SendingMsg, b: SendingMsg): number => a.packet.clientSeq - b.packet.clientSeq)
+      messages.forEach((msg) => {
+        this.sendPacket(msg.packet)
       })
     } catch (e) {
       WKLogger.error(`重发消息错误，error:${e},code:${e.code},message:${e.message}`)
@@ -533,52 +680,54 @@ export class ConnectionManager {
 
   }
 
-  private removeSendingMsg() {
-    try {
-      if (!this.sendingMsgMap.isEmpty()) {
-        let ids: number[] = new Array()
-        this.sendingMsgMap.forEach((sendingMsg, key) => {
-          if (sendingMsg?.isCanResend) {
-            ids.push(key!)
-          }
-        });
-        if (ids.length > 0) {
-          for (let i = 0; i < ids.length; i++) {
-            this.sendingMsgMap.remove(ids[i])
-          }
-        }
-      }
-    } catch (e) {
-      WKLogger.error(`移除发送中消息错误，error:${e},code:${e.code},message:${e.message}`)
-    }
-
-  }
-
   private checkSendingMsg() {
     try {
-
-      if (this.sendingMsgMap.isEmpty()) {
+      if (!this.isConnected() || this.sendingMsgMap.isEmpty()) {
         return
       }
+      let retryPackets: WKSendPacket[] = new Array()
+      let failedMessages: SendingMsg[] = new Array()
+      let failedKeys: number[] = new Array()
+      let nowTime = DateUtil.getCurrentSeconds()
       this.sendingMsgMap.forEach((v, k) => {
-        if (v?.sendCount === 5 && v.isCanResend) {
-          v.isCanResend = false
-          // 修改发送状态
+        if (v === undefined || !v.awaitingAck || nowTime - v.sendTime < this.sendAckTimeout) {
+          return
+        }
+        if (v.sendCount >= this.maxSendAttempts) {
+          failedMessages.push(v)
+          failedKeys.push(k!)
         } else {
-          let nowTime = DateUtil.getCurrentSeconds()
-          if (nowTime - v?.sendTime! > 10) {
-            v!.sendTime = nowTime
-            v!.sendCount++
-            this.sendingMsgMap.set(k, v)
-            this.sendPacket(v?.packet!)
-            WKLogger.debug("消息发送失败，尝试重发中...");
-          }
+          v.awaitingAck = false
+          retryPackets.push(v.packet)
         }
       })
-      this.removeSendingMsg()
+      failedKeys.forEach((key) => {
+        this.sendingMsgMap.remove(key)
+      })
+      failedMessages.forEach((msg) => {
+        this.markMessageFailed(msg)
+      })
+      if (retryPackets.length > 0) {
+        WKLogger.debug('消息ACK超时，重连后尝试重发')
+        this.handleConnectionFailure('消息ACK超时')
+      }
     } catch (e) {
       WKLogger.error(`检查发送中消息错误，error:${e},code:${e.code},message:${e.message}`)
     }
+  }
+
+  private markMessageFailed(msg: SendingMsg) {
+    let sendAck = new WKSendAckPacket()
+    sendAck.clientSeq = msg.packet.clientSeq
+    sendAck.reasonCode = WKSendMsgResult.fail
+    WKIM.shared.messageManager().setSendStatus(sendAck)
+  }
+
+  private startSendingCheckTimer() {
+    this.clearCheckNetworkTimer()
+    this.checkNetIntervalId = setInterval(() => {
+      this.checkSendingMsg()
+    }, this.checkSendingInterval)
   }
 
   private startCheckNetworkTimer() {
@@ -610,11 +759,12 @@ export class ConnectionManager {
       WKLogger.error('网络不可用')
       this.networkChanged = true
       this.setConnectStatus(WKConnectStatus.noNetwork)
-      this.checkSendingMsg()
+      this.close(false)
     })
     this.netConn?.on('netLost', () => {
       this.networkChanged = true
       this.setConnectStatus(WKConnectStatus.noNetwork)
+      this.close(false)
       WKLogger.error('网络丢失')
     })
   }
@@ -622,6 +772,7 @@ export class ConnectionManager {
   private clearCheckNetworkTimer() {
     if (this.checkNetIntervalId !== 0) {
       clearInterval(this.checkNetIntervalId)
+      this.checkNetIntervalId = 0
     }
   }
 
@@ -636,6 +787,7 @@ export class ConnectionManager {
   private clearHeartTimer() {
     if (this.heartIntervalId !== 0) {
       clearInterval(this.heartIntervalId)
+      this.heartIntervalId = 0
     }
   }
 }
@@ -644,11 +796,10 @@ export class SendingMsg {
   packet: WKSendPacket
   sendCount = 0
   sendTime = 0
-  isCanResend = false
+  awaitingAck = false
 
   constructor(packet: WKSendPacket) {
     this.packet = packet
-    this.sendTime = DateUtil.getCurrentSeconds()
   }
 }
 
@@ -657,4 +808,5 @@ export class ConnStatus {
   static readonly conning = 2
   static readonly success = 3
   static readonly fail = 4
+  static readonly authenticating = 5
 }

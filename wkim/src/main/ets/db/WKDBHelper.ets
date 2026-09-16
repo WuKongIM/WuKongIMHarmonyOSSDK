@@ -1,4 +1,4 @@
-import { Context } from '@kit.AbilityKit';
+import { application, Context } from '@kit.AbilityKit';
 import { relationalStore } from '@kit.ArkData';
 import { CommonUtil } from '../common/CommonUtil';
 import { PreferencesUtil } from '../common/PreferencesUtil';
@@ -14,7 +14,15 @@ export class WKDBHelper {
   private db?: relationalStore.RdbStore
 
   private getAppContext(): Context {
-    return WKIM.shared.config.context ?? getContext()
+    if (WKIM.shared.config.context !== undefined) {
+      return WKIM.shared.config.context
+    }
+    try {
+      return application.getApplicationContext()
+    } catch (error) {
+      WKLogger.error(`获取应用上下文失败,error:${error}`)
+      throw new Error('未能获取应用上下文，请在 WKIM.init() 时传入 context')
+    }
   }
 
   async init() {
@@ -39,12 +47,14 @@ export class WKDBHelper {
 
   async closeDB() {
     if (this.db !== undefined) {
+      const db = this.db
+      // Make a concurrent/repeated init observe the closed state immediately.
+      this.db = undefined
       try {
-        await this.db.close()
+        await db.close()
       } catch (e) {
         WKLogger.error(`关闭数据库失败,code:${e.code},message:${e.message}`)
       }
-      this.db = undefined
     }
   }
 

@@ -16,6 +16,7 @@ export class CryptoUtils {
   private aesKey: string = ''
   private salt: string = ''
   private _isInitialized: boolean = false
+  private keyGeneration = 0
 
   private constructor() {
   }
@@ -25,6 +26,7 @@ export class CryptoUtils {
   }
 
   public clear(): void {
+    this.keyGeneration++
     this.publicKey.fill(0)
     this.privateKey.fill(0)
     this.header.fill(0)
@@ -45,10 +47,17 @@ export class CryptoUtils {
     return new util.Base64Helper().encodeToStringSync(key)
   }
 
-  async init() {
+  async init(): Promise<boolean> {
+    // A key pair and the derived session key belong to one connection attempt.
+    // Never let a reconnect use the AES key left by the previous connection.
+    this.clear()
+    const generation = this.keyGeneration
     try {
       let result = cryptoFramework.createAsyKeyGenerator(this.KEY_GENERATOR)
       let promiseKeyPair = await result.generateKeyPair()
+      if (generation !== this.keyGeneration) {
+        return false
+      }
       this.publicKey = promiseKeyPair.pubKey.getEncoded().data
       this.privateKey = promiseKeyPair.priKey.getEncoded().data
       if (this.publicKey.length > 32) {
@@ -56,8 +65,10 @@ export class CryptoUtils {
       }
       this._isInitialized = true
       WKLogger.info(`${this.TAG} 初始化密钥成功`)
+      return true
     } catch (error) {
       WKLogger.error(`${this.TAG} 初始化密钥失败: ${error}`)
+      return false
     }
   }
 

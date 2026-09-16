@@ -1,4 +1,4 @@
-import { Context } from '@kit.AbilityKit'
+import { application, Context } from '@kit.AbilityKit'
 import preferences from '@ohos.data.preferences'
 import util from '@ohos.util'
 import { WKIM } from '../WKIM'
@@ -9,7 +9,15 @@ let sqlVersionKey = 'wk_sql_max_version'
 
 export class PreferencesUtil {
   private static getAppContext(): Context {
-    return WKIM.shared.config.context ?? getContext()
+    if (WKIM.shared.config.context !== undefined) {
+      return WKIM.shared.config.context
+    }
+    try {
+      return application.getApplicationContext()
+    } catch (error) {
+      WKLogger.error(`获取应用上下文失败,error:${error}`)
+      throw new Error('未能获取应用上下文，请在 WKIM.init() 时传入 context')
+    }
   }
 
   static getDeviceId(): string {

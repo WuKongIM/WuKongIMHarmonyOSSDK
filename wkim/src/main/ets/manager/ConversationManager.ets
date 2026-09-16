@@ -8,9 +8,11 @@ import {
   WKMsg,
   WKMsgContentType,
   WKMsgExtra,
-  WKMsgReaction
+  WKMsgReaction,
+  WKSendMsgResult
 } from '../entity/Bean';
 import { WKIM } from '../WKIM';
+import { WKSendAckPacket } from '../protocol/WKPacket';
 
 export type RefreshListener = (list: WKConversation[]) => void
 
@@ -117,6 +119,7 @@ export class ConversationManager {
         if (convMsg.recents !== undefined && convMsg.recents.length > 0) {
           for (let j = 0, len = convMsg.recents.length; j < len; j++) {
             let wkMsg = convMsg.recents[j]
+            wkMsg.status = WKSendMsgResult.success
             WKIM.shared.messageManager().parsingMsg(wkMsg)
             if (wkMsg.contentType === WKMsgContentType.InsideMsg) {
               continue
@@ -143,7 +146,22 @@ export class ConversationManager {
       MessageDB.shared.insertExtras(msgExtraList)
     }
     if (msgList.length > 0) {
-      MessageDB.shared.inserts(msgList)
+      let saveResult = MessageDB.shared.inserts(msgList)
+      if (saveResult.newMessages.length > 0) {
+        WKIM.shared.messageManager().pushNewMsgs(saveResult.newMessages)
+      }
+      saveResult.confirmedMessages.forEach((msg) => {
+        WKIM.shared.connectionManager().completeSending(msg.clientSeq)
+        let sendAck = new WKSendAckPacket()
+        sendAck.clientSeq = msg.clientSeq
+        sendAck.messageId = msg.messageId
+        sendAck.messageSeq = msg.messageSeq
+        sendAck.reasonCode = WKSendMsgResult.success
+        WKIM.shared.messageManager().setSendStatus(sendAck)
+      })
+      saveResult.updatedMessages.forEach((msg) => {
+        WKIM.shared.messageManager().refreshMessage(msg)
+      })
     }
     if (reactionList.length > 0) {
       WKIM.shared.messageManager().saveReactions(reactionList)

@@ -5,6 +5,7 @@ import {
   WKMsg,
   WKMsgExtra,
   WKMsgSetting,
+  WKSendMsgResult,
   WKSyncChannelMsg
 } from '../entity/Bean';
 import { WKDBConst } from './WKDBConst';
@@ -22,6 +23,12 @@ import hilog from '@ohos.hilog';
 
 const CHAT_SDK_SEND_TRACE_TAG: string = 'ChatSdkSendTrace'
 const CHAT_SDK_SEND_TRACE_DOMAIN: number = 0x0000
+
+export class MessageSaveResult {
+  newMessages: WKMsg[] = new Array()
+  updatedMessages: WKMsg[] = new Array()
+  confirmedMessages: WKMsg[] = new Array()
+}
 
 export class MessageDB {
   static shared: MessageDB = new MessageDB();
@@ -619,6 +626,58 @@ export class MessageDB {
     }
   }
 
+  // Undefined means the transaction failed; an empty array is a successful no-op.
+  deleteWithClientMsgNos(clientMsgNos: string[]): WKMsg[] | undefined {
+    const ids = Array.from(new Set<string>(clientMsgNos.filter((id: string): boolean => id.length > 0)))
+    if (ids.length === 0) {
+      return []
+    }
+    const db = WKDBHelper.shared.getDB()
+    if (db === undefined) {
+      return undefined
+    }
+    const deleted: WKMsg[] = []
+    let transactionStarted = false
+    try {
+      db.beginTransaction()
+      transactionStarted = true
+      for (const id of ids) {
+        let resultSet: relationalStore.ResultSet | undefined
+        let msg: WKMsg | undefined
+        try {
+          resultSet = db.querySqlSync(
+            `select ${this.messageCols},${this.extraCols} from ${WKDBConst.tableMessage} left join ${WKDBConst.tableMessageExtra} on ${WKDBConst.tableMessage}.message_id=${WKDBConst.tableMessageExtra}.message_id where ${WKDBConst.tableMessage}.client_msg_no=? and ${WKDBConst.tableMessage}.is_deleted=0`, [id])
+          if (resultSet.goToNextRow()) {
+            msg = this.serializeWKMsg(resultSet)
+          }
+        } finally {
+          WKDBHelper.shared.safeClose(resultSet)
+        }
+        if (msg === undefined) {
+          continue
+        }
+        const predicates = new relationalStore.RdbPredicates(WKDBConst.tableMessage)
+        predicates.equalTo('client_msg_no', id)
+        const values: relationalStore.ValuesBucket = { 'is_deleted': 1, 'content': '' }
+        if (db.updateSync(values, predicates) > 0) {
+          deleted.push(msg)
+        }
+      }
+      db.commit()
+      return deleted
+    } catch (error) {
+      WKLogger.error(`批量删除消息失败,${this.tag}:deleteWithClientMsgNos`, error)
+      if (transactionStarted) {
+        try {
+          db.rollBack()
+        } catch (rollbackError) {
+          WKLogger.error('批量删除消息回滚失败', rollbackError)
+        }
+      }
+      return undefined
+    }
+  }
+
   insertExtras(list: WKMsgExtra[]) {
     let vbs: relationalStore.ValuesBucket[] = []
     list.forEach((m) => {
@@ -643,91 +702,47 @@ export class MessageDB {
     }
   }
 
-  inserts(list: WKMsg[]) {
-    if (list.length === 1) {
-      this.insert(list[0])
-      return
-    }
-    let saveList: WKMsg[] = []
-    for (let i = 0, size = list.length; i < size; i++) {
-      let isExist = false
-      for (let j = 0, len = saveList.length; j < len; j++) {
-        if (saveList[j].clientMsgNo === list[i].clientMsgNo) {
-          isExist = true
-          break
-        }
-      }
-      if (isExist) {
-        list[i].clientMsgNo = WKIM.shared.messageManager().generateClientMsgNo()
-        list[i].isDeleted = 1
-      }
-      saveList.push(list[i])
-    }
-    let tempClientMsgNos: string[] = []
-    let existList: WKMsg[] = []
-    for (let i = 0, size = saveList.length; i < size; i++) {
-      if (tempClientMsgNos.length === 200) {
-        let tempList = this.queryWithClientMsgNos(tempClientMsgNos)
-        if (tempList.length > 0) {
-          existList.push(...tempList)
-        }
-        tempClientMsgNos = []
-      }
-      if (saveList[i].clientMsgNo.length > 0) {
-        tempClientMsgNos.push(saveList[i].clientMsgNo)
-      }
-    }
-    if (tempClientMsgNos.length > 0) {
-      let tempList = this.queryWithClientMsgNos(tempClientMsgNos)
-      if (tempList.length > 0) {
-        existList.push(...tempList)
-      }
-      tempClientMsgNos = []
-    }
-    let realSaveList: WKMsg[] = []
-    for (let i = 0, size = saveList.length; i < size; i++) {
-      if (saveList[i].clientMsgNo.length === 0 || saveList[i].messageId.length === 0) {
-        continue
-      }
-      let isSave = true
-      for (let j = 0, len = existList.length; j < len; j++) {
-        if (existList[j].clientMsgNo === saveList[i].clientMsgNo) {
-          if (saveList[i].isDeleted === existList[j].isDeleted && existList[j].isDeleted === 1) {
-            isSave = false
-          }
-          saveList[i].isDeleted = 1
-          saveList[i].clientMsgNo = WKIM.shared.messageManager().generateClientMsgNo()
-          break
-        }
-      }
-      if (isSave) {
-        realSaveList.push(saveList[i])
-      }
-    }
-
-    if (realSaveList.length === 0) {
-      return
-    }
-    let vbs: relationalStore.ValuesBucket[] = []
-    for (let i = 0; i < realSaveList.length; i++) {
-      let vb = this.getVB(realSaveList[i])
-      vbs.push(vb)
-    }
+  inserts(list: WKMsg[]): MessageSaveResult {
+    let result = new MessageSaveResult()
     const db = WKDBHelper.shared.getDB()
     if (!db) {
-      return
+      return result
     }
+    let handledClientMsgNos: string[] = new Array()
     try {
       db.beginTransaction()
-      vbs.forEach((vb) => {
-        db.insertSync(WKDBConst.tableMessage, vb,
+      list.forEach((msg) => {
+        if (msg.clientMsgNo.length === 0 || msg.messageId.length === 0 ||
+          handledClientMsgNos.indexOf(msg.clientMsgNo) >= 0) {
+          return
+        }
+        handledClientMsgNos.push(msg.clientMsgNo)
+        let localMsg = this.queryWithClientMsgNo(msg.clientMsgNo)
+        if (localMsg !== undefined) {
+          const wasSending = localMsg.status !== WKSendMsgResult.success
+          if (this.mergeSyncedMessage(localMsg, msg)) {
+            result.updatedMessages.push(localMsg)
+            if (wasSending) {
+              result.confirmedMessages.push(localMsg)
+            }
+          }
+          return
+        }
+        msg.status = WKSendMsgResult.success
+        let row = db.insertSync(WKDBConst.tableMessage, this.getVB(msg),
           relationalStore.ConflictResolution.ON_CONFLICT_REPLACE)
+        msg.clientSeq = row
+        result.newMessages.push(msg)
       })
       db.commit()
     } catch (e) {
       WKLogger.error('批量插入消息错误 ', this.tag, ' inserts', e)
       WKDBHelper.shared.safeRollBack()
+      result.newMessages = new Array()
+      result.updatedMessages = new Array()
+      result.confirmedMessages = new Array()
     }
+    return result
   }
 
   insert(msg: WKMsg): number {
@@ -736,6 +751,9 @@ export class MessageDB {
     }
     let tempMsg = this.queryWithClientMsgNo(msg.clientMsgNo)
     if (tempMsg !== undefined) {
+      if (msg.messageId.length > 0 && this.mergeSyncedMessage(tempMsg, msg)) {
+        return tempMsg.clientSeq
+      }
       msg.clientMsgNo = WKIM.shared.messageManager().generateClientMsgNo()
       msg.isDeleted = 1
     }
@@ -765,6 +783,39 @@ export class MessageDB {
     } catch (e) {
       WKLogger.error('修改消息错误', this.tag, 'update', e)
       return 0
+    }
+  }
+
+  private mergeSyncedMessage(localMsg: WKMsg, remoteMsg: WKMsg): boolean {
+    let cv: relationalStore.ValuesBucket = {
+      'message_id': remoteMsg.messageId,
+      'message_seq': remoteMsg.messageSeq,
+      'order_seq': remoteMsg.orderSeq > 0 ? remoteMsg.orderSeq :
+        WKIM.shared.messageManager().getOrderSeq(remoteMsg.messageSeq),
+      'status': WKSendMsgResult.success,
+      'is_deleted': remoteMsg.isDeleted,
+      'timestamp': remoteMsg.timestamp
+    }
+    try {
+      let p = new relationalStore.RdbPredicates(WKDBConst.tableMessage)
+      p.equalTo('client_seq', localMsg.clientSeq)
+      let row = WKDBHelper.shared.getDB()?.updateSync(cv, p)
+      if (row === undefined || row <= 0) {
+        return false
+      }
+      localMsg.messageId = remoteMsg.messageId
+      localMsg.messageSeq = remoteMsg.messageSeq
+      localMsg.orderSeq = remoteMsg.orderSeq > 0 ? remoteMsg.orderSeq :
+        WKIM.shared.messageManager().getOrderSeq(remoteMsg.messageSeq)
+      localMsg.status = WKSendMsgResult.success
+      localMsg.isDeleted = remoteMsg.isDeleted
+      localMsg.timestamp = remoteMsg.timestamp
+      remoteMsg.clientSeq = localMsg.clientSeq
+      remoteMsg.status = WKSendMsgResult.success
+      return true
+    } catch (e) {
+      WKLogger.error('合并同步消息错误', this.tag, 'mergeSyncedMessage', e.message)
+      return false
     }
   }
 

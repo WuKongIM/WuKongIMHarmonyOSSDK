@@ -305,6 +305,10 @@ export class MessageManager {
     })
   }
 
+  refreshMessage(msg: WKMsg) {
+    this.setRefresh(msg)
+  }
+
   addRefreshExtraListener(l: RefreshExtra) {
     this.refreshExtraListeners.push(l)
   }
@@ -809,6 +813,33 @@ export class MessageManager {
       uiMsgs.push(uiMsg)
       WKIM.shared.conversationManager().setRefresh(uiMsgs)
     }
+  }
+
+  /** Deletes locally in one transaction, then notifies messages and affected conversations. */
+  deleteWithClientMsgNos(clientMsgNos: string[]): boolean {
+    const deleted = MessageDB.shared.deleteWithClientMsgNos(clientMsgNos)
+    if (deleted === undefined) {
+      return false
+    }
+    const channels = new Map<string, WKMsg>()
+    deleted.forEach((msg: WKMsg) => {
+      this.setDeleted(msg.clientMsgNo)
+      channels.set(`${msg.channelType}:${msg.channelId}`, msg)
+    })
+    const conversations: WKConversation[] = []
+    channels.forEach((msg: WKMsg) => {
+      const last = MessageDB.shared.queryMaxOrderSeqNotDeletedWithChannel(msg.channelId, msg.channelType)
+      if (last !== undefined) {
+        const conversation = ConversationDB.shared.insertWithWKMsg(last, true)
+        if (conversation !== undefined && conversation !== null) {
+          conversations.push(conversation)
+        }
+      }
+    })
+    if (conversations.length > 0) {
+      WKIM.shared.conversationManager().setRefresh(conversations)
+    }
+    return true
   }
 
   updateMsgSendStatus(sendAck: WKSendAckPacket) {

@@ -18,6 +18,7 @@ export class WKIM {
   }
 
   config: WKConfig
+  private initializedUID?: string
 
   /**
    * 初始化 SDK
@@ -27,15 +28,24 @@ export class WKIM {
    * @param context 应用上下文（可选，推荐传入以避免 getContext() 弃用警告）
    */
   async init(uid: string, token: string, address?: string, context?: Context): Promise<void> {
+    const isSwitchingUser = this.initializedUID !== undefined && this.initializedUID !== uid
+    if (isSwitchingUser) {
+      this.connectionManager().disConnection(true)
+      await WKDBHelper.shared.closeDB()
+    }
     this.config.uid = uid
     this.config.token = token
     this.config.address = address
     if (context) {
       this.config.context = context
     }
-    // await CryptoUtils.shared.init()
-    await WKDBHelper.shared.init()
-    MessageDB.shared.updateSendingToFail()
+    // Repeated init for the active user is configuration refresh, not a process
+    // restart. Only clean up stale loading rows when the user's DB is opened.
+    if (this.initializedUID !== uid || WKDBHelper.shared.getDB() === undefined) {
+      await WKDBHelper.shared.init()
+      MessageDB.shared.updateSendingToFail()
+    }
+    this.initializedUID = uid
   }
 
   // channel 管理

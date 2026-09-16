@@ -117,6 +117,7 @@ export class ConversationManager {
         if (convMsg.recents !== undefined && convMsg.recents.length > 0) {
           for (let j = 0, len = convMsg.recents.length; j < len; j++) {
             let wkMsg = convMsg.recents[j]
+            WKIM.shared.messageManager().parsingMsg(wkMsg)
             if (wkMsg.contentType === WKMsgContentType.InsideMsg) {
               continue
             }
@@ -126,7 +127,6 @@ export class ConversationManager {
             if (wkMsg.reactionList !== undefined && wkMsg.reactionList.length > 0) {
               reactionList.push(...wkMsg.reactionList)
             }
-            WKIM.shared.messageManager().parsingMsg(wkMsg)
             if (msg.lastClientMsgNo === wkMsg.clientMsgNo) {
               msg.isDeleted = wkMsg.isDeleted
             }

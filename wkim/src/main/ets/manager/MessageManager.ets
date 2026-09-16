@@ -474,21 +474,30 @@ export class MessageManager {
     let syncOption = new SyncOptions(startSeq, endSeq, pullModel, limit)
     let msg = await WKIM.shared.config.provider.syncMessageCallback(channel, syncOption)
     if (msg.msgs !== undefined && msg.msgs.length > 0) {
+      let msgList = new Array<WKMsg>()
       let msgExtraList = new Array<WKMsgExtra>()
       let reactionList = new Array<WKMsgReaction>()
       msg.msgs.forEach((m) => {
         m.status = WKSendMsgResult.success
+        this.parsingMsg(m)
+        if (m.contentType === WKMsgContentType.InsideMsg) {
+          return
+        }
+        msgList.push(m)
         if (m.remoteExtra !== undefined) {
           msgExtraList.push(m.remoteExtra)
         }
         if (m.reactionList !== undefined && m.reactionList.length > 0) {
           reactionList.push(...m.reactionList)
         }
-        this.parsingMsg(m)
       })
 
-      MessageDB.shared.insertExtras(msgExtraList)
-      MessageDB.shared.inserts(msg.msgs)
+      if (msgExtraList.length > 0) {
+        MessageDB.shared.insertExtras(msgExtraList)
+      }
+      if (msgList.length > 0) {
+        MessageDB.shared.inserts(msgList)
+      }
       if (reactionList.length > 0) {
         this.saveReactions(reactionList)
       }
@@ -635,6 +644,7 @@ export class MessageManager {
         json['channel_type'] = msg.channelType
       }
       WKIM.shared.cmdManager().handle(json)
+      return
     }
 
     if (msg.contentType != WKMsgContentType.SignalDecryptError &&

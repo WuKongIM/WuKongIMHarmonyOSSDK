@@ -451,6 +451,11 @@ export class ConnectionManager {
     msg.topicId = packet.topicId
     msg.content = packet.payload
     WKIM.shared.messageManager().parsingMsg(msg)
+    // CMD 已在解析时派发；不进入消息存储和最近会话更新。
+    // 接收 ACK 仍由 decodePacket 在返回后按协议头处理。
+    if (msg.contentType === WKMsgContentType.InsideMsg) {
+      return
+    }
     if (packet.header.noPersist === false && packet.header.syncOnce === false) {
       let seq = MessageDB.shared.insert(msg)
       msg.clientSeq = seq
@@ -459,11 +464,9 @@ export class ConnectionManager {
       list.push(conv)
       WKIM.shared.conversationManager().setRefresh(list)
     }
-    if (msg.contentType !== WKMsgContentType.InsideMsg) {
-      let list = new Array<WKMsg>()
-      list.push(msg)
-      WKIM.shared.messageManager().pushNewMsgs(list)
-    }
+    let list = new Array<WKMsg>()
+    list.push(msg)
+    WKIM.shared.messageManager().pushNewMsgs(list)
   }
 
   private async sendConnPacket() {

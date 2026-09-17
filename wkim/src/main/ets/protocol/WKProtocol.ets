@@ -223,7 +223,8 @@ function decodeRecv(header: WKPacketHeader, reader: WKReader): WKRecvPacket {
 
 function decodeSendAck(_: WKPacketHeader, reader: WKReader): WKSendAckPacket {
   let sendAck = new WKSendAckPacket()
-  sendAck.messageId = reader.readUint64().toString()
+  const messageId = reader.readUint64()
+  sendAck.messageId = messageId === BigInt(0) ? '' : messageId.toString()
   sendAck.clientSeq = reader.readUint32()
   sendAck.messageSeq = reader.readUint32()
   sendAck.reasonCode = reader.readUint8()

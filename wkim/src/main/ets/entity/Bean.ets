@@ -288,6 +288,15 @@ export class WKConversationExtra {
   draftUpdatedAt = 0
 }
 
+export class WKRobotMenu {
+  robotId: string = ''
+  cmd: string = ''
+  remark: string = ''
+  type: string = ''
+  createdAt: string = ''
+  updatedAt: string = ''
+}
+
 export class WKReminder {
   // 提醒项ID
   reminderId = 0

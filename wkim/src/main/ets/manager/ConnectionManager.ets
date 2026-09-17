@@ -495,7 +495,7 @@ export class ConnectionManager {
     msg.header.redDot = packet.header.redDot
     msg.setting = packet.setting
     msg.status = WKSendMsgResult.success
-    msg.messageId = packet.messageId.toString()
+    msg.messageId = packet.messageId === BigInt(0) ? '' : packet.messageId.toString()
     msg.messageSeq = packet.messageSeq
     msg.timestamp = packet.messageTime
     msg.expireTime = packet.expire

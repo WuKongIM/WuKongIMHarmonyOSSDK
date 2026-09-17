@@ -88,9 +88,9 @@ function setup() {
       content: JSON.stringify({ type, content: 'body', cmd: 'channelUpdate', param: {} }),
       remoteExtra: { messageId: client }, reactionList: [{ messageId: client }] });
   }
-  function receive(type, noPersist = false, syncOnce = false) {
+  function receive(type, noPersist = false, syncOnce = false, messageId = 123n) {
     connection.decodePacket({ header: { packetType: 3, noPersist, syncOnce, redDot: true },
-      messageId: 123n, messageSeq: 10, clientMsgNo: `client-${type}`, messageTime: 100,
+      messageId, messageSeq: 10, clientMsgNo: `client-${type}`, messageTime: 100,
       expire: 0, fromUID: 'sender', channelId: 'group', channelType: 2,
       payload: message(type).content, msgKey: 'valid-key', toString: () => 'packet' });
   }
@@ -118,6 +118,14 @@ for (const noPersist of [false, true]) {
     });
   }
 }
+
+test('零消息 ID 返回 UI 时为空字符串，接收 ACK 仍使用原始数值', () => {
+  const h = setup();
+  h.receive(1, false, false, 0n);
+  assert.equal(h.calls.newMessages[0].messageId, '');
+  assert.equal(h.calls.inserts[0].messageId, '');
+  assert.equal(h.calls.acks[0].messageId, 0n);
+});
 
 test('普通文本及 1001 系统消息仍入库、更新会话、通知 UI 并回 ACK', () => {
   const h = setup();

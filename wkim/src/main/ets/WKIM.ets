@@ -9,6 +9,7 @@ import { ConnectionManager } from './manager/ConnectionManager';
 import { ConversationManager } from './manager/ConversationManager';
 import { MessageManager } from './manager/MessageManager';
 import { ReminderManager } from './manager/ReminderManager';
+import { RobotManager } from './manager/RobotManager';
 
 export class WKIM {
   static shared = new WKIM();
@@ -81,5 +82,10 @@ export class WKIM {
   // Reminder 提醒管理
   reminderManager(): ReminderManager {
     return ReminderManager.shared;
+  }
+
+  // Robot 菜单管理
+  robotManager(): RobotManager {
+    return RobotManager.shared;
   }
 }

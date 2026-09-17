@@ -614,6 +614,10 @@ export class MessageManager {
   }
 
   parsingMsg(msg: WKMsg) {
+    // 同步 Provider 传入的消息也可能使用 "0" 表示尚无消息 ID。
+    if (msg.messageId === '0') {
+      msg.messageId = ''
+    }
     msg.orderSeq = this.getOrderSeq(msg.messageSeq)
     if (CommonUtil.strIsEmpty(msg.content)) {
       msg.contentType = WKMsgContentType.ContentFormatError

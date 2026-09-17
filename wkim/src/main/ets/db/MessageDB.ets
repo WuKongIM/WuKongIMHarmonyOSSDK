@@ -995,6 +995,10 @@ export class MessageDB {
   serializeWKMsg(resultSet: relationalStore.ResultSet): WKMsg {
     let message = new WKMsg()
     message.messageId = WKDBConst.getString(resultSet, 'message_id')
+    // 兼容旧版本已写入数据库的 "0"。
+    if (message.messageId === '0') {
+      message.messageId = ''
+    }
     message.messageSeq = WKDBConst.getNumber(resultSet, 'message_seq')
     message.clientSeq = WKDBConst.getNumber(resultSet, 'client_seq')
     message.timestamp = WKDBConst.getNumber(resultSet, 'timestamp')
